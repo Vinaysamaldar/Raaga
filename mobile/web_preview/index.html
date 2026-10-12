@@ -2207,9 +2207,24 @@
     // Load all 1,872+ Full-Length Kannada Songs from all_kannada_songs.json across all 4 Pillars
     async function loadMassiveKannadaCatalog() {
       try {
-        const res = await fetch('audio/originals/all_kannada_songs.json');
-        if (!res.ok) return;
-        const extraSongs = await res.json();
+        const candidatePaths = [
+          'audio/originals/all_kannada_songs.json',
+          'web_preview/audio/originals/all_kannada_songs.json',
+          'mobile/web_preview/audio/originals/all_kannada_songs.json',
+          '/mobile/web_preview/audio/originals/all_kannada_songs.json',
+          '/web_preview/audio/originals/all_kannada_songs.json'
+        ];
+        let extraSongs = null;
+        for (const p of candidatePaths) {
+          try {
+            const r = await fetch(p);
+            if (r.ok) {
+              extraSongs = await r.json();
+              if (Array.isArray(extraSongs) && extraSongs.length > 0) break;
+            }
+          } catch (e) {}
+        }
+        if (!Array.isArray(extraSongs)) return;
         const existingUrls = new Set(CATALOG.map(s => s.cdn320Url).filter(Boolean));
         const existingTitles = new Set(CATALOG.map(s => (s.titleEn + (s.artist || '').slice(0, 8)).toLowerCase().replace(/[^a-z0-9]/g, '')));
         let added = 0;
