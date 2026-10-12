@@ -1337,10 +1337,7 @@
           <span class="square-art-badge" id="npBadgeYear" style="background:rgba(11,17,16,0.82);padding:3px 9px;border-radius:99px;">2026 • KANNADA</span>
           <span style="font-size:11px;color:var(--saffron);font-weight:700;background:rgba(11,17,16,0.82);padding:3px 9px;border-radius:99px;" id="npDlBadge">✓ Original Audio</span>
         </div>
-        <div style="text-align:center;position:relative;z-index:2;background:rgba(11,17,16,0.55);backdrop-filter:blur(4px);padding:8px 14px;border-radius:16px;align-self:center;">
-          <div style="font-size:36px;font-weight:800;color:var(--accent-mint);" id="npBigGlyph">ಕಾ</div>
-          <div style="font-size:12px;color:#fff;font-weight:600;margin-top:2px;" id="npMovieLabel">Kantara: Chapter 1</div>
-        </div>
+        <div></div>
         <div style="display:flex;justify-content:space-between;font-size:10.5px;color:#E3EAE6;position:relative;z-index:2;background:rgba(11,17,16,0.75);padding:4px 10px;border-radius:99px;">
           <span id="npIsrcLabel">ISRC: IN-KAN-26-2601</span>
           <span id="npQualityTag">Original Studio Master (.M4A)</span>
@@ -1376,17 +1373,16 @@
       />
       <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin:4px 0 10px;">
         <span id="npCurTime">0:00</span>
-        <span id="npModeStatus" style="color:var(--saffron);font-weight:700;font-size:10.5px;">🔁 Repeat All • Sequential</span>
         <span id="npDurTime">4:28</span>
       </div>
 
-      <!-- Main Transport Controls (Shuffle Pill, Prev, 68px Mint-White Play, Next, Repeat Pill) -->
+      <!-- Main Transport Controls (Shuffle Icon, Prev, 68px Mint-White Play, Next, Repeat Icon) -->
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <button class="transport-mode-btn" onclick="toggleShuffle(event)" id="npShuffleBtn" title="Shuffle Songs">🔀 Shuffle</button>
+        <button class="transport-mode-btn" onclick="toggleShuffle(event)" id="npShuffleBtn" title="Shuffle">🔀</button>
         <button class="top-icon-btn" onclick="prevTrack(event)" style="font-size:20px;width:40px;height:40px;">⏮</button>
         <button class="np-big-play" id="npPlayBtn" onclick="togglePlayPause(event)">▶</button>
         <button class="top-icon-btn" onclick="nextTrack(event)" style="font-size:20px;width:40px;height:40px;">⏭</button>
-        <button class="transport-mode-btn active" onclick="toggleRepeat(event)" id="npRepeatBtn" title="Repeat Mode">🔁 All</button>
+        <button class="transport-mode-btn active" onclick="toggleRepeat(event)" id="npRepeatBtn" title="Repeat">🔁</button>
       </div>
 
       <!-- Secondary Actions: Add to Library, Download, Equalizer, Next Up -->
@@ -2449,9 +2445,9 @@
 
       return `
         <div class="song-row ${isCurrent ? 'playing' : ''} ${offlineDim ? 'offline-disabled' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
-          <div class="song-thumb" style="background:${s.artworkUrl ? `linear-gradient(180deg, rgba(11,17,16,0.25), rgba(11,17,16,0.78)), url('${s.artworkUrl}') center/cover` : s.gradient}">
-            <span class="song-thumb-kn" style="text-shadow:0 2px 6px #000;">${s.knInit}</span>
-            <span class="song-thumb-year" style="text-shadow:0 1px 4px #000;">${s.year}</span>
+          <div class="song-thumb" style="background:${s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient}">
+            ${s.artworkUrl ? '' : `<span class="song-thumb-kn" style="text-shadow:0 2px 6px #000;">${s.knInit}</span>`}
+            <span class="song-thumb-year" style="text-shadow:0 1px 4px #000;background:rgba(0,0,0,0.55);padding:0 4px;border-radius:4px;">${s.year}</span>
           </div>
           <div class="song-row-text">
             <div class="song-row-kn">
@@ -2480,9 +2476,9 @@
     function renderSquareCard(s, badgeText) {
       return `
         <div class="square-card" onclick="playOrToggleSong(event, '${s.id}')">
-          <div class="square-art" style="background:${s.artworkUrl ? `linear-gradient(180deg, rgba(11,17,16,0.18), rgba(11,17,16,0.82)), url('${s.artworkUrl}') center/cover` : s.gradient}">
+          <div class="square-art" style="background:${s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient}">
             <span class="square-art-badge">${badgeText || s.year}</span>
-            <div class="square-art-glyph" style="text-shadow:0 2px 10px rgba(0,0,0,0.85);">${s.knInit}</div>
+            ${s.artworkUrl ? '' : `<div class="square-art-glyph" style="text-shadow:0 2px 10px rgba(0,0,0,0.85);">${s.knInit}</div>`}
           </div>
           <div class="card-title">${s.titleEn}</div>
           <div class="card-sub">${s.titleKn} • ${s.artist}</div>
@@ -3067,7 +3063,7 @@
       const npArtBox = document.getElementById('npArtBox');
       if (npArtBox) {
         npArtBox.style.background = s.artworkUrl
-          ? `linear-gradient(180deg, rgba(11,17,16,0.35) 0%, rgba(11,17,16,0.85) 100%), url('${s.artworkUrl}') center/cover`
+          ? `url('${s.artworkUrl}') center/cover`
           : s.gradient;
       }
       document.getElementById('miniTitle').innerText = `${s.titleKn} • ${s.titleEn}`;
@@ -3077,8 +3073,6 @@
       // Full Now Playing
       document.getElementById('npBadgeYear').innerText = `${s.year} • KANNADA`;
       document.getElementById('npDlBadge').innerText = state.downloaded.has(s.id) ? '✓ Downloaded Offline' : '☁ Online Stream';
-      document.getElementById('npBigGlyph').innerText = s.knInit;
-      document.getElementById('npMovieLabel').innerText = `${s.movie} (${s.year})`;
       document.getElementById('npIsrcLabel').innerText = `ISRC: ${s.isrc}`;
       document.getElementById('npQualityTag').innerText = `${state.quality} • Adaptive`;
       document.getElementById('npTitleKn').innerText = s.titleKn;
@@ -3094,19 +3088,18 @@
         npFavBtn.style.color = state.favorites.has(s.id) ? 'var(--saffron)' : 'var(--text-secondary)';
       }
 
-      // Sync Shuffle & Repeat UI on both Mini-Player and Full Player
+      // Sync Shuffle & Repeat icon state (no ON/OFF text labels)
       const miniShuffleBtn = document.getElementById('miniShuffleBtn');
       const miniRepeatBtn = document.getElementById('miniRepeatBtn');
       const npShuffleBtn = document.getElementById('npShuffleBtn');
       const npRepeatBtn = document.getElementById('npRepeatBtn');
-      const npModeStatus = document.getElementById('npModeStatus');
 
       if (miniShuffleBtn) {
         miniShuffleBtn.classList.toggle('active', state.shuffle);
       }
       if (npShuffleBtn) {
         npShuffleBtn.classList.toggle('active', state.shuffle);
-        npShuffleBtn.innerHTML = state.shuffle ? '🔀 <small>ON</small>' : '🔀 <small>OFF</small>';
+        npShuffleBtn.innerText = '🔀';
       }
 
       if (miniRepeatBtn) {
@@ -3115,20 +3108,7 @@
       }
       if (npRepeatBtn) {
         npRepeatBtn.classList.toggle('active', state.repeatMode !== 'off');
-        if (state.repeatMode === 'one') {
-          npRepeatBtn.innerHTML = '🔂 <small>One</small>';
-        } else if (state.repeatMode === 'all') {
-          npRepeatBtn.innerHTML = '🔁 <small>All</small>';
-        } else {
-          npRepeatBtn.innerHTML = '➡️ <small>Off</small>';
-        }
-      }
-      if (npModeStatus) {
-        const shufTxt = state.shuffle ? '🔀 Shuffle ON' : '➡️ Sequential Play';
-        const repTxt = state.repeatMode === 'one'
-          ? '🔂 Repeat Single Song'
-          : (state.repeatMode === 'all' ? '🔁 Repeat All Songs' : '⏹ Repeat Off');
-        npModeStatus.innerText = `${shufTxt} • ${repTxt}`;
+        npRepeatBtn.innerText = state.repeatMode === 'one' ? '🔂' : '🔁';
       }
 
       const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
