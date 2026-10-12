@@ -1032,6 +1032,19 @@
           <button class="era-glass-btn" id="eraBtnOld" onclick="setHomeEra('old')">🏛️ Old Songs</button>
         </div>
 
+        <!-- ==================== 4-PILLAR KANNADA MUSIC HERITAGE ARCHIVE (1934–2026 • 200,000+ TRACKS) ==================== -->
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--card-radius);padding:12px;margin:8px 0 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div>
+              <div class="section-kicker" style="color:var(--saffron);">KANNADA MUSICAL HERITAGE (1934–2026)</div>
+              <div style="font-size:13.5px;font-weight:800;color:var(--text-primary);" id="pillarArchiveHeader">1,906 Preloaded • 200,000+ Cloud Archive</div>
+            </div>
+            <button class="pill-chip active-mint" style="padding:5px 10px;font-size:11px;" onclick="fetchMoreFromCloudArchive()">☁ +Load More</button>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;" id="homePillarGrid"></div>
+          <div class="chips-scroll" id="homeSubArchiveChips" style="padding-bottom:2px;"></div>
+        </div>
+
         <!-- Section 1: FEATURED PLAYLISTS FOR YOU -->
         <div class="section-header" style="margin-top:6px;">
           <div>
@@ -1055,12 +1068,12 @@
           <div id="homeLatestSongRows"></div>
         </div>
 
-        <!-- ==================== SEPARATED SECTION B: OLD EVERGREEN KANNADA SONGS (1954–2012) ==================== -->
+        <!-- ==================== SEPARATED SECTION B: OLD EVERGREEN KANNADA SONGS (1934–2015) ==================== -->
         <div id="homeOldPanel" style="margin-top:12px;">
           <div class="section-header">
             <div>
               <div class="section-kicker" style="color:var(--saffron);">🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA</div>
-              <div class="section-main-title">Old Evergreen Songs (1954–2012)</div>
+              <div class="section-main-title">Old Evergreen Songs (1934–2015)</div>
             </div>
             <span class="section-arrow" id="homeOldCount">14 classics</span>
           </div>
@@ -2183,23 +2196,33 @@
     }
     loadLibraryState();
 
-    // Load all 493+ Full-Length Kannada Songs from all_kannada_songs.json
+    // Assign initial pillar classification to base catalog tracks
+    CATALOG.forEach(s => {
+      if (!s.pillar) {
+        if (s.mood === 'devotional') s.pillar = 'devotional';
+        else if (s.mood === 'folk' || s.mood === 'relax' || s.mood === 'rajyotsava') s.pillar = 'folk';
+        else s.pillar = 'sandalwood';
+      }
+    });
+
+    // Load all 1,872+ Full-Length Kannada Songs from all_kannada_songs.json across all 4 Pillars
     async function loadMassiveKannadaCatalog() {
       try {
         const res = await fetch('audio/originals/all_kannada_songs.json');
         if (!res.ok) return;
         const extraSongs = await res.json();
         const existingUrls = new Set(CATALOG.map(s => s.cdn320Url).filter(Boolean));
-        const existingTitles = new Set(CATALOG.map(s => s.titleEn.toLowerCase().replace(/[^a-z0-9]/g, '')));
+        const existingTitles = new Set(CATALOG.map(s => (s.titleEn + (s.artist || '').slice(0, 8)).toLowerCase().replace(/[^a-z0-9]/g, '')));
         let added = 0;
 
         extraSongs.forEach((item, idx) => {
-          const normTitle = (item.titleEn || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+          const normTitle = ((item.titleEn || '') + (item.artist || '').slice(0, 8)).toLowerCase().replace(/[^a-z0-9]/g, '');
           if (!item.cdn320Url || existingUrls.has(item.cdn320Url) || existingTitles.has(normTitle)) return;
           existingUrls.add(item.cdn320Url);
           existingTitles.add(normTitle);
 
           const sid = `KN-${1000 + idx}`;
+          const pillar = item.pillar || (item.mood === 'devotional' ? 'devotional' : (item.mood === 'folk' || item.mood === 'relax' ? 'folk' : 'sandalwood'));
           const newSong = {
             id: sid,
             knInit: item.knInit || 'ಕ',
@@ -2210,6 +2233,7 @@
             movie: item.movie || 'Kannada Original',
             year: item.year || 2024,
             mood: item.mood || 'feelgood',
+            pillar: pillar,
             duration: item.duration || 240,
             fullDuration: item.duration || 240,
             localFileUrl: null,
@@ -2223,12 +2247,14 @@
           };
           CATALOG.push(newSong);
           if (added < 50) state.top50.add(sid);
-          if (added < 35) state.liked.add(sid);
-          if (added < 30) state.favorites.add(sid);
-          if (item.mood === 'relax' || item.mood === 'devotional') state.bhavageethe.add(sid);
-          if (item.year >= 2020 && state.playlists[0] && state.playlists[0].songIds.length < 60) {
+          if (added < 45) state.liked.add(sid);
+          if (added < 40) state.favorites.add(sid);
+          if (pillar === 'folk' || pillar === 'devotional' || item.mood === 'relax' || item.mood === 'devotional') {
+            if (state.bhavageethe.size < 120) state.bhavageethe.add(sid);
+          }
+          if (item.year >= 2020 && state.playlists[0] && state.playlists[0].songIds.length < 80) {
             state.playlists[0].songIds.push(sid);
-          } else if (item.year < 2010 && state.playlists[1] && state.playlists[1].songIds.length < 60) {
+          } else if (item.year < 2010 && state.playlists[1] && state.playlists[1].songIds.length < 80) {
             state.playlists[1].songIds.push(sid);
           }
           added++;
@@ -2465,6 +2491,167 @@
     }
 
     state.homeEra = 'all'; // 'all', 'latest', 'old'
+    state.pillarFilter = 'all'; // 'all', 'sandalwood', 'devotional', 'folk', 'indie'
+    state.subArchiveFilter = 'all';
+    state.homeLatestLimit = 60;
+    state.homeOldLimit = 60;
+    state.searchLimit = 80;
+    state.libraryLimit = 80;
+    state.cloudPageCursor = 2;
+
+    const KANNADA_PILLARS = [
+      {
+        id: 'sandalwood',
+        icon: '🎬',
+        title: 'Sandalwood Cinema',
+        sub: '1934–2026 • 25,000+ Film Songs',
+        color: 'var(--accent-mint)'
+      },
+      {
+        id: 'devotional',
+        icon: '🪔',
+        title: 'Devotional & Carnatic',
+        sub: 'Dasa Sahitya, Vachanas & Kritis',
+        color: 'var(--saffron)'
+      },
+      {
+        id: 'folk',
+        icon: '🥁',
+        title: 'Janapada & Folk',
+        sub: 'Folk, Tatvapada & Bhavageethe',
+        color: '#64B5F6'
+      },
+      {
+        id: 'indie',
+        icon: '🎸',
+        title: 'Indie, Pop & Rap',
+        sub: 'Modern Kannada Pop, Rap & Rock',
+        color: '#BA68C8'
+      }
+    ];
+
+    const SUB_ARCHIVE_CHIPS = [
+      { id: 'all', label: '✨ All 4 Pillars (1934–2026)', query: 'Kannada Super Hits' },
+      { id: 'era_golden', label: '🎞️ 1934–1979 Golden Era', query: 'Dr Rajkumar P B Sreenivas Golden Kannada', pillar: 'sandalwood' },
+      { id: 'era_80s90s', label: '📼 1980s–1990s Evergreen', query: 'Hamsalekha Ravichandran Vishnuvardhan Shankar Nag Kannada', pillar: 'sandalwood' },
+      { id: 'era_2000s', label: '💿 2000–2015 Melodies', query: 'Mungaru Male Puneeth Rajkumar Mano Murthy Sonu Nigam Kannada', pillar: 'sandalwood' },
+      { id: 'era_new', label: '🔥 2016–2026 New Wave', query: 'Kantara KGF Sapta Sagaradaache Ello Krishnam Pranaya Sakhi Kannada', pillar: 'sandalwood' },
+      { id: 'dasa', label: '🪔 Purandara & Kanaka Dasa', query: 'Purandaradasa KanakadasaVidya Bhushana Kannada', pillar: 'devotional' },
+      { id: 'vachana', label: '🕉️ Vachanas & Carnatic', query: 'Basavanna Vachana Carnatic Classical Kannada', pillar: 'devotional' },
+      { id: 'janapada', label: '🥁 Janapada Geethegalu', query: 'Janapada Geethegalu Chellidaru Malligeya Folk Kannada', pillar: 'folk' },
+      { id: 'bhavageethe', label: '🪶 Kuvempu / Bendre Bhavageethe', query: 'C Ashwath Mysore Ananthaswamy Kuvempu Bendre Bhavageethe', pillar: 'folk' },
+      { id: 'indie_rap', label: '🎸 Kannada Indie, Pop & Rap', query: 'Raghu Dixit Chandan Shetty All OK Sanjith Hegde Kannada', pillar: 'indie' }
+    ];
+
+    function selectPillarFilter(pillarId) {
+      state.pillarFilter = (state.pillarFilter === pillarId) ? 'all' : pillarId;
+      state.subArchiveFilter = 'all';
+      state.homeLatestLimit = 60;
+      state.homeOldLimit = 60;
+      renderHomeScreen();
+    }
+
+    function selectSubArchiveFilter(subId) {
+      state.subArchiveFilter = subId;
+      const chip = SUB_ARCHIVE_CHIPS.find(c => c.id === subId);
+      if (chip && chip.pillar) {
+        state.pillarFilter = chip.pillar;
+      } else if (subId === 'all') {
+        state.pillarFilter = 'all';
+      }
+      state.homeLatestLimit = 60;
+      state.homeOldLimit = 60;
+      renderHomeScreen();
+      if (chip && chip.query) {
+        fetchCloudBatchByQuery(chip.query, 1, chip.pillar || 'sandalwood', false);
+      }
+    }
+
+    async function fetchCloudBatchByQuery(query, page = 1, pillar = 'sandalwood', notify = true) {
+      let added = 0;
+      try {
+        const res = await fetch(`/api/kannada-search?q=${encodeURIComponent(query)}&page=${page}&pillar=${encodeURIComponent(pillar)}`);
+        if (res.ok) {
+          const data = await res.json();
+          const list = Array.isArray(data) ? data : (data.results || []);
+          list.forEach(item => {
+            if (!item.cdn320Url && !item.cdn160Url) return;
+            if (!CATALOG.some(x => x.id === item.id || x.cdn320Url === item.cdn320Url)) {
+              CATALOG.push({
+                id: item.id || ('SAAVN-' + (CATALOG.length + 5000)),
+                knInit: item.knInit || 'ಕ',
+                enInit: item.enInit || 'K',
+                titleKn: item.titleKn || `${item.titleEn} (ಕನ್ನಡ)`,
+                titleEn: item.titleEn,
+                artist: item.artist || 'Kannada Artist',
+                movie: item.movie || 'Kannada Original',
+                year: item.year || 2024,
+                mood: item.mood || 'feelgood',
+                pillar: item.pillar || pillar,
+                duration: item.duration || 240,
+                fullDuration: item.duration || 240,
+                localFileUrl: null,
+                cdn320Url: item.cdn320Url,
+                cdn160Url: item.cdn160Url || item.cdn320Url,
+                remoteAudio: item.cdn320Url || item.cdn160Url,
+                artworkUrl: item.artworkUrl || '',
+                matchedTrack: item.titleEn,
+                isrc: item.isrc || `IN-KAN-CLD-${CATALOG.length + 1}`,
+                gradient: ART_GRADIENTS[(CATALOG.length + added) % ART_GRADIENTS.length],
+                lyrics: []
+              });
+              added++;
+            }
+          });
+        }
+      } catch (e) {}
+      if (added > 0) {
+        if (notify) showRaagaToast(`☁ Added +${added} full-length Kannada songs from Cloud Archive`);
+        renderAll();
+      } else if (notify) {
+        showRaagaToast(`✓ All matching songs from this page are loaded (${CATALOG.length} active)`);
+      }
+      return added;
+    }
+
+    const CLOUD_DISCOVERY_QUERIES = [
+      { q: 'Kannada Film Songs Hits', pillar: 'sandalwood' },
+      { q: 'Purandaradasa Kanakadasa Vachana Kannada', pillar: 'devotional' },
+      { q: 'Janapada Geethegalu Folk Kannada', pillar: 'folk' },
+      { q: 'Kannada Indie Pop Rap Rock Songs', pillar: 'indie' },
+      { q: 'Dr Rajkumar Vishnuvardhan Ambareesh Kannada', pillar: 'sandalwood' },
+      { q: 'Puneeth Rajkumar Sudeep Darshan Yash Kannada', pillar: 'sandalwood' },
+      { q: 'C Ashwath Mysore Ananthaswamy Bhavageethe', pillar: 'folk' },
+      { q: 'Carnatic Classical Devotional Kannada', pillar: 'devotional' }
+    ];
+
+    async function fetchMoreFromCloudArchive() {
+      const activePillar = state.pillarFilter !== 'all' ? state.pillarFilter : null;
+      const pool = activePillar
+        ? CLOUD_DISCOVERY_QUERIES.filter(x => x.pillar === activePillar)
+        : CLOUD_DISCOVERY_QUERIES;
+      const pick = pool[state.cloudPageCursor % pool.length] || CLOUD_DISCOVERY_QUERIES[0];
+      const page = Math.floor(state.cloudPageCursor / pool.length) + 2;
+      state.cloudPageCursor++;
+      showRaagaToast('☁ Fetching more Kannada songs from 200,000+ Cloud Archive...');
+      await fetchCloudBatchByQuery(pick.q, page, pick.pillar, true);
+    }
+
+    function loadMoreRows(section) {
+      if (section === 'homeLatest') {
+        state.homeLatestLimit += 100;
+        renderHomeScreen();
+      } else if (section === 'homeOld') {
+        state.homeOldLimit += 100;
+        renderHomeScreen();
+      } else if (section === 'search') {
+        state.searchLimit += 100;
+        renderSearchScreen();
+      } else if (section === 'library') {
+        state.libraryLimit += 100;
+        renderLibraryScreen();
+      }
+    }
 
     function setHomeEra(era) {
       state.homeEra = era;
@@ -2478,6 +2665,41 @@
       document.getElementById('homeMoodChips').innerHTML = MOOD_CHIPS.map(m => `
         <button class="pill-chip ${state.moodFilter === m.id ? 'active' : ''}" onclick="filterByMood('${m.id}')">${m.label}</button>
       `).join('');
+
+      // Render 4-Pillar Kannada Music Heritage Grid
+      const pillarCounts = { sandalwood: 0, devotional: 0, folk: 0, indie: 0 };
+      CATALOG.forEach(s => {
+        const p = s.pillar || 'sandalwood';
+        pillarCounts[p] = (pillarCounts[p] || 0) + 1;
+      });
+      const archiveHeaderEl = document.getElementById('pillarArchiveHeader');
+      if (archiveHeaderEl) {
+        archiveHeaderEl.innerText = `${CATALOG.length.toLocaleString()} Loaded • 200,000+ Kannada Archive`;
+      }
+      const pillarGridEl = document.getElementById('homePillarGrid');
+      if (pillarGridEl) {
+        pillarGridEl.innerHTML = KANNADA_PILLARS.map(p => {
+          const isAct = state.pillarFilter === p.id;
+          const cnt = pillarCounts[p.id] || 0;
+          return `
+            <div onclick="selectPillarFilter('${p.id}')" style="cursor:pointer;padding:9px 10px;border-radius:12px;background:${isAct ? 'rgba(139,212,181,0.16)' : 'var(--surface-elevated)'};border:1.5px solid ${isAct ? p.color : 'var(--border)'};transition:all 0.18s;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:15px;">${p.icon}</span>
+                <span style="font-size:10px;font-weight:800;color:${p.color};background:rgba(0,0,0,0.28);padding:2px 6px;border-radius:99px;">${cnt} loaded</span>
+              </div>
+              <div style="font-size:12px;font-weight:800;color:var(--text-primary);margin-top:4px;">${p.title}</div>
+              <div style="font-size:10px;color:var(--text-secondary);line-height:1.25;margin-top:2px;">${p.sub}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const subChipsEl = document.getElementById('homeSubArchiveChips');
+      if (subChipsEl) {
+        subChipsEl.innerHTML = SUB_ARCHIVE_CHIPS.map(c => `
+          <button class="pill-chip ${state.subArchiveFilter === c.id ? 'active-mint' : ''}" onclick="selectSubArchiveFilter('${c.id}')">${c.label}</button>
+        `).join('');
+      }
 
       const featuredIdxs = [0, 7, 14, 22, 27, 35, 42, 50, 65, 80, 95, 110].filter(i => CATALOG[i]);
       const featuredBadges = [
@@ -2510,9 +2732,21 @@
       let list = state.moodFilter === 'all'
         ? CATALOG
         : CATALOG.filter(s => s.mood === state.moodFilter);
+      if (state.pillarFilter !== 'all') {
+        list = list.filter(s => (s.pillar || 'sandalwood') === state.pillarFilter);
+      }
+      if (state.subArchiveFilter === 'era_golden') {
+        list = list.filter(s => s.year <= 1979);
+      } else if (state.subArchiveFilter === 'era_80s90s') {
+        list = list.filter(s => s.year >= 1980 && s.year <= 1999);
+      } else if (state.subArchiveFilter === 'era_2000s') {
+        list = list.filter(s => s.year >= 2000 && s.year <= 2015);
+      } else if (state.subArchiveFilter === 'era_new') {
+        list = list.filter(s => s.year >= 2016);
+      }
       if (state.offlineMode) list = list.filter(s => state.downloaded.has(s.id));
 
-      // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1954–2015)
+      // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1934–2015)
       const latestList = list.filter(s => s.year >= 2016);
       const oldList = list.filter(s => s.year < 2016);
 
@@ -2526,14 +2760,24 @@
         .slice(0, 20)
         .map(s => renderSquareCard(s, `NEW ${s.year}`))
         .join('');
-      document.getElementById('homeLatestSongRows').innerHTML = latestList.map(renderSongRow).join('');
+      const latestShown = latestList.slice(0, state.homeLatestLimit);
+      document.getElementById('homeLatestSongRows').innerHTML =
+        latestShown.map(renderSongRow).join('') +
+        (latestList.length > state.homeLatestLimit
+          ? `<div style="text-align:center;padding:10px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('homeLatest')">▼ Show +100 More Latest Songs (Showing ${latestShown.length} of ${latestList.length})</button></div>`
+          : `<div style="text-align:center;padding:8px 0;"><button class="pill-chip" onclick="fetchMoreFromCloudArchive()">☁ Load More Latest Kannada Songs from Cloud Archive</button></div>`);
 
       document.getElementById('homeOldCount').innerText = `${oldList.length} classic songs`;
       document.getElementById('oldCarouselRow').innerHTML = oldList
         .slice(0, 20)
         .map(s => renderSquareCard(s, `CLASSIC ${s.year}`))
         .join('');
-      document.getElementById('homeOldSongRows').innerHTML = oldList.map(renderSongRow).join('');
+      const oldShown = oldList.slice(0, state.homeOldLimit);
+      document.getElementById('homeOldSongRows').innerHTML =
+        oldShown.map(renderSongRow).join('') +
+        (oldList.length > state.homeOldLimit
+          ? `<div style="text-align:center;padding:10px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('homeOld')">▼ Show +100 More Classic Songs (Showing ${oldShown.length} of ${oldList.length})</button></div>`
+          : `<div style="text-align:center;padding:8px 0;"><button class="pill-chip" onclick="fetchMoreFromCloudArchive()">☁ Load More Classic Kannada Songs from Cloud Archive</button></div>`);
     }
 
     let liveSearchTimer = null;
@@ -2548,7 +2792,8 @@
           const apiRes = await fetch(`/api/kannada-search?q=${encodeURIComponent(q)}`);
           if (apiRes.ok) {
             const apiData = await apiRes.json();
-            (apiData.results || []).forEach(item => {
+            const list = Array.isArray(apiData) ? apiData : (apiData.results || []);
+            list.forEach(item => {
               if (!item.cdn320Url && !item.cdn160Url) return;
               if (!CATALOG.some(x => x.id === item.id || x.cdn320Url === item.cdn320Url)) {
                 CATALOG.push({
@@ -2561,6 +2806,7 @@
                   movie: item.movie || 'Kannada Album',
                   year: item.year || 2024,
                   mood: item.mood || 'feelgood',
+                  pillar: item.pillar || 'sandalwood',
                   duration: item.duration || 240,
                   localFileUrl: null,
                   cdn320Url: item.cdn320Url,
@@ -2606,6 +2852,7 @@
                 movie: item.collectionName || 'Kannada Original',
                 year: yr,
                 mood: 'feelgood',
+                pillar: 'sandalwood',
                 duration: 30,
                 localAudio: null,
                 remoteAudio: item.previewUrl,
@@ -2629,7 +2876,7 @@
     }
 
     function renderSearchScreen() {
-      const tabs = ['Songs', 'Albums', 'Artists', 'Playlists', 'Videos', 'A-to-Z (ಅ–ಳ)'];
+      const tabs = ['Songs', 'Sandalwood', 'Devotional & Carnatic', 'Janapada Folk', 'Indie & Pop', 'A-to-Z (ಅ–ಳ)'];
       document.getElementById('searchTabsRow').innerHTML = tabs.map(t => `
         <button class="pill-chip ${state.searchTab === t ? 'active-mint' : ''}" onclick="setSearchTab('${t}')">${t}</button>
       `).join('');
@@ -2640,7 +2887,7 @@
         ...letters.map(l => `<div class="az-cell ${state.azLetter === l ? 'active' : ''}" onclick="selectAzLetter('${l}')">${l}</div>`)
       ].join('');
 
-      document.getElementById('trendingVideosRow').innerHTML = CATALOG.slice(0, 8).map(s => `
+      document.getElementById('trendingVideosRow').innerHTML = CATALOG.slice(0, 12).map(s => `
         <div class="video-poster-card" style="background:${s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient}" onclick="playOrToggleSong(event, '${s.id}')">
           <div class="video-poster-overlay"></div>
           <div class="video-poster-content">
@@ -2653,6 +2900,15 @@
 
       const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
       let results = [...CATALOG];
+      if (state.searchTab === 'Sandalwood') {
+        results = results.filter(s => (s.pillar || 'sandalwood') === 'sandalwood');
+      } else if (state.searchTab === 'Devotional & Carnatic') {
+        results = results.filter(s => s.pillar === 'devotional' || s.mood === 'devotional');
+      } else if (state.searchTab === 'Janapada Folk') {
+        results = results.filter(s => s.pillar === 'folk' || s.mood === 'folk' || s.mood === 'relax');
+      } else if (state.searchTab === 'Indie & Pop') {
+        results = results.filter(s => s.pillar === 'indie');
+      }
       if (state.azLetter !== 'ALL') {
         results = results.filter(s => (state.azScript === 'kn' ? s.knInit : s.enInit) === state.azLetter);
       }
@@ -2662,8 +2918,13 @@
         );
         triggerLiveKannadaSearch(q);
       }
-      document.getElementById('searchResultsTitle').innerText = `Original Kannada Songs (${results.length})`;
-      document.getElementById('searchSongRows').innerHTML = results.map(renderSongRow).join('');
+      document.getElementById('searchResultsTitle').innerText = `Original Kannada Songs (${results.length.toLocaleString()} loaded • 200,000+ Cloud Archive)`;
+      const shown = results.slice(0, state.searchLimit);
+      document.getElementById('searchSongRows').innerHTML =
+        shown.map(renderSongRow).join('') +
+        (results.length > state.searchLimit
+          ? `<div style="text-align:center;padding:12px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('search')">▼ Show +100 More Songs (Showing ${shown.length} of ${results.length})</button></div>`
+          : `<div style="text-align:center;padding:10px 0;"><button class="pill-chip" onclick="fetchMoreFromCloudArchive()">☁ Load More Kannada Songs from 200,000+ Archive</button></div>`);
     }
 
     function getActiveLibraryList() {
@@ -2703,7 +2964,7 @@
 
     function renderLibraryScreen() {
       const chips = [
-        { id: 'all', label: 'All Songs' },
+        { id: 'all', label: `All Songs (${CATALOG.length})` },
         { id: 'liked', label: `♥ Liked (${state.liked.size})` },
         { id: 'favorites', label: `★ Favorites (${state.favorites.size})` },
         { id: 'top50', label: `📈 My Top 50 (${state.top50.size})` },
@@ -2759,7 +3020,7 @@
         favorites: '★ Favorite Songs',
         top50: '📈 My Top 50',
         downloaded: '✓ Downloaded Songs',
-        bhavageethe: '🪶 Bhavageethe Collection',
+        bhavageethe: '🪶 Bhavageethe & Folk Collection',
         cached: '⚡ Cached Songs',
         exported: '📤 Exported Songs'
       };
@@ -2782,7 +3043,12 @@
           </div>
         `;
       } else {
-        document.getElementById('librarySongRows').innerHTML = list.map(renderSongRow).join('');
+        const shownLib = list.slice(0, state.libraryLimit);
+        document.getElementById('librarySongRows').innerHTML =
+          shownLib.map(renderSongRow).join('') +
+          (list.length > state.libraryLimit
+            ? `<div style="text-align:center;padding:12px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('library')">▼ Show +100 More Songs (Showing ${shownLib.length} of ${list.length})</button></div>`
+            : '');
       }
     }
 

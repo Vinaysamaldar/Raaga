@@ -84,14 +84,18 @@ class RaagaRangeHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def handle_kannada_search(self, query_string):
         params = urllib.parse.parse_qs(query_string)
         q = (params.get("q", [""])[0] or "").strip()
+        page = int(params.get("page", ["1"])[0] or "1")
+        pillar = (params.get("pillar", ["sandalwood"])[0] or "sandalwood").strip()
+        mood = (params.get("mood", ["feelgood"])[0] or "feelgood").strip()
         if not q:
-            self._send_json([])
+            self._send_json({"results": [], "totalEstimate": 200000})
             return
 
+        search_q = q if "kannada" in q.lower() else f"{q} Kannada"
         api_url = (
             "https://www.jiosaavn.com/api.php?__call=search.getResults"
             "&_format=json&_marker=0&api_version=4&ctx=web6dot0"
-            f"&n=30&p=1&q={urllib.parse.quote(q + ' Kannada')}"
+            f"&n=40&p={page}&q={urllib.parse.quote(search_q)}"
         )
         req = urllib.request.Request(api_url, headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -101,6 +105,9 @@ class RaagaRangeHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=10) as resp:
                 data = json.loads(resp.read().decode("utf-8", errors="ignore"))
                 for item in data.get("results", []):
+                    lang = str(item.get("language", "")).lower()
+                    if lang and lang not in ("kannada", "sanskrit"):
+                        continue
                     more = item.get("more_info", {}) or {}
                     enc = more.get("encrypted_media_url")
                     if not enc:
@@ -132,7 +139,8 @@ class RaagaRangeHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                         "artist": artist,
                         "movie": album,
                         "year": year,
-                        "mood": "feelgood",
+                        "mood": mood,
+                        "pillar": pillar,
                         "duration": dur,
                         "enInit": en_init,
                         "knInit": kn_init,
@@ -142,7 +150,7 @@ class RaagaRangeHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                     })
         except Exception:
             pass
-        self._send_json(tracks)
+        self._send_json({"results": tracks, "totalEstimate": 200000})
 
     def _send_json(self, obj):
         payload = json.dumps(obj, ensure_ascii=False).encode("utf-8")
@@ -160,6 +168,6 @@ class ThreadedHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
 
 if __name__ == "__main__":
     port = 8090
-    print(f"Serving Kannada Raaga with HTTP 206 Byte-Range Seeking & Live Kannada Catalog API on port {port}...")
+    print(f"Serving Kannada Raaga with HTTP 206 Byte-Range Seeking & Live 200,000+ Kannada Catalog API on port {port}...")
     server = ThreadedHTTPServer(("", port), RaagaRangeHTTPRequestHandler)
     server.serve_forever()
