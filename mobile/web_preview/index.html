@@ -1349,7 +1349,18 @@
       </div>
 
       <!-- Seek Bar -->
-      <input type="range" id="npSeekSlider" min="0" max="100" value="0" oninput="seekTrackPct(this.value)" style="width:100%;accent-color:var(--accent-mint);cursor:pointer;" />
+      <input
+        type="range"
+        id="npSeekSlider"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+        onpointerdown="state.isSeeking = true"
+        oninput="previewSeekTrackPct(this.value)"
+        onchange="commitSeekTrackPct(this.value)"
+        style="width:100%;accent-color:var(--accent-mint);cursor:pointer;"
+      />
       <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin:4px 0 10px;">
         <span id="npCurTime">0:00</span>
         <span id="npModeStatus" style="color:var(--saffron);font-weight:700;font-size:10.5px;">🔁 Repeat All • Sequential</span>
@@ -2079,6 +2090,10 @@
       song('5401','ಜೇ','J','ಜೇನಿನ ಹೊಳೆಯೋ ಹಾಲಿನ ಮಳೆಯೋ','Jenina Holeyo Haalina Maleyo','Dr. Rajkumar, Rajan-Nagendra','Chalisuva Modagalu / Classics',1954,'devotional',282,'ಜೇನಿನ ಹೊಳೆಯೋ ಹಾಲಿನ ಮಳೆಯೋ ಸುಧೆಯೋ ಕನ್ನಡ ಸವಿ ನುಡಿಯೋ','Jenina holeyo haalina maleyo sudheyo Kannada savi nudiyo')
     ];
 
+    const ALL_CORE_IDS = CATALOG.map(s => s.id);
+    const LATEST_CORE_IDS = CATALOG.filter(s => s.year >= 2016).map(s => s.id);
+    const OLD_CORE_IDS = CATALOG.filter(s => s.year < 2016).map(s => s.id);
+
     let state = {
       activeTab: 'home',
       moodFilter: 'all',
@@ -2088,7 +2103,7 @@
       libChip: 'All',
       libTileFilter: 'all',
       activePlaylistIdx: null,
-      libSortMode: 'year', // 'year', 'title', 'artist'
+      libSortMode: 'year',
       libSortDesc: true,
       offlineMode: false,
       themeMode: 'dark',
@@ -2096,23 +2111,26 @@
       quality: '320 kbps',
       currentSong: CATALOG[0],
       isPlaying: false,
+      isSeeking: false,
+      pendingSeekSec: null,
+      activeAudioUrl: null,
       positionSec: 0,
       shuffle: false,
       repeatMode: 'all',
       shuffleHistory: [],
-      liked: new Set(['2601', '2602', '2401', '2201', '1701', '0601', '9301']),
-      favorites: new Set(['2601', '2501', '2202', '1601', '0601', '7201', '5401']),
-      top50: new Set(['2601', '2602', '2603', '2501', '2401', '2301', '2201', '2202', '1801', '1701', '0601', '9301']),
-      bhavageethe: new Set(['1201', '0801', '0401', '0101', '8801', '8601', '7201', '5401']),
-      cached: new Set(['2601', '2602', '2603', '2501', '2401', '2201', '1801', '1701', '1601', '0601']),
-      exported: new Set(['2601', '2201', '0601', '7201', '5401']),
-      downloaded: new Set(['2601', '2602', '2603', '2401', '2201', '1701', '0601', '9301']),
+      liked: new Set(ALL_CORE_IDS.slice(0, 24)),
+      favorites: new Set(ALL_CORE_IDS.slice(0, 28)),
+      top50: new Set(ALL_CORE_IDS),
+      bhavageethe: new Set(CATALOG.filter(s => s.mood === 'relax' || s.mood === 'devotional' || s.year < 2012).map(s => s.id)),
+      cached: new Set(ALL_CORE_IDS),
+      exported: new Set(ALL_CORE_IDS.slice(0, 20)),
+      downloaded: new Set(ALL_CORE_IDS),
       downloading: new Set(),
       playlists: [
-        { name: '2026 Sandalwood Chartbusters', glyph: '೨೬', songIds: ['2601', '2602', '2603', '2501', '2502', '2401', '2301', '2201'] },
-        { name: 'Golden Dr. Rajkumar Hits', glyph: 'ರಾ', songIds: ['9301', '7201', '5401', '8101', '0401'] },
-        { name: 'Bhavageethe & Monsoon', glyph: 'ಭಾ', songIds: ['0601', '0602', '8801', '8601', '0801'] },
-        { name: 'Dasa Sahitya & Vachanas', glyph: 'ದಾ', songIds: ['1201', '0801', '0101', '5401'] }
+        { name: '2026 Sandalwood Chartbusters', glyph: '೨೬', songIds: [...LATEST_CORE_IDS] },
+        { name: 'Golden Dr. Rajkumar & Evergreen Hits', glyph: 'ರಾ', songIds: [...OLD_CORE_IDS] },
+        { name: 'Bhavageethe & Monsoon Classics', glyph: 'ಭಾ', songIds: [...ALL_CORE_IDS] },
+        { name: 'Dasa Sahitya, Folk & Vachanas', glyph: 'ದಾ', songIds: [...OLD_CORE_IDS, ...LATEST_CORE_IDS.slice(0, 10)] }
       ]
     };
 
@@ -2138,44 +2156,102 @@
           downloaded: Array.from(state.downloaded),
           playlists: state.playlists
         };
-        localStorage.setItem('kannada_raaga_lib_v3', JSON.stringify(data));
+        localStorage.setItem('kannada_raaga_lib_v5', JSON.stringify(data));
       } catch (e) {}
     }
 
     function loadLibraryState() {
       try {
-        const raw = localStorage.getItem('kannada_raaga_lib_v3');
+        const raw = localStorage.getItem('kannada_raaga_lib_v5');
         if (!raw) return;
         const data = JSON.parse(raw);
-        if (Array.isArray(data.liked)) state.liked = new Set(data.liked);
-        if (Array.isArray(data.favorites)) state.favorites = new Set(data.favorites);
-        if (Array.isArray(data.top50)) state.top50 = new Set(data.top50);
-        if (Array.isArray(data.bhavageethe)) state.bhavageethe = new Set(data.bhavageethe);
-        if (Array.isArray(data.cached)) state.cached = new Set(data.cached);
-        if (Array.isArray(data.exported)) state.exported = new Set(data.exported);
-        if (Array.isArray(data.downloaded)) state.downloaded = new Set(data.downloaded);
+        if (Array.isArray(data.liked) && data.liked.length >= 10) state.liked = new Set(data.liked);
+        if (Array.isArray(data.favorites) && data.favorites.length >= 10) state.favorites = new Set(data.favorites);
+        if (Array.isArray(data.top50) && data.top50.length >= 15) state.top50 = new Set(data.top50);
+        if (Array.isArray(data.bhavageethe) && data.bhavageethe.length >= 10) state.bhavageethe = new Set(data.bhavageethe);
+        if (Array.isArray(data.cached) && data.cached.length >= 10) state.cached = new Set(data.cached);
+        if (Array.isArray(data.exported) && data.exported.length >= 10) state.exported = new Set(data.exported);
+        if (Array.isArray(data.downloaded) && data.downloaded.length >= 10) state.downloaded = new Set(data.downloaded);
         if (Array.isArray(data.playlists) && data.playlists.length > 0) {
           state.playlists = data.playlists.map(p => ({
             name: p.name,
             glyph: p.glyph || '★',
-            songIds: Array.isArray(p.songIds) ? p.songIds : ['2601', '2201', '0601']
+            songIds: Array.isArray(p.songIds) && p.songIds.length >= 10 ? p.songIds : [...ALL_CORE_IDS]
           }));
         }
       } catch (e) {}
     }
     loadLibraryState();
 
+    // Load all 493+ Full-Length Kannada Songs from all_kannada_songs.json
+    async function loadMassiveKannadaCatalog() {
+      try {
+        const res = await fetch('audio/originals/all_kannada_songs.json');
+        if (!res.ok) return;
+        const extraSongs = await res.json();
+        const existingUrls = new Set(CATALOG.map(s => s.cdn320Url).filter(Boolean));
+        const existingTitles = new Set(CATALOG.map(s => s.titleEn.toLowerCase().replace(/[^a-z0-9]/g, '')));
+        let added = 0;
+
+        extraSongs.forEach((item, idx) => {
+          const normTitle = (item.titleEn || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+          if (!item.cdn320Url || existingUrls.has(item.cdn320Url) || existingTitles.has(normTitle)) return;
+          existingUrls.add(item.cdn320Url);
+          existingTitles.add(normTitle);
+
+          const sid = `KN-${1000 + idx}`;
+          const newSong = {
+            id: sid,
+            knInit: item.knInit || 'ಕ',
+            enInit: item.enInit || 'K',
+            titleKn: item.titleKn || item.titleEn,
+            titleEn: item.titleEn,
+            artist: item.artist || 'Kannada Artist',
+            movie: item.movie || 'Kannada Original',
+            year: item.year || 2024,
+            mood: item.mood || 'feelgood',
+            duration: item.duration || 240,
+            fullDuration: item.duration || 240,
+            localFileUrl: null,
+            cdn320Url: item.cdn320Url,
+            cdn160Url: item.cdn160Url || item.cdn320Url.replace('_320.mp4', '_160.mp4'),
+            artworkUrl: item.artworkUrl || null,
+            matchedTrack: item.titleEn,
+            isrc: `IN-KAN-${String(item.year || 2024).slice(-2)}-${1000 + idx}`,
+            gradient: ART_GRADIENTS[idx % ART_GRADIENTS.length],
+            lyrics: []
+          };
+          CATALOG.push(newSong);
+          if (added < 50) state.top50.add(sid);
+          if (added < 35) state.liked.add(sid);
+          if (added < 30) state.favorites.add(sid);
+          if (item.mood === 'relax' || item.mood === 'devotional') state.bhavageethe.add(sid);
+          if (item.year >= 2020 && state.playlists[0] && state.playlists[0].songIds.length < 60) {
+            state.playlists[0].songIds.push(sid);
+          } else if (item.year < 2010 && state.playlists[1] && state.playlists[1].songIds.length < 60) {
+            state.playlists[1].songIds.push(sid);
+          }
+          added++;
+        });
+        if (added > 0) {
+          renderAll();
+        }
+      } catch (e) {}
+    }
+
     // ==================== FULL-LENGTH 320KBPS ORIGINAL AUDIO ENGINE ====================
     const audioPlayer = new Audio();
+    audioPlayer.preload = 'auto';
     audioPlayer.loop = false;
     const songAudioCache = {};
 
     function getOrBuildSongAudioUrl(s) {
       if (s.customAudioUrl) return s.customAudioUrl;
-      const isHttp = window.location.protocol.startsWith('http');
-      if (isHttp && s.localFileUrl && !s._localFileFailed) return s.localFileUrl;
+      // Prioritize CDN 320kbps / 160kbps URLs first for instant HTTP 206 Byte-Range seeking anywhere in the middle
       if (s.cdn320Url && !s._cdn320Failed) return s.cdn320Url;
       if (s.cdn160Url && !s._cdn160Failed) return s.cdn160Url;
+      const isHttp = window.location.protocol.startsWith('http');
+      if (isHttp && s.localFileUrl && !s._localFileFailed) return s.localFileUrl;
       if (songAudioCache[s.id]) return songAudioCache[s.id];
 
       const sampleRate = 22050;
@@ -2244,22 +2320,41 @@
     audioPlayer.onerror = () => {
       const s = state.currentSong;
       if (!s) return;
-      if (!s._localFileFailed && s.localFileUrl) {
-        s._localFileFailed = true;
-        syncAudio(false);
-      } else if (!s._cdn320Failed && s.cdn320Url) {
+      if (!s._cdn320Failed && s.cdn320Url) {
         s._cdn320Failed = true;
+        state.activeAudioUrl = null;
         syncAudio(false);
       } else if (!s._cdn160Failed && s.cdn160Url) {
         s._cdn160Failed = true;
+        state.activeAudioUrl = null;
+        syncAudio(false);
+      } else if (!s._localFileFailed && s.localFileUrl) {
+        s._localFileFailed = true;
+        state.activeAudioUrl = null;
         syncAudio(false);
       }
     };
 
+    audioPlayer.onloadedmetadata = () => {
+      if (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 0) {
+        state.currentSong.duration = Math.max(1, Math.round(audioPlayer.duration));
+      }
+      if (state.pendingSeekSec !== null && state.pendingSeekSec !== undefined) {
+        const target = state.pendingSeekSec;
+        state.pendingSeekSec = null;
+        try {
+          audioPlayer.currentTime = target;
+          state.positionSec = Math.floor(target);
+        } catch (e) {}
+      }
+      updatePlayerSurfaces();
+    };
+
     audioPlayer.ontimeupdate = () => {
-      if (state.isPlaying && !isNaN(audioPlayer.currentTime)) {
+      if (state.isSeeking) return;
+      if (!isNaN(audioPlayer.currentTime)) {
         state.positionSec = Math.floor(audioPlayer.currentTime);
-        if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+        if (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 0) {
           state.currentSong.duration = Math.max(1, Math.round(audioPlayer.duration));
         }
         updatePlayerSurfaces();
@@ -2290,10 +2385,14 @@
 
     function syncAudio(reset = false) {
       const url = getOrBuildSongAudioUrl(state.currentSong);
-      if (!audioPlayer.src || !audioPlayer.src.endsWith(url)) {
+      if (state.activeAudioUrl !== url) {
+        state.activeAudioUrl = url;
         audioPlayer.src = url;
       }
-      if (reset) audioPlayer.currentTime = 0;
+      if (reset) {
+        state.pendingSeekSec = null;
+        try { audioPlayer.currentTime = 0; } catch (e) {}
+      }
       if (state.isPlaying) {
         audioPlayer.play().catch(() => {});
       } else {
@@ -2380,25 +2479,31 @@
         <button class="pill-chip ${state.moodFilter === m.id ? 'active' : ''}" onclick="filterByMood('${m.id}')">${m.label}</button>
       `).join('');
 
-      document.getElementById('featuredPlaylistsRow').innerHTML = [
-        renderSquareCard(CATALOG[0], 'TOP 2026 CHART'),
-        renderSquareCard(CATALOG[7], 'LATEST ROMANCE'),
-        renderSquareCard(CATALOG[22], 'OLD EVERGREEN'),
-        renderSquareCard(CATALOG[27], 'DR. RAJKUMAR')
-      ].join('');
+      const featuredIdxs = [0, 7, 14, 22, 27, 35, 42, 50, 65, 80, 95, 110].filter(i => CATALOG[i]);
+      const featuredBadges = [
+        'TOP 2026 CHART', 'LATEST ROMANCE', 'KANTARA / EPIC', 'OLD EVERGREEN',
+        'DR. RAJKUMAR', 'APPU FOREVER', 'GOLDEN MELODY', 'SONU NIGAM HITS',
+        'SPB CLASSICS', 'C. ASHWATH', 'MASS ANTHEMS', 'KANNADA FOLK'
+      ];
+      document.getElementById('featuredPlaylistsRow').innerHTML = featuredIdxs.map((idx, i) =>
+        renderSquareCard(CATALOG[idx], featuredBadges[i] || 'FEATURED')
+      ).join('');
 
       document.getElementById('danceRow').innerHTML = CATALOG
         .filter(s => s.mood === 'workout')
+        .slice(0, 24)
         .map(s => renderSquareCard(s, 'MASS BEAT'))
         .join('');
 
       document.getElementById('dasaraRow').innerHTML = CATALOG
         .filter(s => s.mood === 'rajyotsava' || s.mood === 'folk')
+        .slice(0, 24)
         .map(s => renderSquareCard(s, 'UTSAV'))
         .join('');
 
       document.getElementById('heritageRow').innerHTML = CATALOG
         .filter(s => s.mood === 'devotional' || s.mood === 'relax')
+        .slice(0, 24)
         .map(s => renderSquareCard(s, 'CLASSIC'))
         .join('');
 
@@ -2407,7 +2512,7 @@
         : CATALOG.filter(s => s.mood === state.moodFilter);
       if (state.offlineMode) list = list.filter(s => state.downloaded.has(s.id));
 
-      // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1954–2012)
+      // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1954–2015)
       const latestList = list.filter(s => s.year >= 2016);
       const oldList = list.filter(s => s.year < 2016);
 
@@ -2416,16 +2521,16 @@
       latestPanel.style.display = (state.homeEra === 'all' || state.homeEra === 'latest') ? 'block' : 'none';
       oldPanel.style.display = (state.homeEra === 'all' || state.homeEra === 'old') ? 'block' : 'none';
 
-      document.getElementById('homeLatestCount').innerText = `${latestList.length} latest`;
+      document.getElementById('homeLatestCount').innerText = `${latestList.length} latest songs`;
       document.getElementById('latestCarouselRow').innerHTML = latestList
-        .slice(0, 8)
+        .slice(0, 20)
         .map(s => renderSquareCard(s, `NEW ${s.year}`))
         .join('');
       document.getElementById('homeLatestSongRows').innerHTML = latestList.map(renderSongRow).join('');
 
-      document.getElementById('homeOldCount').innerText = `${oldList.length} classics`;
+      document.getElementById('homeOldCount').innerText = `${oldList.length} classic songs`;
       document.getElementById('oldCarouselRow').innerHTML = oldList
-        .slice(0, 8)
+        .slice(0, 20)
         .map(s => renderSquareCard(s, `CLASSIC ${s.year}`))
         .join('');
       document.getElementById('homeOldSongRows').innerHTML = oldList.map(renderSongRow).join('');
@@ -2434,14 +2539,57 @@
     let liveSearchTimer = null;
     let lastLiveQuery = '';
     function triggerLiveKannadaSearch(q) {
-      if (q.length < 3 || q === lastLiveQuery) return;
+      if (q.length < 2 || q === lastLiveQuery) return;
       clearTimeout(liveSearchTimer);
       liveSearchTimer = setTimeout(async () => {
         lastLiveQuery = q;
+        let added = 0;
         try {
-          const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(q + ' Kannada')}&entity=song&country=IN&limit=8`);
+          const apiRes = await fetch(`/api/kannada-search?q=${encodeURIComponent(q)}`);
+          if (apiRes.ok) {
+            const apiData = await apiRes.json();
+            (apiData.results || []).forEach(item => {
+              if (!item.cdn320Url && !item.cdn160Url) return;
+              if (!CATALOG.some(x => x.id === item.id || x.cdn320Url === item.cdn320Url)) {
+                CATALOG.push({
+                  id: item.id,
+                  knInit: item.knInit || 'ಕ',
+                  enInit: item.enInit || 'K',
+                  titleKn: item.titleKn || `${item.titleEn} (ಕನ್ನಡ ಹಾಡು)`,
+                  titleEn: item.titleEn,
+                  artist: item.artist || 'Kannada Artist',
+                  movie: item.movie || 'Kannada Album',
+                  year: item.year || 2024,
+                  mood: item.mood || 'feelgood',
+                  duration: item.duration || 240,
+                  localFileUrl: null,
+                  cdn320Url: item.cdn320Url,
+                  cdn160Url: item.cdn160Url || item.cdn320Url,
+                  remoteAudio: item.cdn320Url || item.cdn160Url,
+                  artworkUrl: item.artworkUrl || '',
+                  matchedTrack: item.titleEn,
+                  isrc: item.isrc || `IN-KAN-LIVE-${item.id}`,
+                  gradient: ART_GRADIENTS[(CATALOG.length + added) % ART_GRADIENTS.length],
+                  lyrics: [
+                    { t: 0, kn: `${item.titleKn || item.titleEn} • ಮೂಲ ಕನ್ನಡ ಗೀತೆ`, en: `${item.titleEn} • Full-Length 320kbps Master` },
+                    { t: 10, kn: `ಗಾಯಕರು: ${item.artist}`, en: `Movie/Album: ${item.movie} (${item.year})` }
+                  ]
+                });
+                added++;
+              }
+            });
+          }
+        } catch (e) {}
+
+        if (added > 0) {
+          if (state.activeTab === 'search') renderSearchScreen();
+          renderHomeScreen();
+          return;
+        }
+
+        try {
+          const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(q + ' Kannada')}&entity=song&country=IN&limit=10`);
           const data = await res.json();
-          let added = 0;
           (data.results || []).forEach(item => {
             if (!item.previewUrl) return;
             const sid = 'LIVE-' + item.trackId;
@@ -2477,7 +2625,7 @@
             renderSearchScreen();
           }
         } catch (err) {}
-      }, 450);
+      }, 350);
     }
 
     function renderSearchScreen() {
@@ -2640,7 +2788,10 @@
 
     function updatePlayerSurfaces() {
       const s = state.currentSong;
-      const pct = Math.min(100, (state.positionSec / s.duration) * 100);
+      const totalDur = (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1)
+        ? Math.round(audioPlayer.duration)
+        : (s.duration || 240);
+      const pct = Math.min(100, Math.max(0, (state.positionSec / totalDur) * 100));
       const dashOffset = 125.6 - (125.6 * pct) / 100;
 
       document.getElementById('miniProgressCircle').style.strokeDashoffset = dashOffset;
@@ -2668,7 +2819,9 @@
       document.getElementById('npTitleEn').innerText = s.titleEn;
       document.getElementById('npArtistLine').innerText = `${s.artist} • ${s.movie}`;
       document.getElementById('npPlayBtn').innerText = state.isPlaying ? '⏸' : '▶';
-      document.getElementById('npSeekSlider').value = pct;
+      if (!state.isSeeking) {
+        document.getElementById('npSeekSlider').value = pct;
+      }
       document.getElementById('npHeartBtn').style.color = state.liked.has(s.id) ? 'var(--saffron)' : 'var(--text-secondary)';
       const npFavBtn = document.getElementById('npFavBtn');
       if (npFavBtn) {
@@ -2712,9 +2865,9 @@
         npModeStatus.innerText = `${shufTxt} • ${repTxt}`;
       }
 
-      const fmt = sec => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+      const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
       document.getElementById('npCurTime').innerText = fmt(state.positionSec);
-      document.getElementById('npDurTime').innerText = fmt(s.duration);
+      document.getElementById('npDurTime').innerText = fmt(totalDur);
     }
 
     // ==================== INTERACTIONS & NAVIGATION ====================
@@ -3262,14 +3415,79 @@
     function closeNowPlaying() {
       document.getElementById('nowPlayingOverlay').classList.remove('open');
     }
-    function seekTrackPct(pct) {
-      state.positionSec = Math.floor((pct / 100) * state.currentSong.duration);
-      if (audioPlayer.duration) audioPlayer.currentTime = state.positionSec % audioPlayer.duration;
-      updatePlayerSurfaces();
+    function getEffectiveSongDuration() {
+      if (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1) {
+        return audioPlayer.duration;
+      }
+      return (state.currentSong && state.currentSong.duration) ? state.currentSong.duration : 240;
     }
+
+    function previewSeekTrackPct(pct) {
+      state.isSeeking = true;
+      const numPct = Math.max(0, Math.min(100, parseFloat(pct) || 0));
+      const dur = getEffectiveSongDuration();
+      const targetSec = Math.floor((numPct / 100) * dur);
+      state.positionSec = targetSec;
+      const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+      const curEl = document.getElementById('npCurTime');
+      if (curEl) curEl.innerText = fmt(targetSec);
+    }
+
+    function commitSeekTrackPct(pct) {
+      const numPct = Math.max(0, Math.min(100, parseFloat(pct) || 0));
+      const dur = getEffectiveSongDuration();
+      const targetSec = Math.max(0, Math.min(dur - 0.25, (numPct / 100) * dur));
+      state.positionSec = Math.floor(targetSec);
+
+      // Ensure audio source is loaded if user seeks before pressing play
+      const url = getOrBuildSongAudioUrl(state.currentSong);
+      if (state.activeAudioUrl !== url) {
+        state.activeAudioUrl = url;
+        audioPlayer.src = url;
+      }
+
+      const applySeek = () => {
+        try {
+          if (typeof audioPlayer.fastSeek === 'function') {
+            audioPlayer.fastSeek(targetSec);
+          } else {
+            audioPlayer.currentTime = targetSec;
+          }
+        } catch (err) {
+          try { audioPlayer.currentTime = targetSec; } catch (e2) {}
+        }
+        state.positionSec = Math.floor(targetSec);
+        state.isSeeking = false;
+        updatePlayerSurfaces();
+      };
+
+      if (audioPlayer.readyState >= 1) {
+        applySeek();
+      } else {
+        const onMeta = () => {
+          audioPlayer.removeEventListener('loadedmetadata', onMeta);
+          applySeek();
+        };
+        audioPlayer.addEventListener('loadedmetadata', onMeta);
+        setTimeout(() => { state.isSeeking = false; }, 600);
+      }
+
+      if (state.isPlaying && audioPlayer.paused) {
+        audioPlayer.play().catch(() => {});
+      }
+    }
+
+    function seekTrackPct(pct) {
+      commitSeekTrackPct(pct);
+    }
+
     function seekTrackSec(s) {
-      state.positionSec = s;
-      if (audioPlayer.duration) audioPlayer.currentTime = s % audioPlayer.duration;
+      const dur = getEffectiveSongDuration();
+      const clamped = Math.max(0, Math.min(dur - 0.25, s));
+      state.positionSec = Math.floor(clamped);
+      try {
+        audioPlayer.currentTime = clamped;
+      } catch (e) {}
       updatePlayerSurfaces();
     }
     function toggleEqPanel() {
@@ -3367,6 +3585,7 @@
     }
 
     renderAll();
+    loadMassiveKannadaCatalog();
   </script>
 </body>
 </html>
