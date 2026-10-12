@@ -1,0 +1,342 @@
+{
+  "2601": {
+    "localAudio": "https://aac.saavncdn.com/618/5c322f33efdcfbd4fb458a2298a0a986_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/618/5c322f33efdcfbd4fb458a2298a0a986_160.mp4",
+    "fallbackLocal": "audio/originals/2601.m4a",
+    "artworkUrl": "https://c.saavncdn.com/618/Kantara-A-Legend-Chapter-1-Kannada-Kannada-2025-20251009171821-500x500.jpg",
+    "duration": 276,
+    "matchedTrack": "Varaha Roopam",
+    "matchedArtist": "Sai Vignesh",
+    "matchedAlbum": "Kantara A Legend Chapter 1 - Kannada"
+  },
+  "2602": {
+    "localAudio": "https://aac.saavncdn.com/534/2049f2dad3ec443fee425ccf69418ab9_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/534/2049f2dad3ec443fee425ccf69418ab9_160.mp4",
+    "fallbackLocal": "audio/originals/2602.m4a",
+    "artworkUrl": "https://c.saavncdn.com/534/Nange-Allava-Kannada-2024-20241104194633-500x500.jpg",
+    "duration": 223,
+    "matchedTrack": "Nange Allava",
+    "matchedArtist": "",
+    "matchedAlbum": "Nange Allava"
+  },
+  "2603": {
+    "localAudio": "https://aac.saavncdn.com/190/b4d3e8f1a9555aca7967b60082227588_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/190/b4d3e8f1a9555aca7967b60082227588_160.mp4",
+    "fallbackLocal": "audio/originals/2603.m4a",
+    "artworkUrl": "https://c.saavncdn.com/190/Jackie-Kannada-2010-20250318111540-500x500.jpg",
+    "duration": 253,
+    "matchedTrack": "Ekka Raja Rani",
+    "matchedArtist": "",
+    "matchedAlbum": "Jackie (Original Motion Picture Soundtrack)"
+  },
+  "2604": {
+    "localAudio": "https://aac.saavncdn.com/623/95604dbd7f99a1df876713e2df38244f_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/623/95604dbd7f99a1df876713e2df38244f_160.mp4",
+    "fallbackLocal": "audio/originals/2604.m4a",
+    "artworkUrl": "https://c.saavncdn.com/623/Ulidavaru-Kandanthe-Kannada-2014-20250318133749-500x500.jpg",
+    "duration": 261,
+    "matchedTrack": "Gaatiya Ilidu",
+    "matchedArtist": "",
+    "matchedAlbum": "Ulidavaru Kandanthe (Original Motion Picture Soundtrack)"
+  },
+  "2605": {
+    "localAudio": "https://aac.saavncdn.com/815/2ce5f60e77df996faaf0db36cebb2a0d_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/815/2ce5f60e77df996faaf0db36cebb2a0d_160.mp4",
+    "fallbackLocal": "audio/originals/2605.m4a",
+    "artworkUrl": "https://c.saavncdn.com/815/Paramathma-Kannada-2019-20191031125126-500x500.jpg",
+    "duration": 236,
+    "matchedTrack": "Paravashanadenu",
+    "matchedArtist": "",
+    "matchedAlbum": "Paramathma"
+  },
+  "2606": {
+    "localAudio": "https://aac.saavncdn.com/641/5c79c9aa37bb9f6fbec1672cf7fb4e52_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/641/5c79c9aa37bb9f6fbec1672cf7fb4e52_160.mp4",
+    "fallbackLocal": "audio/originals/2606.m4a",
+    "artworkUrl": "https://c.saavncdn.com/641/Shiv-Tandav-Stotram-Sanskrit-2016-500x500.jpg",
+    "duration": 553,
+    "matchedTrack": "Shiv Tandav Stotram",
+    "matchedArtist": "Shankar Mahadevan",
+    "matchedAlbum": "Shiv Tandav Stotram"
+  },
+  "2607": {
+    "localAudio": "https://aac.saavncdn.com/201/31cdc4ef0a39720d4362b6a2fd06c9d2_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/201/31cdc4ef0a39720d4362b6a2fd06c9d2_160.mp4",
+    "fallbackLocal": "audio/originals/2607.m4a",
+    "artworkUrl": "https://c.saavncdn.com/201/Jag-Changa-Kannada-2017-20260612002202-500x500.jpg",
+    "duration": 318,
+    "matchedTrack": "Kodagana Koli Nungitha",
+    "matchedArtist": "Raghu Dixit",
+    "matchedAlbum": "Jag Changa"
+  },
+  "2401": {
+    "localAudio": "https://aac.saavncdn.com/226/5273439713e5ee57c13a44a4442990e0_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/226/5273439713e5ee57c13a44a4442990e0_160.mp4",
+    "fallbackLocal": "audio/originals/2401.m4a",
+    "artworkUrl": "https://c.saavncdn.com/226/Krishnam-Pranaya-Sakhi-Kannada-2024-20250402141534-500x500.jpg",
+    "duration": 283,
+    "matchedTrack": "Dwapara",
+    "matchedArtist": "",
+    "matchedAlbum": "Krishnam Pranaya Sakhi (Original Motion Picture Soundtrack)"
+  },
+  "2402": {
+    "localAudio": "https://aac.saavncdn.com/520/50183fb981ed90257a1a584b410c506c_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/520/50183fb981ed90257a1a584b410c506c_160.mp4",
+    "fallbackLocal": "audio/originals/2402.m4a",
+    "artworkUrl": "https://c.saavncdn.com/520/Max-Kannada-Kannada-2025-20250224113221-500x500.jpg",
+    "duration": 144,
+    "matchedTrack": "Maximum Mass",
+    "matchedArtist": "",
+    "matchedAlbum": "Max (Kannada)"
+  },
+  "2301": {
+    "localAudio": "https://aac.saavncdn.com/505/7280ff5fb8354e3616fe7832b88266ce_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/505/7280ff5fb8354e3616fe7832b88266ce_160.mp4",
+    "fallbackLocal": "audio/originals/2301.m4a",
+    "artworkUrl": "https://c.saavncdn.com/505/Sapta-Sagaradaache-Ello-Side-A-Kannada-2023-20260121133302-500x500.jpg",
+    "duration": 255,
+    "matchedTrack": "Sapta Sagaradaache Ello - Side A Title Track (From \"Sapta Sagaradaache Ello - Side A\")",
+    "matchedArtist": "",
+    "matchedAlbum": "Sapta Sagaradaache Ello - Side A"
+  },
+  "2302": {
+    "localAudio": "https://aac.saavncdn.com/454/063a090858814807bce54341eec64420_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/454/063a090858814807bce54341eec64420_160.mp4",
+    "fallbackLocal": "audio/originals/2302.m4a",
+    "artworkUrl": "https://c.saavncdn.com/454/Kaatera-Kannada-2023-20250319091012-500x500.jpg",
+    "duration": 211,
+    "matchedTrack": "Pasandaagavne",
+    "matchedArtist": "",
+    "matchedAlbum": "Kaatera (Original Motion Picture Soundtrack)"
+  },
+  "2201": {
+    "localAudio": "https://aac.saavncdn.com/618/5c322f33efdcfbd4fb458a2298a0a986_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/618/5c322f33efdcfbd4fb458a2298a0a986_160.mp4",
+    "fallbackLocal": "audio/originals/2201.m4a",
+    "artworkUrl": "https://c.saavncdn.com/618/Kantara-A-Legend-Chapter-1-Kannada-Kannada-2025-20251009171821-500x500.jpg",
+    "duration": 276,
+    "matchedTrack": "Varaha Roopam",
+    "matchedArtist": "Sai Vignesh",
+    "matchedAlbum": "Kantara A Legend Chapter 1 - Kannada"
+  },
+  "2202": {
+    "localAudio": "https://aac.saavncdn.com/725/98fa4c447c59a80293905326d8fca721_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/725/98fa4c447c59a80293905326d8fca721_160.mp4",
+    "fallbackLocal": "audio/originals/2202.m4a",
+    "artworkUrl": "https://c.saavncdn.com/725/Southern-Valentine-Vibes-Tamil-2026-20260205143720-500x500.jpg",
+    "duration": 281,
+    "matchedTrack": "Singara Siriye (From \"Kantara\")",
+    "matchedArtist": "",
+    "matchedAlbum": "Southern Valentine Vibes"
+  },
+  "2203": {
+    "localAudio": "https://aac.saavncdn.com/098/d865f43d0693602ec1a888b51802350a_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/098/d865f43d0693602ec1a888b51802350a_160.mp4",
+    "fallbackLocal": "audio/originals/2203.m4a",
+    "artworkUrl": "https://c.saavncdn.com/098/KGF-Chapter-2-Kannada-Kannada-2022-20250828181341-500x500.jpg",
+    "duration": 214,
+    "matchedTrack": "Toofan",
+    "matchedArtist": "Santhosh, Mohan Krishna, Sachin Basrur, Ravi Basrur, Puneeth Rudranag, Varsha Acharya",
+    "matchedAlbum": "KGF Chapter 2 - Kannada"
+  },
+  "2204": {
+    "localAudio": "https://aac.saavncdn.com/161/39f60b963be6d0d7dd01780c3fe214e8_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/161/39f60b963be6d0d7dd01780c3fe214e8_160.mp4",
+    "fallbackLocal": "audio/originals/2204.m4a",
+    "artworkUrl": "https://c.saavncdn.com/161/Vikrant-Rona-Kannada-Kannada-2022-20250818121332-500x500.jpg",
+    "duration": 218,
+    "matchedTrack": "Ra Ra Rakkamma",
+    "matchedArtist": "Nakash Aziz, Sunidhi Chauhan",
+    "matchedAlbum": "Vikrant Rona (Kannada)"
+  },
+  "2101": {
+    "localAudio": "https://aac.saavncdn.com/782/6b1cce184d6f81b7cda671b520372d17_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/782/6b1cce184d6f81b7cda671b520372d17_160.mp4",
+    "fallbackLocal": "audio/originals/2101.m4a",
+    "artworkUrl": "https://c.saavncdn.com/782/Garuda-Gamana-Vrishabha-Vahana-Kannada-2021-20251230133307-500x500.jpg",
+    "duration": 167,
+    "matchedTrack": "Sojugada Soojumallige (From \"Garuda Gamana Vrishabha Vahana\")",
+    "matchedArtist": "",
+    "matchedAlbum": "Garuda Gamana Vrishabha Vahana"
+  },
+  "1801": {
+    "localAudio": "https://aac.saavncdn.com/402/cb9cafb2f77747062ec20173c77d61ef_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/402/cb9cafb2f77747062ec20173c77d61ef_160.mp4",
+    "fallbackLocal": "audio/originals/1801.m4a",
+    "artworkUrl": "https://c.saavncdn.com/402/KGF-Chapter-1-Telugu-Telugu-2018-20220827063628-500x500.jpg",
+    "duration": 245,
+    "matchedTrack": "Salaam Rocky Bhai",
+    "matchedArtist": "",
+    "matchedAlbum": "KGF: Chapter 1"
+  },
+  "1802": {
+    "localAudio": "https://aac.saavncdn.com/912/43814f51f0ccee417bf116ae8acc44c2_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/912/43814f51f0ccee417bf116ae8acc44c2_160.mp4",
+    "fallbackLocal": "audio/originals/1802.m4a",
+    "artworkUrl": "https://c.saavncdn.com/912/Tagaru-Kannada-2018-20251204134700-500x500.jpg",
+    "duration": 207,
+    "matchedTrack": "Tagaru Banthu Tagaru",
+    "matchedArtist": "",
+    "matchedAlbum": "Tagaru"
+  },
+  "1701": {
+    "localAudio": "https://aac.saavncdn.com/964/2665c9cfd2c22ace986f9dc6bd28491d_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/964/2665c9cfd2c22ace986f9dc6bd28491d_160.mp4",
+    "fallbackLocal": "audio/originals/1701.m4a",
+    "artworkUrl": "https://c.saavncdn.com/964/Raajakumara-Kannada-2017-20221028143846-500x500.jpg",
+    "duration": 287,
+    "matchedTrack": "Bombe Helutaithe",
+    "matchedArtist": "",
+    "matchedAlbum": "Raajakumara"
+  },
+  "1601": {
+    "localAudio": "https://aac.saavncdn.com/126/d442e8fff2096c20da09a7f9f4165818_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/126/d442e8fff2096c20da09a7f9f4165818_160.mp4",
+    "fallbackLocal": "audio/originals/1601.m4a",
+    "artworkUrl": "https://c.saavncdn.com/126/Kirik-Party-Kannada-2016-500x500.jpg",
+    "duration": 207,
+    "matchedTrack": "Belageddu",
+    "matchedArtist": "Vijay Prakash",
+    "matchedAlbum": "Kirik Party"
+  },
+  "1201": {
+    "localAudio": "https://aac.saavncdn.com/150/d2f2b3ef62092741607f3827809d5df1_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/150/d2f2b3ef62092741607f3827809d5df1_160.mp4",
+    "fallbackLocal": "audio/originals/1201.m4a",
+    "artworkUrl": "https://c.saavncdn.com/150/Padde-Huli-Kannada-2019-20260203193958-500x500.jpg",
+    "duration": 163,
+    "matchedTrack": "Kalabeda Kolabeda",
+    "matchedArtist": "",
+    "matchedAlbum": "Padde Huli"
+  },
+  "0601": {
+    "localAudio": "https://aac.saavncdn.com/087/3be727945c95d0eb37cd1cda387daeb4_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/087/3be727945c95d0eb37cd1cda387daeb4_160.mp4",
+    "fallbackLocal": "audio/originals/0601.m4a",
+    "artworkUrl": "https://c.saavncdn.com/087/Mungaru-Male-Original-Motion-Picture-SoundtracK-Kannada-2006-20250318150358-500x500.jpg",
+    "duration": 289,
+    "matchedTrack": "Mungaru Maleye",
+    "matchedArtist": "",
+    "matchedAlbum": "Mungaru Male (Original Motion Picture SoundtracK)"
+  },
+  "0602": {
+    "localAudio": "https://aac.saavncdn.com/087/aff3429cd251c6a38c69f96336e5fc13_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/087/aff3429cd251c6a38c69f96336e5fc13_160.mp4",
+    "fallbackLocal": "audio/originals/0602.m4a",
+    "artworkUrl": "https://c.saavncdn.com/087/Mungaru-Male-Original-Motion-Picture-SoundtracK-Kannada-2006-20250318150358-500x500.jpg",
+    "duration": 276,
+    "matchedTrack": "Anisuthide",
+    "matchedArtist": "",
+    "matchedAlbum": "Mungaru Male (Original Motion Picture SoundtracK)"
+  },
+  "0401": {
+    "localAudio": "https://aac.saavncdn.com/651/85275bf38fbd4855cf5e3f811c4115d4_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/651/85275bf38fbd4855cf5e3f811c4115d4_160.mp4",
+    "fallbackLocal": "audio/originals/0401.m4a",
+    "artworkUrl": "https://c.saavncdn.com/651/Yatra-Instrumental-2000-20190829073424-500x500.jpg",
+    "duration": 397,
+    "matchedTrack": "Jaya Bharata Jananiya Tanujate",
+    "matchedArtist": "Kadri Gopalnath, Pravin Godkhindi",
+    "matchedAlbum": "Yatra"
+  },
+  "0101": {
+    "localAudio": "https://aac.saavncdn.com/182/ec55c897d80562d147b7edc757309309_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/182/ec55c897d80562d147b7edc757309309_160.mp4",
+    "fallbackLocal": "audio/originals/0101.m4a",
+    "artworkUrl": "https://c.saavncdn.com/182/Thunga-Theeradi-Nintha-Kannada-2012-20250409102640-500x500.jpg",
+    "duration": 327,
+    "matchedTrack": "Jagadodharana",
+    "matchedArtist": "",
+    "matchedAlbum": "Thunga Theeradi Nintha"
+  },
+  "9501": {
+    "localAudio": "https://aac.saavncdn.com/740/8251cbccac0eb97e417036270028059a_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/740/8251cbccac0eb97e417036270028059a_160.mp4",
+    "fallbackLocal": "audio/originals/9501.m4a",
+    "artworkUrl": "https://c.saavncdn.com/740/Sevanthi-Sevanthi-Kannada-2006-500x500.jpg",
+    "duration": 334,
+    "matchedTrack": "Chellidaru Malligeya",
+    "matchedArtist": "S.A. Rajkumar",
+    "matchedAlbum": "Sevanthi Sevanthi"
+  },
+  "9301": {
+    "localAudio": "https://aac.saavncdn.com/005/b026a38e033ea1a1fd535541d563771d_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/005/b026a38e033ea1a1fd535541d563771d_160.mp4",
+    "fallbackLocal": "audio/originals/9301.m4a",
+    "artworkUrl": "https://c.saavncdn.com/005/Huttidare-Kannada-Nadalli-Huttabeku-DJ-Remix-Kannada-2025-20251030194211-500x500.jpg",
+    "duration": 368,
+    "matchedTrack": "Huttidare Kannada Nadalli Huttabeku (DJ Remix)",
+    "matchedArtist": "",
+    "matchedAlbum": "Huttidare Kannada Nadalli Huttabeku (DJ Remix)"
+  },
+  "8801": {
+    "localAudio": "https://aac.saavncdn.com/787/b9265d825acbf874635ea6a9ba5007c0_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/787/b9265d825acbf874635ea6a9ba5007c0_160.mp4",
+    "fallbackLocal": "audio/originals/8801.m4a",
+    "artworkUrl": "https://c.saavncdn.com/787/Bhava-Bindu-Kannada-2014-20251025172221-500x500.jpg",
+    "duration": 327,
+    "matchedTrack": "Anandamaya Ee Jagahrudaya",
+    "matchedArtist": "",
+    "matchedAlbum": "Bhava Bindu"
+  },
+  "8601": {
+    "localAudio": "https://aac.saavncdn.com/572/ad68a42ce427b0c9a660d84fbfa42dff_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/572/ad68a42ce427b0c9a660d84fbfa42dff_160.mp4",
+    "fallbackLocal": "audio/originals/8601.m4a",
+    "artworkUrl": "https://c.saavncdn.com/572/Ananthaashwatha-Kannada-2022-20251012025747-500x500.jpg",
+    "duration": 418,
+    "matchedTrack": "Kaanada Kadalige",
+    "matchedArtist": "",
+    "matchedAlbum": "Ananthaashwatha"
+  },
+  "8101": {
+    "localAudio": "https://aac.saavncdn.com/680/48c7a28cd46d539b50ff285863cc5279_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/680/48c7a28cd46d539b50ff285863cc5279_160.mp4",
+    "fallbackLocal": "audio/originals/8101.m4a",
+    "artworkUrl": "https://c.saavncdn.com/680/GEETHA-Kannada-1981-20220520061733-500x500.jpg",
+    "duration": 268,
+    "matchedTrack": "JOTHEYALI",
+    "matchedArtist": "",
+    "matchedAlbum": "GEETHA"
+  },
+  "7201": {
+    "localAudio": "https://aac.saavncdn.com/394/96d296b331ca6efea3e06d6bfe07bb09_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/394/96d296b331ca6efea3e06d6bfe07bb09_160.mp4",
+    "fallbackLocal": "audio/originals/7201.m4a",
+    "artworkUrl": "https://c.saavncdn.com/394/Bangarada-Manushya-Dr-Rajkumar-Super-Hits-Songs-Kannada-2026-20260423180018-500x500.jpg",
+    "duration": 309,
+    "matchedTrack": "Megha Banthu Megha (From \"Mannina Doni\")",
+    "matchedArtist": "",
+    "matchedAlbum": "Bangarada Manushya Dr Rajkumar Super Hits Songs"
+  },
+  "5401": {
+    "localAudio": "https://aac.saavncdn.com/505/c1a8931b44a0f589743d9d0cda8b5308_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/505/c1a8931b44a0f589743d9d0cda8b5308_160.mp4",
+    "fallbackLocal": "audio/originals/5401.m4a",
+    "artworkUrl": "https://c.saavncdn.com/505/CHELISUVA-MODAGALU-Kannada-1982-20220519135009-500x500.jpg",
+    "duration": 282,
+    "matchedTrack": "JENINA HOLEYO",
+    "matchedArtist": "",
+    "matchedAlbum": "CHELISUVA MODAGALU"
+  },
+  "0801": {
+    "localAudio": "https://aac.saavncdn.com/244/a29799fe0ba8753d0d8a6c1f7b161aaa_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/244/a29799fe0ba8753d0d8a6c1f7b161aaa_160.mp4",
+    "fallbackLocal": "audio/originals/0801.m4a",
+    "artworkUrl": "https://c.saavncdn.com/244/Paris-Pranaya-Kannada-2003-500x500.jpg",
+    "duration": 179,
+    "matchedTrack": "Krishna Nee Begane Baaro",
+    "matchedArtist": "Shreya Ghoshal",
+    "matchedAlbum": "Paris Pranaya"
+  },
+  "7901": {
+    "localAudio": "https://aac.saavncdn.com/296/0ad1e4563a092014a8f17154b2130f36_320.mp4",
+    "remoteAudio": "https://aac.saavncdn.com/296/0ad1e4563a092014a8f17154b2130f36_160.mp4",
+    "fallbackLocal": "audio/originals/7901.m4a",
+    "artworkUrl": "https://c.saavncdn.com/296/Kariya-Kannada-2002-500x500.jpg",
+    "duration": 269,
+    "matchedTrack": "Kenchalo Manchalo",
+    "matchedArtist": "Gururaj Hoskote, C. Ashwath",
+    "matchedAlbum": "Kariya"
+  }
+}

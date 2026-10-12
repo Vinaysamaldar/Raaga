@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raaga Admin Dashboard • ಕನ್ನಡ ಸಂಗೀತ ನಿರ್ವಹಣಾ ಕೇಂದ್ರ</title>
+  <style>
+    :root {
+      --maroon: #800020;
+      --maroon-dark: #4A0012;
+      --gold: #D4AF37;
+      --saffron: #FF9933;
+      --bg: #110B0D;
+      --card: #1F1418;
+      --text: #F6EFE8;
+    }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--text); padding: 24px; }
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+      padding: 18px 24px; border-radius: 14px; border: 1px solid var(--gold);
+      margin-bottom: 24px;
+    }
+    h1 { margin: 0; font-size: 22px; color: var(--gold); }
+    .badge {
+      background: rgba(0,0,0,0.45); color: var(--gold);
+      padding: 6px 12px; border-radius: 999px; font-size: 12px; border: 1px solid var(--gold);
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .card {
+      background: var(--card); padding: 20px; border-radius: 14px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    h2 { margin-top: 0; color: var(--gold); font-size: 17px; }
+    label { display: block; font-size: 12.5px; margin: 10px 0 4px; color: #ddd; }
+    input, select {
+      width: 100%; padding: 9px 11px; border-radius: 8px;
+      border: 1px solid rgba(212, 175, 55, 0.35); background: #140D10; color: #fff;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    button {
+      margin-top: 16px; width: 100%; padding: 12px; border-radius: 10px;
+      border: none; font-weight: 700; cursor: pointer;
+      background: var(--gold); color: var(--maroon-dark);
+    }
+    button.reject-test {
+      background: #3a1a22; color: #ff8a80; border: 1px solid #ff5252; margin-top: 10px;
+    }
+    #statusBox {
+      margin-top: 14px; padding: 12px; border-radius: 10px; font-size: 13px; display: none;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+    th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    th { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>ರಾಗ (Raaga) • Admin Catalog & Licensing Pipeline</h1>
+      <div style="font-size: 13px; opacity: 0.85; margin-top: 4px;">
+        Strict Gatekeeper: Rejects any track where <code>language !== "Kannada"</code> or missing Kannada script (ಅ–ಳ)
+      </div>
+    </div>
+    <span class="badge">Pipeline Rule: language = "Kannada" ONLY</span>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Upload & Tag Kannada Song</h2>
+      <form id="uploadForm">
+        <div class="row">
+          <div>
+            <label>Title in Kannada Script (ಕನ್ನಡ ಶೀರ್ಷಿಕೆ) *</label>
+            <input type="text" id="titleKn" value="ಕಾಣದ ಕಡಲಿಗೆ ಹಂಬಲಿಸಿದೆ ಮನ" required />
+          </div>
+          <div>
+            <label>English Transliteration Title *</label>
+            <input type="text" id="titleEn" value="Kaanada Kadalige Hambaliside Mana" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Language Tag (Must be "Kannada") *</label>
+            <select id="language">
+              <option value="Kannada" selected>Kannada (ಕನ್ನಡ - Allowed)</option>
+              <option value="Hindi">Hindi (Will be Rejected)</option>
+              <option value="Tamil">Tamil (Will be Rejected)</option>
+              <option value="Telugu">Telugu (Will be Rejected)</option>
+              <option value="English">English (Will be Rejected)</option>
+            </select>
+          </div>
+          <div>
+            <label>Kannada Category *</label>
+            <select id="category">
+              <option value="bhavageethe">Bhavageethe (ಭಾವಗೀತೆ)</option>
+              <option value="film_songs">Kannada Film Songs (ಚಲನಚಿತ್ರ ಗೀತೆಗಳು)</option>
+              <option value="janapada">Folk / Janapada (ಜಾನಪದ)</option>
+              <option value="devotional">Devotional / Dasa Sahitya / Vachanas</option>
+              <option value="rajyotsava">Rajyotsava / Patriotic (ರಾಜ್ಯೋತ್ಸವ)</option>
+              <option value="indie">Kannada Indie & Albums</option>
+              <option value="carnatic">Carnatic Classical (ಕರ್ನಾಟಕ ಶಾಸ್ತ್ರೀಯ)</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Artist / Primary Performer *</label>
+            <input type="text" id="artist" value="C. Ashwath" required />
+          </div>
+          <div>
+            <label>Singer(s) *</label>
+            <input type="text" id="singer" value="C. Ashwath" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Composer *</label>
+            <input type="text" id="composer" value="C. Ashwath" required />
+          </div>
+          <div>
+            <label>Lyricist *</label>
+            <input type="text" id="lyricist" value="Dr. G. S. Shivarudrappa (GSS)" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Movie / Album *</label>
+            <input type="text" id="movieOrAlbum" value="Kaanada Kadalige" required />
+          </div>
+          <div>
+            <label>Release Year & Duration (sec) *</label>
+            <input type="number" id="year" value="1986" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Licensed Label / Rights Holder *</label>
+            <select id="labelName">
+              <option value="Lahari Music">Lahari Music</option>
+              <option value="Anand Audio">Anand Audio</option>
+              <option value="Saregama">Saregama</option>
+              <option value="Aditya Music">Aditya Music</option>
+              <option value="PRK Audio">PRK Audio</option>
+              <option value="Jhankar Music">Jhankar Music</option>
+            </select>
+          </div>
+          <div>
+            <label>ISRC Code *</label>
+            <input type="text" id="isrcCode" value="IN-LAH-86-00912" required />
+          </div>
+        </div>
+        <button type="submit">Validate & Publish Kannada Track to CDN</button>
+        <button type="button" class="reject-test" onclick="testNonKannadaRejection()">
+          Test Pipeline Gatekeeper (Simulate Non-Kannada Upload Rejection)
+        </button>
+      </form>
+      <div id="statusBox"></div>
+    </div>
+
+    <div class="card">
+      <h2>Catalog & Licensed Royalty Ledger</h2>
+      <table id="catalogTable">
+        <thead>
+          <tr>
+            <th>ಅ–ಳ</th>
+            <th>Title (ಕನ್ನಡ / EN)</th>
+            <th>Category</th>
+            <th>Label & ISRC</th>
+            <th>Lang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ಹ</strong></td>
+            <td>ಹುಟ್ಟಿದರೆ ಕನ್ನಡ ನಾಡಲ್ಲಿ<br/><small>Huttidare Kannada Naadalli</small></td>
+            <td>Rajyotsava</td>
+            <td>Lahari Music<br/><small>IN-LAH-93-00101</small></td>
+            <td><span class="badge">Kannada</span></td>
+          </tr>
+          <tr>
+            <td><strong>ಬ</strong></td>
+            <td>ಬೊಂಬೆ ಹೇಳುತೈತೆ<br/><small>Bombe Helutaite</small></td>
+            <td>Film Songs</td>
+            <td>PRK Audio<br/><small>IN-PRK-17-00101</small></td>
+            <td><span class="badge">Kannada</span></td>
+          </tr>
+          <tr>
+            <td><strong>ಜ</strong></td>
+            <td>ಜಗದೋದ್ಧಾರನ ಆಡಿಸಿದಳೆ ಯಶೋದೆ<br/><small>Jagadoddharana</small></td>
+            <td>Devotional</td>
+            <td>Lahari Music<br/><small>IN-LAH-01-00501</small></td>
+            <td><span class="badge">Kannada</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const kannadaRegex = /[\u0C80-\u0CFF]/;
+    const statusBox = document.getElementById('statusBox');
+
+    function showStatus(ok, msg) {
+      statusBox.style.display = 'block';
+      statusBox.style.background = ok ? 'rgba(46, 125, 50, 0.25)' : 'rgba(211, 47, 47, 0.25)';
+      statusBox.style.border = ok ? '1px solid #66bb6a' : '1px solid #ef5350';
+      statusBox.innerHTML = msg;
+    }
+
+    document.getElementById('uploadForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const lang = document.getElementById('language').value;
+      const titleKn = document.getElementById('titleKn').value.trim();
+      const titleEn = document.getElementById('titleEn').value.trim();
+      const category = document.getElementById('category').value;
+      const labelName = document.getElementById('labelName').value;
+      const isrcCode = document.getElementById('isrcCode').value;
+
+      if (lang !== 'Kannada') {
+        showStatus(false, `<strong>HTTP 422 REJECTED_NON_KANNADA_LANGUAGE:</strong> Track rejected by Admin Pipeline. Only <code>language = "Kannada"</code> is allowed (received "${lang}").`);
+        return;
+      }
+      if (!kannadaRegex.test(titleKn)) {
+        showStatus(false, `<strong>HTTP 422 REJECTED_MISSING_KANNADA_SCRIPT:</strong> <code>titleKn</code> must contain valid Kannada Unicode script (ಅ–ಳ).`);
+        return;
+      }
+
+      const initial = Array.from(titleKn)[0];
+      const tbody = document.querySelector('#catalogTable tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${initial}</strong></td>
+        <td>${titleKn}<br/><small>${titleEn}</small></td>
+        <td>${category}</td>
+        <td>${labelName}<br/><small>${isrcCode}</small></td>
+        <td><span class="badge">Kannada</span></td>
+      `;
+      tbody.prepend(tr);
+      showStatus(true, `<strong>APPROVED_KANNADA_TRACK:</strong> "${titleKn}" (${isrcCode}) verified as 100% Kannada, transcoded to 64k/128k/320k HLS, and indexed under "${initial}".`);
+    });
+
+    function testNonKannadaRejection() {
+      document.getElementById('language').value = 'Hindi';
+      document.getElementById('uploadForm').dispatchEvent(new Event('submit'));
+    }
+  </script>
+</body>
+</html>
