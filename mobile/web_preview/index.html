@@ -1126,10 +1126,408 @@
       font-weight: 600;
     }
 
+  
+    /* ==================== RESPONSIVE LAYOUT & DEVICE SWITCHER ==================== */
+    .preview-shell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      padding: 10px 8px;
+      box-sizing: border-box;
+      background: #050807;
+    }
+
+    .device-switcher-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 100;
+    }
+    .device-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .device-btn:hover { color: var(--text-primary); }
+    .device-btn.active {
+      background: var(--accent-mint);
+      color: var(--accent-mint-ink);
+    }
+
+    /* Guided Prototype Walkthrough Pill Bar */
+    .prototype-guide-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(242, 169, 0, 0.12);
+      border: 1px solid rgba(242, 169, 0, 0.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--saffron);
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 99;
+    }
+    .guide-step-chip {
+      background: rgba(242, 169, 0, 0.2);
+      border: 1px solid rgba(242, 169, 0, 0.4);
+      color: var(--saffron);
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 10.5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .guide-step-chip:hover {
+      background: var(--saffron);
+      color: #0B1110;
+    }
+
+    /* Android Viewport Base & Responsive Width Variants */
+    .android-viewport {
+      width: 100%;
+      max-width: 390px;
+      height: 844px;
+      background: var(--bg);
+      border-radius: 38px;
+      border: 6px solid #1E2624;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+      display: flex;
+      flex-direction: row; /* enables side rail & persistent now playing on tablet */
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: max-width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.3s ease;
+      container-type: inline-size;
+      container-name: raagaApp;
+    }
+
+    /* Medium Variant: 600-839px (Foldable / Small Tablet) */
+    .android-viewport.layout-medium {
+      max-width: 720px;
+      border-radius: 28px;
+    }
+
+    /* Expanded Variant: 840px+ (Large Tablet / Landscape) */
+    .android-viewport.layout-expanded {
+      max-width: 1140px;
+      border-radius: 24px;
+    }
+
+    /* Fluid Window Variant */
+    .android-viewport.layout-fluid {
+      max-width: 1400px;
+      height: 94vh;
+      border-radius: 20px;
+    }
+
+    /* ==================== 3-PANE LAYOUT COMPONENTS ==================== */
+    /* PANE 1: LEFT NAVIGATION RAIL (Tablets & Desktops) */
+    .tablet-nav-rail {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 88px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 16px 8px;
+      flex-shrink: 0;
+      z-index: 30;
+    }
+    .android-viewport.layout-expanded .tablet-nav-rail,
+    .android-viewport.layout-fluid .tablet-nav-rail {
+      width: 220px;
+      padding: 20px 14px;
+    }
+
+    .rail-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 8px 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+    .rail-logo-glyph {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: var(--accent-mint);
+      color: var(--accent-mint-ink);
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rail-logo-text {
+      display: none;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .android-viewport.layout-expanded .rail-logo-text,
+    .android-viewport.layout-fluid .rail-logo-text {
+      display: block;
+    }
+
+    .rail-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .rail-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .rail-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+    .rail-btn.active {
+      background: var(--active-pill);
+      color: var(--accent-mint);
+      border-color: rgba(221, 230, 225, 0.15);
+    }
+    .rail-btn-icon {
+      font-size: 19px;
+      width: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rail-btn-label {
+      display: none;
+    }
+    .android-viewport.layout-expanded .rail-btn-label,
+    .android-viewport.layout-fluid .rail-btn-label {
+      display: inline;
+    }
+
+    /* PANE 2: MAIN FLUID CONTENT CONTAINER */
+    .main-content-flow {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      padding-top: 14px;
+    }
+
+    /* PANE 3: RIGHT PERSISTENT NOW PLAYING PANEL (Expanded Layout) */
+    .tablet-persistent-player {
+      display: none;
+      flex-direction: column;
+      width: 340px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      padding: 18px 16px;
+      flex-shrink: 0;
+      overflow-y: auto;
+      z-index: 30;
+      scrollbar-width: none;
+    }
+    .tablet-persistent-player::-webkit-scrollbar { display: none; }
+
+    /* Media / Container triggers for Left Rail & Persistent Right Player */
+    @container raagaApp (min-width: 600px) {
+      .tablet-nav-rail { display: flex; }
+      .floating-nav-pill { display: none !important; }
+      .floating-mini-player {
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 64px !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+      }
+      .screens-wrapper { padding-bottom: 80px !important; }
+      .cards-carousel.tablet-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        overflow-x: visible !important;
+      }
+      .cards-carousel.tablet-grid .chart-card { width: 100% !important; }
+      .cards-carousel.tablet-grid .chart-art { width: 100% !important; height: 140px !important; }
+      .cards-carousel.tablet-grid .video-poster-card { width: 100% !important; height: 210px !important; }
+      .lib-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    }
+
+    @container raagaApp (min-width: 840px) {
+      .tablet-persistent-player { display: flex; }
+      .floating-mini-player { display: none !important; }
+      .screens-wrapper { padding-bottom: 24px !important; }
+      .cards-carousel.tablet-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+      }
+      .lib-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    }
+
+    /* Multi-Select Floating Bar for A-Z Screen */
+    .multi-select-bar {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 86px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--saffron);
+      border-radius: 999px;
+      padding: 8px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      animation: popUp 0.25s ease;
+    }
+    .multi-select-bar.show { display: flex; }
+    @keyframes popUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    /* Segmented Storage Bar for Download Manager */
+    .storage-segment-bar {
+      height: 12px;
+      border-radius: 999px;
+      background: #141C1A;
+      display: flex;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .storage-seg-app { background: var(--saffron); width: 22%; }
+    .storage-seg-other { background: #3E514B; width: 44%; }
+    .storage-seg-free { background: var(--accent-mint); width: 34%; }
+
+    /* Offline Dimmed Styling & Offline Indicators */
+    .song-row.offline-dimmed {
+      opacity: 0.38;
+      filter: grayscale(40%);
+    }
+    .offline-sync-badge {
+      font-size: 10px;
+      color: var(--saffron);
+      background: rgba(242, 169, 0, 0.15);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    /* Download Progress Circle in Song Row */
+    .dl-progress-ring {
+      transform: rotate(-90deg);
+    }
+
   </style>
 </head>
 <body>
-  <div class="android-viewport home-active" id="appViewport">
+  <div class="preview-shell">
+    <!-- Responsive Device Viewport Switcher Toolbar (Phone, Small Tablet/Foldable, Large Tablet, Fluid) -->
+    <div class="device-switcher-bar">
+      <span style="font-size:11px;font-weight:800;color:var(--saffron);margin-right:4px;">RESPONSIVE BREAKPOINTS:</span>
+      <button class="device-btn active" id="btnDevPhone" onclick="setDeviceViewport('phone')">📱 Phone (390×844)</button>
+      <button class="device-btn" id="btnDevMedium" onclick="setDeviceViewport('medium')">📱 Small Tablet / Foldable (720px)</button>
+      <button class="device-btn" id="btnDevExpanded" onclick="setDeviceViewport('expanded')">💻 Large Tablet (1140px 3-Pane)</button>
+      <button class="device-btn" id="btnDevFluid" onclick="setDeviceViewport('fluid')">🖥️ 100% Fluid Window</button>
+    </div>
+
+    <!-- Prototype Walkthrough Step-by-Step Flow Guide -->
+    <div class="prototype-guide-bar">
+      <span>🚀 QUICK PROTOTYPE FLOW:</span>
+      <span class="guide-step-chip" onclick="switchNav('az')">1. Browse A-Z</span>
+      <span>→</span>
+      <span class="guide-step-chip" onclick="enableAzMultiSelect()">2. Select Songs</span>
+      <span>→</span>
+      <span class="guide-step-chip" onclick="downloadSelectedAzSongs()">3. Download</span>
+      <span>→</span>
+      <span class="guide-step-chip" onclick="switchNav('downloads')">4. Download Manager</span>
+      <span>→</span>
+      <span class="guide-step-chip" onclick="toggleOfflineMode()">5. Switch Offline</span>
+      <span>→</span>
+      <span class="guide-step-chip" onclick="playRandomDownloadedSong()">6. Play Offline</span>
+    </div>
+
+    <div class="android-viewport home-active" id="appViewport">
+      <!-- PANE 1: TABLET LEFT NAVIGATION RAIL (600px+ Small & Large Tablets) -->
+      <nav class="tablet-nav-rail">
+        <div>
+          <div class="rail-logo">
+            <div class="rail-logo-glyph">ಕ</div>
+            <div class="rail-logo-text">Kannada Raaga</div>
+          </div>
+          <div class="rail-menu">
+            <button class="rail-btn active" id="rail-btn-home" onclick="switchNav('home')">
+              <span class="rail-btn-icon">🏠</span><span class="rail-btn-label">Home</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-search" onclick="switchNav('search')">
+              <span class="rail-btn-icon">🔍</span><span class="rail-btn-label">Search</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-recognize" onclick="switchNav('recognize')">
+              <span class="rail-btn-icon">🎙️</span><span class="rail-btn-label">Recognize</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-library" onclick="switchNav('library')">
+              <span class="rail-btn-icon">📚</span><span class="rail-btn-label">Library</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-az" onclick="switchNav('az')">
+              <span class="rail-btn-icon">ಅ</span><span class="rail-btn-label">A to Z Browse</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-downloads" onclick="switchNav('downloads')">
+              <span class="rail-btn-icon">⬇</span><span class="rail-btn-label">Downloads</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-more" onclick="switchNav('more')">
+              <span class="rail-btn-icon">⚙️</span><span class="rail-btn-label">Settings</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="padding:10px 4px;border-top:1px solid var(--border);">
+          <div style="font-size:10.5px;color:var(--text-secondary);margin-bottom:6px;">MODE</div>
+          <button class="pill-chip" style="width:100%;font-size:11px;padding:6px 8px;text-align:center;" onclick="toggleOfflineMode()" id="railOfflineBtn">
+            ⚡ Offline: OFF
+          </button>
+        </div>
+      </nav>
+
+      <!-- PANE 2: MAIN FLUID CONTENT AREA (Top Bar + Scrollable Screens) -->
+      <div class="main-content-flow">
     <!-- Top App Bar -->
     <div class="top-bar">
       <div style="display:flex;align-items:center;gap:8px;min-width:0;">
@@ -1181,23 +1579,23 @@
         <!-- Section 1: FEATURED PLAYLISTS FOR YOU -->
         <div class="section-header" style="margin-top:6px;">
           <div>
-            <div class="section-kicker" style="color:var(--saffron);">CURATED FOR KARNATAKA</div>
-            <div class="section-main-title">FEATURED PLAYLISTS FOR YOU</div>
+            <div class="section-kicker" id="homeSec1Kicker" style="color:var(--saffron);">CURATED FOR KARNATAKA</div>
+            <div class="section-main-title" id="homeSec1Title">FEATURED PLAYLISTS FOR YOU</div>
           </div>
           <span class="section-arrow" onclick="switchNav('search')">See all →</span>
         </div>
-        <div class="cards-carousel" id="featuredPlaylistsRow"></div>
+        <div class="cards-carousel tablet-grid" id="featuredPlaylistsRow"></div>
 
         <!-- ==================== SEPARATED SECTION A: LATEST KANNADA SONGS (2016–2026) ==================== -->
         <div id="homeLatestPanel" style="margin-top:8px;">
           <div class="section-header">
             <div>
-              <div class="section-kicker" style="color:var(--accent-mint);">🔥 ಇತ್ತೀಚಿನ ಹೊಸ ಹಾಡುಗಳು • NEW & TRENDING ERA</div>
-              <div class="section-main-title">Latest Kannada Songs (2016–2026)</div>
+              <div class="section-kicker" id="homeSec2Kicker" style="color:var(--accent-mint);">🔥 ಇತ್ತೀಚಿನ ಹೊಸ ಹಾಡುಗಳು • NEW & TRENDING ERA</div>
+              <div class="section-main-title" id="homeSec2Title">Latest Kannada Songs (2016–2026)</div>
             </div>
             <span class="section-arrow" id="homeLatestCount">20 latest</span>
           </div>
-          <div class="cards-carousel" id="latestCarouselRow" style="margin-bottom:10px;"></div>
+          <div class="cards-carousel tablet-grid" id="latestCarouselRow" style="margin-bottom:10px;"></div>
           <div id="homeLatestSongRows"></div>
         </div>
 
@@ -1205,12 +1603,12 @@
         <div id="homeOldPanel" style="margin-top:12px;">
           <div class="section-header">
             <div>
-              <div class="section-kicker" style="color:var(--saffron);">🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA</div>
-              <div class="section-main-title">Old Evergreen Songs (1934–2015)</div>
+              <div class="section-kicker" id="homeSec3Kicker" style="color:var(--saffron);">🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA</div>
+              <div class="section-main-title" id="homeSec3Title">Old Evergreen Songs (1934–2015)</div>
             </div>
             <span class="section-arrow" id="homeOldCount">14 classics</span>
           </div>
-          <div class="cards-carousel" id="oldCarouselRow" style="margin-bottom:10px;"></div>
+          <div class="cards-carousel tablet-grid" id="oldCarouselRow" style="margin-bottom:10px;"></div>
           <div id="homeOldSongRows"></div>
         </div>
 
@@ -1222,7 +1620,7 @@
           </div>
           <span class="section-arrow" onclick="filterByMood('workout')">→</span>
         </div>
-        <div class="cards-carousel" id="danceRow"></div>
+        <div class="cards-carousel tablet-grid" id="danceRow"></div>
 
         <div class="section-header">
           <div>
@@ -1231,7 +1629,7 @@
           </div>
           <span class="section-arrow" onclick="filterByMood('rajyotsava')">→</span>
         </div>
-        <div class="cards-carousel" id="dasaraRow"></div>
+        <div class="cards-carousel tablet-grid" id="dasaraRow"></div>
 
         <div class="section-header">
           <div>
@@ -1240,7 +1638,7 @@
           </div>
           <span class="section-arrow" onclick="filterByMood('devotional')">→</span>
         </div>
-        <div class="cards-carousel" id="heritageRow"></div>
+        <div class="cards-carousel tablet-grid" id="heritageRow"></div>
       </div>
 
       <!-- ==================== SCREEN 2: SEARCH & A-Z ==================== -->
@@ -1282,7 +1680,7 @@
           </div>
           <span class="section-arrow">More →</span>
         </div>
-        <div class="cards-carousel" id="trendingVideosRow"></div>
+        <div class="cards-carousel tablet-grid" id="trendingVideosRow"></div>
 
         <!-- Search Results Song Rows -->
         <div class="section-header">
@@ -1403,6 +1801,19 @@
           </div>
         </div>
 
+        
+        <!-- Multi-Select Floating Bar for A-Z Screen -->
+        <div class="multi-select-bar" id="multiSelectBar">
+          <div>
+            <span style="font-weight:800;color:var(--saffron);" id="multiSelectCount">0 Selected</span>
+            <span style="font-size:11px;color:var(--text-secondary);margin-left:6px;" id="multiSelectSize">~0 MB</span>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <button class="pill-chip active-mint" style="padding:4px 10px;font-size:11px;" onclick="downloadSelectedAzSongs()">⬇ Download</button>
+            <button class="pill-chip" style="padding:4px 10px;font-size:11px;" onclick="clearAzSelection()">Cancel</button>
+          </div>
+        </div>
+    
         <!-- Filtered Songs with Right-Edge Letter Scrubber -->
         <div style="position:relative;">
           <div id="azSongRows"></div>
@@ -1690,6 +2101,105 @@
         </div>
         <div id="accountModalContent"></div>
       </div>
+    </div>
+
+    
+    <!-- DOWNLOAD QUALITY PICKER BOTTOM SHEET -->
+    <div class="collection-modal-backdrop" id="dlQualityModalBackdrop" onclick="closeDlQualityModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">⬇ Choose Download Quality</div>
+            <div style="font-size:11px;color:var(--text-secondary);" id="dlQualityTargetSong">Kannada Audio Stream</div>
+          </div>
+          <button class="pill-chip" onclick="closeDlQualityModal()">✕</button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('low')">
+            <input type="radio" name="dlQualityRadio" id="radioDlLow" style="accent-color:var(--accent-mint);" />
+            <div style="flex:1;margin-left:8px;">
+              <div style="font-weight:700;">Low Quality (64 kbps Data Saver)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~1.2 MB per song • Ideal for slow connections</div>
+            </div>
+          </label>
+          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('medium')">
+            <input type="radio" name="dlQualityRadio" id="radioDlMedium" style="accent-color:var(--accent-mint);" />
+            <div style="flex:1;margin-left:8px;">
+              <div style="font-weight:700;">Medium Quality (160 kbps Balanced)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~2.8 MB per song • Standard listening</div>
+            </div>
+          </label>
+          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('high')">
+            <input type="radio" name="dlQualityRadio" id="radioDlHigh" checked style="accent-color:var(--accent-mint);" />
+            <div style="flex:1;margin-left:8px;">
+              <div style="font-weight:700;color:var(--saffron);">High Quality (320 kbps HD Master)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~7.5 MB per song • Pristine studio audio</div>
+            </div>
+          </label>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <label style="cursor:pointer;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);">
+            <input type="checkbox" id="dlRememberChoice" checked style="accent-color:var(--saffron);" />
+            Remember my choice for future downloads
+          </label>
+        </div>
+
+        <button class="pill-chip active-mint" style="width:100%;padding:10px;font-size:13px;font-weight:800;" onclick="confirmDownloadWithQuality()">
+          ⬇ Start Download Now
+        </button>
+      </div>
+    </div>
+
+    <!-- BULK DOWNLOAD PLAYLIST CONFIRMATION SHEET -->
+    <div class="collection-modal-backdrop" id="dlBulkConfirmModalBackdrop" onclick="closeDlBulkConfirmModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="font-size:16px;font-weight:800;color:var(--saffron);margin-bottom:4px;">⬇ Download Collection</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:12px;" id="dlBulkConfirmDetails">
+          Download 24 Kannada songs (Approx 86.4 MB)
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="pill-chip" style="flex:1;padding:10px;" onclick="closeDlBulkConfirmModal()">Cancel</button>
+          <button class="pill-chip active-mint" style="flex:1;padding:10px;font-weight:800;" onclick="executeBulkCollectionDownload()">Confirm Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE DATA VS WI-FI ALERT DIALOG -->
+    <div class="collection-modal-backdrop" id="dlMobileDataModalBackdrop" onclick="closeMobileDataModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="font-size:16px;font-weight:800;color:#ffb3c1;margin-bottom:4px;">📶 Cellular Data Notice</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:14px;">
+          "Download over Wi-Fi only" is enabled, but your device is on mobile data. Would you like to proceed anyway or wait for Wi-Fi?
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="pill-chip" style="flex:1;padding:10px;" onclick="closeMobileDataModal()">Wait for Wi-Fi</button>
+          <button class="pill-chip active" style="flex:1;padding:10px;font-weight:800;" onclick="overrideMobileDataDownload()">Download Anyway</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSUFFICIENT STORAGE DIALOG -->
+    <div class="collection-modal-backdrop" id="storageAlertModalBackdrop" onclick="closeStorageAlertModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="font-size:16px;font-weight:800;color:#ff4d6d;margin-bottom:4px;">⚠️ Insufficient Storage</div>
+        <div style="font-size:12.5px;color:var(--text-primary);margin-bottom:6px;" id="storageAlertText">
+          Space needed: 125 MB • Space available: 32 MB
+        </div>
+        <div style="font-size:11.5px;color:var(--text-secondary);margin-bottom:14px;">
+          Clear existing downloaded tracks or cached songs in your Download Manager to free up device space.
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="pill-chip" style="flex:1;padding:10px;" onclick="closeStorageAlertModal()">Dismiss</button>
+          <button class="pill-chip active-mint" style="flex:1;padding:10px;" onclick="closeStorageAlertModal();switchNav('downloads');">Manage Storage</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SONG ROW THREE-DOT CONTEXT ACTION SHEET -->
+    <div class="collection-modal-backdrop" id="songActionsModalBackdrop" onclick="closeSongActionsModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()" id="songActionsModalContent"></div>
     </div>
 
     <!-- FLOATING TOAST PILL -->
@@ -2415,6 +2925,23 @@
       liked: new Set(ALL_CORE_IDS.slice(0, 24)),
       favorites: new Set(ALL_CORE_IDS.slice(0, 28)),
       top50: new Set(ALL_CORE_IDS),
+      deviceLayout: 'phone', // 'phone', 'medium', 'expanded', 'fluid'
+      dlFilterTab: 'all', // 'all', 'songs', 'albums', 'playlists', 'inprogress', 'failed'
+      dlQualityChoice: 'high',
+      rememberDlQuality: true,
+      smartDownloads: true,
+      inProgressDownloads: new Map([
+        ['2401', { progress: 68, downloadedMb: 5.1, totalMb: 7.5, paused: false }],
+        ['2301', { progress: 34, downloadedMb: 2.3, totalMb: 6.8, paused: false }]
+      ]),
+      failedDownloads: new Map([
+        ['2602', { reason: 'Network timeout (No Wi-Fi)' }]
+      ]),
+      azMultiSelect: false,
+      azSelectedIds: new Set(),
+      offlinePendingSync: new Set(),
+      tabletRightTab: 'lyrics', // 'lyrics' or 'queue'
+
       bottom50: new Set(ALL_CORE_IDS.slice(15, 30)),
       azSortMode: 'title',
       azSortDesc: false,
@@ -3125,6 +3652,30 @@
       }
       if (state.offlineMode) list = list.filter(s => state.downloaded.has(s.id));
 
+      // Adapt section headers if in offline mode
+      const sec1K = document.getElementById('homeSec1Kicker');
+      const sec1T = document.getElementById('homeSec1Title');
+      const sec2K = document.getElementById('homeSec2Kicker');
+      const sec2T = document.getElementById('homeSec2Title');
+      const sec3K = document.getElementById('homeSec3Kicker');
+      const sec3T = document.getElementById('homeSec3Title');
+
+      if (state.offlineMode) {
+        if (sec1K) sec1K.innerText = 'OFFLINE MASTER ARCHIVE';
+        if (sec1T) sec1T.innerText = 'Downloaded for you';
+        if (sec2K) sec2K.innerText = 'DOWNLOADED PLAYLISTS';
+        if (sec2T) sec2T.innerText = 'Recently played (downloaded only)';
+        if (sec3K) sec3K.innerText = 'OFFLINE HERITAGE';
+        if (sec3T) sec3T.innerText = 'A-Z of downloaded songs';
+      } else {
+        if (sec1K) sec1K.innerText = 'CURATED FOR KARNATAKA';
+        if (sec1T) sec1T.innerText = 'FEATURED PLAYLISTS FOR YOU';
+        if (sec2K) sec2K.innerText = '🔥 ಇತ್ತೀಚಿನ ಹೊಸ ಹಾಡುಗಳು • NEW & TRENDING ERA';
+        if (sec2T) sec2T.innerText = 'Latest Kannada Songs (2016–2026)';
+        if (sec3K) sec3K.innerText = '🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA';
+        if (sec3T) sec3T.innerText = 'Old Evergreen Songs (1934–2015)';
+      }
+
       // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1934–2015)
       const latestList = list.filter(s => s.year >= 2016);
       const oldList = list.filter(s => s.year < 2016);
@@ -3277,7 +3828,9 @@
         </div>
       `).join('');
 
-      const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+      const searchEl = document.getElementById('searchInput');
+      if (searchEl) searchEl.placeholder = state.offlineMode ? 'Searching your downloads...' : 'Search Kannada songs...';
+      const q = (searchEl ? searchEl.value : '').trim().toLowerCase();
       let results = [...CATALOG];
       if (state.searchTab === 'Sandalwood') {
         results = results.filter(s => (s.pillar || 'sandalwood') === 'sandalwood');
@@ -3828,19 +4381,44 @@
       state.activeTab = tab;
       closeNowPlaying();
       document.getElementById('appViewport').classList.toggle('home-active', tab === 'home');
-      ['home', 'search', 'recognize', 'library', 'more'].forEach(t => {
-        document.getElementById(`screen-${t}`).classList.toggle('active', t === tab);
-        document.getElementById(`nav-btn-${t}`).classList.toggle('active', t === tab);
+      ['home', 'search', 'recognize', 'library', 'more', 'az', 'downloads'].forEach(t => {
+        const pane = document.getElementById(`screen-${t}`);
+        if (pane) pane.classList.toggle('active', t === tab);
+        const navBtn = document.getElementById(`nav-btn-${t}`);
+        if (navBtn) navBtn.classList.toggle('active', t === tab);
+        const railBtn = document.getElementById(`rail-btn-${t}`);
+        if (railBtn) railBtn.classList.toggle('active', t === tab);
       });
       const titles = {
         home: 'Kannada Raaga',
         search: 'Search',
         recognize: 'Recognize Music',
         library: 'Library',
-        more: 'More'
+        more: 'More & Settings',
+        az: 'A to Z Browse',
+        downloads: 'Downloads & Storage'
       };
-      document.getElementById('topScreenTitle').innerText = titles[tab];
-      document.getElementById('libraryFab').classList.toggle('show', tab === 'library');
+      const titleEl = document.getElementById('topScreenTitle');
+      if (titleEl) titleEl.innerText = titles[tab] || 'Kannada Raaga';
+
+      const backBtn = document.getElementById('topBackBtn');
+      if (backBtn) {
+        backBtn.style.display = (tab === 'az' || tab === 'downloads' || tab === 'recognize') ? 'flex' : 'none';
+      }
+
+      const fab = document.getElementById('libraryFab');
+      if (fab) fab.classList.toggle('show', tab === 'library');
+
+      const statsBtn = document.getElementById('topStatsBtn');
+      const accountBtn = document.getElementById('topAccountBtn');
+      const settingsBtn = document.getElementById('topSettingsBtn');
+      if (statsBtn && accountBtn && settingsBtn) {
+        const isMinimalTop = (tab === 'recognize' || tab === 'az' || tab === 'downloads');
+        statsBtn.style.display = isMinimalTop ? 'none' : 'flex';
+        accountBtn.style.display = isMinimalTop ? 'none' : 'flex';
+        settingsBtn.style.display = isMinimalTop ? 'none' : 'flex';
+      }
+
       renderAll();
     }
 
@@ -4562,6 +5140,539 @@
         }
       };
       reader.readAsText(file, 'utf-8');
+    }
+
+    
+    // ==================== RESPONSIVE DEVICE VIEWPORT SWITCHER ====================
+    function setDeviceViewport(mode) {
+      state.deviceLayout = mode;
+      const vp = document.getElementById('appViewport');
+      vp.classList.remove('layout-medium', 'layout-expanded', 'layout-fluid');
+      ['phone', 'medium', 'expanded', 'fluid'].forEach(m => {
+        const btn = document.getElementById(`btnDev${m.charAt(0).toUpperCase() + m.slice(1)}`);
+        if (btn) btn.classList.toggle('active', m === mode);
+      });
+      if (mode === 'medium') vp.classList.add('layout-medium');
+      else if (mode === 'expanded') vp.classList.add('layout-expanded');
+      else if (mode === 'fluid') vp.classList.add('layout-fluid');
+
+      updatePlayerSurfaces();
+      renderAll();
+      showRaagaToast(`📐 Switched to ${mode.toUpperCase()} responsive view`);
+    }
+
+    function setTabletRightTab(tab) {
+      state.tabletRightTab = tab;
+      const btnL = document.getElementById('tabBtnRightLyrics');
+      const btnQ = document.getElementById('tabBtnRightQueue');
+      const panelL = document.getElementById('tabletLyricsPanel');
+      const panelQ = document.getElementById('tabletQueuePanel');
+      if (btnL && btnQ && panelL && panelQ) {
+        btnL.classList.toggle('active', tab === 'lyrics');
+        btnQ.classList.toggle('active', tab === 'queue');
+        panelL.style.display = tab === 'lyrics' ? 'block' : 'none';
+        panelQ.style.display = tab === 'queue' ? 'block' : 'none';
+      }
+      updateTabletRightPanel();
+    }
+
+    function updateTabletRightPanel() {
+      const s = state.currentSong;
+      if (!s) return;
+      const tKn = document.getElementById('tabletNpTitleKn');
+      const tEn = document.getElementById('tabletNpTitleEn');
+      const tArt = document.getElementById('tabletNpArtist');
+      const tBox = document.getElementById('tabletNpArtBox');
+      const tPlayBtn = document.getElementById('tabletNpPlayBtn');
+      const tSlider = document.getElementById('tabletNpSeekSlider');
+      const tCur = document.getElementById('tabletNpCurTime');
+      const tDur = document.getElementById('tabletNpDurTime');
+
+      if (tKn) tKn.innerText = s.titleKn;
+      if (tEn) tEn.innerText = s.titleEn;
+      if (tArt) tArt.innerText = `${s.artist} • ${s.movie} (${s.year})`;
+      if (tPlayBtn) tPlayBtn.innerText = state.isPlaying ? '⏸' : '▶';
+      if (tBox) {
+        tBox.style.background = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+      }
+      if (tSlider && !state.isSeeking) {
+        const pct = (state.positionSec / (s.duration || 240)) * 100;
+        tSlider.value = pct;
+      }
+      const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+      if (tCur) tCur.innerText = fmt(state.positionSec);
+      if (tDur) tDur.innerText = fmt(s.duration || 240);
+
+      // Render lyrics in tablet panel
+      const lBox = document.getElementById('tabletLyricsBox');
+      if (lBox) {
+        const lyrics = s.lyrics || [];
+        lBox.innerHTML = lyrics.map((l, i) => {
+          const isAct = (state.positionSec >= l.t && (i === lyrics.length - 1 || state.positionSec < lyrics[i+1].t));
+          return `
+            <div class="lyrics-line ${isAct ? 'active' : ''}">
+              <div class="lyrics-kn" style="font-size:13.5px;">${l.kn}</div>
+              <div class="lyrics-en" style="font-size:11.5px;color:var(--text-secondary);">${l.en}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render queue in tablet panel
+      const qBox = document.getElementById('tabletQueueBox');
+      if (qBox) {
+        const curIdx = CATALOG.findIndex(x => x.id === s.id);
+        const qList = CATALOG.slice(curIdx + 1, curIdx + 12);
+        qBox.innerHTML = qList.map((q, idx) => `
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div style="min-width:0;flex:1;">
+              <div style="font-size:12px;font-weight:700;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${idx + 1}. ${q.titleKn}</div>
+              <div style="font-size:10.5px;color:var(--text-secondary);">${q.artist}</div>
+            </div>
+            <button class="pill-chip active-mint" style="padding:2px 7px;font-size:10px;" onclick="playOrToggleSong(event, '${q.id}')">▶</button>
+          </div>
+        `).join('');
+      }
+    }
+
+    // ==================== DOWNLOAD OPTIONS & THREE-DOT ACTIONS ====================
+    let targetDownloadSongId = null;
+
+    function openSongActionsModal(e, id) {
+      if (e) e.stopPropagation();
+      const s = CATALOG.find(x => x.id === id) || state.currentSong;
+      const isDl = state.downloaded.has(s.id);
+      const isLiked = state.liked.has(s.id);
+      const backdrop = document.getElementById('songActionsModalBackdrop');
+      const content = document.getElementById('songActionsModalContent');
+
+      content.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:15px;font-weight:800;color:var(--text-primary);">${s.titleKn} • ${s.titleEn}</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);">${s.artist} • ${s.movie} (${s.year})</div>
+          </div>
+          <button class="pill-chip" onclick="closeSongActionsModal()">Done</button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <button class="col-option-btn" onclick="triggerDirectOrQualityDownload('${s.id}');closeSongActionsModal();">
+            <span>${isDl ? '🗑️ Remove Download' : '⬇ Download Song (Offline)'}</span>
+            <span style="color:var(--accent-mint);font-size:11.5px;">${isDl ? 'Saved' : 'HD Master'}</span>
+          </button>
+          <button class="col-option-btn" onclick="toggleSongLike(event, '${s.id}');closeSongActionsModal();">
+            <span>${isLiked ? '💔 Remove from Liked' : '♥ Add to Liked Songs'}</span>
+          </button>
+          <button class="col-option-btn" onclick="openSongCollectionModal(event, '${s.id}');closeSongActionsModal();">
+            <span>＋ Add to Playlist / Collection</span>
+          </button>
+          <button class="col-option-btn" onclick="addToNowPlayingQueue('${s.id}');closeSongActionsModal();">
+            <span>☰ Play Next in Queue</span>
+          </button>
+          <button class="col-option-btn" onclick="shareSongTrack('${s.id}');closeSongActionsModal();">
+            <span>↗ Share Kannada Song</span>
+          </button>
+          <button class="col-option-btn" onclick="applySearchTerm('${s.artist}');switchNav('search');closeSongActionsModal();">
+            <span>👤 Go to Artist (${s.artist.split(',')[0]})</span>
+          </button>
+          <button class="col-option-btn" onclick="applySearchTerm('${s.movie}');switchNav('search');closeSongActionsModal();">
+            <span>💿 Go to Album (${s.movie})</span>
+          </button>
+        </div>
+      `;
+      backdrop.classList.add('open');
+    }
+    function closeSongActionsModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('songActionsModalBackdrop').classList.remove('open');
+    }
+
+    function addToNowPlayingQueue(id) {
+      showRaagaToast('✓ Added track to Up Next queue');
+      updateTabletRightPanel();
+    }
+
+    function shareSongTrack(id) {
+      const s = CATALOG.find(x => x.id === id);
+      if (navigator.share) {
+        navigator.share({ title: s.titleKn, text: `Listen to ${s.titleEn} on Kannada Raaga`, url: window.location.href });
+      } else {
+        showRaagaToast(`🔗 Copied share link for "${s.titleEn}"`);
+      }
+    }
+
+    function triggerDirectOrQualityDownload(id) {
+      if (state.downloaded.has(id)) {
+        state.downloaded.delete(id);
+        showRaagaToast('Removed track from downloads');
+        saveLibraryState();
+        renderAll();
+        return;
+      }
+      if (state.wifiOnly && !navigator.onLine) {
+        openMobileDataModal(id);
+        return;
+      }
+      if (state.rememberDlQuality) {
+        startSongDownloadProgress(id);
+      } else {
+        openDlQualityModal(id);
+      }
+    }
+
+    function openDlQualityModal(id) {
+      targetDownloadSongId = id;
+      const s = CATALOG.find(x => x.id === id) || state.currentSong;
+      const label = document.getElementById('dlQualityTargetSong');
+      if (label) label.innerText = `${s.titleKn} (${s.titleEn})`;
+      document.getElementById('dlQualityModalBackdrop').classList.add('open');
+    }
+    function closeDlQualityModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('dlQualityModalBackdrop').classList.remove('open');
+    }
+
+    function selectQualityOption(q) {
+      state.dlQualityChoice = q;
+    }
+
+    function confirmDownloadWithQuality() {
+      state.rememberDlQuality = document.getElementById('dlRememberChoice').checked;
+      closeDlQualityModal();
+      if (targetDownloadSongId) {
+        startSongDownloadProgress(targetDownloadSongId);
+        targetDownloadSongId = null;
+      }
+    }
+
+    function startSongDownloadProgress(id) {
+      state.downloading.add(id);
+      const s = CATALOG.find(x => x.id === id);
+      const estMb = state.dlQualityChoice === 'low' ? 1.2 : (state.dlQualityChoice === 'medium' ? 2.8 : 7.5);
+      state.inProgressDownloads.set(id, { progress: 15, downloadedMb: (estMb * 0.15).toFixed(1), totalMb: estMb, paused: false });
+      renderAll();
+      showRaagaToast(`⬇ Downloading "${s.titleEn}" (${estMb} MB)...`);
+
+      let progress = 15;
+      const timer = setInterval(() => {
+        const item = state.inProgressDownloads.get(id);
+        if (!item || item.paused) return;
+        progress += 28;
+        if (progress >= 100) {
+          clearInterval(timer);
+          state.downloading.delete(id);
+          state.inProgressDownloads.delete(id);
+          state.downloaded.add(id);
+          saveLibraryState();
+          showRaagaToast(`✓ Downloaded "${s.titleEn}" (Ready Offline)`);
+          renderAll();
+        } else {
+          item.progress = progress;
+          item.downloadedMb = ((progress / 100) * estMb).toFixed(1);
+          renderDownloadsScreen();
+        }
+      }, 450);
+    }
+
+    // ==================== BULK PLAYLIST & ALBUM DOWNLOAD ====================
+    let bulkDownloadQueueIds = [];
+
+    function promptBulkDownload(type, name, songIds) {
+      bulkDownloadQueueIds = songIds || ALL_CORE_IDS.slice(0, 15);
+      const count = bulkDownloadQueueIds.length;
+      const estMb = (count * 3.6).toFixed(1);
+      const detailEl = document.getElementById('dlBulkConfirmDetails');
+      if (detailEl) {
+        detailEl.innerText = `Download all ${count} tracks from "${name}" (Estimated size: ${estMb} MB • High Quality).`;
+      }
+      document.getElementById('dlBulkConfirmModalBackdrop').classList.add('open');
+    }
+    function closeDlBulkConfirmModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('dlBulkConfirmModalBackdrop').classList.remove('open');
+    }
+    function executeBulkCollectionDownload() {
+      closeDlBulkConfirmModal();
+      bulkDownloadQueueIds.forEach(id => {
+        state.downloaded.add(id);
+      });
+      saveLibraryState();
+      showRaagaToast(`✓ Downloaded ${bulkDownloadQueueIds.length} tracks for offline listening`);
+      renderAll();
+    }
+
+    // ==================== A-Z MULTI-SELECT DOWNLOAD ====================
+    function enableAzMultiSelect() {
+      state.azMultiSelect = !state.azMultiSelect;
+      if (!state.azMultiSelect) state.azSelectedIds.clear();
+      renderAzScreen();
+      updateMultiSelectBar();
+    }
+
+    function toggleSongSelect(id) {
+      if (state.azSelectedIds.has(id)) state.azSelectedIds.delete(id);
+      else state.azSelectedIds.add(id);
+      renderAzScreen();
+      updateMultiSelectBar();
+    }
+
+    function clearAzSelection() {
+      state.azMultiSelect = false;
+      state.azSelectedIds.clear();
+      renderAzScreen();
+      updateMultiSelectBar();
+    }
+
+    function updateMultiSelectBar() {
+      const bar = document.getElementById('multiSelectBar');
+      if (!bar) return;
+      const count = state.azSelectedIds.size;
+      bar.classList.toggle('show', state.azMultiSelect && count > 0);
+      if (count > 0) {
+        document.getElementById('multiSelectCount').innerText = `${count} Selected`;
+        document.getElementById('multiSelectSize').innerText = `~${(count * 3.2).toFixed(1)} MB`;
+      }
+    }
+
+    function downloadSelectedAzSongs() {
+      const count = state.azSelectedIds.size;
+      state.azSelectedIds.forEach(id => state.downloaded.add(id));
+      saveLibraryState();
+      showRaagaToast(`⬇ Downloaded ${count} selected Kannada songs`);
+      clearAzSelection();
+      renderAll();
+    }
+
+    // ==================== WI-FI & STORAGE DIALOGS ====================
+    function openMobileDataModal(id) {
+      targetDownloadSongId = id;
+      document.getElementById('dlMobileDataModalBackdrop').classList.add('open');
+    }
+    function closeMobileDataModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('dlMobileDataModalBackdrop').classList.remove('open');
+    }
+    function overrideMobileDataDownload() {
+      closeMobileDataModal();
+      if (targetDownloadSongId) {
+        startSongDownloadProgress(targetDownloadSongId);
+        targetDownloadSongId = null;
+      }
+    }
+
+    function simulateInsufficientStorage() {
+      document.getElementById('storageAlertModalBackdrop').classList.add('open');
+    }
+    function closeStorageAlertModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('storageAlertModalBackdrop').classList.remove('open');
+    }
+
+    function toggleSmartDownloads(checked) {
+      state.smartDownloads = checked;
+      showRaagaToast(checked ? '✓ Smart Downloads enabled (Auto-downloads liked tracks)' : 'Smart Downloads disabled');
+    }
+
+    // ==================== DOWNLOAD MANAGER SCREEN ENHANCEMENTS ====================
+    function setDlFilterTab(tab) {
+      state.dlFilterTab = tab;
+      renderDownloadsScreen();
+    }
+
+    function pauseResumeAllDownloads() {
+      let anyActive = false;
+      state.inProgressDownloads.forEach(item => {
+        if (!item.paused) anyActive = true;
+      });
+      state.inProgressDownloads.forEach(item => {
+        item.paused = anyActive;
+      });
+      renderDownloadsScreen();
+      showRaagaToast(anyActive ? '⏸ Paused all active downloads' : '▶ Resumed all downloads');
+    }
+
+    function retryFailedDownload(id) {
+      state.failedDownloads.delete(id);
+      startSongDownloadProgress(id);
+    }
+
+    function deleteAllDownloadsPrompt() {
+      if (confirm('Are you sure you want to delete all downloaded Kannada songs from device storage?')) {
+        state.downloaded.clear();
+        saveLibraryState();
+        showRaagaToast('🗑️ Cleared all offline downloads');
+        renderAll();
+      }
+    }
+
+    // Enhanced renderDownloadsScreen
+    function renderDownloadsScreen() {
+      const pageSwitch = document.getElementById('dlOfflinePageSwitch');
+      if (pageSwitch) {
+        pageSwitch.innerText = `Offline Mode: ${state.offlineMode ? 'ON' : 'OFF'}`;
+        pageSwitch.classList.toggle('active', state.offlineMode);
+      }
+
+      const listEl = document.getElementById('downloadsPageList');
+      if (!listEl) return;
+
+      const inProgressCount = state.inProgressDownloads.size;
+      const failedCount = state.failedDownloads.size;
+      const dlSongs = CATALOG.filter(s => state.downloaded.has(s.id));
+
+      let filterBar = `
+        <div class="chips-scroll" style="margin-bottom:12px;">
+          ${['all', 'songs', 'albums', 'playlists', 'inprogress', 'failed'].map(f => `
+            <button class="pill-chip ${state.dlFilterTab === f ? 'active-mint' : ''}" onclick="setDlFilterTab('${f}')">
+              ${f.charAt(0).toUpperCase() + f.slice(1)} ${f === 'inprogress' ? `(${inProgressCount})` : (f === 'failed' ? `(${failedCount})` : '')}
+            </button>
+          `).join('')}
+        </div>
+      `;
+
+      let inProgressSection = '';
+      if (inProgressCount > 0 && (state.dlFilterTab === 'all' || state.dlFilterTab === 'inprogress')) {
+        inProgressSection = `
+          <div style="background:var(--surface);padding:12px;border-radius:16px;border:1px solid var(--saffron);margin-bottom:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span style="font-size:12px;font-weight:700;color:var(--saffron);">IN PROGRESS (${inProgressCount})</span>
+              <button class="pill-chip" style="padding:3px 9px;font-size:10.5px;" onclick="pauseResumeAllDownloads()">Pause / Resume All</button>
+            </div>
+            ${Array.from(state.inProgressDownloads.entries()).map(([id, info]) => {
+              const s = CATALOG.find(x => x.id === id) || { titleKn: 'Kannada Song', titleEn: 'Track', artist: 'Artist' };
+              return `
+                <div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div style="font-size:12.5px;font-weight:700;">${s.titleKn} (${s.titleEn})</div>
+                    <span style="font-size:11px;color:var(--saffron);">${info.downloadedMb} / ${info.totalMb} MB (${info.progress}%)</span>
+                  </div>
+                  <div style="height:6px;background:var(--bg);border-radius:99px;overflow:hidden;margin:6px 0;">
+                    <div style="width:${info.progress}%;height:100%;background:var(--saffron);"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
+      let failedSection = '';
+      if (failedCount > 0 && (state.dlFilterTab === 'all' || state.dlFilterTab === 'failed')) {
+        failedSection = `
+          <div style="background:rgba(217,4,41,0.12);padding:12px;border-radius:16px;border:1px solid rgba(217,4,41,0.4);margin-bottom:14px;">
+            <div style="font-size:12px;font-weight:700;color:#ff4d6d;margin-bottom:8px;">FAILED DOWNLOADS (${failedCount})</div>
+            ${Array.from(state.failedDownloads.entries()).map(([id, info]) => {
+              const s = CATALOG.find(x => x.id === id) || { titleKn: 'Failed Song', titleEn: 'Track' };
+              return `
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <div>
+                    <div style="font-size:12.5px;font-weight:700;color:var(--text-primary);">${s.titleKn}</div>
+                    <div style="font-size:10.5px;color:#ffb3c1;">⚠️ ${info.reason}</div>
+                  </div>
+                  <button class="pill-chip active" style="padding:4px 10px;font-size:11px;" onclick="retryFailedDownload('${id}')">Retry</button>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
+      let emptyState = `
+        <div style="text-align:center;padding:48px 16px;color:var(--text-secondary);">
+          <div style="font-size:42px;margin-bottom:10px;">📭</div>
+          <div style="font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">No Downloads Yet</div>
+          <div style="font-size:12px;margin-bottom:14px;">Tap the ⬇ download icon on any song or playlist to save for offline listening.</div>
+          <button class="pill-chip active-mint" onclick="switchNav('home')">Browse Kannada Songs</button>
+        </div>
+      `;
+
+      let songsListHtml = dlSongs.length === 0
+        ? emptyState
+        : dlSongs.map(s => {
+          const isPlayingThis = (state.currentSong.id === s.id) && state.isPlaying;
+          return `
+            <div class="song-row ${isPlayingThis ? 'playing' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
+              <div class="song-thumb" style="background:${s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient};position:relative;">
+                <span style="font-size:14px;color:var(--accent-mint);font-weight:800;">✓</span>
+              </div>
+              <div class="song-row-text">
+                <div class="song-row-kn">${s.titleKn}</div>
+                <div class="song-row-en">${s.titleEn} • <span style="color:var(--accent-mint);font-weight:700;">Downloaded</span></div>
+                <div class="song-row-meta">${s.artist} • <span style="color:var(--text-secondary);font-size:10.5px;">Expires Nov 15, 2026</span></div>
+              </div>
+              <div class="song-row-actions">
+                <button class="row-play-btn ${isPlayingThis ? 'playing' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
+                  ${isPlayingThis ? '⏸' : '▶'}
+                </button>
+                <button class="row-icon-btn done" onclick="toggleDownload(event, '${s.id}')" title="Downloaded (Tap to remove)">
+                  ✓
+                </button>
+                <button class="row-icon-btn" onclick="openSongActionsModal(event, '${s.id}')" title="Actions">
+                  •••
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      listEl.innerHTML = filterBar + inProgressSection + failedSection + songsListHtml + `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 4px 8px;">
+          <button class="pill-chip" style="font-size:11px;" onclick="promptBulkDownload('playlist', 'All Kannada Classics', ALL_CORE_IDS.slice(0, 20))">⬇ Download Top 20 Playlist</button>
+          <button class="pill-chip" style="font-size:11px;color:#ff4d6d;" onclick="deleteAllDownloadsPrompt()">🗑️ Delete All</button>
+        </div>
+      `;
+    }
+
+    // ==================== OFFLINE MODE ADAPTATIONS ====================
+    let onlineBackTimer = null;
+
+    function toggleOfflineMode() {
+      state.offlineMode = !state.offlineMode;
+      const banner = document.getElementById('offlineBanner');
+      const railBtn = document.getElementById('railOfflineBtn');
+      const dlSwitch = document.getElementById('dlOfflineSwitch');
+      const pageSwitch = document.getElementById('dlOfflinePageSwitch');
+
+      if (railBtn) railBtn.innerText = `⚡ Offline: ${state.offlineMode ? 'ON' : 'OFF'}`;
+      if (dlSwitch) dlSwitch.innerText = `Offline Mode: ${state.offlineMode ? 'ON' : 'OFF'}`;
+      if (pageSwitch) pageSwitch.innerText = `Offline: ${state.offlineMode ? 'ON' : 'OFF'}`;
+
+      if (state.offlineMode) {
+        banner.style.background = 'rgba(242, 169, 0, 0.16)';
+        banner.style.borderColor = 'rgba(242, 169, 0, 0.35)';
+        banner.style.color = 'var(--saffron)';
+        banner.innerHTML = `
+          <span>⚡ You're offline, showing downloaded songs</span>
+          <button onclick="toggleOfflineMode()" style="background:none;border:none;color:var(--accent-mint);font-size:11px;font-weight:700;cursor:pointer;">Go Online</button>
+        `;
+        banner.classList.add('show');
+        showRaagaToast('⚡ Offline Mode Active: Only downloaded songs available');
+      } else {
+        banner.style.background = 'rgba(34, 197, 94, 0.2)';
+        banner.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+        banner.style.color = '#86efac';
+        banner.innerHTML = `<span>✓ Back online. Synced all offline changes.</span>`;
+        banner.classList.add('show');
+        showRaagaToast('✓ Back Online: Live streaming & cloud archive restored');
+        if (onlineBackTimer) clearTimeout(onlineBackTimer);
+        onlineBackTimer = setTimeout(() => {
+          banner.classList.remove('show');
+        }, 2200);
+      }
+
+      renderAll();
+    }
+
+    function playRandomDownloadedSong() {
+      const pool = CATALOG.filter(s => state.downloaded.has(s.id));
+      if (!pool.length) return;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      state.currentSong = pick;
+      state.positionSec = 0;
+      state.isPlaying = true;
+      syncAudio(true);
+      renderAll();
+      showRaagaToast(`▶ Playing offline: "${pick.titleKn}"`);
     }
 
     function renderAll() {
