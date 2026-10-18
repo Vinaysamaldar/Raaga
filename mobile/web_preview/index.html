@@ -2147,14 +2147,8 @@
             <button class="rail-btn" id="rail-btn-search" onclick="switchNav('search')">
               <span class="rail-btn-icon">🔍</span><span class="rail-btn-label">Search</span>
             </button>
-            <button class="rail-btn" id="rail-btn-recognize" onclick="switchNav('recognize')">
-              <span class="rail-btn-icon">🎙️</span><span class="rail-btn-label">Recognize</span>
-            </button>
             <button class="rail-btn" id="rail-btn-library" onclick="switchNav('library')">
               <span class="rail-btn-icon">📚</span><span class="rail-btn-label">Library</span>
-            </button>
-            <button class="rail-btn" id="rail-btn-az" onclick="switchNav('az')">
-              <span class="rail-btn-icon">ಅ</span><span class="rail-btn-label">A to Z Browse</span>
             </button>
             <button class="rail-btn" id="rail-btn-downloads" onclick="switchNav('downloads')">
               <span class="rail-btn-icon">⬇</span><span class="rail-btn-label">Downloads</span>
@@ -2163,13 +2157,6 @@
               <span class="rail-btn-icon">⚙️</span><span class="rail-btn-label">Settings</span>
             </button>
           </div>
-        </div>
-
-        <div style="padding:10px 4px;border-top:1px solid var(--border);">
-          <div style="font-size:10.5px;color:var(--text-secondary);margin-bottom:6px;">MODE</div>
-          <button class="pill-chip" style="width:100%;font-size:11px;padding:6px 8px;text-align:center;" onclick="toggleOfflineMode()" id="railOfflineBtn">
-            ⚡ Offline: OFF
-          </button>
         </div>
       </nav>
 
@@ -2190,11 +2177,7 @@
       <input type="file" id="localMp3Input" accept="audio/*" style="display:none" onchange="loadUserMp3File(event)" />
     </div>
 
-    <!-- Slim Offline Mode Banner -->
-    <div class="offline-slim-banner" id="offlineBanner">
-      <span>⚡ You're offline, showing downloaded songs</span>
-      <button onclick="toggleOfflineMode()" style="background:none;border:none;color:var(--accent-mint);font-size:11px;font-weight:700;cursor:pointer;">Go Online</button>
-    </div>
+    
 
     <!-- Main Scrollable Screens -->
     <div class="screens-wrapper">
@@ -2202,26 +2185,6 @@
       <div class="screen-pane active" id="screen-home">
         <!-- Mood Chips Row -->
         <div class="chips-scroll" id="homeMoodChips"></div>
-
-        <!-- Era Switcher Segmented Bar: Separate Latest & Old Songs (Fitted Within Screen) -->
-        <div class="era-glass-bar">
-          <button class="era-glass-btn active" id="eraBtnAll" onclick="setHomeEra('all')">✨ All Songs</button>
-          <button class="era-glass-btn" id="eraBtnLatest" onclick="setHomeEra('latest')">🔥 Latest Songs</button>
-          <button class="era-glass-btn" id="eraBtnOld" onclick="setHomeEra('old')">🏛️ Old Songs</button>
-        </div>
-
-        <!-- ==================== 4-PILLAR KANNADA MUSIC HERITAGE ARCHIVE (1934–2026 • 200,000+ TRACKS) ==================== -->
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--card-radius);padding:12px;margin:8px 0 12px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <div>
-              <div class="section-kicker" style="color:var(--saffron);">KANNADA MUSICAL HERITAGE (1934–2026)</div>
-              <div style="font-size:13.5px;font-weight:800;color:var(--text-primary);" id="pillarArchiveHeader">1,906 Preloaded • 200,000+ Cloud Archive</div>
-            </div>
-            <button class="pill-chip active-mint" style="padding:5px 10px;font-size:11px;" onclick="fetchMoreFromCloudArchive()">☁ +Load More</button>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;" id="homePillarGrid"></div>
-          <div class="chips-scroll" id="homeSubArchiveChips" style="padding-bottom:2px;"></div>
-        </div>
 
         <!-- Section 1: FEATURED PLAYLISTS FOR YOU -->
         <div class="section-header" style="margin-top:6px;">
@@ -2290,34 +2253,24 @@
 
       <!-- ==================== SCREEN 2: SEARCH & A-Z ==================== -->
       <div class="screen-pane" id="screen-search">
-        <!-- Big Rounded Pill Search Bar -->
-        <div style="display:flex;align-items:center;background:var(--surface);border-radius:var(--pill-radius);padding:6px 14px;border:1px solid var(--border);margin-bottom:12px;">
-          <span style="font-size:15px;color:var(--text-secondary);margin-right:8px;">🔍</span>
+        <!-- Big Rounded Pill Search Bar with Integrated Recognize Button -->
+        <div style="display:flex;align-items:center;background:var(--surface);border-radius:var(--pill-radius);padding:6px 8px 6px 16px;border:1.5px solid var(--border);margin-bottom:12px;gap:8px;">
+          <span style="font-size:16px;color:var(--text-secondary);">🔍</span>
           <input
             type="text"
             id="searchInput"
             placeholder="Search Kannada songs, ಕನ್ನಡ, artists..."
             oninput="renderSearchScreen()"
-            style="flex:1;background:transparent;border:none;color:var(--text-primary);font-size:13.5px;outline:none;padding:6px 0;"
+            style="flex:1;background:transparent;border:none;color:var(--text-primary);font-size:14px;outline:none;padding:6px 0;"
           />
-          <button class="top-icon-btn" onclick="switchNav('recognize')" title="Voice / Music Search" style="width:30px;height:30px;">🎙️</button>
-          <button class="top-icon-btn" onclick="toggleAzDrawer()" title="Language / A-to-Z અ–ಳ Options" style="width:30px;height:30px;">🌐</button>
+          <button class="pill-chip" onclick="switchNav('recognize')" title="Recognize playing music" style="padding:6px 14px;font-size:12px;font-weight:700;background:var(--accent-mint);color:var(--accent-mint-ink);border:none;display:flex;align-items:center;gap:6px;border-radius:999px;cursor:pointer;flex-shrink:0;">
+            <span style="font-size:14px;">🎙️</span>
+            <span>Recognize</span>
+          </button>
         </div>
 
         <!-- Search Result Filter Tabs -->
         <div class="chips-scroll" id="searchTabsRow"></div>
-
-        <!-- Collapsible A-to-Z Kannada Varnamale (ಅ–ಳ) & English (A–Z) Browser -->
-        <div id="azBrowserBox" style="display:none;background:var(--surface-elevated);padding:12px;border-radius:var(--card-radius);margin-bottom:14px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-            <span style="font-size:12.5px;font-weight:700;">Alphabetical Index (ಅ–ಳ / A–Z)</span>
-            <div style="display:flex;gap:6px;">
-              <button class="pill-chip active" id="azToggleKn" style="padding:4px 10px;font-size:11px;" onclick="setAzScript('kn')">ಕನ್ನಡ ಅ–ಳ</button>
-              <button class="pill-chip" id="azToggleEn" style="padding:4px 10px;font-size:11px;" onclick="setAzScript('en')">English A–Z</button>
-            </div>
-          </div>
-          <div class="az-grid" id="azGridCells"></div>
-        </div>
 
         <!-- Trending Kannada Music Videos Row -->
         <div class="section-header" style="margin-top:4px;">
@@ -2585,22 +2538,27 @@
 
     <!-- PERSISTENT FLOATING BOTTOM NAVIGATION PILL (5 Morphing Items) -->
     <nav class="floating-nav-pill">
-      <button class="nav-pill-item active" id="nav-btn-home" onclick="switchNav('home')">
-        <span>🏠</span><span class="nav-label">Home</span>
-      </button>
-      <button class="nav-pill-item" id="nav-btn-search" onclick="switchNav('search')">
-        <span>🔍</span><span class="nav-label">Search</span>
-      </button>
-      <button class="nav-pill-item" id="nav-btn-recognize" onclick="switchNav('recognize')">
-        <span>🎙️</span><span class="nav-label">Recognize</span>
-      </button>
-      <button class="nav-pill-item" id="nav-btn-library" onclick="switchNav('library')">
-        <span>📚</span><span class="nav-label">Library</span>
-      </button>
-      <button class="nav-pill-item" id="nav-btn-more" onclick="switchNav('more')">
-        <span>•••</span><span class="nav-label">More</span>
-      </button>
-    </nav>
+        <button class="nav-pill-item active" id="nav-btn-home" onclick="switchNav('home')">
+          <span class="nav-pill-icon">🏠</span>
+          <span class="nav-pill-label">Home</span>
+        </button>
+        <button class="nav-pill-item" id="nav-btn-search" onclick="switchNav('search')">
+          <span class="nav-pill-icon">🔍</span>
+          <span class="nav-pill-label">Search</span>
+        </button>
+        <button class="nav-pill-item" id="nav-btn-library" onclick="switchNav('library')">
+          <span class="nav-pill-icon">📚</span>
+          <span class="nav-pill-label">Library</span>
+        </button>
+        <button class="nav-pill-item" id="nav-btn-downloads" onclick="switchNav('downloads')">
+          <span class="nav-pill-icon">⬇</span>
+          <span class="nav-pill-label">Downloads</span>
+        </button>
+        <button class="nav-pill-item" id="nav-btn-more" onclick="switchNav('more')">
+          <span class="nav-pill-icon">⚙️</span>
+          <span class="nav-pill-label">Settings</span>
+        </button>
+      </nav>
 
     <!-- FULL NOW PLAYING SCREEN OVERLAY -->
     <div class="now-playing-overlay" id="nowPlayingOverlay">
@@ -4944,9 +4902,6 @@
 
     function setHomeEra(era) {
       state.homeEra = era;
-      document.getElementById('eraBtnAll').className = 'era-glass-btn' + (era === 'all' ? ' active' : '');
-      document.getElementById('eraBtnLatest').className = 'era-glass-btn' + (era === 'latest' ? ' active' : '');
-      document.getElementById('eraBtnOld').className = 'era-glass-btn' + (era === 'old' ? ' active-gold' : '');
       renderHomeScreen();
     }
 
@@ -5067,8 +5022,8 @@
 
       const latestPanel = document.getElementById('homeLatestPanel');
       const oldPanel = document.getElementById('homeOldPanel');
-      latestPanel.style.display = (state.homeEra === 'all' || state.homeEra === 'latest') ? 'block' : 'none';
-      oldPanel.style.display = (state.homeEra === 'all' || state.homeEra === 'old') ? 'block' : 'none';
+      if (latestPanel) latestPanel.style.display = 'block';
+      if (oldPanel) oldPanel.style.display = 'block';
 
       document.getElementById('homeLatestCount').innerText = `${latestList.length} latest songs`;
       document.getElementById('latestCarouselRow').innerHTML = latestList
