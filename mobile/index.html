@@ -83,6 +83,7 @@
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      padding-top: 14px;
       transition: background 0.25s ease;
     }
 
@@ -161,19 +162,6 @@
       color: #0B1110;
     }
 
-    /* Android Status Bar */
-    .status-bar {
-      height: 30px;
-      padding: 6px 22px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      flex-shrink: 0;
-      z-index: 20;
-    }
 
     /* Top App Bar (Frosted Glass Header + 28px Bold Screen Title + 4 Right Icons) */
     .top-bar {
@@ -1142,12 +1130,6 @@
 </head>
 <body>
   <div class="android-viewport home-active" id="appViewport">
-    <!-- Android Status Bar -->
-    <div class="status-bar">
-      <span>9:41</span>
-      <span id="statusRight">5G • 100% 🔋</span>
-    </div>
-
     <!-- Top App Bar -->
     <div class="top-bar">
       <div style="display:flex;align-items:center;gap:8px;min-width:0;">
