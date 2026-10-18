@@ -5276,15 +5276,20 @@
 
     function getOrBuildSongAudioUrl(s) {
       if (s.customAudioUrl) return s.customAudioUrl;
-      // Prioritize CDN 320kbps / 160kbps URLs first for instant HTTP 206 Byte-Range seeking anywhere in the middle
+      // 1. Zero-latency local full-length studio audio file
+      if (s.localFileUrl && !s._localFileFailed) return s.localFileUrl;
+      // 2. 320 kbps master CDN stream
       if (s.cdn320Url && !s._cdn320Failed) return s.cdn320Url;
+      // 3. 160 kbps master CDN stream
       if (s.cdn160Url && !s._cdn160Failed) return s.cdn160Url;
-      const isHttp = window.location.protocol.startsWith('http');
-      if (isHttp && s.localFileUrl && !s._localFileFailed) return s.localFileUrl;
+      // 4. Remote audio stream fallback
+      if (s.remoteAudio && !s._remoteAudioFailed) return s.remoteAudio;
+      // 5. Return from cache if previously generated
       if (songAudioCache[s.id]) return songAudioCache[s.id];
 
+      // 6. Full-length acoustic raaga synthesis matching full song duration (180–240s)
       const sampleRate = 22050;
-      const durationSec = 16;
+      const durationSec = Math.min(240, Math.max(120, s.duration || 180));
       const numSamples = sampleRate * durationSec;
       const buffer = new ArrayBuffer(44 + numSamples * 2);
       const view = new DataView(buffer);
@@ -5297,7 +5302,7 @@
       view.setUint16(32, 2, true); view.setUint16(34, 16, true);
       writeStr(36, 'data'); view.setUint32(40, numSamples * 2, true);
 
-      const seed = parseInt(s.id, 10) || s.year;
+      const seed = parseInt(s.id, 10) || s.year || 2024;
       const roots = [130.81, 146.83, 164.81, 174.61, 196.00];
       const root = roots[seed % roots.length];
       const fifth = root * 1.4983;
@@ -5346,19 +5351,24 @@
       return url;
     }
 
-    audioPlayer.onerror = () => {
+    audioPlayer.onerror = (e) => {
       const s = state.currentSong;
       if (!s) return;
-      if (!s._cdn320Failed && s.cdn320Url) {
+      console.warn('[AudioEngine] Stream load error for:', state.activeAudioUrl);
+      if (!s._localFileFailed && s.localFileUrl && state.activeAudioUrl === s.localFileUrl) {
+        s._localFileFailed = true;
+        state.activeAudioUrl = null;
+        syncAudio(false);
+      } else if (!s._cdn320Failed && s.cdn320Url && state.activeAudioUrl === s.cdn320Url) {
         s._cdn320Failed = true;
         state.activeAudioUrl = null;
         syncAudio(false);
-      } else if (!s._cdn160Failed && s.cdn160Url) {
+      } else if (!s._cdn160Failed && s.cdn160Url && state.activeAudioUrl === s.cdn160Url) {
         s._cdn160Failed = true;
         state.activeAudioUrl = null;
         syncAudio(false);
-      } else if (!s._localFileFailed && s.localFileUrl) {
-        s._localFileFailed = true;
+      } else if (!s._remoteAudioFailed && s.remoteAudio && state.activeAudioUrl === s.remoteAudio) {
+        s._remoteAudioFailed = true;
         state.activeAudioUrl = null;
         syncAudio(false);
       }
