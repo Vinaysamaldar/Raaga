@@ -4133,8 +4133,920 @@
       }
     }
 
+
+    /* ==========================================================================
+       PREMIUM RIGHT NOW PLAYING PANEL & INTERIOR HI-FI DESIGN (2026)
+       ========================================================================== */
+    .tablet-persistent-player {
+      display: none;
+      flex-direction: column;
+      width: 350px !important;
+      background: linear-gradient(180deg, #131B19 0%, #0E1413 60%, #080C0B 100%) !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 20px 18px !important;
+      flex-shrink: 0 !important;
+      overflow-y: auto !important;
+      z-index: 30 !important;
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4) !important;
+      scrollbar-width: none !important;
+      box-sizing: border-box !important;
+    }
+    .tablet-persistent-player::-webkit-scrollbar { display: none; }
+
+    .side-panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 8px;
+    }
+    .side-kicker {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--saffron);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .side-badge-lossless {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #00F5D4;
+      background: rgba(0, 245, 212, 0.1);
+      border: 1px solid rgba(0, 245, 212, 0.25);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 3px;
+    }
+    .pulsing-lossless-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #00F5D4;
+      box-shadow: 0 0 6px #00F5D4;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* Tab Switch in Panel */
+    .side-tab-pill-switch {
+      display: flex;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+    .side-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .side-tab-btn.active {
+      background: var(--saffron);
+      color: #000;
+      box-shadow: 0 2px 8px rgba(242, 169, 0, 0.35);
+    }
+
+    /* Showcase & Album Cover */
+    .side-art-showcase-wrap {
+      position: relative;
+      width: 100%;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+    }
+    .side-art-glow {
+      position: absolute;
+      inset: -8px;
+      border-radius: 30px;
+      background: radial-gradient(circle at center, rgba(242, 169, 0, 0.2), transparent 70%);
+      filter: blur(20px);
+      z-index: 1;
+      opacity: 0.7;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .side-art-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #151D1B;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .side-art-card:hover {
+      transform: scale(1.02);
+    }
+    .side-art-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+    .side-art-fallback-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1B2B26, #0E1614);
+    }
+    .side-art-glyph {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--saffron);
+      font-family: 'Noto Sans Kannada', sans-serif;
+      text-shadow: 0 4px 18px rgba(242, 169, 0, 0.4);
+    }
+    .side-art-swara {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(227, 234, 230, 0.6);
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    /* Vinyl Peek Badge */
+    .side-vinyl-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #111;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .side-vinyl-badge.playing {
+      animation: spinVinyl 4s linear infinite;
+      border-color: var(--saffron);
+    }
+    .vinyl-groove {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--saffron);
+      box-shadow: inset 0 0 0 2px #111;
+    }
+    @keyframes spinVinyl {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Favorite button on Art */
+    .side-art-fav-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      transition: all 0.2s ease;
+    }
+    .side-art-fav-btn:hover {
+      transform: scale(1.15);
+      color: var(--saffron);
+      border-color: var(--saffron);
+    }
+    .side-art-fav-btn.active {
+      color: var(--saffron);
+      border-color: var(--saffron);
+      background: rgba(242, 169, 0, 0.18);
+    }
+
+    /* Track Meta Block */
+    .side-meta-block {
+      margin-bottom: 12px;
+    }
+    .side-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .side-song-title-kn {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Noto Sans Kannada', sans-serif;
+    }
+    .side-song-title-en {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--saffron);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-song-artist {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-heart-btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .side-heart-btn:hover {
+      color: var(--saffron);
+      transform: scale(1.15);
+    }
+    .side-heart-btn.active {
+      color: var(--saffron) !important;
+    }
+
+    /* Waveform Progress */
+    .side-progress-wrap {
+      margin-bottom: 14px;
+    }
+    .side-time-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .side-time-label {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-family: 'Montserrat', monospace;
+      font-weight: 600;
+    }
+    .side-progress-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+      cursor: pointer;
+      transition: height 0.15s ease;
+    }
+    .side-progress-slider:hover {
+      height: 6px;
+    }
+    .side-progress-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--saffron);
+      box-shadow: 0 0 8px rgba(242, 169, 0, 0.7);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .side-progress-slider:hover::-webkit-slider-thumb {
+      transform: scale(1.25);
+    }
+
+    /* Live Equalizer Visualizer */
+    .side-live-eq {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+    }
+    .eq-bar {
+      width: 2.5px;
+      height: 3px;
+      border-radius: 1px;
+      background: rgba(242, 169, 0, 0.35);
+      transition: height 0.15s ease;
+    }
+    .side-live-eq.playing .eq-b1 { animation: eqBounce 0.8s infinite ease-in-out 0.1s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b2 { animation: eqBounce 1.1s infinite ease-in-out 0.25s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b3 { animation: eqBounce 0.7s infinite ease-in-out 0.05s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b4 { animation: eqBounce 1.3s infinite ease-in-out 0.35s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b5 { animation: eqBounce 0.9s infinite ease-in-out 0.15s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b6 { animation: eqBounce 1.2s infinite ease-in-out 0.4s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b7 { animation: eqBounce 0.75s infinite ease-in-out 0.2s; background: var(--saffron); }
+    .side-live-eq.playing .eq-b8 { animation: eqBounce 1.0s infinite ease-in-out 0.3s; background: var(--saffron); }
+    @keyframes eqBounce {
+      0%, 100% { height: 3px; }
+      50% { height: 14px; }
+    }
+
+    /* Transport Controls */
+    .side-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .side-ctrl-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 16px;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .side-ctrl-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.08);
+      transform: scale(1.1);
+    }
+    .side-ctrl-btn.active {
+      color: var(--saffron) !important;
+      background: rgba(242, 169, 0, 0.15);
+    }
+    .side-step-btn {
+      font-size: 18px;
+    }
+    .side-play-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #DDE6E1;
+      color: #0B1110;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(221, 230, 225, 0.3);
+      transition: all 0.2s ease;
+      font-weight: 800;
+    }
+    .side-play-btn:hover {
+      transform: scale(1.08);
+      background: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(242, 169, 0, 0.45);
+    }
+
+    /* Volume Slider Row */
+    .side-volume-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .side-vol-icon-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    .side-volume-slider {
+      -webkit-appearance: none;
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(to right, var(--saffron) 85%, rgba(255,255,255,0.12) 85%);
+      outline: none;
+      cursor: pointer;
+    }
+    .side-volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #DDE6E1;
+      cursor: pointer;
+    }
+    .side-vol-pct {
+      font-size: 10.5px;
+      color: var(--text-secondary);
+      font-family: monospace;
+      width: 26px;
+      text-align: right;
+    }
+
+    /* Drawer Card */
+    .side-drawer-card {
+      background: rgba(20, 28, 26, 0.75);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 12px 14px;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+      max-height: 280px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .side-drawer-view {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+    .side-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--saffron);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .side-lyrics-badge {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+    .side-lyrics-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(242, 169, 0, 0.3) transparent;
+    }
+    .side-lyric-line {
+      padding: 6px 8px;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      opacity: 0.5;
+    }
+    .side-lyric-line:hover {
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .side-lyric-line.active {
+      opacity: 1;
+      background: rgba(242, 169, 0, 0.12);
+      border-left: 2.5px solid var(--saffron);
+      padding-left: 10px;
+    }
+    .side-lyric-line.active .lyric-kn {
+      color: var(--saffron);
+      font-weight: 800;
+      font-size: 13.5px;
+      text-shadow: 0 0 10px rgba(242, 169, 0, 0.3);
+    }
+    .lyric-kn {
+      font-size: 12px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-family: 'Noto Sans Kannada', sans-serif;
+    }
+    .lyric-en {
+      font-size: 10.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* Queue List in Side Drawer */
+    .side-queue-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scrollbar-width: thin;
+    }
+    .side-queue-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .side-queue-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(242, 169, 0, 0.3);
+      transform: translateX(2px);
+    }
+    .queue-item-art {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .queue-play-icon {
+      font-size: 11px;
+      color: #FFF;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      background: rgba(0,0,0,0.6);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .side-queue-item:hover .queue-play-icon {
+      opacity: 1;
+    }
+    .queue-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .queue-item-title-kn {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25;
+    }
+    .queue-item-title-en {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--saffron);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .queue-item-meta {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Elevated Quick Picks Tile Styling */
+    .raaga-quick-pick-tile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(24, 33, 31, 0.85) 0%, rgba(18, 25, 23, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 9px 12px 9px 9px;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .raaga-quick-pick-tile:hover {
+      background: linear-gradient(135deg, rgba(34, 46, 43, 0.9) 0%, rgba(22, 31, 29, 0.98) 100%);
+      border-color: rgba(242, 169, 0, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 14px rgba(242, 169, 0, 0.12);
+    }
+    .raaga-quick-pick-tile.playing {
+      border-color: var(--saffron);
+      background: linear-gradient(135deg, rgba(242, 169, 0, 0.15) 0%, rgba(24, 33, 31, 0.95) 100%);
+      box-shadow: 0 0 16px rgba(242, 169, 0, 0.25);
+    }
+    .raaga-tile-art {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
 </style>
   <script src="audio/originals/all_kannada_songs.js"></script>
+  <script>
+    // ==================== PERSISTENT RIGHT SIDE NOW PLAYING CONTROLLER ====================
+    let isSideSeeking = false;
+    let lastSideActiveLyricIdx = -1;
+
+    function updatePersistentSidePanel() {
+      const panel = document.getElementById('persistentNowPlayingPanel');
+      if (!panel) return;
+      const s = state.currentSong;
+      if (!s) return;
+
+      const totalDur = (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1)
+        ? Math.round(audioPlayer.duration)
+        : (s.duration || 240);
+      const pct = Math.min(100, Math.max(0, (state.positionSec / totalDur) * 100));
+
+      // 1. Cover Art & Ambient Glow
+      const artImg = document.getElementById('sideArtImg');
+      const artFallback = document.getElementById('sideArtFallback');
+      const ambientGlow = document.getElementById('sideAmbientGlow');
+      const glyph = document.getElementById('sideArtGlyph');
+
+      if (s.artworkUrl) {
+        if (artImg) {
+          artImg.src = s.artworkUrl;
+          artImg.style.display = 'block';
+        }
+        if (artFallback) artFallback.style.display = 'none';
+        if (ambientGlow) {
+          ambientGlow.style.backgroundImage = 'radial-gradient(circle at center, rgba(242,169,0,0.25), transparent 70%)';
+        }
+      } else {
+        if (artImg) artImg.style.display = 'none';
+        if (artFallback) {
+          artFallback.style.display = 'flex';
+          artFallback.style.background = s.gradient || 'linear-gradient(135deg, #1B2B26, #0E1614)';
+        }
+        if (glyph) glyph.innerText = s.knInit || (s.titleKn ? s.titleKn.charAt(0) : 'ಕಾ');
+        if (ambientGlow) {
+          ambientGlow.style.backgroundImage = 'radial-gradient(circle at center, rgba(242,169,0,0.18), transparent 70%)';
+        }
+      }
+
+      // Vinyl pulse badge
+      const vinyl = document.getElementById('sideVinylBadge');
+      if (vinyl) {
+        vinyl.classList.toggle('playing', state.isPlaying);
+      }
+
+      // Heart / Favorite state
+      const isFav = state.favorites.has(s.id) || state.liked.has(s.id);
+      const heartBtn = document.getElementById('sideHeartBtn');
+      if (heartBtn) {
+        heartBtn.classList.toggle('active', isFav);
+        heartBtn.style.color = isFav ? 'var(--saffron)' : 'var(--text-secondary)';
+      }
+      const artFavBtn = document.getElementById('sideArtFavBtn');
+      if (artFavBtn) {
+        artFavBtn.classList.toggle('active', isFav);
+        artFavBtn.style.color = isFav ? 'var(--saffron)' : 'rgba(255,255,255,0.7)';
+      }
+
+      // 2. Titles & Metadata
+      const titleKn = document.getElementById('sideSongTitleKn');
+      if (titleKn) titleKn.innerText = s.titleKn || s.title;
+      const titleEn = document.getElementById('sideSongTitleEn');
+      if (titleEn) titleEn.innerText = s.titleEn || s.title;
+      const artist = document.getElementById('sideSongArtist');
+      if (artist) artist.innerText = `${s.artist || 'Kannada Melody'} • ${s.movie || 'Ragaa'} (${s.year || 2026})`;
+
+      // 3. Progress Slider & Timestamps
+      const slider = document.getElementById('sideProgressSlider');
+      if (slider && !isSideSeeking) {
+        slider.value = pct;
+        slider.style.background = `linear-gradient(to right, var(--saffron) ${pct}%, rgba(255,255,255,0.12) ${pct}%)`;
+      }
+      const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+      const curTime = document.getElementById('sideCurTime');
+      if (curTime) curTime.innerText = fmt(state.positionSec);
+      const totTime = document.getElementById('sideTotTime');
+      if (totTime) totTime.innerText = fmt(totalDur);
+
+      // 4. Equalizer Visualizer animation state
+      const eq = document.getElementById('sideAudioVisualizer');
+      if (eq) {
+        eq.classList.toggle('playing', state.isPlaying);
+      }
+
+      // 5. Controls state
+      const playBtn = document.getElementById('sidePlayBtn');
+      if (playBtn) {
+        playBtn.innerHTML = state.isPlaying ? '⏸' : '▶';
+        playBtn.title = state.isPlaying ? 'Pause' : 'Play';
+      }
+      const shuffleBtn = document.getElementById('sideShuffleBtn');
+      if (shuffleBtn) {
+        shuffleBtn.classList.toggle('active', !!state.shuffle);
+      }
+      const repeatBtn = document.getElementById('sideRepeatBtn');
+      if (repeatBtn) {
+        repeatBtn.classList.toggle('active', state.repeatMode !== 'off');
+        repeatBtn.innerText = state.repeatMode === 'one' ? '🔂' : '🔁';
+      }
+
+      // 6. Sync Lyrics Drawer
+      syncSideLyrics(s, state.positionSec);
+
+      // 7. Sync Queue Drawer
+      renderSideQueue(s);
+    }
+
+    function onSideScrubInput(val) {
+      isSideSeeking = true;
+      const totalDur = (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1)
+        ? Math.round(audioPlayer.duration)
+        : (state.currentSong ? state.currentSong.duration : 240);
+      const targetSec = (val / 100) * totalDur;
+      const fmt = sec => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+      const curTime = document.getElementById('sideCurTime');
+      if (curTime) curTime.innerText = fmt(targetSec);
+      const slider = document.getElementById('sideProgressSlider');
+      if (slider) {
+        slider.style.background = `linear-gradient(to right, var(--saffron) ${val}%, rgba(255,255,255,0.12) ${val}%)`;
+      }
+    }
+
+    function onSideScrubChange(val) {
+      isSideSeeking = false;
+      const totalDur = (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1)
+        ? Math.round(audioPlayer.duration)
+        : (state.currentSong ? state.currentSong.duration : 240);
+      const targetSec = (val / 100) * totalDur;
+      seekAudio(targetSec);
+      updatePlayerSurfaces();
+    }
+
+    function seekFromSidePanel(val) {
+      onSideScrubChange(val);
+    }
+
+    function setSideVolume(val) {
+      if (typeof audioPlayer !== 'undefined' && audioPlayer) {
+        audioPlayer.volume = val / 100;
+        const pct = document.getElementById('sideVolPct');
+        if (pct) pct.innerText = `${Math.round(val)}%`;
+        const btn = document.getElementById('sideMuteBtn');
+        if (btn) btn.innerText = val > 50 ? '🔊' : (val > 0 ? '🔉' : '🔇');
+        const slider = document.getElementById('sideVolumeSlider');
+        if (slider) {
+          slider.style.background = `linear-gradient(to right, var(--saffron) ${val}%, rgba(255,255,255,0.12) ${val}%)`;
+        }
+      }
+    }
+
+    function toggleSideMute() {
+      if (typeof audioPlayer !== 'undefined' && audioPlayer) {
+        if (audioPlayer.volume > 0) {
+          audioPlayer.dataset.lastVol = audioPlayer.volume;
+          setSideVolume(0);
+          const slider = document.getElementById('sideVolumeSlider');
+          if (slider) slider.value = 0;
+        } else {
+          const prev = parseFloat(audioPlayer.dataset.lastVol) || 0.85;
+          setSideVolume(prev * 100);
+          const slider = document.getElementById('sideVolumeSlider');
+          if (slider) slider.value = prev * 100;
+        }
+      }
+    }
+
+    function switchSidePanelTab(tab) {
+      const lyricsBtn = document.getElementById('sideTabBtnLyrics');
+      const queueBtn = document.getElementById('sideTabBtnQueue');
+      const lyricsView = document.getElementById('sideLyricsDrawer');
+      const queueView = document.getElementById('sideQueueDrawer');
+
+      if (tab === 'lyrics') {
+        if (lyricsBtn) lyricsBtn.classList.add('active');
+        if (queueBtn) queueBtn.classList.remove('active');
+        if (lyricsView) { lyricsView.classList.add('active'); lyricsView.style.display = 'flex'; }
+        if (queueView) { queueView.classList.remove('active'); queueView.style.display = 'none'; }
+      } else {
+        if (queueBtn) queueBtn.classList.add('active');
+        if (lyricsBtn) lyricsBtn.classList.remove('active');
+        if (queueView) { queueView.classList.add('active'); queueView.style.display = 'flex'; }
+        if (lyricsView) { lyricsView.classList.remove('active'); lyricsView.style.display = 'none'; }
+        if (state.currentSong) renderSideQueue(state.currentSong);
+      }
+    }
+
+    function syncSideLyrics(song, currentSec) {
+      const scrollEl = document.getElementById('sideLyricsScroll');
+      if (!scrollEl || !song || !song.lyrics) return;
+
+      if (scrollEl.dataset.songId !== song.id) {
+        scrollEl.dataset.songId = song.id;
+        lastSideActiveLyricIdx = -1;
+        scrollEl.innerHTML = song.lyrics.map((l, i) => `
+          <div class="side-lyric-line" id="sideLyricLine-${i}" onclick="seekAudio(${l.t}); updatePlayerSurfaces();">
+            <div class="lyric-kn">${l.kn}</div>
+            ${l.en ? `<div class="lyric-en">${l.en}</div>` : ''}
+          </div>
+        `).join('');
+      }
+
+      let activeIdx = 0;
+      for (let i = 0; i < song.lyrics.length; i++) {
+        if (currentSec >= song.lyrics[i].t) {
+          activeIdx = i;
+        } else {
+          break;
+        }
+      }
+
+      if (activeIdx !== lastSideActiveLyricIdx) {
+        lastSideActiveLyricIdx = activeIdx;
+        document.querySelectorAll('.side-lyric-line').forEach((el, idx) => {
+          el.classList.toggle('active', idx === activeIdx);
+        });
+        const activeEl = document.getElementById(`sideLyricLine-${activeIdx}`);
+        if (activeEl) {
+          const elOffset = activeEl.offsetTop - scrollEl.offsetTop;
+          scrollEl.scrollTo({ top: Math.max(0, elOffset - 40), behavior: 'smooth' });
+        }
+      }
+    }
+
+    function renderSideQueue(currSong) {
+      const listEl = document.getElementById('sideQueueList');
+      if (!listEl) return;
+      const currIdx = CATALOG.findIndex(x => x.id === currSong.id);
+      const nextSongs = [];
+      for (let i = 1; i <= 6; i++) {
+        const nextIdx = (currIdx + i) % CATALOG.length;
+        nextSongs.push(CATALOG[nextIdx]);
+      }
+
+      const countBadge = document.getElementById('sideQueueCount');
+      if (countBadge) countBadge.innerText = `${nextSongs.length} upcoming`;
+
+      listEl.innerHTML = nextSongs.map(s => {
+        const artBg = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+        return `
+          <div class="side-queue-item" onclick="playOrToggleSong(event, '${s.id}')">
+            <div class="queue-item-art" style="background:${artBg};">
+              <span class="queue-play-icon">▶</span>
+            </div>
+            <div class="queue-item-info">
+              <div class="queue-item-title-kn">${s.titleKn}</div>
+              <div class="queue-item-title-en">${s.titleEn}</div>
+              <div class="queue-item-meta">${s.artist} • ${Math.floor(s.duration / 60)}:${String(s.duration % 60).padStart(2, '0')}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+</script>
 </head>
 <body>
   <div class="preview-shell">
@@ -5614,44 +6526,125 @@
 
 <!-- PANE 3: RIGHT PERSISTENT NOW PLAYING PANEL (Wide Desktops 1280px+) -->
       <aside class="tablet-persistent-player" id="persistentNowPlayingPanel">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-          <div style="font-size:14px;font-weight:700;color:var(--text-secondary);letter-spacing:0.5px;text-transform:uppercase;">Now Playing</div>
-          <span class="card-title-badge" style="font-size:10.5px;background:rgba(242,169,0,0.15);color:var(--saffron);padding:2px 8px;border-radius:999px;">Live Queue</span>
-        </div>
-
-        <!-- Cover Art Card -->
-        <div style="width:100%;aspect-ratio:1;border-radius:20px;overflow:hidden;background:#141C1A;border:1px solid var(--border);position:relative;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
-          <div id="sideArtGlyph" style="font-size:52px;font-weight:800;color:var(--saffron);font-family:'Noto Sans Kannada',sans-serif;">ಕಾ</div>
-        </div>
-
-        <!-- Song Metadata -->
-        <div style="margin-bottom:14px;">
-          <div id="sideSongTitle" style="font-size:16px;font-weight:700;color:var(--text-primary);line-height:1.3;">ಕಾದಂಬರಿ ದೈವ ರಾಗ • Kadambari Daiva Raaga</div>
-          <div id="sideSongArtist" style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Vijay Prakash • Kantara: Chapter 1 (2026)</div>
-        </div>
-
-        <!-- Waveform / Progress slider -->
-        <div style="margin-bottom:14px;">
-          <div class="raaga-range-row" style="max-width:100%;gap:8px;">
-            <span style="font-size:11px;color:var(--text-secondary);" id="sideCurTime">1:24</span>
-            <input type="range" min="0" max="100" value="35" class="raaga-range-slider" id="sideProgressSlider" oninput="seekFromSidePanel(this.value)" aria-label="Progress" />
-            <span style="font-size:11px;color:var(--text-secondary);" id="sideTotTime">4:12</span>
+        <!-- Panel Header -->
+        <div class="side-panel-header">
+          <div>
+            <div class="side-kicker">NOW PLAYING • ಪ್ರಸ್ತುತ ಗೀತೆ</div>
+            <div class="side-badge-lossless">
+              <span class="pulsing-lossless-dot"></span>
+              <span>Lossless 320 kbps Studio Master</span>
+            </div>
+          </div>
+          <!-- Segmented Tab Switch: Lyrics vs Queue -->
+          <div class="side-tab-pill-switch">
+            <button class="side-tab-btn active" id="sideTabBtnLyrics" onclick="switchSidePanelTab('lyrics')" title="Kannada Lyrics">ಸಾಹಿತ್ಯ</button>
+            <button class="side-tab-btn" id="sideTabBtnQueue" onclick="switchSidePanelTab('queue')" title="Up Next Queue">ಸರದಿ</button>
           </div>
         </div>
 
-        <!-- Controls Row -->
-        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;">
-          <button class="np-sec-btn" onclick="prevTrack(event)" title="Previous">⏮</button>
-          <button class="mini-mint-play" onclick="togglePlayPause(event)" id="sidePlayBtn" title="Play / Pause" style="width:54px;height:54px;font-size:22px;border-radius:50%;background:#DDE6E1;color:#0B1110;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
-          <button class="np-sec-btn" onclick="nextTrack(event)" title="Next">⏭</button>
+        <!-- Album Artwork Showcase with Ambient Glow -->
+        <div class="side-art-showcase-wrap">
+          <div class="side-art-glow" id="sideAmbientGlow"></div>
+          <div class="side-art-card" id="sideArtCard">
+            <img id="sideArtImg" src="" alt="Album Cover" class="side-art-cover-img" style="display:none;" />
+            <div id="sideArtFallback" class="side-art-fallback-box">
+              <div id="sideArtGlyph" class="side-art-glyph">ಕಾ</div>
+              <div class="side-art-swara">ಸ್ವರ ಸಮ್ಮಿಲನ</div>
+            </div>
+            <!-- Vinyl Disc Peek Overlay on Play -->
+            <div class="side-vinyl-badge" id="sideVinylBadge">
+              <span class="vinyl-groove"></span>
+            </div>
+            <!-- Favorite Heart Quick Toggle Button on Art -->
+            <button class="side-art-fav-btn" id="sideArtFavBtn" onclick="toggleCurrentFavorite(event)" title="Add to Favorites">
+              ♥
+            </button>
+          </div>
         </div>
 
-        <!-- Lyrics Snippet -->
-        <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:14px;padding:12px;flex:1;overflow-y:auto;max-height:220px;">
-          <div style="font-size:11px;font-weight:700;color:var(--saffron);margin-bottom:6px;text-transform:uppercase;">Live Kannada Lyrics</div>
-          <div id="sideLyricsSnippet" style="font-size:12.5px;color:var(--text-primary);line-height:1.6;font-family:'Noto Sans Kannada',sans-serif;">
-            ಕಾದಂಬರಿ ಮುಳುಗಿದೆ ರಾಗದಲಿ...<br />
-            ದೈವದ ಹೆಜ್ಜೆಯ ಸದ್ದಿನಲಿ...
+        <!-- Song Metadata & Movie Line -->
+        <div class="side-meta-block">
+          <div class="side-title-row">
+            <div style="flex:1;min-width:0;">
+              <div id="sideSongTitleKn" class="side-song-title-kn">ಕಾದಂಬರಿ ದೈವ ರಾಗ</div>
+              <div id="sideSongTitleEn" class="side-song-title-en">Kadambari Daiva Raaga</div>
+            </div>
+            <button class="side-heart-btn" id="sideHeartBtn" onclick="toggleCurrentFavorite(event)" title="Favorite">
+              ♥
+            </button>
+          </div>
+          <div id="sideSongArtist" class="side-song-artist">Vijay Prakash • Kantara: Chapter 1 (2026)</div>
+        </div>
+
+        <!-- Waveform Progress & Scrubber -->
+        <div class="side-progress-wrap">
+          <div class="side-time-row">
+            <span id="sideCurTime" class="side-time-label">0:00</span>
+            <div class="side-live-eq" id="sideAudioVisualizer" title="Studio Equalizer">
+              <span class="eq-bar eq-b1"></span>
+              <span class="eq-bar eq-b2"></span>
+              <span class="eq-bar eq-b3"></span>
+              <span class="eq-bar eq-b4"></span>
+              <span class="eq-bar eq-b5"></span>
+              <span class="eq-bar eq-b6"></span>
+              <span class="eq-bar eq-b7"></span>
+              <span class="eq-bar eq-b8"></span>
+            </div>
+            <span id="sideTotTime" class="side-time-label">4:12</span>
+          </div>
+          <input type="range" min="0" max="100" value="0" class="side-progress-slider" id="sideProgressSlider" oninput="onSideScrubInput(this.value)" onchange="onSideScrubChange(this.value)" aria-label="Audio track progress" />
+        </div>
+
+        <!-- Full Studio Transport Controls -->
+        <div class="side-controls-row">
+          <button class="side-ctrl-btn" id="sideShuffleBtn" onclick="toggleShuffle(event)" title="Shuffle">
+            🔀
+          </button>
+          <button class="side-ctrl-btn side-step-btn" id="sidePrevBtn" onclick="prevTrack(event)" title="Previous Track">
+            ⏮
+          </button>
+          <button class="side-play-btn" id="sidePlayBtn" onclick="togglePlayPause(event)" title="Play / Pause">
+            ▶
+          </button>
+          <button class="side-ctrl-btn side-step-btn" id="sideNextBtn" onclick="nextTrack(event)" title="Next Track">
+            ⏭
+          </button>
+          <button class="side-ctrl-btn" id="sideRepeatBtn" onclick="toggleRepeat(event)" title="Repeat">
+            🔁
+          </button>
+        </div>
+
+        <!-- Studio Volume Slider Row -->
+        <div class="side-volume-row">
+          <button class="side-vol-icon-btn" onclick="toggleSideMute()" id="sideMuteBtn" title="Volume">
+            🔊
+          </button>
+          <input type="range" min="0" max="100" value="85" class="side-volume-slider" id="sideVolumeSlider" oninput="setSideVolume(this.value)" aria-label="Volume Control" />
+          <span class="side-vol-pct" id="sideVolPct">85%</span>
+        </div>
+
+        <!-- Dual Content Drawer: Tab 1 (Lyrics) vs Tab 2 (Queue) -->
+        <div class="side-drawer-card">
+          <!-- Lyrics View -->
+          <div id="sideLyricsDrawer" class="side-drawer-view active">
+            <div class="side-drawer-header">
+              <span>LIVE KANNADA LYRICS • ಸಾಹಿತ್ಯ</span>
+              <span class="side-lyrics-badge">Karaoke Synced</span>
+            </div>
+            <div class="side-lyrics-scroll" id="sideLyricsScroll">
+              <!-- Dynamically populated lyrics lines -->
+            </div>
+          </div>
+
+          <!-- Queue View -->
+          <div id="sideQueueDrawer" class="side-drawer-view" style="display:none;">
+            <div class="side-drawer-header">
+              <span>UP NEXT • ಮುಂದಿನ ಹಾಡುಗಳು</span>
+              <span class="side-lyrics-badge" id="sideQueueCount">5 tracks</span>
+            </div>
+            <div class="side-queue-list" id="sideQueueList">
+              <!-- Dynamically populated queue items -->
+            </div>
           </div>
         </div>
       </aside>
@@ -8708,6 +9701,9 @@
 
       // Update lyrics if tab active
       if (raagaPlayerActiveTab === 'lyrics') renderRaagaLyrics();
+      if (typeof updatePersistentSidePanel === 'function') {
+        try { updatePersistentSidePanel(); } catch (e) {}
+      }
     }
 
     // Forward updatePlayerSurfaces to raaga version
