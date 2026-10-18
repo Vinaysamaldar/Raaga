@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "StyleMe — Sign In",
-  description: "3D Perspective Glowing Glass Sign-In Card",
+  title: "Ragaa — Music Player",
+  description: "Ragaa — Stream, Discover and Enjoy Full-Length Kannada Music with Lossless Audio",
 };
 
 export default function RootLayout({
