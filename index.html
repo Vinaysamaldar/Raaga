@@ -1128,15 +1128,26 @@
 
   
     /* ==================== RESPONSIVE LAYOUT & DEVICE SWITCHER ==================== */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
     .preview-shell {
       display: flex;
       flex-direction: column;
-      align-items: center;
       width: 100%;
+      height: 100%;
       min-height: 100vh;
-      padding: 10px 8px;
+      padding: 0;
+      margin: 0;
       box-sizing: border-box;
-      background: #050807;
+      background: var(--bg);
+      overflow: hidden;
     }
 
     .device-switcher-bar {
@@ -1205,18 +1216,18 @@
     /* Android Viewport Base & Responsive Width Variants */
     .android-viewport {
       width: 100%;
-      max-width: 390px;
-      height: 844px;
+      max-width: 100%;
+      height: 100vh;
+      height: 100dvh;
       background: var(--bg);
-      border-radius: 38px;
-      border: 6px solid #1E2624;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.85);
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
       display: flex;
-      flex-direction: row; /* enables side rail & persistent now playing on tablet */
+      flex-direction: row;
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
-      transition: max-width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-radius 0.3s ease;
       container-type: inline-size;
       container-name: raagaApp;
     }
@@ -2041,46 +2052,86 @@
       color: var(--text-primary);
     }
 
+
+
+    /* ==================== AUTOMATIC FLUID RESPONSIVE MEDIA QUERIES ==================== */
+    @media (max-width: 599px) {
+      .tablet-nav-rail { display: none !important; }
+      .tablet-persistent-player { display: none !important; }
+      .floating-nav-pill { display: flex !important; }
+      .floating-mini-player {
+        display: flex !important;
+        position: absolute !important;
+        left: 16px !important;
+        right: 16px !important;
+        bottom: 84px !important;
+        height: 68px !important;
+        border-radius: var(--pill-radius) !important;
+        border: 1px solid var(--border) !important;
+      }
+      .era-glass-bar { width: 100%; }
+      .screens-wrapper { padding-bottom: 160px; }
+      #homePillarGrid { grid-template-columns: 1fr 1fr !important; }
+    }
+
+    @media (min-width: 600px) and (max-width: 839px) {
+      .tablet-nav-rail {
+        display: flex !important;
+        width: 88px !important;
+        padding: 16px 8px !important;
+      }
+      .rail-logo-text { display: none !important; }
+      .rail-btn-label { display: none !important; }
+      .tablet-persistent-player { display: none !important; }
+      .floating-nav-pill { display: none !important; }
+      .floating-mini-player {
+        display: flex !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 64px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-top: 1px solid var(--border) !important;
+        width: 100% !important;
+      }
+      .screens-wrapper { padding-bottom: 24px; }
+      #homePillarGrid { grid-template-columns: repeat(4, 1fr) !important; }
+      .tablet-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+        overflow-x: visible !important;
+      }
+    }
+
+    @media (min-width: 840px) {
+      .tablet-nav-rail {
+        display: flex !important;
+        width: 220px !important;
+        padding: 20px 14px !important;
+      }
+      .rail-logo-text { display: block !important; }
+      .rail-btn-label { display: inline !important; }
+      .tablet-persistent-player {
+        display: flex !important;
+        width: 350px !important;
+      }
+      .floating-nav-pill { display: none !important; }
+      .floating-mini-player { display: none !important; }
+      .screens-wrapper { padding-bottom: 24px; }
+      #homePillarGrid { grid-template-columns: repeat(4, 1fr) !important; }
+      .tablet-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+        overflow-x: visible !important;
+      }
+    }
+
 </style>
 </head>
 <body>
   <div class="preview-shell">
-    <!-- Responsive Device Viewport Switcher Toolbar (Phone, Small Tablet/Foldable, Large Tablet, Fluid) -->
-    <div class="device-switcher-bar">
-      <span style="font-size:11px;font-weight:800;color:var(--saffron);margin-right:4px;">RESPONSIVE BREAKPOINTS:</span>
-      <button class="device-btn active" id="btnDevPhone" onclick="setDeviceViewport('phone')">📱 Phone (390×844)</button>
-      <button class="device-btn" id="btnDevMedium" onclick="setDeviceViewport('medium')">📱 Small Tablet / Foldable (720px)</button>
-      <button class="device-btn" id="btnDevExpanded" onclick="setDeviceViewport('expanded')">💻 Large Tablet (1140px 3-Pane)</button>
-      <button class="device-btn" id="btnDevFluid" onclick="setDeviceViewport('fluid')">🖥️ 100% Fluid Window</button>
-    </div>
-
-    <!-- Prototype Walkthrough Step-by-Step Flow Guide -->
-    <div class="prototype-guide-bar">
-      <span>🚀 QUICK PROTOTYPE FLOW:</span>
-      <span class="guide-step-chip" onclick="switchNav('az')">1. Browse A-Z</span>
-      <span>→</span>
-      <span class="guide-step-chip" onclick="enableAzMultiSelect()">2. Select Songs</span>
-      <span>→</span>
-      <span class="guide-step-chip" onclick="downloadSelectedAzSongs()">3. Download</span>
-      <span>→</span>
-      <span class="guide-step-chip" onclick="switchNav('downloads')">4. Download Manager</span>
-      <span>→</span>
-      <span class="guide-step-chip" onclick="toggleOfflineMode()">5. Switch Offline</span>
-      <span>→</span>
-      <span class="guide-step-chip" onclick="playRandomDownloadedSong()">6. Play Offline</span>
-      <span>|</span>
-      <span class="guide-step-chip" style="background:rgba(221,230,225,0.18);color:var(--accent-mint);border-color:var(--accent-mint);" onclick="simulateAudioAdBetweenSongs()">📻 Test Audio Ad (Between Songs)</span>
-      <span class="guide-step-chip" onclick="openPremiumModal()">👑 Go Premium</span>
-      <span class="guide-step-chip" onclick="openAdPreferencesModal()">⚙️ Ad Preferences</span>
-      <span class="guide-step-chip" onclick="openLockScreenSimulator()">🔒 Lock Screen / Bluetooth State</span>
-    
-      <span class="guide-step-chip" style="background:rgba(242,169,0,0.18);color:var(--saffron);border-color:var(--saffron);" onclick="openAuthModal()">🔐 Login / Sign-Up Flow</span>
-      <span class="guide-step-chip" onclick="openAuthComponents()">🧩 Component Sheet</span>
-      <span class="guide-step-chip" onclick="toggleLightDarkTheme()">🌓 Toggle Light/Dark</span>
-      <span class="guide-step-chip" onclick="openAuthConsent()">🛡️ Privacy Consent</span>
-
-    </div>
-
     <div class="android-viewport home-active" id="appViewport">
       <!-- PANE 1: TABLET LEFT NAVIGATION RAIL (600px+ Small & Large Tablets) -->
       <nav class="tablet-nav-rail">
@@ -8097,6 +8148,14 @@
 
     // Initialize UI state on load
     updateAuthUIState();
+
+
+
+    // Automatic Responsive Window Resize Listener
+    window.addEventListener('resize', () => {
+      updatePlayerSurfaces();
+      renderAll();
+    });
 
 </script>
 </body>
