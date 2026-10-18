@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Internal email verification codes: Admin SDK only! Never exposed to clients
+    match /ragaa_email_codes/{document} {
+      allow read, write: if false;
+    }
+
+    // User profiles & listening footprint
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // User custom playlists
+    match /users/{userId}/playlists/{playlistId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Public catalog (read only for all including guests)
+    match /catalog/{songId} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
