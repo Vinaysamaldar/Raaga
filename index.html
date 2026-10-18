@@ -5439,6 +5439,25 @@
       } else {
         audioPlayer.pause();
       }
+
+      // Lock screen, notification & Bluetooth metadata with official Ragaa logo
+      if ('mediaSession' in navigator && state.currentSong) {
+        try {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: state.currentSong.titleKn || state.currentSong.titleEn,
+            artist: state.currentSong.singer || state.currentSong.artist,
+            album: state.currentSong.movie || 'Ragaa',
+            artwork: [
+              { src: state.currentSong.coverUrl || 'ragaa_logo.jpg', sizes: '512x512', type: 'image/jpeg' },
+              { src: 'ragaa_logo.jpg', sizes: '512x512', type: 'image/jpeg' }
+            ]
+          });
+          navigator.mediaSession.setActionHandler('play', () => { state.isPlaying = true; syncAudio(); renderAll(); });
+          navigator.mediaSession.setActionHandler('pause', () => { state.isPlaying = false; syncAudio(); renderAll(); });
+          navigator.mediaSession.setActionHandler('previoustrack', () => nextTrack(null, true));
+          navigator.mediaSession.setActionHandler('nexttrack', () => nextTrack());
+        } catch(e) {}
+      }
     }
 
     // ==================== SHARED SONG ROW COMPONENT (56px Thumb) ====================

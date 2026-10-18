@@ -330,13 +330,10 @@ export function Component() {
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", duration: 0.8 }}
-                    className="mx-auto w-10 h-10 rounded-full border border-white/10 flex items-center justify-center relative overflow-hidden"
+                    className="mx-auto w-12 h-12 rounded-2xl border border-amber-400/30 flex items-center justify-center relative overflow-hidden shadow-lg shadow-amber-500/20"
                   >
-                    {/* Logo with Lucide Sparkles */}
-                    <Sparkles className="w-4 h-4 text-white/80" />
-                    
-                    {/* Inner lighting effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50" />
+                    {/* Official Ragaa Veena Heritage Logo */}
+                    <img src="/ragaa_logo.jpg" alt="Ragaa Logo" className="w-full h-full object-cover" />
                   </motion.div>
 
                   <motion.h1
