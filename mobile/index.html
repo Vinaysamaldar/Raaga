@@ -1456,6 +1456,62 @@
       transform: rotate(-90deg);
     }
 
+  
+    /* ==================== BACKGROUND-ONLY NON-INTRUSIVE ADS STYLING ==================== */
+    .ad-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(242, 169, 0, 0.18);
+      color: var(--saffron);
+      border: 1px solid rgba(242, 169, 0, 0.4);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+
+    .ad-locked-ctrl {
+      opacity: 0.28 !important;
+      pointer-events: none !important;
+      cursor: not-allowed !important;
+    }
+
+    .remove-ads-link {
+      font-size: 11.5px;
+      color: var(--accent-mint);
+      text-decoration: underline;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: opacity 0.15s;
+    }
+    .remove-ads-link:hover { opacity: 1; }
+
+    /* Lock Screen & Bluetooth Media Notification Simulator */
+    .lock-screen-sim-card {
+      background: rgba(18, 25, 23, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 14px 16px;
+      margin: 12px 0;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Premium Banner Card (Inside Settings and Library only - never covering player) */
+    .go-premium-card {
+      background: linear-gradient(135deg, rgba(242, 169, 0, 0.14) 0%, rgba(221, 230, 225, 0.08) 100%);
+      border: 1px solid rgba(242, 169, 0, 0.35);
+      border-radius: 18px;
+      padding: 14px;
+      margin: 10px 0 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
   </style>
 </head>
 <body>
@@ -1483,6 +1539,11 @@
       <span class="guide-step-chip" onclick="toggleOfflineMode()">5. Switch Offline</span>
       <span>→</span>
       <span class="guide-step-chip" onclick="playRandomDownloadedSong()">6. Play Offline</span>
+      <span>|</span>
+      <span class="guide-step-chip" style="background:rgba(221,230,225,0.18);color:var(--accent-mint);border-color:var(--accent-mint);" onclick="simulateAudioAdBetweenSongs()">📻 Test Audio Ad (Between Songs)</span>
+      <span class="guide-step-chip" onclick="openPremiumModal()">👑 Go Premium</span>
+      <span class="guide-step-chip" onclick="openAdPreferencesModal()">⚙️ Ad Preferences</span>
+      <span class="guide-step-chip" onclick="openLockScreenSimulator()">🔒 Lock Screen / Bluetooth State</span>
     </div>
 
     <div class="android-viewport home-active" id="appViewport">
@@ -1734,6 +1795,16 @@
 
         <!-- 2-Column Grid of Rounded Tonal Tiles -->
         <div class="lib-grid" id="libraryTilesGrid"></div>
+
+        <!-- Go Premium Banner Card (Inside Library only - never covering player) -->
+        <div class="go-premium-card" id="libPremiumBanner">
+          <div>
+            <div style="font-size:13.5px;font-weight:800;color:var(--saffron);">👑 Go Ad-Free with Raaga Premium</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">Zero audio ads • 320 kbps HD downloads • Unlocked archive</div>
+          </div>
+          <button class="pill-chip active" style="padding:6px 12px;font-size:11px;font-weight:800;" onclick="openPremiumModal()">Try Free</button>
+        </div>
+
 
         <!-- Downloads / Offline Sub-Panel (Opens when 'Downloaded' tile tapped) -->
         <div id="downloadsManagerPanel" style="display:none;background:var(--surface-elevated);padding:14px;border-radius:var(--card-radius);margin-bottom:16px;border:1px solid var(--saffron);">
@@ -2200,6 +2271,143 @@
     <!-- SONG ROW THREE-DOT CONTEXT ACTION SHEET -->
     <div class="collection-modal-backdrop" id="songActionsModalBackdrop" onclick="closeSongActionsModal(event)">
       <div class="collection-sheet" onclick="event.stopPropagation()" id="songActionsModalContent"></div>
+    </div>
+
+    
+    <!-- PREMIUM / AD-FREE UPSELL BOTTOM SHEET -->
+    <div class="collection-modal-backdrop" id="premiumModalBackdrop" onclick="closePremiumModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:17px;font-weight:800;color:var(--saffron);">👑 Kannada Raaga Premium</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);">Unlimited Kannada Heritage • 100% Ad-Free</div>
+          </div>
+          <button class="pill-chip" onclick="closePremiumModal()">✕</button>
+        </div>
+
+        <div style="background:var(--surface);padding:12px;border-radius:14px;border:1px solid rgba(242,169,0,0.3);margin-bottom:14px;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent-mint);margin-bottom:6px;">PREMIUM MEMBER PRIVILEGES:</div>
+          <div style="font-size:11.5px;line-height:1.6;color:var(--text-primary);">
+            ✓ <b>Zero Audio Ads</b>: Pure uninterrupted listening between songs<br>
+            ✓ <b>320 kbps Studio Masters</b>: Download all Kannada tracks in lossless HD<br>
+            ✓ <b>Full Offline Freedom</b>: No download expiry limits<br>
+            ✓ <b>Direct Artist Support</b>: Proceeds support Kannada folk & classical preservation
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-bottom:14px;">
+          <div style="flex:1;background:var(--surface);padding:12px;border-radius:14px;border:1.5px solid var(--accent-mint);text-align:center;cursor:pointer;" onclick="selectPremiumTier('monthly')">
+            <div style="font-size:10px;font-weight:800;color:var(--accent-mint);text-transform:uppercase;">Monthly Plan</div>
+            <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin:4px 0;">₹99 <small style="font-size:10px;color:var(--text-secondary);">/ mo</small></div>
+            <div style="font-size:10px;color:var(--text-secondary);">7-Day Free Trial</div>
+          </div>
+          <div style="flex:1;background:var(--surface);padding:12px;border-radius:14px;border:1.5px solid var(--saffron);text-align:center;cursor:pointer;" onclick="selectPremiumTier('yearly')">
+            <span style="font-size:9px;background:var(--saffron);color:#0B1110;padding:1px 6px;border-radius:99px;font-weight:800;">SAVE 33%</span>
+            <div style="font-size:10px;font-weight:800;color:var(--saffron);text-transform:uppercase;margin-top:2px;">Yearly Plan</div>
+            <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin:4px 0;">₹799 <small style="font-size:10px;color:var(--text-secondary);">/ yr</small></div>
+            <div style="font-size:10px;color:var(--text-secondary);">Best Value</div>
+          </div>
+        </div>
+
+        <!-- Rewarded Ad Option -->
+        <button class="col-option-btn" style="margin-bottom:12px;background:rgba(221,230,225,0.06);" onclick="watchRewardedAdForAdFreeHour()">
+          <span>🎁 Watch one 15s audio ad → Unlock 1 hour ad-free</span>
+          <span style="color:var(--accent-mint);font-size:11px;font-weight:700;">Free Reward</span>
+        </button>
+
+        <button class="pill-chip active-mint" style="width:100%;padding:12px;font-size:13px;font-weight:800;" onclick="activatePremiumMembership()">
+          👑 Activate Premium Membership (₹99/mo)
+        </button>
+      </div>
+    </div>
+
+    <!-- AD PREFERENCES MODAL (Settings Screen) -->
+    <div class="collection-modal-backdrop" id="adPreferencesModalBackdrop" onclick="closeAdPreferencesModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">⚙️ Ad Preferences & Privacy</div>
+            <div style="font-size:11px;color:var(--text-secondary);">Non-intrusive background audio ads policy</div>
+          </div>
+          <button class="pill-chip" onclick="closeAdPreferencesModal()">✕</button>
+        </div>
+
+        <div style="background:var(--surface);padding:12px;border-radius:14px;border:1px solid var(--border);font-size:11.5px;line-height:1.55;color:var(--text-secondary);margin-bottom:12px;">
+          <b style="color:var(--text-primary);">Our Non-Intrusive Principles:</b><br>
+          • <b>Audio Only</b>: Played strictly between songs (1 ad every 4–5 tracks).<br>
+          • <b>Zero Interruptions</b>: Never stops a playing song in the middle.<br>
+          • <b>Zero Cover Banners</b>: Never obscures your mini-player or controls.<br>
+          • <b>Offline Caching</b>: Ads pre-fetch when online and report impressions when reconnected.
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+          <div style="background:var(--surface);padding:10px 14px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text-primary);">Personalized Audio Ads</div>
+              <div style="font-size:11px;color:var(--text-secondary);">Tailor sponsors to your Kannada music taste</div>
+            </div>
+            <input type="checkbox" id="prefPersonalizedAds" checked onchange="togglePersonalizedAds(this.checked)" style="accent-color:var(--accent-mint);width:18px;height:18px;" />
+          </div>
+
+          <div style="background:var(--surface);padding:10px 14px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text-primary);">Age Under 18 / Child Safe Mode</div>
+              <div style="font-size:11px;color:var(--text-secondary);">DPDP & GDPR rule: strictly disables ad tracking</div>
+            </div>
+            <input type="checkbox" id="prefUnder18" onchange="toggleUnder18Mode(this.checked)" style="accent-color:var(--saffron);width:18px;height:18px;" />
+          </div>
+        </div>
+
+        <div style="background:var(--surface-elevated);padding:10px 12px;border-radius:12px;font-size:11px;color:var(--text-secondary);margin-bottom:12px;">
+          📦 <b>Offline Ad Cache Status:</b> <span id="offlineAdCacheStatus">3 audio ads cached • 0 pending sync</span>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--accent-mint);">
+          <span style="text-decoration:underline;cursor:pointer;" onclick="showRaagaToast('DPDP 2023 & GDPR Privacy Policy: Raaga complies with strict privacy rules.')">DPDP / GDPR Privacy Policy</span>
+          <button class="pill-chip" onclick="simulateFailedAdSkip()">Test Ad Fail Fallback</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCK SCREEN & BLUETOOTH MEDIA METADATA SIMULATOR -->
+    <div class="collection-modal-backdrop" id="lockScreenSimBackdrop" onclick="closeLockScreenSimulator(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <div>
+            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">🔒 Lock Screen & Bluetooth Car State</div>
+            <div style="font-size:11px;color:var(--text-secondary);">Simulates background audio session notification card</div>
+          </div>
+          <button class="pill-chip" onclick="closeLockScreenSimulator()">✕</button>
+        </div>
+
+        <div class="lock-screen-sim-card">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="width:48px;height:48px;border-radius:12px;background:var(--surface-elevated);display:flex;align-items:center;justify-content:center;font-size:24px;" id="lockSimArt">
+              🥛
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:10px;font-weight:800;color:var(--saffron);margin-bottom:2px;" id="lockSimBadge">AD • AUDIO SPONSOR</div>
+              <div style="font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="lockSimTitle">Nandini GoodLife Milk</div>
+              <div style="font-size:11.5px;color:var(--text-secondary);" id="lockSimSubtitle">Ad • 12s remaining</div>
+            </div>
+            <button class="pill-chip active-mint" style="width:38px;height:38px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;" onclick="togglePlayPause(event)" id="lockSimPlayBtn">
+              ⏸
+            </button>
+          </div>
+          <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:99px;overflow:hidden;">
+            <div style="width:58%;height:100%;background:var(--saffron);" id="lockSimBar"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-secondary);margin-top:4px;">
+            <span id="lockSimElapsed">0:03</span>
+            <span id="lockSimTotal">0:15</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:6px;">
+          <button class="pill-chip" style="flex:1;font-size:11px;" onclick="simulatePhoneCallInterrupt()">📞 Simulate Phone Call (Pause)</button>
+          <button class="pill-chip" style="flex:1;font-size:11px;" onclick="simulateDoNotDisturb()">🌙 Do Not Disturb</button>
+        </div>
+      </div>
     </div>
 
     <!-- FLOATING TOAST PILL -->
@@ -5673,6 +5881,226 @@
       syncAudio(true);
       renderAll();
       showRaagaToast(`▶ Playing offline: "${pick.titleKn}"`);
+    }
+
+    
+    // ==================== BACKGROUND-ONLY NON-INTRUSIVE ADS ENGINE ====================
+    const SPONSOR_ADS = [
+      {
+        id: 'ad_nandini',
+        brand: 'Nandini GoodLife Milk',
+        tagline: 'ಶುದ್ಧ ಕರ್ನಾಟಕದ ಹಾಲು • Pure Karnataka Dairy Tradition',
+        logo: '🥛',
+        duration: 15
+      },
+      {
+        id: 'ad_mysore_sandal',
+        brand: 'Mysore Sandal Soap',
+        tagline: 'ಕರ್ನಾಟಕದ ಗಂಧದ ಸುವಾಸನೆ • Heritage of Pure Sandalwood',
+        logo: '🧼',
+        duration: 15
+      },
+      {
+        id: 'ad_karnataka_tourism',
+        brand: 'Karnataka Tourism',
+        tagline: 'ಒಂದು ರಾಜ್ಯ, ಹಲವು ಜಗತ್ತು • One State. Many Worlds.',
+        logo: '🏛️',
+        duration: 15
+      }
+    ];
+
+    state.isAdPlaying = false;
+    state.currentAd = null;
+    state.adSecondsRemaining = 15;
+    state.adTotalDuration = 15;
+    state.isPremium = false;
+    state.adFreeUntil = 0;
+    state.adTimer = null;
+    state.offlineAdImpressions = [];
+    state.personalizedAds = true;
+    state.under18Mode = false;
+
+    // Simulate between-song transition: Song ends -> Audio Ad plays -> Next Song resumes
+    function simulateAudioAdBetweenSongs() {
+      if (state.isPremium) {
+        showRaagaToast('👑 Premium Active: Audio ads are automatically skipped');
+        nextTrack();
+        return;
+      }
+      if (Date.now() < state.adFreeUntil) {
+        const minsLeft = Math.ceil((state.adFreeUntil - Date.now()) / 60000);
+        showRaagaToast(`🎁 Ad-Free Reward Active: ${minsLeft}m remaining without ads`);
+        nextTrack();
+        return;
+      }
+
+      // Pick a non-repeating sponsor ad
+      const pick = SPONSOR_ADS[Math.floor(Math.random() * SPONSOR_ADS.length)];
+      state.currentAd = pick;
+      state.isAdPlaying = true;
+      state.adTotalDuration = pick.duration;
+      state.adSecondsRemaining = pick.duration;
+      state.isPlaying = true;
+
+      if (state.offlineMode) {
+        state.offlineAdImpressions.push({ adId: pick.id, time: new Date().toISOString() });
+        const cacheStatus = document.getElementById('offlineAdCacheStatus');
+        if (cacheStatus) {
+          cacheStatus.innerText = `3 audio ads cached • ${state.offlineAdImpressions.length} offline impressions (will sync when online)`;
+        }
+      }
+
+      updatePlayerSurfaces();
+      showRaagaToast(`📻 Audio Ad Session: ${pick.brand} (15s)`);
+
+      if (state.adTimer) clearInterval(state.adTimer);
+      state.adTimer = setInterval(() => {
+        if (!state.isPlaying) return; // Respect pause / phone calls
+        state.adSecondsRemaining--;
+        updatePlayerSurfaces();
+
+        if (state.adSecondsRemaining <= 0) {
+          clearInterval(state.adTimer);
+          state.isAdPlaying = false;
+          state.currentAd = null;
+          showRaagaToast('✓ Audio ad ended. Next Kannada song resuming.');
+          nextTrack();
+        }
+      }, 1000);
+    }
+
+    function simulateFailedAdSkip() {
+      if (state.isAdPlaying) {
+        if (state.adTimer) clearInterval(state.adTimer);
+        state.isAdPlaying = false;
+        state.currentAd = null;
+      }
+      showRaagaToast('⚠️ Ad load failed (Network timeout). Skipped silently to next song.');
+      closeAdPreferencesModal();
+      nextTrack();
+    }
+
+    // ==================== PREMIUM / AD-FREE MEMBERSHIP ====================
+    function openPremiumModal() {
+      document.getElementById('premiumModalBackdrop').classList.add('open');
+    }
+    function closePremiumModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('premiumModalBackdrop').classList.remove('open');
+    }
+
+    function selectPremiumTier(tier) {
+      showRaagaToast(`Selected ${tier.toUpperCase()} Plan (₹${tier === 'monthly' ? '99/mo' : '799/yr'})`);
+    }
+
+    function activatePremiumMembership() {
+      state.isPremium = true;
+      if (state.isAdPlaying) {
+        if (state.adTimer) clearInterval(state.adTimer);
+        state.isAdPlaying = false;
+        state.currentAd = null;
+        nextTrack();
+      }
+      closePremiumModal();
+      const banner = document.getElementById('libPremiumBanner');
+      if (banner) banner.style.display = 'none';
+      renderAll();
+      showRaagaToast('👑 Raaga Premium Activated: Zero ads & 320 kbps HD master audio!');
+    }
+
+    function watchRewardedAdForAdFreeHour() {
+      closePremiumModal();
+      showRaagaToast('🎁 Playing 15s rewarded audio ad...');
+      simulateAudioAdBetweenSongs();
+      state.adFreeUntil = Date.now() + 3600000; // 1 hour ad-free
+      setTimeout(() => {
+        showRaagaToast('🎉 1 Hour Ad-Free listening unlocked!');
+      }, 15500);
+    }
+
+    // ==================== AD PREFERENCES & PRIVACY ====================
+    function openAdPreferencesModal() {
+      document.getElementById('adPreferencesModalBackdrop').classList.add('open');
+    }
+    function closeAdPreferencesModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('adPreferencesModalBackdrop').classList.remove('open');
+    }
+
+    function togglePersonalizedAds(checked) {
+      state.personalizedAds = checked;
+      showRaagaToast(checked ? '✓ Personalized audio ads enabled' : 'Personalized ads disabled (Contextual only)');
+    }
+
+    function toggleUnder18Mode(checked) {
+      state.under18Mode = checked;
+      const persBox = document.getElementById('prefPersonalizedAds');
+      if (persBox) {
+        persBox.checked = !checked;
+        persBox.disabled = checked;
+      }
+      state.personalizedAds = !checked;
+      showRaagaToast(checked ? '🔒 Child Safe Mode enabled (All tracking disabled per DPDP/GDPR)' : 'Standard mode restored');
+    }
+
+    // ==================== LOCK SCREEN & BLUETOOTH SIMULATOR ====================
+    function openLockScreenSimulator() {
+      const backdrop = document.getElementById('lockScreenSimBackdrop');
+      const art = document.getElementById('lockSimArt');
+      const badge = document.getElementById('lockSimBadge');
+      const title = document.getElementById('lockSimTitle');
+      const sub = document.getElementById('lockSimSubtitle');
+      const bar = document.getElementById('lockSimBar');
+      const elapsed = document.getElementById('lockSimElapsed');
+      const total = document.getElementById('lockSimTotal');
+      const playBtn = document.getElementById('lockSimPlayBtn');
+
+      if (state.isAdPlaying && state.currentAd) {
+        art.innerText = state.currentAd.logo;
+        badge.innerText = 'AD • AUDIO SPONSOR';
+        badge.style.color = 'var(--saffron)';
+        title.innerText = state.currentAd.brand;
+        sub.innerText = `Ad • ${state.adSecondsRemaining}s remaining`;
+        const pct = ((state.adTotalDuration - state.adSecondsRemaining) / state.adTotalDuration) * 100;
+        bar.style.width = `${pct}%`;
+        elapsed.innerText = `0:${String(state.adTotalDuration - state.adSecondsRemaining).padStart(2, '0')}`;
+        total.innerText = `0:${state.adTotalDuration}`;
+      } else {
+        const s = state.currentSong;
+        art.innerText = '🎵';
+        badge.innerText = 'KANNADA RAAGA';
+        badge.style.color = 'var(--accent-mint)';
+        title.innerText = s.titleKn;
+        sub.innerText = `${s.titleEn} • ${s.artist}`;
+        const pct = (state.positionSec / (s.duration || 240)) * 100;
+        bar.style.width = `${pct}%`;
+        elapsed.innerText = `${Math.floor(state.positionSec/60)}:${String(state.positionSec%60).padStart(2,'0')}`;
+        total.innerText = `${Math.floor((s.duration||240)/60)}:${String((s.duration||240)%60).padStart(2,'0')}`;
+      }
+      if (playBtn) playBtn.innerText = state.isPlaying ? '⏸' : '▶';
+
+      backdrop.classList.add('open');
+    }
+    function closeLockScreenSimulator(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('lockScreenSimBackdrop').classList.remove('open');
+    }
+
+    function simulatePhoneCallInterrupt() {
+      state.isPlaying = false;
+      syncAudio(false);
+      updatePlayerSurfaces();
+      showRaagaToast('📞 Incoming Call: Audio session paused. Resumes on call end.');
+      setTimeout(() => {
+        state.isPlaying = true;
+        syncAudio(false);
+        updatePlayerSurfaces();
+        showRaagaToast('✓ Call Ended: Background audio session resumed.');
+      }, 3000);
+    }
+
+    function simulateDoNotDisturb() {
+      showRaagaToast('🌙 Do Not Disturb Mode active: Audio session volume balanced.');
     }
 
     function renderAll() {
