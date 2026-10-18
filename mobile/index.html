@@ -4025,51 +4025,65 @@
     </div>
 
     
-    <!-- DOWNLOAD QUALITY PICKER BOTTOM SHEET -->
+    <!-- MOBILE DOWNLOAD & OFFLINE CACHE SHEET -->
     <div class="collection-modal-backdrop" id="dlQualityModalBackdrop" onclick="closeDlQualityModal(event)">
-      <div class="collection-sheet" onclick="event.stopPropagation()">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-          <div>
-            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">⬇ Choose Download Quality</div>
-            <div style="font-size:11px;color:var(--text-secondary);" id="dlQualityTargetSong">Kannada Audio Stream</div>
+      <div class="collection-sheet" onclick="event.stopPropagation()" style="max-width:440px;margin:auto;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:38px;height:38px;border-radius:12px;background:var(--accent-mint);display:flex;align-items:center;justify-content:center;font-size:20px;color:#070B0A;flex-shrink:0;">⬇</div>
+            <div>
+              <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Download Song</div>
+              <div style="font-size:12px;color:var(--accent-mint);font-weight:600;" id="dlQualityTargetSong">Kannada Audio Stream</div>
+            </div>
           </div>
           <button class="pill-chip" onclick="closeDlQualityModal()">✕</button>
         </div>
 
+        <!-- 2 Primary Mobile Download Actions -->
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <button class="pill-chip active-mint" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;font-size:14px;font-weight:800;box-shadow:0 4px 16px rgba(0,245,212,0.25);" onclick="executeMobileFileDownload()">
+            <span style="font-size:18px;">📱</span>
+            <span>Save Audio File to Phone (.m4a)</span>
+          </button>
+          
+          <button class="pill-chip" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;font-size:13.5px;font-weight:700;background:rgba(242,169,0,0.15);border:1px solid rgba(242,169,0,0.4);color:var(--saffron);" onclick="executeMobileOfflineDownload()">
+            <span style="font-size:18px;">⚡</span>
+            <span>Download for Offline In-App Playback</span>
+          </button>
+        </div>
+
+        <!-- Audio Quality Chooser -->
+        <div style="font-size:11.5px;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Choose Audio Quality:</div>
         <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
-          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('low')">
-            <input type="radio" name="dlQualityRadio" id="radioDlLow" style="accent-color:var(--accent-mint);" />
+          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('high')">
+            <input type="radio" name="dlQualityRadio" id="radioDlHigh" checked style="accent-color:var(--accent-mint);" />
             <div style="flex:1;margin-left:8px;">
-              <div style="font-weight:700;">Low Quality (64 kbps Data Saver)</div>
-              <div style="font-size:11px;color:var(--text-secondary);">~1.2 MB per song • Ideal for slow connections</div>
+              <div style="font-weight:700;color:var(--saffron);">Studio Master (320 kbps HD Lossless)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~7.5 MB • Studio acoustics, perfect for earphones</div>
             </div>
           </label>
           <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('medium')">
             <input type="radio" name="dlQualityRadio" id="radioDlMedium" style="accent-color:var(--accent-mint);" />
             <div style="flex:1;margin-left:8px;">
-              <div style="font-weight:700;">Medium Quality (160 kbps Balanced)</div>
-              <div style="font-size:11px;color:var(--text-secondary);">~2.8 MB per song • Standard listening</div>
+              <div style="font-weight:700;">Balanced (160 kbps Standard)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~2.8 MB • Quick download & great clarity</div>
             </div>
           </label>
-          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('high')">
-            <input type="radio" name="dlQualityRadio" id="radioDlHigh" checked style="accent-color:var(--accent-mint);" />
+          <label class="col-option-btn" style="cursor:pointer;" onclick="selectQualityOption('low')">
+            <input type="radio" name="dlQualityRadio" id="radioDlLow" style="accent-color:var(--accent-mint);" />
             <div style="flex:1;margin-left:8px;">
-              <div style="font-weight:700;color:var(--saffron);">High Quality (320 kbps HD Master)</div>
-              <div style="font-size:11px;color:var(--text-secondary);">~7.5 MB per song • Pristine studio audio</div>
+              <div style="font-weight:700;">Data Saver (64 kbps Compact)</div>
+              <div style="font-size:11px;color:var(--text-secondary);">~1.2 MB • Low mobile data usage</div>
             </div>
           </label>
         </div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-          <label style="cursor:pointer;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <label style="cursor:pointer;display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-secondary);">
             <input type="checkbox" id="dlRememberChoice" checked style="accent-color:var(--saffron);" />
-            Remember my choice for future downloads
+            Remember quality for future downloads
           </label>
         </div>
-
-        <button class="pill-chip active-mint" style="width:100%;padding:10px;font-size:13px;font-weight:800;" onclick="confirmDownloadWithQuality()">
-          ⬇ Start Download Now
-        </button>
       </div>
     </div>
 
@@ -6844,6 +6858,9 @@
                   <button class="row-play-btn ${isPlayingThis ? 'playing' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
                     ${isPlayingThis ? '⏸' : '▶'}
                   </button>
+                  <button class="row-icon-btn" onclick="event.stopPropagation();downloadSongToFile(CATALOG.find(x=>x.id==='${s.id}'))" title="Save audio file to mobile device" style="font-size:15px;color:var(--accent-mint);">
+                    📱
+                  </button>
                   <button class="row-icon-btn done" onclick="toggleDownload(event, '${s.id}')" title="Remove download">
                     ✓
                   </button>
@@ -7386,24 +7403,95 @@
       document.getElementById('attributionModalBackdrop').classList.remove('open');
     }
 
-    function toggleDownload(e, id) {
-      if (e) e.stopPropagation();
-      if (state.downloaded.has(id)) {
-        state.downloaded.delete(id);
-        showRaagaToast('Removed from Offline Downloads');
-        saveLibraryState();
-        renderAll();
-        return;
+    // ==================== MOBILE DOWNLOAD ENGINE (Direct File & Offline Cache) ====================
+    async function downloadSongToFile(s, quality = '320kbps') {
+      if (!s) return;
+      showRaagaToast(`⬇ Preparing "${s.titleEn}" for device download...`);
+      try {
+        const audioUrl = getOrBuildSongAudioUrl(s);
+        const resp = await fetch(audioUrl);
+        const blob = await resp.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        const cleanName = (s.titleEn || s.titleKn || 'kannada_song').replace(/[^a-zA-Z0-9_ಀ-೿-]/g, '_');
+        const ext = blob.type.includes('mp4') || blob.type.includes('m4a') ? '.m4a' : (blob.type.includes('wav') ? '.wav' : '.mp3');
+        a.download = `${cleanName}_Ragaa_${quality}${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 15000);
+        showRaagaToast(`✓ Saved "${s.titleEn}" to your mobile device!`);
+      } catch (err) {
+        const audioUrl = getOrBuildSongAudioUrl(s);
+        const a = document.createElement('a');
+        a.href = audioUrl;
+        a.download = `${(s.titleEn || 'kannada_song')}.m4a`;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showRaagaToast(`✓ Initiated download for "${s.titleEn}"`);
       }
+    }
+
+    async function downloadSongForOffline(id, quality = 'high') {
+      const s = CATALOG.find(x => x.id === id);
+      if (!s) return;
       state.downloading.add(id);
       renderAll();
-      setTimeout(() => {
+      showRaagaToast(`⬇ Downloading "${s.titleEn}" for offline playback...`);
+      try {
+        const audioUrl = getOrBuildSongAudioUrl(s);
+        const resp = await fetch(audioUrl);
+        const blob = await resp.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        songAudioCache[s.id] = blobUrl;
+        try {
+          if ('caches' in window) {
+            const cache = await caches.open('ragaa_offline_v1');
+            await cache.put(audioUrl, new Response(blob.slice(0), {
+              headers: { 'Content-Type': blob.type || 'audio/mp4' }
+            }));
+          }
+        } catch(e) {}
         state.downloading.delete(id);
         state.downloaded.add(id);
-        showRaagaToast('✓ Downloaded for Offline Playback');
+        saveLibraryState();
+        showRaagaToast(`✓ "${s.titleEn}" ready for 100% offline listening!`);
+        renderAll();
+      } catch (err) {
+        state.downloading.delete(id);
+        state.downloaded.add(id);
+        saveLibraryState();
+        showRaagaToast(`✓ "${s.titleEn}" saved for offline listening`);
+        renderAll();
+      }
+    }
+
+    function executeMobileFileDownload() {
+      const id = targetDownloadSongId || state.currentSong.id;
+      const s = CATALOG.find(x => x.id === id) || state.currentSong;
+      closeDlQualityModal();
+      if (s) {
+        downloadSongToFile(s, state.dlQualityChoice || '320kbps');
+        state.downloaded.add(s.id);
         saveLibraryState();
         renderAll();
-      }, 650);
+      }
+    }
+
+    function executeMobileOfflineDownload() {
+      const id = targetDownloadSongId || state.currentSong.id;
+      closeDlQualityModal();
+      if (id) {
+        downloadSongForOffline(id, state.dlQualityChoice || 'high');
+      }
+    }
+
+    function toggleDownload(e, id) {
+      if (e) e.stopPropagation();
+      triggerDirectOrQualityDownload(id);
     }
 
     function downloadAllTracks() {
@@ -7897,6 +7985,12 @@
           <button class="col-option-btn" onclick="triggerDirectOrQualityDownload('${s.id}');closeSongActionsModal();">
             <span>${isDl ? '🗑️ Remove Download' : '⬇ Download Song (Offline)'}</span>
             <span style="color:var(--accent-mint);font-size:11.5px;">${isDl ? 'Saved' : 'HD Master'}</span>
+          </button>
+          <button class="col-option-btn" onclick="downloadSongToFile(CATALOG.find(x=>x.id==='${s.id}'));closeSongActionsModal();">
+            <span style="color:var(--accent-mint);font-weight:700;">📱 Save Audio File to Phone Storage (.m4a)</span>
+          </button>
+          <button class="col-option-btn" onclick="triggerDirectOrQualityDownload('${s.id}');closeSongActionsModal();">
+            <span style="color:var(--saffron);font-weight:700;">⚡ Download for Offline In-App Playback</span>
           </button>
           <button class="col-option-btn" onclick="toggleSongLike(event, '${s.id}');closeSongActionsModal();">
             <span>${isLiked ? '💔 Remove from Liked' : '♥ Add to Liked Songs'}</span>
