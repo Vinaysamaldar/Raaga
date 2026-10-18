@@ -2183,8 +2183,7 @@
     <div class="screens-wrapper">
       <!-- ==================== SCREEN 1: HOME (CLEAN FLAT TONAL + LATEST vs OLD SEPARATED) ==================== -->
       <div class="screen-pane active" id="screen-home">
-        <!-- Mood Chips Row -->
-        <div class="chips-scroll" id="homeMoodChips"></div>
+
 
         <!-- Section 1: FEATURED PLAYLISTS FOR YOU -->
         <div class="section-header" style="margin-top:6px;">
@@ -4906,9 +4905,12 @@
     }
 
     function renderHomeScreen() {
-      document.getElementById('homeMoodChips').innerHTML = MOOD_CHIPS.map(m => `
-        <button class="pill-chip ${state.moodFilter === m.id ? 'active' : ''}" onclick="filterByMood('${m.id}')">${m.label}</button>
-      `).join('');
+      const moodEl = document.getElementById('homeMoodChips');
+      if (moodEl) {
+        moodEl.innerHTML = MOOD_CHIPS.map(m => `
+          <button class="pill-chip ${state.moodFilter === m.id ? 'active' : ''}" onclick="filterByMood('${m.id}')">${m.label}</button>
+        `).join('');
+      }
 
       // Render 4-Pillar Kannada Music Heritage Grid
       const pillarCounts = { sandalwood: 0, devotional: 0, folk: 0, indie: 0 };
