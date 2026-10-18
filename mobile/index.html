@@ -2804,6 +2804,7 @@
     }
 
 </style>
+  <script src="audio/originals/all_kannada_songs.js"></script>
 </head>
 <body>
   <div class="preview-shell">
@@ -4950,6 +4951,8 @@
     ];
 
     const ALL_CORE_IDS = CATALOG.map(s => s.id);
+
+
     const LATEST_CORE_IDS = CATALOG.filter(s => s.year >= 2016).map(s => s.id);
     const OLD_CORE_IDS = CATALOG.filter(s => s.year < 2016).map(s => s.id);
 
@@ -5065,6 +5068,61 @@
       } catch (e) {}
     }
     loadLibraryState();
+
+    function ingestAllKannadaSongs(songsList) {
+      if (!Array.isArray(songsList) || songsList.length === 0) return 0;
+      const existingUrls = new Set(CATALOG.map(s => s.cdn320Url).filter(Boolean));
+      const existingTitles = new Set(CATALOG.map(s => ((s.titleEn || '') + (s.artist || '').slice(0, 8)).toLowerCase().replace(/[^a-z0-9]/g, '')));
+      let added = 0;
+
+      songsList.forEach((item, idx) => {
+        const normTitle = ((item.titleEn || '') + (item.artist || '').slice(0, 8)).toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (!item.cdn320Url || existingUrls.has(item.cdn320Url) || existingTitles.has(normTitle)) return;
+        existingUrls.add(item.cdn320Url);
+        existingTitles.add(normTitle);
+
+        const sid = `KN-${1000 + idx}`;
+        const pillar = item.pillar || (item.mood === 'devotional' ? 'devotional' : (item.mood === 'folk' || item.mood === 'relax' ? 'folk' : 'sandalwood'));
+        const newSong = {
+          id: sid,
+          knInit: item.knInit || 'ಕ',
+          enInit: item.enInit || 'K',
+          titleKn: item.titleKn || `${item.titleEn} (ಕನ್ನಡ)`,
+          titleEn: item.titleEn,
+          artist: item.artist || 'Kannada Artist',
+          movie: item.movie || 'Kannada Original',
+          year: item.year || 2024,
+          mood: item.mood || 'feelgood',
+          pillar: pillar,
+          duration: item.duration || 240,
+          fullDuration: item.duration || 240,
+          localFileUrl: null,
+          cdn320Url: item.cdn320Url,
+          cdn160Url: item.cdn160Url || item.cdn320Url.replace('_320.mp4', '_160.mp4'),
+          artworkUrl: item.artworkUrl || null,
+          matchedTrack: item.titleEn,
+          isrc: `IN-KAN-${String(item.year || 2024).slice(-2)}-${1000 + idx}`,
+          gradient: ART_GRADIENTS[idx % ART_GRADIENTS.length],
+          lyrics: []
+        };
+        CATALOG.push(newSong);
+        if (state && state.downloaded) {
+          state.downloaded.add(sid);
+          state.cached.add(sid);
+          if (added < 150) state.top50.add(sid);
+          if (added < 120) state.liked.add(sid);
+          if (added < 100) state.favorites.add(sid);
+        }
+        added++;
+      });
+      return added;
+    }
+
+    // Immediately ingest all 1,872+ Kannada Songs if bundled script is loaded
+    if (typeof window !== 'undefined' && window.ALL_KANNADA_CATALOG && Array.isArray(window.ALL_KANNADA_CATALOG)) {
+      const addedCount = ingestAllKannadaSongs(window.ALL_KANNADA_CATALOG);
+      console.log(`[Kannada Raaga] Ingested ${addedCount} full-length Kannada songs. Total catalog size: ${CATALOG.length}`);
+    }
 
     // Assign initial pillar classification to base catalog tracks
     CATALOG.forEach(s => {
@@ -6352,11 +6410,14 @@
         <button class="pill-chip ${state.searchTab === t ? 'active-mint' : ''}" onclick="setSearchTab('${t}')">${t}</button>
       `).join('');
 
-      const letters = state.azScript === 'kn' ? KANNADA_LETTERS : ENGLISH_LETTERS;
-      document.getElementById('azGridCells').innerHTML = [
-        `<div class="az-cell ${state.azLetter === 'ALL' ? 'active' : ''}" onclick="selectAzLetter('ALL')">All</div>`,
-        ...letters.map(l => `<div class="az-cell ${state.azLetter === l ? 'active' : ''}" onclick="selectAzLetter('${l}')">${l}</div>`)
-      ].join('');
+      const azGridEl = document.getElementById('azGridCells');
+      if (azGridEl) {
+        const letters = state.azScript === 'kn' ? KANNADA_LETTERS : ENGLISH_LETTERS;
+        azGridEl.innerHTML = [
+          `<div class="az-cell ${state.azLetter === 'ALL' ? 'active' : ''}" onclick="selectAzLetter('ALL')">All</div>`,
+          ...letters.map(l => `<div class="az-cell ${state.azLetter === l ? 'active' : ''}" onclick="selectAzLetter('${l}')">${l}</div>`)
+        ].join('');
+      }
 
       document.getElementById('trendingVideosRow').innerHTML = CATALOG.slice(0, 12).map(s => `
         <div class="video-poster-card" style="background:${s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient}" onclick="playOrToggleSong(event, '${s.id}')">
@@ -6371,7 +6432,7 @@
 
       const searchEl = document.getElementById('searchInput');
       if (searchEl) searchEl.placeholder = state.offlineMode ? 'Searching your downloads...' : 'Search Kannada songs...';
-      const q = (searchEl ? searchEl.value : '').trim().toLowerCase();
+      const q = (searchEl && searchEl.value ? searchEl.value : '').trim().toLowerCase();
       let results = [...CATALOG];
       if (state.searchTab === 'Sandalwood') {
         results = results.filter(s => (s.pillar || 'sandalwood') === 'sandalwood');
