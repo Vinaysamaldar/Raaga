@@ -2182,20 +2182,21 @@
       font-size: 13.5px;
     }
     .echo-find-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
       background: linear-gradient(135deg, #00F5D4 0%, #00BFA5 100%);
       color: #070B0A;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 7px 14px;
-      border-radius: 999px;
+      font-size: 16px;
       border: none;
       cursor: pointer;
       flex-shrink: 0;
       transition: all 0.2s ease;
       box-shadow: 0 2px 8px rgba(0, 245, 212, 0.3);
+      padding: 0;
     }
     .echo-find-btn:hover {
       transform: scale(1.04);
@@ -2873,10 +2874,7 @@
             placeholder="Search Kannada songs, artists, albums..."
             onfocus="switchNav('search')"
           />
-          <button class="echo-find-btn" onclick="openEchoFindModal(event)" title="Echo Find - Environment Song Recognizer">
-            <span>🎙️</span>
-            <span>Echo Find</span>
-          </button>
+          <button class="echo-find-btn" onclick="openEchoFindModal(event)" title="Song Recognition"><span>🎙️</span></button>
         </div>
 
         <!-- Shelf 1: QUICK PICKS (Speed Dial / Listen Again) -->
@@ -2952,10 +2950,7 @@
             oninput="renderSearchScreen()"
             style="flex:1;background:transparent;border:none;color:var(--text-primary);font-size:14px;outline:none;padding:6px 0;"
           />
-          <button class="pill-chip" onclick="switchNav('recognize')" title="Recognize playing music" style="padding:6px 14px;font-size:12px;font-weight:700;background:var(--accent-mint);color:var(--accent-mint-ink);border:none;display:flex;align-items:center;gap:6px;border-radius:999px;cursor:pointer;flex-shrink:0;">
-            <span style="font-size:14px;">🎙️</span>
-            <span>Recognize</span>
-          </button>
+          <button class="echo-find-btn" onclick="openEchoFindModal(event)" title="Song Recognition"><span>🎙️</span></button>
         </div>
 
         <!-- Search Result Filter Tabs -->
@@ -3348,13 +3343,13 @@
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
           <div style="display:flex;align-items:center;gap:8px;">
             <div style="width:28px;height:28px;border-radius:8px;background:var(--echo-mint);color:#070B0A;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;">🎙️</div>
-            <div style="font-size:15px;font-weight:800;color:var(--text-primary);">Echo Find</div>
+            <div style="font-size:15px;font-weight:800;color:var(--text-primary);">Song Recognition • ಸಂಗೀತ ಗುರುತಿಸುವಿಕೆ</div>
           </div>
           <button class="top-icon-btn" onclick="closeEchoFindModal()" style="font-size:16px;">✕</button>
         </div>
 
         <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">
-          Environment-aware Kannada music recognition engine
+          Acoustic recognition engine • ಆಡಿಯೋ ಗ್ರಹಿಕೆ
         </div>
 
         <!-- Animated Radar Concentric Waves -->
@@ -5823,7 +5818,7 @@
         // Pick a random prominent track from catalog
         const matchSong = CATALOG[Math.floor(Math.random() * Math.min(20, CATALOG.length))];
         if (statusEl) statusEl.innerText = '✨ Song Identified! (99.4% Match)';
-        if (subEl) subEl.innerText = 'Identified via Echo Acoustic Fingerprint';
+        if (subEl) subEl.innerText = 'Identified via Acoustic Fingerprint';
         if (btn) btn.innerText = '✓';
 
         if (cardEl) {
