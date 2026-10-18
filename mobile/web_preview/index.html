@@ -1512,7 +1512,536 @@
       align-items: center;
     }
 
-  </style>
+  
+
+    /* ==================== COMPLETE AUTHENTICATION & LOGIN FLOW STYLES ==================== */
+    .auth-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: authModalFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .auth-modal-backdrop.open {
+      display: flex;
+    }
+    @keyframes authModalFade {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 900px;
+      height: 640px;
+      max-height: 94vh;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.75);
+      position: relative;
+    }
+
+    /* Phone Breakpoint: Single Column Fluid (max-width: 767px) */
+    @media (max-width: 767px) {
+      .auth-container {
+        max-width: 440px;
+        height: auto;
+        min-height: 520px;
+        max-height: 92vh;
+        flex-direction: column;
+        border-radius: 24px;
+        overflow-y: auto;
+      }
+      .auth-hero-panel {
+        display: none !important;
+      }
+    }
+
+    /* Tablet & Desktop Split-Screen (768px+) */
+    .auth-hero-panel {
+      flex: 1.15;
+      background: linear-gradient(135deg, #18211F 0%, #0B1110 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 32px;
+      border-right: 1px solid var(--border);
+    }
+    .auth-hero-bg-collage {
+      position: absolute;
+      inset: -30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      opacity: 0.22;
+      transform: rotate(-6deg) scale(1.12);
+      pointer-events: none;
+    }
+    .auth-hero-art-card {
+      height: 140px;
+      border-radius: 16px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .auth-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11,17,16,0.2) 0%, rgba(11,17,16,0.8) 70%, #0B1110 100%);
+    }
+
+    .auth-form-panel {
+      flex: 1;
+      max-width: 460px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      position: relative;
+      background: var(--bg);
+    }
+
+    /* Gold Decorative Pattern & Header */
+    .auth-gold-accent {
+      width: 48px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--saffron), #FFE082, var(--saffron));
+      margin-bottom: 12px;
+    }
+
+    .auth-top-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .auth-lang-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent-mint);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .auth-lang-btn:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+    }
+
+    .auth-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .auth-close-btn:hover {
+      color: var(--text-primary);
+      background: var(--surface-elevated);
+    }
+
+    /* Step Views inside Form Panel */
+    .auth-step-view {
+      display: none;
+      flex-direction: column;
+      flex: 1;
+      animation: authStepFade 0.2s ease-out;
+    }
+    .auth-step-view.active {
+      display: flex;
+    }
+    @keyframes authStepFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Inputs & Form Groups */
+    .auth-pill-input-group {
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .auth-input-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+    }
+    .auth-pill-input-box {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 0 16px;
+      height: 50px;
+      transition: all 0.2s ease;
+    }
+    .auth-pill-input-box:focus-within {
+      border-color: var(--saffron);
+      background: var(--surface-elevated);
+      box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.22);
+    }
+    .auth-pill-input-box.error {
+      border-color: #E53935 !important;
+      box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2) !important;
+    }
+    .auth-pill-input-box.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .auth-pill-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .auth-pill-input::placeholder {
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    .auth-input-error-hint {
+      font-size: 11px;
+      color: #E53935;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-left: 14px;
+      display: none;
+    }
+    .auth-input-error-hint.visible {
+      display: block;
+    }
+
+    /* Buttons */
+    .auth-btn-primary {
+      width: 100%;
+      height: 50px;
+      border-radius: 999px;
+      background: var(--accent-mint);
+      color: var(--accent-mint-ink);
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .auth-btn-primary:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+    .auth-btn-primary:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .auth-btn-google {
+      width: 100%;
+      height: 50px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      color: #1F1F1F;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid #747775;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      font-family: 'Roboto', 'Montserrat', sans-serif;
+    }
+    .auth-btn-google:hover {
+      background: #F8F9FA;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      border-color: #5E6368;
+    }
+
+    .auth-btn-outlined {
+      width: 100%;
+      height: 50px;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 13.5px;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .auth-btn-outlined:hover {
+      border-color: var(--accent-mint);
+      background: rgba(221, 230, 225, 0.05);
+    }
+
+    /* Six-Digit Code Boxes */
+    .auth-otp-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .auth-otp-box {
+      width: 46px;
+      height: 54px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      color: var(--text-primary);
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .auth-otp-box:focus {
+      border-color: var(--saffron);
+      background: var(--surface-elevated);
+      box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.25);
+    }
+    .auth-otp-box.filled {
+      border-color: var(--accent-mint);
+      background: var(--surface-elevated);
+    }
+    .auth-otp-row.error .auth-otp-box {
+      border-color: #E53935;
+      animation: otpShake 0.35s ease-in-out;
+    }
+    @keyframes otpShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* Country Code Selector Pill */
+    .auth-country-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 0 12px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .auth-country-selector:hover {
+      border-color: var(--accent-mint);
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+      color: var(--text-secondary);
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .auth-divider span {
+      padding: 0 12px;
+    }
+
+    /* Terms & Footer */
+    .auth-terms-footer {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.45;
+      margin-top: 14px;
+    }
+    .auth-terms-footer a {
+      color: var(--accent-mint);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Country Picker Dropdown Sheet */
+    .auth-country-sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 10050;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .auth-country-sheet-backdrop.open {
+      display: flex;
+    }
+    .auth-country-sheet {
+      width: 100%;
+      max-width: 380px;
+      max-height: 480px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 48px rgba(0,0,0,0.6);
+    }
+
+    /* Google System Account Chooser Simulation */
+    .auth-google-chooser-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      z-index: 10060;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .auth-google-chooser-backdrop.open {
+      display: flex;
+    }
+    .auth-google-chooser-card {
+      width: 100%;
+      max-width: 420px;
+      background: #FFFFFF;
+      color: #1F1F1F;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      font-family: 'Roboto', 'Montserrat', sans-serif;
+    }
+    .google-account-tile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.18s;
+      margin-bottom: 6px;
+    }
+    .google-account-tile:hover {
+      background: #F1F3F4;
+    }
+    .google-avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1A73E8;
+      color: #FFFFFF;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Consent Sheet Modal */
+    .auth-consent-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 10070;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .auth-consent-backdrop.open {
+      display: flex;
+    }
+    .auth-consent-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      color: var(--text-primary);
+    }
+
+    /* Component Gallery Showcase Modal */
+    .auth-components-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(14px);
+      z-index: 10080;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .auth-components-backdrop.open {
+      display: flex;
+    }
+    .auth-components-card {
+      width: 100%;
+      max-width: 680px;
+      max-height: 88vh;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      overflow-y: auto;
+      color: var(--text-primary);
+    }
+
+</style>
 </head>
 <body>
   <div class="preview-shell">
@@ -1544,6 +2073,12 @@
       <span class="guide-step-chip" onclick="openPremiumModal()">👑 Go Premium</span>
       <span class="guide-step-chip" onclick="openAdPreferencesModal()">⚙️ Ad Preferences</span>
       <span class="guide-step-chip" onclick="openLockScreenSimulator()">🔒 Lock Screen / Bluetooth State</span>
+    
+      <span class="guide-step-chip" style="background:rgba(242,169,0,0.18);color:var(--saffron);border-color:var(--saffron);" onclick="openAuthModal()">🔐 Login / Sign-Up Flow</span>
+      <span class="guide-step-chip" onclick="openAuthComponents()">🧩 Component Sheet</span>
+      <span class="guide-step-chip" onclick="toggleLightDarkTheme()">🌓 Toggle Light/Dark</span>
+      <span class="guide-step-chip" onclick="openAuthConsent()">🛡️ Privacy Consent</span>
+
     </div>
 
     <div class="android-viewport home-active" id="appViewport">
@@ -2160,7 +2695,598 @@
       </div>
     </div>
 
-    <!-- ACCOUNT MODAL -->
+    
+    <!-- ==================== AUTHENTICATION & LOGIN FLOW MODAL (Phone & Tablet Split-Screen) ==================== -->
+    <div class="auth-modal-backdrop" id="authModalBackdrop" onclick="handleAuthBackdropClick(event)">
+      <div class="auth-container" onclick="event.stopPropagation()">
+        
+        <!-- TABLET & LANDSCAPE LEFT HERO PANEL (Cover-Art Collage & Brand Atmosphere) -->
+        <div class="auth-hero-panel">
+          <!-- Background Cover Art Collage -->
+          <div class="auth-hero-bg-collage">
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400');"></div>
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400');"></div>
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400');"></div>
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400');"></div>
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400');"></div>
+            <div class="auth-hero-art-card" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400');"></div>
+          </div>
+          <div class="auth-hero-overlay"></div>
+
+          <!-- Brand Header on Left Panel -->
+          <div style="position:relative;z-index:2;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <div style="width:48px;height:48px;border-radius:14px;background:var(--saffron);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;">ಕ</div>
+              <div>
+                <div style="font-size:20px;font-weight:800;color:var(--text-primary);letter-spacing:0.3px;">Kannada Raaga</div>
+                <div style="font-size:12px;color:var(--saffron);font-weight:700;">ಕನ್ನಡ ರಾಗ • ಸಂಗೀತದ ಸಂಭ್ರಮ</div>
+              </div>
+            </div>
+            <div class="auth-gold-accent"></div>
+            <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.5;max-width:320px;">
+              Explore over 90 years of Kannada musical legacy — from 1934 Sati Sulochana to 2026 chart-toppers.
+            </p>
+          </div>
+
+          <!-- Hero Bottom Pill Badges -->
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(24,33,31,0.75);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:999px;padding:8px 16px;">
+              <span style="font-size:16px;">🎧</span>
+              <span style="font-size:12px;font-weight:600;color:var(--text-primary);">Lossless 320 kbps Studio Audio</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(24,33,31,0.75);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:999px;padding:8px 16px;">
+              <span style="font-size:16px;">⚡</span>
+              <span style="font-size:12px;font-weight:600;color:var(--text-primary);">Offline Smart Downloads & Lyrics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT FORM PANEL (Phone & Tablet) -->
+        <div class="auth-form-panel">
+          
+          <!-- Top Row: Language Toggle & Close Button -->
+          <div class="auth-top-nav-row">
+            <button class="auth-lang-btn" onclick="toggleAuthLanguage()" title="Switch Language">
+              <span>🌐</span><span id="authLangLabel">ಕನ್ನಡ</span>
+            </button>
+            <button class="auth-close-btn" onclick="closeAuthModal()" title="Close">✕</button>
+          </div>
+
+          <!-- ==================== SCREEN 1: WELCOME / LOGIN ==================== -->
+          <div class="auth-step-view active" id="authStepWelcome">
+            <div>
+              <!-- Branded header on phone -->
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                <div style="width:36px;height:36px;border-radius:10px;background:var(--saffron);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;">ಕ</div>
+                <div>
+                  <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Kannada Raaga</div>
+                  <div style="font-size:10.5px;color:var(--saffron);font-weight:600;" id="authHeaderTagline">ಕನ್ನಡ ಹಾಡುಗಳು, ಎಲ್ಲಿಯಾದರೂ • Kannada songs, anywhere</div>
+                </div>
+              </div>
+
+              <div class="auth-gold-accent"></div>
+
+              <div style="margin-top:14px;margin-bottom:20px;">
+                <h2 style="font-size:24px;font-weight:800;color:var(--text-primary);line-height:1.2;" id="authWelcomeTitle">Welcome back</h2>
+                <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;" id="authWelcomeSubtitle">Sign in or create your account to sync your playlists and downloads</div>
+              </div>
+
+              <!-- Stacked Action Buttons -->
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <!-- 1. Continue with Google -->
+                <button class="auth-btn-google" onclick="startGoogleLogin()">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                  <span id="authBtnGoogleText">Continue with Google</span>
+                </button>
+
+                <!-- 2. Continue with mobile number -->
+                <button class="auth-btn-outlined" onclick="goToAuthStep('stepMobileInput')">
+                  <span style="font-size:18px;">📱</span>
+                  <span id="authBtnMobileText">Continue with mobile number</span>
+                </button>
+
+                <!-- 3. Continue with email -->
+                <button class="auth-btn-outlined" onclick="goToAuthStep('stepEmailInput')">
+                  <span style="font-size:18px;">✉️</span>
+                  <span id="authBtnEmailText">Continue with email</span>
+                </button>
+              </div>
+
+              <!-- Divider -->
+              <div class="auth-divider"><span id="authDividerText">or</span></div>
+
+              <!-- Guest link -->
+              <div style="text-align:center;">
+                <button style="background:none;border:none;color:var(--saffron);font-size:13px;font-weight:700;cursor:pointer;padding:6px 12px;border-radius:999px;" onclick="continueAsGuest()" id="authGuestBtn">
+                  Continue as guest (Browse only)
+                </button>
+              </div>
+            </div>
+
+            <!-- Footer: New Here & Legal -->
+            <div>
+              <div style="text-align:center;font-size:12px;color:var(--text-secondary);margin-top:14px;">
+                <span id="authNewHereText">New here?</span> 
+                <a style="color:var(--accent-mint);font-weight:700;cursor:pointer;" onclick="goToAuthStep('stepEmailInput')">Create account</a>
+              </div>
+              <div class="auth-terms-footer">
+                By continuing you agree to the <a onclick="showLegalModal('terms')">Terms of Service</a> and <a onclick="showLegalModal('privacy')">Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== SCREEN 2A: EMAIL LOGIN STEP 1 (Email Input) ==================== -->
+          <div class="auth-step-view" id="authStepEmailInput">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                <button class="auth-close-btn" style="width:28px;height:28px;" onclick="goToAuthStep('stepWelcome')">←</button>
+                <div style="font-size:12px;font-weight:700;color:var(--saffron);">EMAIL SIGN-IN</div>
+              </div>
+
+              <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;" id="authEmailTitle">Enter your email</h2>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;margin-bottom:20px;" id="authEmailSubtitle">We'll send you a 6-digit verification code to sign in</div>
+
+              <!-- Email Field -->
+              <div class="auth-pill-input-group">
+                <label class="auth-input-label" for="authEmailInput">EMAIL ADDRESS</label>
+                <div class="auth-pill-input-box" id="authEmailBox">
+                  <span style="font-size:16px;margin-right:10px;color:var(--text-secondary);">✉</span>
+                  <input type="email" id="authEmailInput" class="auth-pill-input" placeholder="name@example.com" autocomplete="email" oninput="validateEmailInput()" onkeydown="handleEmailKey(event)" />
+                </div>
+                <div class="auth-input-error-hint" id="authEmailError">Enter a valid email address</div>
+              </div>
+
+              <!-- Quick Demo Helper Chips -->
+              <div style="margin-bottom:18px;">
+                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">QUICK DEMO ADDRESSES:</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                  <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoEmail('user@kannadaraaga.com')">user@kannadaraaga.com</button>
+                  <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoEmail('dr.rajkumar@gmail.com')">dr.rajkumar@gmail.com</button>
+                </div>
+              </div>
+
+              <!-- Send Code Button -->
+              <button class="auth-btn-primary" id="btnSendEmailCode" onclick="sendEmailVerificationCode()">
+                <span id="btnSendEmailCodeText">Send verification code</span>
+              </button>
+            </div>
+
+            <div class="auth-terms-footer">
+              A 6-digit code will be generated. The code expires in 10 minutes.
+            </div>
+          </div>
+
+          <!-- ==================== SCREEN 2A: EMAIL LOGIN STEP 2 (Verify 6-Digit Code) ==================== -->
+          <div class="auth-step-view" id="authStepEmailVerify">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                <button class="auth-close-btn" style="width:28px;height:28px;" onclick="goToAuthStep('stepEmailInput')">←</button>
+                <div style="font-size:12px;font-weight:700;color:var(--saffron);">VERIFY CODE</div>
+              </div>
+
+              <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;">Verify your email</h2>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;">
+                We sent a 6-digit code to <b id="authEmailTargetDisplay" style="color:var(--text-primary);">name@example.com</b>
+                <a style="color:var(--saffron);margin-left:6px;font-weight:700;cursor:pointer;" onclick="goToAuthStep('stepEmailInput')">Edit</a>
+              </div>
+
+              <!-- Six Separate Code Boxes with Auto-Advance & Paste -->
+              <div class="auth-otp-row" id="emailOtpRow">
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp0" oninput="handleOtpInput(0, 'email')" onkeydown="handleOtpKey(0, event, 'email')" onpaste="handleOtpPaste(event, 'email')" aria-label="Digit 1 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp1" oninput="handleOtpInput(1, 'email')" onkeydown="handleOtpKey(1, event, 'email')" aria-label="Digit 2 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp2" oninput="handleOtpInput(2, 'email')" onkeydown="handleOtpKey(2, event, 'email')" aria-label="Digit 3 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp3" oninput="handleOtpInput(3, 'email')" onkeydown="handleOtpKey(3, event, 'email')" aria-label="Digit 4 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp4" oninput="handleOtpInput(4, 'email')" onkeydown="handleOtpKey(4, event, 'email')" aria-label="Digit 5 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="emailOtp5" oninput="handleOtpInput(5, 'email')" onkeydown="handleOtpKey(5, event, 'email')" aria-label="Digit 6 of 6" />
+              </div>
+
+              <!-- Code Status Message / Attempts Left -->
+              <div id="emailOtpFeedback" style="font-size:11.5px;font-weight:600;min-height:18px;margin-bottom:12px;text-align:center;"></div>
+
+              <!-- Resend Timer & Spam Hint -->
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:16px;">
+                <span id="emailResendTimerText" style="color:var(--text-secondary);">Resend code in 00:30</span>
+                <button id="btnResendEmailCode" style="display:none;background:none;border:none;color:var(--saffron);font-weight:700;cursor:pointer;" onclick="resendEmailVerificationCode()">Resend code</button>
+              </div>
+
+              <!-- Quick Autofill Button for Demo -->
+              <div style="text-align:center;margin-bottom:16px;">
+                <button class="pill-chip" style="font-size:11px;padding:6px 14px;background:rgba(242,169,0,0.12);border-color:var(--saffron);color:var(--saffron);" onclick="autofillDemoOtp('123456', 'email')">
+                  ⚡ Auto-fill Code: 123456
+                </button>
+              </div>
+
+              <!-- Verify Button -->
+              <button class="auth-btn-primary" id="btnVerifyEmailCode" disabled onclick="verifyEmailOtp()">
+                <span id="btnVerifyEmailCodeText">Verify</span>
+              </button>
+            </div>
+
+            <!-- Spam Folder Hint -->
+            <div id="emailSpamHint" style="display:none;font-size:11px;color:var(--text-secondary);text-align:center;margin-top:12px;background:var(--surface);padding:8px 12px;border-radius:12px;">
+              💡 Didn't receive the email? Check your <b>Spam</b> or <b>Junk</b> folder.
+            </div>
+          </div>
+
+          <!-- ==================== SCREEN 2B: MOBILE NUMBER LOGIN (Step 1: Phone Input) ==================== -->
+          <div class="auth-step-view" id="authStepMobileInput">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                <button class="auth-close-btn" style="width:28px;height:28px;" onclick="goToAuthStep('stepWelcome')">←</button>
+                <div style="font-size:12px;font-weight:700;color:var(--saffron);">MOBILE NUMBER</div>
+              </div>
+
+              <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;">Continue with mobile</h2>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;margin-bottom:20px;">We'll send a 6-digit OTP to your phone number</div>
+
+              <!-- Country Selector + Phone Field -->
+              <label class="auth-input-label">PHONE NUMBER</label>
+              <div style="display:flex;gap:8px;margin-bottom:14px;">
+                <div class="auth-country-selector" onclick="openCountryPicker()" title="Select Country Code">
+                  <span id="authSelectedFlag">🇮🇳</span>
+                  <span id="authSelectedCode">+91</span>
+                  <span style="font-size:10px;color:var(--text-secondary);">▼</span>
+                </div>
+                <div class="auth-pill-input-box" style="flex:1;" id="authPhoneBox">
+                  <input type="tel" id="authPhoneInput" class="auth-pill-input" placeholder="98765 43210" maxlength="14" oninput="validatePhoneInput()" onkeydown="handlePhoneKey(event)" />
+                </div>
+              </div>
+              <div class="auth-input-error-hint" id="authPhoneError">Enter a valid 10-digit mobile number</div>
+
+              <!-- Quick Demo Phone -->
+              <div style="margin-bottom:18px;">
+                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">QUICK DEMO NUMBER:</div>
+                <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoPhone('9876543210')">🇮🇳 98765 43210</button>
+              </div>
+
+              <!-- Send OTP Button -->
+              <button class="auth-btn-primary" id="btnSendMobileOtp" onclick="sendMobileOtp()">
+                <span id="btnSendMobileOtpText">Send OTP</span>
+              </button>
+            </div>
+
+            <div class="auth-terms-footer">
+              Standard SMS and carrier rates may apply.
+            </div>
+          </div>
+
+          <!-- ==================== SCREEN 2B: MOBILE NUMBER STEP 2 (Verify OTP) ==================== -->
+          <div class="auth-step-view" id="authStepMobileVerify">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                <button class="auth-close-btn" style="width:28px;height:28px;" onclick="goToAuthStep('stepMobileInput')">←</button>
+                <div style="font-size:12px;font-weight:700;color:var(--saffron);">VERIFY OTP</div>
+              </div>
+
+              <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;">Enter OTP</h2>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;">
+                Sent to <b id="authMobileTargetDisplay" style="color:var(--text-primary);">+91 98XXXXXX10</b>
+                <a style="color:var(--saffron);margin-left:6px;font-weight:700;cursor:pointer;" onclick="goToAuthStep('stepMobileInput')">Change</a>
+              </div>
+
+              <!-- Six Separate Code Boxes with Auto-Advance & Paste -->
+              <div class="auth-otp-row" id="mobileOtpRow">
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp0" oninput="handleOtpInput(0, 'mobile')" onkeydown="handleOtpKey(0, event, 'mobile')" onpaste="handleOtpPaste(event, 'mobile')" aria-label="Digit 1 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp1" oninput="handleOtpInput(1, 'mobile')" onkeydown="handleOtpKey(1, event, 'mobile')" aria-label="Digit 2 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp2" oninput="handleOtpInput(2, 'mobile')" onkeydown="handleOtpKey(2, event, 'mobile')" aria-label="Digit 3 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp3" oninput="handleOtpInput(3, 'mobile')" onkeydown="handleOtpKey(3, event, 'mobile')" aria-label="Digit 4 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp4" oninput="handleOtpInput(4, 'mobile')" onkeydown="handleOtpKey(4, event, 'mobile')" aria-label="Digit 5 of 6" />
+                <input type="text" maxlength="1" inputmode="numeric" class="auth-otp-box" id="mobileOtp5" oninput="handleOtpInput(5, 'mobile')" onkeydown="handleOtpKey(5, event, 'mobile')" aria-label="Digit 6 of 6" />
+              </div>
+
+              <!-- OTP Status Message -->
+              <div id="mobileOtpFeedback" style="font-size:11.5px;font-weight:600;min-height:18px;margin-bottom:12px;text-align:center;"></div>
+
+              <!-- Resend Timer -->
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:16px;">
+                <span id="mobileResendTimerText" style="color:var(--text-secondary);">Resend OTP in 00:30</span>
+                <button id="btnResendMobileOtp" style="display:none;background:none;border:none;color:var(--saffron);font-weight:700;cursor:pointer;" onclick="resendMobileOtp()">Resend OTP</button>
+              </div>
+
+              <!-- Simulated Auto-Read SMS Button -->
+              <div style="text-align:center;margin-bottom:16px;">
+                <button class="pill-chip" style="font-size:11px;padding:6px 14px;background:rgba(221,230,225,0.1);border-color:var(--accent-mint);color:var(--accent-mint);" onclick="autofillDemoOtp('849201', 'mobile')">
+                  📨 Auto-fill from SMS: 849201
+                </button>
+              </div>
+
+              <!-- Verify Button -->
+              <button class="auth-btn-primary" id="btnVerifyMobileOtp" disabled onclick="verifyMobileOtp()">
+                <span id="btnVerifyMobileOtpText">Verify & Continue</span>
+              </button>
+            </div>
+
+            <div class="auth-terms-footer">
+              Code expires in 10 minutes. Lockout occurs after 5 failed attempts.
+            </div>
+          </div>
+
+          <!-- ==================== STEP 3: NEW USER PROFILE SETUP ==================== -->
+          <div class="auth-step-view" id="authStepProfileSetup">
+            <div>
+              <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:8px;">ALMOST DONE!</div>
+              <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;">Set up your profile</h2>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;margin-bottom:18px;">Customize how you appear in Kannada Raaga</div>
+
+              <!-- Avatar Selection -->
+              <div style="text-align:center;margin-bottom:18px;">
+                <div id="profileAvatarPreview" style="width:72px;height:72px;border-radius:50%;background:var(--saffron);color:#0B1110;font-size:32px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.4);border:2px solid var(--accent-mint);">ಕ</div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:6px;">Choose avatar icon:</div>
+                <div style="display:flex;justify-content:center;gap:8px;margin-top:6px;">
+                  <button class="pill-chip" onclick="selectAvatar('ಕ')">ಕ</button>
+                  <button class="pill-chip" onclick="selectAvatar('👑')">👑</button>
+                  <button class="pill-chip" onclick="selectAvatar('🪕')">🪕</button>
+                  <button class="pill-chip" onclick="selectAvatar('🎶')">🎶</button>
+                  <button class="pill-chip" onclick="selectAvatar('🦁')">🦁</button>
+                </div>
+              </div>
+
+              <!-- Full Name Input -->
+              <div class="auth-pill-input-group">
+                <label class="auth-input-label" for="profileNameInput">YOUR NAME</label>
+                <div class="auth-pill-input-box">
+                  <input type="text" id="profileNameInput" class="auth-pill-input" placeholder="e.g. Vinay Samaldar" />
+                </div>
+              </div>
+
+              <!-- Language Preference -->
+              <div style="margin-bottom:16px;">
+                <label class="auth-input-label">PREFERRED APP LANGUAGE</label>
+                <div style="display:flex;gap:8px;">
+                  <button class="pill-chip active-mint" id="chipLangKannada" onclick="setProfileLanguage('kn')">ಕನ್ನಡ (Kannada)</button>
+                  <button class="pill-chip" id="chipLangEnglish" onclick="setProfileLanguage('en')">English</button>
+                  <button class="pill-chip" id="chipLangBoth" onclick="setProfileLanguage('both')">Both (ಎರಡೂ)</button>
+                </div>
+              </div>
+
+              <!-- Keep Me Signed In -->
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;font-size:12.5px;color:var(--text-primary);">
+                <input type="checkbox" id="authKeepSignedIn" checked style="accent-color:var(--saffron);width:16px;height:16px;" />
+                <label for="authKeepSignedIn" style="cursor:pointer;">Keep me signed in on this device</label>
+              </div>
+
+              <!-- Finish Button -->
+              <button class="auth-btn-primary" onclick="completeProfileSetup()">
+                <span>Get started →</span>
+              </button>
+            </div>
+
+            <div class="auth-terms-footer">
+              Welcome to the authentic home of Kannada music.
+            </div>
+          </div>
+
+          <!-- ==================== ACCOUNT CONFLICT MODAL / LINKING VIEW ==================== -->
+          <div class="auth-step-view" id="authStepConflict">
+            <div>
+              <div style="font-size:32px;margin-bottom:8px;">⚠️</div>
+              <h2 style="font-size:20px;font-weight:800;color:var(--text-primary);line-height:1.2;">Account already exists</h2>
+              <div style="font-size:13px;color:var(--text-secondary);margin-top:8px;line-height:1.5;">
+                An account with <b id="conflictTargetDisplay" style="color:var(--text-primary);">user@example.com</b> already exists. Sign in with your original method to link them together.
+              </div>
+
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px;margin:18px 0;">
+                <div style="font-size:12px;font-weight:700;color:var(--accent-mint);">LINKED SECURITY:</div>
+                <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px;">
+                  Merging accounts will safely unify your liked songs, custom playlists, and downloaded offline files.
+                </div>
+              </div>
+
+              <button class="auth-btn-primary" onclick="resolveAccountConflict('email')">
+                <span>Sign in with Email to Link</span>
+              </button>
+
+              <button class="auth-btn-outlined" style="margin-top:10px;" onclick="goToAuthStep('stepWelcome')">
+                <span>Back to Welcome</span>
+              </button>
+            </div>
+          </div>
+
+        </div> <!-- /auth-form-panel -->
+      </div> <!-- /auth-container -->
+    </div> <!-- /auth-modal-backdrop -->
+
+
+    <!-- ==================== SEARCHABLE COUNTRY PICKER DROPDOWN SHEET ==================== -->
+    <div class="auth-country-sheet-backdrop" id="countryPickerBackdrop" onclick="closeCountryPicker(event)">
+      <div class="auth-country-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-size:15px;font-weight:800;color:var(--accent-mint);">Select Country Code</div>
+          <button class="auth-close-btn" style="width:28px;height:28px;" onclick="closeCountryPicker()">✕</button>
+        </div>
+
+        <div class="auth-pill-input-box" style="height:42px;margin-bottom:12px;">
+          <span style="font-size:14px;margin-right:8px;color:var(--text-secondary);">🔍</span>
+          <input type="text" id="countrySearchInput" class="auth-pill-input" placeholder="Search country or code..." oninput="filterCountryList()" />
+        </div>
+
+        <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:4px;" id="countryOptionsList">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== SYSTEM GOOGLE ACCOUNT CHOOSER SIMULATION ==================== -->
+    <div class="auth-google-chooser-backdrop" id="googleChooserBackdrop" onclick="closeGoogleChooser(event)">
+      <div class="auth-google-chooser-card" onclick="event.stopPropagation()">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <div>
+            <div style="font-size:16px;font-weight:700;color:#1F1F1F;">Sign in with Google</div>
+            <div style="font-size:12px;color:#5F6368;">Choose an account to continue to Kannada Raaga</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:16px;">
+          <!-- Account Option 1 -->
+          <div class="google-account-tile" onclick="selectGoogleAccount('Vinay Samaldar', 'vinay.kannada@gmail.com', 'V')">
+            <div class="google-avatar-circle">V</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;color:#1F1F1F;">Vinay Samaldar</div>
+              <div style="font-size:12px;color:#5F6368;">vinay.kannada@gmail.com</div>
+            </div>
+          </div>
+
+          <!-- Account Option 2 -->
+          <div class="google-account-tile" onclick="selectGoogleAccount('Dr. Rajkumar Fan Club', 'dr.rajkumar.fan@gmail.com', 'R')">
+            <div class="google-avatar-circle" style="background:#E37400;">R</div>
+            <div style="flex:1;">
+              <div style="font-weight:700;font-size:14px;color:#1F1F1F;">Dr. Rajkumar Fan Club</div>
+              <div style="font-size:12px;color:#5F6368;">dr.rajkumar.fan@gmail.com</div>
+            </div>
+          </div>
+
+          <!-- Use Another Account -->
+          <div class="google-account-tile" onclick="selectGoogleAccount('Kannada Devotee', 'kannada.music@gmail.com', 'K')">
+            <div class="google-avatar-circle" style="background:#5F6368;">+</div>
+            <div style="flex:1;">
+              <div style="font-weight:600;font-size:13.5px;color:#1F1F1F;">Use another Google account</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #E0E0E0;">
+          <button style="background:none;border:none;color:#1A73E8;font-size:12.5px;font-weight:700;cursor:pointer;" onclick="simulateGoogleAccountConflict()">
+            ⚠️ Simulate Account Conflict
+          </button>
+          <button style="background:none;border:none;color:#5F6368;font-size:13px;font-weight:600;cursor:pointer;" onclick="closeGoogleChooser()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==================== FIRST-LAUNCH PRIVACY, PERMISSIONS & CONSENT SHEET ==================== -->
+    <div class="auth-consent-backdrop" id="authConsentBackdrop" onclick="closeAuthConsent(event)">
+      <div class="auth-consent-card" onclick="event.stopPropagation()">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--saffron);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;">🛡️</div>
+          <div>
+            <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Privacy & Permissions</div>
+            <div style="font-size:11px;color:var(--text-secondary);">Your data rights under DPDP & GDPR</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin:16px 0;">
+          <div style="background:var(--surface);padding:12px 14px;border-radius:14px;border:1px solid var(--border);">
+            <div style="font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">🔒 Private Code Security</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.4;">
+              Verification codes and OTPs are never exposed in lock-screen notification previews to protect your account.
+            </div>
+          </div>
+
+          <div style="background:var(--surface);padding:12px 14px;border-radius:14px;border:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--text-primary);">Under 18 Protection Mode</div>
+                <div style="font-size:11.5px;color:var(--text-secondary);">Disables ad profiling automatically</div>
+              </div>
+              <input type="checkbox" id="consentUnder18Checkbox" onchange="handleUnder18Toggle(this.checked)" style="accent-color:var(--saffron);width:18px;height:18px;" />
+            </div>
+          </div>
+
+          <div style="background:var(--surface);padding:12px 14px;border-radius:14px;border:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--text-primary);">Offline Smart Sync</div>
+                <div style="font-size:11.5px;color:var(--text-secondary);">Saves downloaded song progress locally</div>
+              </div>
+              <input type="checkbox" checked style="accent-color:var(--accent-mint);width:18px;height:18px;" />
+            </div>
+          </div>
+        </div>
+
+        <button class="auth-btn-primary" onclick="acceptConsentAndContinue()">
+          <span>I Agree & Continue</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- ==================== COMPONENT SHEET (Pill Inputs, 6-Box Code, Country Picker, Social) ==================== -->
+    <div class="auth-components-backdrop" id="authComponentsBackdrop" onclick="closeAuthComponents(event)">
+      <div class="auth-components-card" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <div>
+            <div style="font-size:17px;font-weight:800;color:var(--accent-mint);">🧩 Auth Component Specification Gallery</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);">Touch targets 48-56px, WCAG Contrast, Fluid Scaling</div>
+          </div>
+          <button class="auth-close-btn" onclick="closeAuthComponents()">✕</button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <!-- 1. Pill Inputs -->
+          <div style="background:var(--surface);padding:16px;border-radius:18px;border:1px solid var(--border);">
+            <div style="font-size:13px;font-weight:800;color:var(--saffron);margin-bottom:10px;">1. FULLY ROUNDED PILL INPUTS (50-52px)</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">DEFAULT / EMPTY</div>
+                <div class="auth-pill-input-box" style="height:46px;">
+                  <input type="text" class="auth-pill-input" placeholder="name@example.com" />
+                </div>
+              </div>
+              <div>
+                <div style="font-size:11px;color:var(--saffron);margin-bottom:4px;">ACTIVE FOCUS STATE</div>
+                <div class="auth-pill-input-box" style="height:46px;border-color:var(--saffron);box-shadow:0 0 0 3px rgba(242,169,0,0.25);">
+                  <input type="text" class="auth-pill-input" value="active.user@kannadaraaga.com" />
+                </div>
+              </div>
+              <div>
+                <div style="font-size:11px;color:#E53935;margin-bottom:4px;">ERROR STATE</div>
+                <div class="auth-pill-input-box error" style="height:46px;">
+                  <input type="text" class="auth-pill-input" value="invalid-email" />
+                </div>
+                <div style="font-size:10.5px;color:#E53935;font-weight:600;margin-top:2px;">Enter a valid email address</div>
+              </div>
+              <div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">DISABLED STATE</div>
+                <div class="auth-pill-input-box disabled" style="height:46px;">
+                  <input type="text" class="auth-pill-input" value="disabled@example.com" disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Six-Box Code Input -->
+          <div style="background:var(--surface);padding:16px;border-radius:18px;border:1px solid var(--border);">
+            <div style="font-size:13px;font-weight:800;color:var(--saffron);margin-bottom:10px;">2. SIX-BOX AUTO-ADVANCING CODE INPUT</div>
+            <div style="display:flex;gap:8px;justify-content:center;">
+              <input type="text" class="auth-otp-box filled" value="1" readonly />
+              <input type="text" class="auth-otp-box filled" value="2" readonly />
+              <input type="text" class="auth-otp-box filled" value="3" readonly />
+              <input type="text" class="auth-otp-box" style="border-color:var(--saffron);box-shadow:0 0 0 3px rgba(242,169,0,0.25);" value="4" readonly />
+              <input type="text" class="auth-otp-box" placeholder="•" readonly />
+              <input type="text" class="auth-otp-box" placeholder="•" readonly />
+            </div>
+            <div style="font-size:11.5px;color:var(--text-secondary);text-align:center;margin-top:8px;">
+              Supports auto-advance, backspace retreat, clipboard paste (splits 6 digits), and screen-reader ARIA labels.
+            </div>
+          </div>
+
+          <!-- 3. Buttons & Social -->
+          <div style="background:var(--surface);padding:16px;border-radius:18px;border:1px solid var(--border);">
+            <div style="font-size:13px;font-weight:800;color:var(--saffron);margin-bottom:10px;">3. BUTTONS & SOCIAL CONTROLS</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <button class="auth-btn-google">
+                <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Continue with Google (Google Brand Compliance)</span>
+              </button>
+              <button class="auth-btn-primary">
+                <span>Primary Mint Button (#DDE6E1) with Dark Ink</span>
+              </button>
+              <button class="auth-btn-outlined">
+                <span>Outlined Pill (#18211F Surface Border)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ACCOUNT MODAL -->
     <div class="collection-modal-backdrop" id="accountModalBackdrop" onclick="closeAccountModal(event)">
       <div class="collection-sheet" onclick="event.stopPropagation()">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -5112,6 +6238,11 @@
     }
 
     function createNewPlaylistPrompt(optionalSongId) {
+      if (state.isGuest) {
+        showRaagaToast('🔒 Custom playlists are locked in Guest mode. Sign in to create playlists.');
+        openAuthModal();
+        return;
+      }
       const name = prompt('Enter new Kannada Playlist name:', 'My Kannada Favorites 2026');
       if (name && name.trim()) {
         const initialSongs = optionalSongId ? [optionalSongId] : [state.currentSong.id];
@@ -5510,6 +6641,11 @@
     }
 
     function triggerDirectOrQualityDownload(id) {
+      if (state.isGuest) {
+        showRaagaToast('🔒 Downloads are locked in Guest mode. Sign in to download tracks.');
+        openAuthModal();
+        return;
+      }
       if (state.downloaded.has(id)) {
         state.downloaded.delete(id);
         showRaagaToast('Removed track from downloads');
@@ -5643,6 +6779,11 @@
     }
 
     function downloadSelectedAzSongs() {
+      if (state.isGuest) {
+        showRaagaToast('🔒 Downloads are locked in Guest mode. Sign in to download tracks.');
+        openAuthModal();
+        return;
+      }
       const count = state.azSelectedIds.size;
       state.azSelectedIds.forEach(id => state.downloaded.add(id));
       saveLibraryState();
@@ -6112,6 +7253,851 @@
 
     renderAll();
     loadMassiveKannadaCatalog();
-  </script>
+  
+
+    // ==================== AUTHENTICATION & LOGIN FLOW JAVASCRIPT ENGINE ====================
+    
+    // Auth State
+    const authState = {
+      language: 'en', // 'en' or 'kn'
+      currentStep: 'stepWelcome',
+      emailTarget: '',
+      phoneTarget: '',
+      selectedCountry: { code: '+91', flag: '🇮🇳', name: 'India' },
+      emailCode: '123456',
+      mobileOtp: '849201',
+      emailAttempts: 3,
+      mobileAttempts: 3,
+      emailTimerInterval: null,
+      mobileTimerInterval: null,
+      selectedAvatar: 'ಕ',
+      selectedProfileLang: 'kn',
+      isLockedOut: false,
+      lockoutEndTime: 0
+    };
+
+    // User session in main app state
+    state.currentUser = null;
+    state.isGuest = false;
+
+    // Check localStorage for saved session
+    try {
+      const savedUser = localStorage.getItem('kannada_raaga_user');
+      if (savedUser) {
+        state.currentUser = JSON.parse(savedUser);
+        console.log('Restored logged-in session:', state.currentUser.name);
+      }
+    } catch(e) {}
+
+    // Country Data List
+    const COUNTRY_LIST = [
+      { code: '+91', flag: '🇮🇳', name: 'India' },
+      { code: '+1', flag: '🇺🇸', name: 'United States' },
+      { code: '+44', flag: '🇬🇧', name: 'United Kingdom' },
+      { code: '+971', flag: '🇦🇪', name: 'United Arab Emirates' },
+      { code: '+1', flag: '🇨🇦', name: 'Canada' },
+      { code: '+61', flag: '🇦🇺', name: 'Australia' },
+      { code: '+65', flag: '🇸🇬', name: 'Singapore' },
+      { code: '+49', flag: '🇩🇪', name: 'Germany' },
+      { code: '+966', flag: '🇸🇦', name: 'Saudi Arabia' },
+      { code: '+974', flag: '🇶🇦', name: 'Qatar' },
+      { code: '+965', flag: '🇰🇼', name: 'Kuwait' },
+      { code: '+968', flag: '🇴🇲', name: 'Oman' },
+      { code: '+60', flag: '🇲🇾', name: 'Malaysia' },
+      { code: '+33', flag: '🇫🇷', name: 'France' },
+      { code: '+81', flag: '🇯🇵', name: 'Japan' }
+    ];
+
+    // Bilingual Dictionary for Auth
+    const AUTH_STRINGS = {
+      en: {
+        langBtn: 'ಕನ್ನಡ',
+        headerTagline: 'ಕನ್ನಡ ಹಾಡುಗಳು, ಎಲ್ಲಿಯಾದರೂ • Kannada songs, anywhere',
+        welcomeTitle: 'Welcome back',
+        welcomeSubtitle: 'Sign in or create your account to sync your playlists and downloads',
+        btnGoogle: 'Continue with Google',
+        btnMobile: 'Continue with mobile number',
+        btnEmail: 'Continue with email',
+        orDivider: 'or',
+        btnGuest: 'Continue as guest (Browse only)',
+        newHere: 'New here?',
+        createAccount: 'Create account',
+        emailTitle: 'Enter your email',
+        emailSubtitle: "We'll send you a 6-digit verification code to sign in",
+        btnSendEmail: 'Send verification code'
+      },
+      kn: {
+        langBtn: 'English',
+        headerTagline: 'ಕನ್ನಡ ಹಾಡುಗಳು, ಎಲ್ಲಿಯಾದರೂ • ನಿಮ್ಮ ಮೆಚ್ಚಿನ ರಾಗಗಳು',
+        welcomeTitle: 'ಮತ್ತೆ ಸುಸ್ವಾಗತ',
+        welcomeSubtitle: 'ನಿಮ್ಮ ಪ್ಲೇಪಟ್ಟಿಗಳು ಮತ್ತು ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಸಿಂಕ್ ಮಾಡಲು ಸೈನ್ ಇನ್ ಮಾಡಿ ಅಥವಾ ಖಾತೆ ರಚಿಸಿ',
+        btnGoogle: 'ಗೂಗಲ್ ಮೂಲಕ ಮುಂದುವರಿಯಿರಿ',
+        btnMobile: 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ',
+        btnEmail: 'ಇಮೇಲ್ ಮೂಲಕ ಮುಂದುವರಿಯಿರಿ',
+        orDivider: 'ಅಥವಾ',
+        btnGuest: 'ಅತಿಥಿಯಾಗಿ ಮುಂದುವರಿಯಿರಿ (ಕೇವಲ ಬ್ರೌಸ್)',
+        newHere: 'ಹೊಸಬರೇ?',
+        createAccount: 'ಖಾತೆ ರಚಿಸಿ',
+        emailTitle: 'ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ',
+        emailSubtitle: 'ಸೈನ್ ಇನ್ ಮಾಡಲು ನಾವು 6-ಅಂಕಿಯ ಪರಿಶೀಲನಾ ಕೋಡ್ ಕಳುಹಿಸುತ್ತೇವೆ',
+        btnSendEmail: 'ಪರಿಶೀಲನಾ ಕೋಡ್ ಕಳುಹಿಸಿ'
+      }
+    };
+
+    // Open & Close Auth Modal
+    function openAuthModal(step) {
+      if (state.isOffline) {
+        showRaagaToast("⚡ You're offline. Continue as guest to play downloaded songs.");
+      }
+      const backdrop = document.getElementById('authModalBackdrop');
+      if (backdrop) {
+        backdrop.classList.add('open');
+        goToAuthStep(step || 'stepWelcome');
+      }
+    }
+
+    function closeAuthModal() {
+      const backdrop = document.getElementById('authModalBackdrop');
+      if (backdrop) backdrop.classList.remove('open');
+      clearInterval(authState.emailTimerInterval);
+      clearInterval(authState.mobileTimerInterval);
+    }
+
+    function handleAuthBackdropClick(e) {
+      if (e.target.id === 'authModalBackdrop') {
+        closeAuthModal();
+      }
+    }
+
+    // Step Navigation
+    function goToAuthStep(stepId) {
+      authState.currentStep = stepId;
+      const steps = ['authStepWelcome', 'authStepEmailInput', 'authStepEmailVerify', 'authStepMobileInput', 'authStepMobileVerify', 'authStepProfileSetup', 'authStepConflict'];
+      steps.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+
+      let targetEl = null;
+      if (stepId === 'stepWelcome') targetEl = document.getElementById('authStepWelcome');
+      else if (stepId === 'stepEmailInput') targetEl = document.getElementById('authStepEmailInput');
+      else if (stepId === 'stepEmailVerify') targetEl = document.getElementById('authStepEmailVerify');
+      else if (stepId === 'stepMobileInput') targetEl = document.getElementById('authStepMobileInput');
+      else if (stepId === 'stepMobileVerify') targetEl = document.getElementById('authStepMobileVerify');
+      else if (stepId === 'stepProfileSetup') targetEl = document.getElementById('authStepProfileSetup');
+      else if (stepId === 'stepConflict') targetEl = document.getElementById('authStepConflict');
+
+      if (targetEl) targetEl.classList.add('active');
+
+      // Autofocus first input if relevant
+      if (stepId === 'stepEmailInput') {
+        setTimeout(() => { const inp = document.getElementById('authEmailInput'); if (inp) inp.focus(); }, 100);
+      } else if (stepId === 'stepEmailVerify') {
+        setTimeout(() => { const inp = document.getElementById('emailOtp0'); if (inp) inp.focus(); }, 100);
+      } else if (stepId === 'stepMobileInput') {
+        setTimeout(() => { const inp = document.getElementById('authPhoneInput'); if (inp) inp.focus(); }, 100);
+      } else if (stepId === 'stepMobileVerify') {
+        setTimeout(() => { const inp = document.getElementById('mobileOtp0'); if (inp) inp.focus(); }, 100);
+      }
+    }
+
+    // Toggle Language
+    function toggleAuthLanguage() {
+      authState.language = authState.language === 'en' ? 'kn' : 'en';
+      const dict = AUTH_STRINGS[authState.language];
+      
+      const langLabel = document.getElementById('authLangLabel');
+      if (langLabel) langLabel.textContent = dict.langBtn;
+
+      const headerTagline = document.getElementById('authHeaderTagline');
+      if (headerTagline) headerTagline.textContent = dict.headerTagline;
+
+      const welcomeTitle = document.getElementById('authWelcomeTitle');
+      if (welcomeTitle) welcomeTitle.textContent = dict.welcomeTitle;
+
+      const welcomeSubtitle = document.getElementById('authWelcomeSubtitle');
+      if (welcomeSubtitle) welcomeSubtitle.textContent = dict.welcomeSubtitle;
+
+      const btnGoogle = document.getElementById('authBtnGoogleText');
+      if (btnGoogle) btnGoogle.textContent = dict.btnGoogle;
+
+      const btnMobile = document.getElementById('authBtnMobileText');
+      if (btnMobile) btnMobile.textContent = dict.btnMobile;
+
+      const btnEmail = document.getElementById('authBtnEmailText');
+      if (btnEmail) btnEmail.textContent = dict.btnEmail;
+
+      const divider = document.getElementById('authDividerText');
+      if (divider) divider.textContent = dict.orDivider;
+
+      const guestBtn = document.getElementById('authGuestBtn');
+      if (guestBtn) guestBtn.textContent = dict.btnGuest;
+
+      const newHere = document.getElementById('authNewHereText');
+      if (newHere) newHere.textContent = dict.newHere;
+
+      const emailTitle = document.getElementById('authEmailTitle');
+      if (emailTitle) emailTitle.textContent = dict.emailTitle;
+
+      const emailSub = document.getElementById('authEmailSubtitle');
+      if (emailSub) emailSub.textContent = dict.emailSubtitle;
+
+      const btnSendEmail = document.getElementById('btnSendEmailCodeText');
+      if (btnSendEmail) btnSendEmail.textContent = dict.btnSendEmail;
+
+      showRaagaToast(authState.language === 'kn' ? 'ಭಾಷೆಯನ್ನು ಕನ್ನಡಕ್ಕೆ ಬದಲಾಯಿಸಲಾಗಿದೆ' : 'Language switched to English');
+    }
+
+    // Continue As Guest
+    function continueAsGuest() {
+      state.isGuest = true;
+      state.currentUser = null;
+      try { localStorage.removeItem('kannada_raaga_user'); } catch(e) {}
+      closeAuthModal();
+      showRaagaToast('✨ Browsing as Guest. Sign in anytime to unlock downloads & playlists.');
+      updateAuthUIState();
+    }
+
+    // Email Step 1: Validation & Send Code
+    function validateEmailInput() {
+      const input = document.getElementById('authEmailInput');
+      const box = document.getElementById('authEmailBox');
+      const error = document.getElementById('authEmailError');
+      const val = input.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+
+      if (val.length > 0 && !isValid) {
+        box.classList.add('error');
+        error.classList.add('visible');
+        return false;
+      } else {
+        box.classList.remove('error');
+        error.classList.remove('visible');
+        return isValid;
+      }
+    }
+
+    function handleEmailKey(e) {
+      if (e.key === 'Enter') sendEmailVerificationCode();
+    }
+
+    function fillDemoEmail(email) {
+      const input = document.getElementById('authEmailInput');
+      if (input) {
+        input.value = email;
+        validateEmailInput();
+        input.focus();
+      }
+    }
+
+    function sendEmailVerificationCode() {
+      const input = document.getElementById('authEmailInput');
+      const email = input.value.trim();
+      if (!validateEmailInput() || !email) {
+        const box = document.getElementById('authEmailBox');
+        const error = document.getElementById('authEmailError');
+        box.classList.add('error');
+        error.classList.add('visible');
+        input.focus();
+        return;
+      }
+
+      authState.emailTarget = email;
+      const targetDisplay = document.getElementById('authEmailTargetDisplay');
+      if (targetDisplay) targetDisplay.textContent = email;
+
+      const btn = document.getElementById('btnSendEmailCode');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending code...</span>';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<span id="btnSendEmailCodeText">Send verification code</span>';
+        goToAuthStep('stepEmailVerify');
+        startEmailResendCountdown();
+        showRaagaToast('✉️ 6-digit verification code sent to ' + email);
+      }, 700);
+    }
+
+    // 30s Resend Countdown for Email
+    function startEmailResendCountdown() {
+      clearInterval(authState.emailTimerInterval);
+      let secondsLeft = 30;
+      const timerEl = document.getElementById('emailResendTimerText');
+      const resendBtn = document.getElementById('btnResendEmailCode');
+      const spamHint = document.getElementById('emailSpamHint');
+
+      resendBtn.style.display = 'none';
+      spamHint.style.display = 'none';
+
+      authState.emailTimerInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerEl.textContent = 'Resend code in 00:' + (secondsLeft < 10 ? '0' : '') + secondsLeft;
+        } else {
+          clearInterval(authState.emailTimerInterval);
+          timerEl.textContent = '';
+          resendBtn.style.display = 'inline-block';
+          spamHint.style.display = 'block';
+        }
+      }, 1000);
+    }
+
+    function resendEmailVerificationCode() {
+      startEmailResendCountdown();
+      showRaagaToast('🔄 New verification code sent to ' + authState.emailTarget);
+    }
+
+    // 6-Digit Code Auto-Advance, Backspace & Paste
+    function handleOtpInput(index, type) {
+      const currentBox = document.getElementById(type + 'Otp' + index);
+      const val = currentBox.value.replace(/[^0-9]/g, '');
+      currentBox.value = val ? val[val.length - 1] : '';
+
+      if (currentBox.value) {
+        currentBox.classList.add('filled');
+        if (index < 5) {
+          const nextBox = document.getElementById(type + 'Otp' + (index + 1));
+          if (nextBox) nextBox.focus();
+        }
+      } else {
+        currentBox.classList.remove('filled');
+      }
+
+      checkOtpCompletion(type);
+    }
+
+    function handleOtpKey(index, e, type) {
+      if (e.key === 'Backspace') {
+        const currentBox = document.getElementById(type + 'Otp' + index);
+        if (!currentBox.value && index > 0) {
+          const prevBox = document.getElementById(type + 'Otp' + (index - 1));
+          if (prevBox) {
+            prevBox.focus();
+            prevBox.value = '';
+            prevBox.classList.remove('filled');
+          }
+        }
+      } else if (e.key === 'Enter') {
+        if (type === 'email') verifyEmailOtp();
+        else verifyMobileOtp();
+      }
+    }
+
+    function handleOtpPaste(e, type) {
+      e.preventDefault();
+      const pasteData = (e.clipboardData || window.clipboardData).getData('text').trim();
+      const digits = pasteData.replace(/[^0-9]/g, '').slice(0, 6);
+      if (!digits) return;
+
+      for (let i = 0; i < 6; i++) {
+        const box = document.getElementById(type + 'Otp' + i);
+        if (box) {
+          box.value = digits[i] || '';
+          if (box.value) box.classList.add('filled');
+          else box.classList.remove('filled');
+        }
+      }
+
+      const focusIdx = Math.min(digits.length, 5);
+      const focusBox = document.getElementById(type + 'Otp' + focusIdx);
+      if (focusBox) focusBox.focus();
+
+      checkOtpCompletion(type);
+    }
+
+    function checkOtpCompletion(type) {
+      let fullCode = '';
+      for (let i = 0; i < 6; i++) {
+        const box = document.getElementById(type + 'Otp' + i);
+        if (box) fullCode += box.value;
+      }
+
+      const verifyBtn = document.getElementById(type === 'email' ? 'btnVerifyEmailCode' : 'btnVerifyMobileOtp');
+      if (verifyBtn) {
+        verifyBtn.disabled = fullCode.length !== 6;
+      }
+    }
+
+    function autofillDemoOtp(code, type) {
+      for (let i = 0; i < 6; i++) {
+        const box = document.getElementById(type + 'Otp' + i);
+        if (box) {
+          box.value = code[i] || '';
+          box.classList.add('filled');
+        }
+      }
+      checkOtpCompletion(type);
+      showRaagaToast('⚡ Demo code ' + code + ' filled');
+    }
+
+    // Verify Email Code
+    function verifyEmailOtp() {
+      let code = '';
+      for (let i = 0; i < 6; i++) {
+        const box = document.getElementById('emailOtp' + i);
+        if (box) code += box.value;
+      }
+
+      const row = document.getElementById('emailOtpRow');
+      const feedback = document.getElementById('emailOtpFeedback');
+      const verifyBtn = document.getElementById('btnVerifyEmailCode');
+
+      verifyBtn.disabled = true;
+      verifyBtn.innerHTML = '<span>Verifying...</span>';
+
+      setTimeout(() => {
+        if (code === authState.emailCode || code === '123456') {
+          // Success
+          feedback.style.color = '#4CAF50';
+          feedback.innerHTML = '✓ Code verified successfully!';
+          showRaagaToast('✓ Email verified! Setting up session...');
+          
+          setTimeout(() => {
+            // New user goes to profile setup
+            const nameInput = document.getElementById('profileNameInput');
+            if (nameInput) nameInput.value = authState.emailTarget.split('@')[0];
+            goToAuthStep('stepProfileSetup');
+          }, 600);
+        } else {
+          // Failure
+          authState.emailAttempts--;
+          row.classList.add('error');
+          setTimeout(() => row.classList.remove('error'), 450);
+
+          if (authState.emailAttempts > 0) {
+            feedback.style.color = '#E53935';
+            feedback.innerHTML = 'Incorrect code, ' + authState.emailAttempts + ' attempts left';
+            verifyBtn.disabled = false;
+            verifyBtn.innerHTML = '<span id="btnVerifyEmailCodeText">Verify</span>';
+          } else {
+            // Lockout 15 min
+            feedback.style.color = '#E53935';
+            feedback.innerHTML = '🔒 Locked for 15 minutes due to multiple failed attempts.';
+            verifyBtn.disabled = true;
+            verifyBtn.innerHTML = '<span>Locked (15 min)</span>';
+          }
+        }
+      }, 700);
+    }
+
+    // Mobile Phone Validation & Sending OTP
+    function validatePhoneInput() {
+      const input = document.getElementById('authPhoneInput');
+      const error = document.getElementById('authPhoneError');
+      const digits = input.value.replace(/[^0-9]/g, '');
+      input.value = digits;
+      const isValid = digits.length === 10;
+
+      if (digits.length > 0 && !isValid) {
+        error.classList.add('visible');
+        return false;
+      } else {
+        error.classList.remove('visible');
+        return isValid;
+      }
+    }
+
+    function handlePhoneKey(e) {
+      if (e.key === 'Enter') sendMobileOtp();
+    }
+
+    function fillDemoPhone(phone) {
+      const input = document.getElementById('authPhoneInput');
+      if (input) {
+        input.value = phone;
+        validatePhoneInput();
+        input.focus();
+      }
+    }
+
+    function sendMobileOtp() {
+      const input = document.getElementById('authPhoneInput');
+      const digits = input.value.replace(/[^0-9]/g, '');
+      if (digits.length !== 10) {
+        document.getElementById('authPhoneError').classList.add('visible');
+        input.focus();
+        return;
+      }
+
+      const fullNumber = authState.selectedCountry.code + ' ' + digits;
+      authState.phoneTarget = fullNumber;
+
+      const display = document.getElementById('authMobileTargetDisplay');
+      if (display) display.textContent = fullNumber;
+
+      const btn = document.getElementById('btnSendMobileOtp');
+      btn.disabled = true;
+      btn.innerHTML = '<span>Sending OTP...</span>';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<span id="btnSendMobileOtpText">Send OTP</span>';
+        goToAuthStep('stepMobileVerify');
+        startMobileResendCountdown();
+        showRaagaToast('📱 OTP sent to ' + fullNumber);
+      }, 700);
+    }
+
+    function startMobileResendCountdown() {
+      clearInterval(authState.mobileTimerInterval);
+      let secondsLeft = 30;
+      const timerEl = document.getElementById('mobileResendTimerText');
+      const resendBtn = document.getElementById('btnResendMobileOtp');
+
+      resendBtn.style.display = 'none';
+
+      authState.mobileTimerInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerEl.textContent = 'Resend OTP in 00:' + (secondsLeft < 10 ? '0' : '') + secondsLeft;
+        } else {
+          clearInterval(authState.mobileTimerInterval);
+          timerEl.textContent = '';
+          resendBtn.style.display = 'inline-block';
+        }
+      }, 1000);
+    }
+
+    function resendMobileOtp() {
+      startMobileResendCountdown();
+      showRaagaToast('🔄 New OTP sent to ' + authState.phoneTarget);
+    }
+
+    function verifyMobileOtp() {
+      let code = '';
+      for (let i = 0; i < 6; i++) {
+        const box = document.getElementById('mobileOtp' + i);
+        if (box) code += box.value;
+      }
+
+      const row = document.getElementById('mobileOtpRow');
+      const feedback = document.getElementById('mobileOtpFeedback');
+      const verifyBtn = document.getElementById('btnVerifyMobileOtp');
+
+      verifyBtn.disabled = true;
+      verifyBtn.innerHTML = '<span>Verifying...</span>';
+
+      setTimeout(() => {
+        if (code === authState.mobileOtp || code === '849201') {
+          feedback.style.color = '#4CAF50';
+          feedback.innerHTML = '✓ Phone verified successfully!';
+          showRaagaToast('✓ Phone verified!');
+
+          setTimeout(() => {
+            const nameInput = document.getElementById('profileNameInput');
+            if (nameInput) nameInput.value = 'Raaga Listener';
+            goToAuthStep('stepProfileSetup');
+          }, 600);
+        } else {
+          authState.mobileAttempts--;
+          row.classList.add('error');
+          setTimeout(() => row.classList.remove('error'), 450);
+
+          if (authState.mobileAttempts > 0) {
+            feedback.style.color = '#E53935';
+            feedback.innerHTML = 'Incorrect OTP, ' + authState.mobileAttempts + ' attempts left';
+            verifyBtn.disabled = false;
+            verifyBtn.innerHTML = '<span id="btnVerifyMobileOtpText">Verify & Continue</span>';
+          } else {
+            feedback.style.color = '#E53935';
+            feedback.innerHTML = '🔒 Locked for 15 minutes due to multiple failed attempts.';
+            verifyBtn.disabled = true;
+            verifyBtn.innerHTML = '<span>Locked (15 min)</span>';
+          }
+        }
+      }, 700);
+    }
+
+    // Country Picker
+    function openCountryPicker() {
+      const backdrop = document.getElementById('countryPickerBackdrop');
+      if (backdrop) {
+        populateCountryList();
+        backdrop.classList.add('open');
+      }
+    }
+
+    function closeCountryPicker(e) {
+      if (e) e.stopPropagation();
+      const backdrop = document.getElementById('countryPickerBackdrop');
+      if (backdrop) backdrop.classList.remove('open');
+    }
+
+    function populateCountryList(filterText = '') {
+      const container = document.getElementById('countryOptionsList');
+      if (!container) return;
+
+      const filter = filterText.toLowerCase();
+      const filtered = COUNTRY_LIST.filter(c => c.name.toLowerCase().includes(filter) || c.code.includes(filter));
+
+      container.innerHTML = filtered.map(c => `
+        <div class="col-option-btn" style="cursor:pointer;padding:10px 14px;border-radius:12px;background:var(--surface);" onclick="selectCountry('${c.code}', '${c.flag}', '${c.name}')">
+          <span style="font-size:20px;margin-right:10px;">${c.flag}</span>
+          <span style="font-weight:700;flex:1;color:var(--text-primary);">${c.name}</span>
+          <span style="font-weight:800;color:var(--saffron);">${c.code}</span>
+        </div>
+      `).join('');
+    }
+
+    function filterCountryList() {
+      const query = document.getElementById('countrySearchInput').value;
+      populateCountryList(query);
+    }
+
+    function selectCountry(code, flag, name) {
+      authState.selectedCountry = { code, flag, name };
+      document.getElementById('authSelectedFlag').textContent = flag;
+      document.getElementById('authSelectedCode').textContent = code;
+      closeCountryPicker();
+    }
+
+    // Google Sign-In Simulation
+    function startGoogleLogin() {
+      const chooser = document.getElementById('googleChooserBackdrop');
+      if (chooser) chooser.classList.add('open');
+    }
+
+    function closeGoogleChooser(e) {
+      if (e) e.stopPropagation();
+      const chooser = document.getElementById('googleChooserBackdrop');
+      if (chooser) chooser.classList.remove('open');
+    }
+
+    function selectGoogleAccount(name, email, avatarLetter) {
+      closeGoogleChooser();
+      showRaagaToast('Signing you in with Google (' + email + ')...');
+
+      setTimeout(() => {
+        state.currentUser = {
+          name: name,
+          email: email,
+          phone: '',
+          provider: 'google',
+          avatar: avatarLetter,
+          tier: 'Free Listener',
+          joinedYear: '2026',
+          linkedGoogle: true
+        };
+        state.isGuest = false;
+        try { localStorage.setItem('kannada_raaga_user', JSON.stringify(state.currentUser)); } catch(e) {}
+        closeAuthModal();
+        updateAuthUIState();
+        showRaagaToast('🎉 Welcome, ' + name + '! Signed in with Google.');
+      }, 800);
+    }
+
+    function simulateGoogleAccountConflict() {
+      closeGoogleChooser();
+      const targetDisplay = document.getElementById('conflictTargetDisplay');
+      if (targetDisplay) targetDisplay.textContent = 'vinay.kannada@gmail.com';
+      goToAuthStep('stepConflict');
+    }
+
+    function resolveAccountConflict(method) {
+      showRaagaToast('🔗 Merging and linking Google credentials...');
+      goToAuthStep('stepEmailInput');
+      fillDemoEmail('vinay.kannada@gmail.com');
+    }
+
+    // Profile Setup Finish
+    function selectAvatar(symbol) {
+      authState.selectedAvatar = symbol;
+      const preview = document.getElementById('profileAvatarPreview');
+      if (preview) preview.textContent = symbol;
+    }
+
+    function setProfileLanguage(lang) {
+      authState.selectedProfileLang = lang;
+      ['chipLangKannada', 'chipLangEnglish', 'chipLangBoth'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active-mint');
+      });
+      if (lang === 'kn') document.getElementById('chipLangKannada').classList.add('active-mint');
+      else if (lang === 'en') document.getElementById('chipLangEnglish').classList.add('active-mint');
+      else document.getElementById('chipLangBoth').classList.add('active-mint');
+    }
+
+    function completeProfileSetup() {
+      const name = document.getElementById('profileNameInput').value.trim() || 'Kannada Music Lover';
+      const keepSignedIn = document.getElementById('authKeepSignedIn').checked;
+
+      state.currentUser = {
+        name: name,
+        email: authState.emailTarget || 'user@kannadaraaga.com',
+        phone: authState.phoneTarget || '',
+        provider: authState.emailTarget ? 'email' : 'phone',
+        avatar: authState.selectedAvatar,
+        tier: 'Free Listener',
+        joinedYear: '2026',
+        linkedGoogle: false
+      };
+      state.isGuest = false;
+
+      if (keepSignedIn) {
+        try { localStorage.setItem('kannada_raaga_user', JSON.stringify(state.currentUser)); } catch(e) {}
+      }
+
+      closeAuthModal();
+      updateAuthUIState();
+      showRaagaToast('🎉 Welcome to Kannada Raaga, ' + name + '!');
+    }
+
+    // Update App Top Bar Account Button & Status
+    function updateAuthUIState() {
+      const accountBtn = document.getElementById('topAccountBtn');
+      if (accountBtn) {
+        if (state.currentUser) {
+          accountBtn.innerHTML = '<span style="font-size:15px;font-weight:900;color:var(--saffron);">' + state.currentUser.avatar + '</span>';
+          accountBtn.title = state.currentUser.name + ' (Signed in)';
+        } else if (state.isGuest) {
+          accountBtn.innerHTML = '👤';
+          accountBtn.title = 'Guest Listener (Tap to sign in)';
+        } else {
+          accountBtn.innerHTML = '👤';
+          accountBtn.title = 'Account';
+        }
+      }
+    }
+
+    // Integrated Account Modal (Live Session Details)
+    function openAccountModal() {
+      const backdrop = document.getElementById('accountModalBackdrop');
+      const content = document.getElementById('accountModalContent');
+      if (!backdrop || !content) return;
+
+      if (state.currentUser) {
+        content.innerHTML = `
+          <div style="text-align:center;margin-bottom:16px;">
+            <div style="width:68px;height:68px;border-radius:50%;background:var(--saffron);color:#0B1110;font-size:30px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.5);border:2px solid var(--accent-mint);">${state.currentUser.avatar}</div>
+            <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-top:8px;">${state.currentUser.name}</div>
+            <div style="font-size:12px;color:var(--saffron);font-weight:700;">${state.currentUser.tier} • Member since ${state.currentUser.joinedYear}</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);margin-top:2px;">${state.currentUser.email || state.currentUser.phone}</div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--surface);padding:10px 14px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:var(--text-secondary);">Auth Method</span>
+              <span style="color:var(--accent-mint);font-weight:700;font-size:12.5px;">✓ ${state.currentUser.provider.toUpperCase()} (Secure)</span>
+            </div>
+            <div style="background:var(--surface);padding:10px 14px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:var(--text-secondary);">Audio Quality</span>
+              <span style="color:var(--saffron);font-weight:700;font-size:12.5px;">320 kbps Studio Master</span>
+            </div>
+            <div style="background:var(--surface);padding:10px 14px;border-radius:14px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:var(--text-secondary);">Bilingual Subtitles</span>
+              <span style="color:var(--accent-mint);font-weight:700;font-size:12.5px;">Enabled (ಕನ್ನಡ/EN)</span>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <button class="pill-chip" style="width:100%;padding:10px;font-size:12.5px;font-weight:700;" onclick="closeAccountModal();openAuthModal('stepEmailInput');">
+              ✉️ Change Email or Mobile
+            </button>
+            <button class="pill-chip" style="width:100%;padding:10px;font-size:12.5px;font-weight:700;color:var(--saffron);border-color:var(--saffron);" onclick="signOutAllDevices()">
+              🔐 Sign Out of All Devices
+            </button>
+            <button class="pill-chip" style="width:100%;padding:10px;font-size:12.5px;font-weight:700;color:#E53935;border-color:#E53935;" onclick="signOutCurrentSession()">
+              🚪 Sign Out
+            </button>
+          </div>
+        `;
+      } else {
+        content.innerHTML = `
+          <div style="text-align:center;margin-bottom:16px;">
+            <div style="width:64px;height:64px;border-radius:50%;background:var(--surface);color:var(--text-secondary);font-size:28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);">👤</div>
+            <div style="font-size:17px;font-weight:800;color:var(--text-primary);margin-top:8px;">Guest Listener</div>
+            <div style="font-size:12px;color:var(--saffron);margin-top:4px;">Browse Mode Active</div>
+          </div>
+
+          <div style="background:rgba(242,169,0,0.08);border:1px solid rgba(242,169,0,0.25);border-radius:16px;padding:12px 14px;margin-bottom:16px;">
+            <div style="font-size:12px;font-weight:700;color:var(--saffron);">LOCKED IN GUEST MODE:</div>
+            <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px;line-height:1.4;">
+              Offline downloads and personalized playlists require an account to sync across devices.
+            </div>
+          </div>
+
+          <button class="auth-btn-primary" onclick="closeAccountModal();openAuthModal();">
+            <span>Sign In / Create Account →</span>
+          </button>
+        `;
+      }
+
+      backdrop.classList.add('open');
+    }
+
+    function signOutCurrentSession() {
+      state.currentUser = null;
+      state.isGuest = true;
+      try { localStorage.removeItem('kannada_raaga_user'); } catch(e) {}
+      closeAccountModal();
+      updateAuthUIState();
+      showRaagaToast('Signed out successfully.');
+    }
+
+    function signOutAllDevices() {
+      state.currentUser = null;
+      state.isGuest = false;
+      try { localStorage.removeItem('kannada_raaga_user'); } catch(e) {}
+      closeAccountModal();
+      updateAuthUIState();
+      showRaagaToast('✓ Revoked active session tokens on all devices.');
+    }
+
+    // First-Launch Consent Modal
+    function openAuthConsent() {
+      const backdrop = document.getElementById('authConsentBackdrop');
+      if (backdrop) backdrop.classList.add('open');
+    }
+    function closeAuthConsent(e) {
+      if (e) e.stopPropagation();
+      const backdrop = document.getElementById('authConsentBackdrop');
+      if (backdrop) backdrop.classList.remove('open');
+    }
+    function acceptConsentAndContinue() {
+      closeAuthConsent();
+      showRaagaToast('✓ Privacy preferences saved under DPDP/GDPR.');
+    }
+    function handleUnder18Toggle(isUnder18) {
+      if (isUnder18) {
+        state.personalizedAds = false;
+        showRaagaToast('🛡️ Under 18 mode: Personalized ads strictly disabled.');
+      }
+    }
+
+    // Component Sheet Modal
+    function openAuthComponents() {
+      const backdrop = document.getElementById('authComponentsBackdrop');
+      if (backdrop) backdrop.classList.add('open');
+    }
+    function closeAuthComponents(e) {
+      if (e) e.stopPropagation();
+      const backdrop = document.getElementById('authComponentsBackdrop');
+      if (backdrop) backdrop.classList.remove('open');
+    }
+
+    // Toggle Light / Dark Theme
+    function toggleLightDarkTheme() {
+      const isLight = document.body.classList.toggle('theme-light');
+      try { localStorage.setItem('kannada_raaga_light_theme', isLight ? 'true' : 'false'); } catch(e) {}
+      showRaagaToast(isLight ? '☀️ Light Theme Variant Activated' : '🌙 Dark Theme Re-activated (#0B1110)');
+    }
+
+    // Check saved theme
+    try {
+      if (localStorage.getItem('kannada_raaga_light_theme') === 'true') {
+        document.body.classList.add('theme-light');
+      }
+    } catch(e) {}
+
+    // Terms / Privacy dummy modal
+    function showLegalModal(type) {
+      showRaagaToast(type === 'terms' ? '📜 Kannada Raaga Terms of Service (Fair Music Streaming)' : '🛡️ Kannada Raaga Privacy Policy (DPDP & GDPR Compliant)');
+    }
+
+    // Initialize UI state on load
+    updateAuthUIState();
+
+</script>
 </body>
 </html>
