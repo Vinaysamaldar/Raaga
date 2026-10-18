@@ -1273,9 +1273,9 @@
             <div class="lib-tile-icon">✨</div>
             <div class="lib-tile-label">Preview UI States (Skeleton / Empty / Retry)</div>
           </div>
-          <div class="lib-tile">
+          <div class="lib-tile" onclick="openAttributionModal()">
             <div class="lib-tile-icon">⚖️</div>
-            <div class="lib-tile-label">Legal, Licensing & Backup/Export</div>
+            <div class="lib-tile-label">Legal, Licensing & CC Attribution</div>
           </div>
         </div>
       </div>
@@ -1408,6 +1408,20 @@
     <!-- COLLECTION PICKER / ADD TO LIBRARY BOTTOM SHEET MODAL -->
     <div class="collection-modal-backdrop" id="collectionModalBackdrop" onclick="closeCollectionModal(event)">
       <div class="collection-sheet" onclick="event.stopPropagation()" id="collectionSheetContent"></div>
+    </div>
+
+    <!-- OPEN LICENSING & CC ATTRIBUTION MODAL -->
+    <div class="collection-modal-backdrop" id="attributionModalBackdrop" onclick="closeAttributionModal(event)">
+      <div class="collection-sheet" onclick="event.stopPropagation()" style="max-height:85%;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">📜 Open Licensing & CC Attribution</div>
+            <div style="font-size:11px;color:var(--text-secondary);">Kannada Open Music Collector • Creative Commons & Public Domain</div>
+          </div>
+          <button class="pill-chip" onclick="closeAttributionModal()">✕ Close</button>
+        </div>
+        <div id="attributionModalContent" style="font-size:11.5px;color:var(--text-secondary);line-height:1.6;max-height:60vh;overflow-y:auto;padding-right:4px;"></div>
+      </div>
     </div>
 
     <!-- FLOATING TOAST PILL -->
@@ -2273,6 +2287,66 @@
           }
           added++;
         });
+
+        // Load Openly Licensed Kannada tracks collected via kannada_open_collector.py
+        const openCatalogPaths = [
+          'kannada_open_catalog/catalog.json',
+          'web_preview/kannada_open_catalog/catalog.json',
+          'mobile/web_preview/kannada_open_catalog/catalog.json',
+          '/mobile/web_preview/kannada_open_catalog/catalog.json',
+          '/kannada_open_catalog/catalog.json'
+        ];
+        let openSongs = null;
+        for (const p of openCatalogPaths) {
+          try {
+            const r = await fetch(p);
+            if (r.ok) {
+              openSongs = await r.json();
+              if (Array.isArray(openSongs) && openSongs.length > 0) break;
+            }
+          } catch (e) {}
+        }
+        if (Array.isArray(openSongs)) {
+          openSongs.forEach((item, idx) => {
+            const audUrl = item.audio_url;
+            if (!audUrl || existingUrls.has(audUrl)) return;
+            existingUrls.add(audUrl);
+            const sid = item.uid || `OPEN-${idx}`;
+            const enTitle = item.title_transliterated || item.title || 'Kannada Open Track';
+            const dur = parseInt(item.duration_sec, 10) || 120;
+            const newSong = {
+              id: sid,
+              knInit: item.az_kannada || 'ಕ',
+              enInit: item.az_english || 'K',
+              titleKn: item.title,
+              titleEn: enTitle,
+              artist: item.creator || 'Kannada Open Heritage',
+              movie: `${(item.source || 'OPEN').toUpperCase()} • ${item.license_raw || item.license || 'CC'}`,
+              year: 2024,
+              mood: 'folk',
+              pillar: 'folk',
+              duration: dur,
+              fullDuration: dur,
+              localFileUrl: null,
+              cdn320Url: audUrl,
+              cdn160Url: audUrl,
+              remoteAudio: audUrl,
+              artworkUrl: null,
+              matchedTrack: enTitle,
+              isrc: item.license_raw || 'CC-OPEN',
+              gradient: ART_GRADIENTS[(idx + 7) % ART_GRADIENTS.length],
+              isOpenLicense: true,
+              license: item.license,
+              licenseRaw: item.license_raw,
+              licenseUrl: item.license_url,
+              pageUrl: item.page_url,
+              lyrics: []
+            };
+            CATALOG.push(newSong);
+            added++;
+          });
+        }
+
         if (added > 0) {
           renderAll();
         }
@@ -2546,6 +2620,7 @@
 
     const SUB_ARCHIVE_CHIPS = [
       { id: 'all', label: '✨ All 4 Pillars (1934–2026)', query: 'Kannada Super Hits' },
+      { id: 'open_licensed', label: '🌐 Open Licensed (CC/PD)', query: 'Kannada Open Heritage Wikimedia' },
       { id: 'era_golden', label: '🎞️ 1934–1979 Golden Era', query: 'Dr Rajkumar P B Sreenivas Golden Kannada', pillar: 'sandalwood' },
       { id: 'era_80s90s', label: '📼 1980s–1990s Evergreen', query: 'Hamsalekha Ravichandran Vishnuvardhan Shankar Nag Kannada', pillar: 'sandalwood' },
       { id: 'era_2000s', label: '💿 2000–2015 Melodies', query: 'Mungaru Male Puneeth Rajkumar Mano Murthy Sonu Nigam Kannada', pillar: 'sandalwood' },
@@ -2757,6 +2832,8 @@
         list = list.filter(s => s.year >= 2000 && s.year <= 2015);
       } else if (state.subArchiveFilter === 'era_new') {
         list = list.filter(s => s.year >= 2016);
+      } else if (state.subArchiveFilter === 'open_licensed') {
+        list = list.filter(s => s.isOpenLicense);
       }
       if (state.offlineMode) list = list.filter(s => state.downloaded.has(s.id));
 
@@ -2890,7 +2967,7 @@
     }
 
     function renderSearchScreen() {
-      const tabs = ['Songs', 'Sandalwood', 'Devotional & Carnatic', 'Janapada Folk', 'Indie & Pop', 'A-to-Z (ಅ–ಳ)'];
+      const tabs = ['Songs', 'Sandalwood', 'Devotional & Carnatic', 'Janapada Folk', 'Indie & Pop', 'Open Licensed (CC)', 'A-to-Z (ಅ–ಳ)'];
       document.getElementById('searchTabsRow').innerHTML = tabs.map(t => `
         <button class="pill-chip ${state.searchTab === t ? 'active-mint' : ''}" onclick="setSearchTab('${t}')">${t}</button>
       `).join('');
@@ -2922,6 +2999,8 @@
         results = results.filter(s => s.pillar === 'folk' || s.mood === 'folk' || s.mood === 'relax');
       } else if (state.searchTab === 'Indie & Pop') {
         results = results.filter(s => s.pillar === 'indie');
+      } else if (state.searchTab === 'Open Licensed (CC)') {
+        results = results.filter(s => s.isOpenLicense);
       }
       if (state.azLetter !== 'ALL') {
         results = results.filter(s => (state.azScript === 'kn' ? s.knInit : s.enInit) === state.azLetter);
@@ -3451,6 +3530,39 @@
       if (e) e.stopPropagation();
       modalTargetSongId = null;
       document.getElementById('collectionModalBackdrop').classList.remove('open');
+    }
+
+    function openAttributionModal(e) {
+      if (e) e.stopPropagation();
+      const backdrop = document.getElementById('attributionModalBackdrop');
+      const content = document.getElementById('attributionModalContent');
+      const openTracks = CATALOG.filter(s => s.isOpenLicense);
+      content.innerHTML = `
+        <div style="background:var(--surface);padding:12px;border-radius:12px;margin-bottom:12px;border:1px solid rgba(139,212,181,0.2);">
+          <div style="font-weight:700;color:var(--accent-mint);font-size:12.5px;margin-bottom:4px;">🏛️ Open Audio Collection Notice</div>
+          <div>All tracks below were collected using <code>kannada_open_collector.py</code> from open cultural repositories (Wikimedia Commons & Openverse / Creative Commons). Every item is verified openly licensed under Public Domain, CC0, CC-BY, or CC-BY-SA, granting rights to stream, study, share, and preserve Kannada cultural heritage.</div>
+          <div style="margin-top:6px;font-size:11px;color:var(--saffron);">Total Open Tracks Loaded: <b>${openTracks.length}</b> tracks • Full legal statement in <code>ATTRIBUTION.md</code></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          ${openTracks.length === 0 ? `<div style="text-align:center;padding:16px;">Loading open tracks or none loaded...</div>` : openTracks.map((t, idx) => `
+            <div style="background:rgba(255,255,255,0.03);padding:10px;border-radius:10px;border-left:3px solid var(--accent-mint);">
+              <div style="font-weight:700;color:var(--text-primary);font-size:12.5px;">${idx + 1}. ${t.titleKn || t.titleEn} (${t.titleEn})</div>
+              <div style="color:var(--accent-mint);font-size:11px;margin-top:2px;">Creator / Artist: <b>${t.artist}</b></div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">
+                License: <span style="background:rgba(242,169,0,0.15);color:var(--saffron);padding:1px 6px;border-radius:4px;font-weight:600;">${t.licenseRaw || t.license || 'CC Open'}</span>
+                ${t.licenseUrl ? ` • <a href="${t.licenseUrl}" target="_blank" rel="noopener" style="color:var(--accent-mint);text-decoration:underline;">License Terms</a>` : ''}
+                ${t.pageUrl ? ` • <a href="${t.pageUrl}" target="_blank" rel="noopener" style="color:var(--accent-mint);text-decoration:underline;">Source Page</a>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      backdrop.classList.add('open');
+    }
+
+    function closeAttributionModal(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('attributionModalBackdrop').classList.remove('open');
     }
 
     function toggleDownload(e, id) {

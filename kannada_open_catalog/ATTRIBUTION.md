@@ -1,0 +1,392 @@
+# Attribution
+
+Credits for the openly licensed tracks in this catalog. Keep these visible in your app (about screen and/or the track page).
+
+- "Announcement for Uber car parking outside Kempegowda International Airport Bengaluru, India" by Subhashish Panigrahi, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Announcement_for_Uber_car_parking_outside_Kempegowda_International_Airport_Bengaluru,_India.wav
+- "B. S. Yediyurappa name pronounciation" by APPU, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:B._S._Yediyurappa_name_pronounciation.ogg
+- "Bdj" by Arnav Sonara, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Bdj.ogg
+- "Bengaluru - Pronunciation" by Sriram.aravamudan, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Bengaluru_-_Pronunciation.ogg
+- "Bengaluru-Kannada-Pronunciation" by Vivekrs, Public Domain. Source: https://commons.wikimedia.org/wiki/File:Bengaluru-Kannada-Pronunciation.ogg
+- "Chandragiri" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Chandragiri.ogg
+- "Chapter 01 (ಕನ್ನಡ ಪುಸ್ತಕ ಮಾರಾಟದ ಸಮಸ್ಯೆ)" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Chapter_01_(%E0%B2%95%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B2%A1_%E0%B2%AA%E0%B3%81%E0%B2%B8%E0%B3%8D%E0%B2%A4%E0%B2%95_%E0%B2%AE%E0%B2%BE%E0%B2%B0%E0%B2%BE%E0%B2%9F%E0%B2%A6_%E0%B2%B8%E0%B2%AE%E0%B2%B8%E0%B3%8D%E0%B2%AF%E0%B3%86).ogg
+- "David Copperfield KAN Chapter 12a" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:David_Copperfield_KAN_Chapter_12a.ogg
+- "David Copperfield KAN Chapter 24" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:David_Copperfield_KAN_Chapter_24.ogg
+- "David Copperfield KAN Chapter 34" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:David_Copperfield_KAN_Chapter_34.ogg
+- "David Copperfield KAN Chapter 40" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:David_Copperfield_KAN_Chapter_40.ogg
+- "De-Kannada" by Jeuwre, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:De-Kannada.ogg
+- "De-Kannadas" by Jeuwre, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:De-Kannadas.ogg
+- "Deepadadi 25" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_25.ogg
+- "Deepadadi 26" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_26.ogg
+- "Deepadadi 27" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_27.ogg
+- "Deepadadi 28" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_28.ogg
+- "Deepadadi 29" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_29.ogg
+- "Deepadadi 30" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_30.ogg
+- "Deepadadi 31" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_31.ogg
+- "Deepadadi 32" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_32.ogg
+- "Deepadadi 33" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_33.ogg
+- "Deepadadi 34" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_34.ogg
+- "Deepadadi 35" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_35.ogg
+- "Deepadadi 36" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_36.ogg
+- "Deepadadi Kattale 01" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_01.ogg
+- "Deepadadi Kattale 03" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_03.ogg
+- "Deepadadi Kattale 04" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_04.ogg
+- "Deepadadi Kattale 05" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_05.ogg
+- "Deepadadi Kattale 06" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_06.ogg
+- "Deepadadi Kattale 07" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_07.ogg
+- "Deepadadi Kattale 08" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_08.ogg
+- "Deepadadi Kattale 09" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_09.ogg
+- "Deepadadi Kattale 10" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_10.ogg
+- "Deepadadi Kattale 11" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_11.ogg
+- "Deepadadi Kattale 12" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_12.ogg
+- "Deepadadi Kattale 13" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_13.ogg
+- "Deepadadi Kattale 15" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_15.ogg
+- "Deepadadi Kattale 16" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_16.ogg
+- "Deepadadi Kattale 17" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_17.ogg
+- "Deepadadi Kattale 18" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_18.ogg
+- "Deepadadi Kattale 19" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_19.ogg
+- "Deepadadi Kattale 20" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_20.ogg
+- "Deepadadi Kattale 21" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_21.ogg
+- "Deepadadi Kattale 22" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_22.ogg
+- "Deepadadi Kattale 23" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_23.ogg
+- "Deepadadi Kattale 24" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Deepadadi_Kattale_24.ogg
+- "En-us-iron filings" by Paul2520, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:En-us-iron_filings.oga
+- "En-us-Kannada" by No machine-readable author provided. Muke assumed (based on copyright claims)., Public Domain. Source: https://commons.wikimedia.org/wiki/File:En-us-Kannada.ogg
+- "H. D. Deve Gowda name pronounciation" by APPU, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:H._D._Deve_Gowda_name_pronounciation.ogg
+- "Horamavu" by Suresh.vinay, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Horamavu.oga
+- "I Edit Kannada Wikipedia" by Omshivaprakash, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:I_Edit_Kannada_Wikipedia.ogg
+- "Jayaprakash Speech Shivamogga" by Vidyadhara C A, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Jayaprakash_Speech_Shivamogga.ogg
+- "Kannada pustaka pradhikara" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kannada_pustaka_pradhikara.ogg
+- "Kannada Wikipedian Prof. Ashok Kumar" by Subhashish Panigrahi, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Kannada_Wikipedian_Prof._Ashok_Kumar.ogg
+- "Kannada-pronounciation" by Varshith.v98, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kannada-pronounciation.ogg
+- "Kn-chakra" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-chakra.ogg
+- "Kn-dharma" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-dharma.ogg
+- "Kn-ghatane" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-ghatane.ogg
+- "Kn-jnaana" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-jnaana.ogg
+- "Kn-kannada" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-kannada.ogg
+- "Kn-late" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-late.ogg
+- "Kn-namoo" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-namoo.ogg
+- "Kn-risshi" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-risshi.ogg
+- "Kn-yantra" by Krzapex, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-yantra.ogg
+- "Kn-ಅ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85.oga
+- "Kn-ಅಂಗ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161283455
+- "Kn-ಅಂಗೋಲ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161283505
+- "Kn-ಅಂತರಾರ್ಥ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161283673
+- "Kn-ಅಜೇಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160919809
+- "Kn-ಅಡವಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161283727
+- "Kn-ಅಡ್ಡದಾರಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159349073
+- "Kn-ಅಣಬೆ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%A3%E0%B2%AC%E0%B3%86.ogg
+- "Kn-ಅಧ್ಯಾಪಿಕೆ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%A7%E0%B3%8D%E0%B2%AF%E0%B2%BE%E0%B2%AA%E0%B2%BF%E0%B2%95%E0%B3%86.ogg
+- "Kn-ಅನುಕೃತಿ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%A8%E0%B3%81%E0%B2%95%E0%B3%83%E0%B2%A4%E0%B2%BF.ogg
+- "Kn-ಅನುಪಮ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160920376
+- "Kn-ಅನುಭವ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160920306
+- "Kn-ಅಪರಾಧಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159799303
+- "Kn-ಅಪ್ಪಂತ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%AA%E0%B3%8D%E0%B2%AA%E0%B2%82%E0%B2%A4.ogg
+- "Kn-ಅಭಿಧ್ಯೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%AD%E0%B2%BF%E0%B2%A7%E0%B3%8D%E0%B2%AF%E0%B3%86.ogg
+- "Kn-ಅಭಿನಯ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%AD%E0%B2%BF%E0%B2%A8%E0%B2%AF.ogg
+- "Kn-ಅಮ್ಮ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159349417
+- "Kn-ಅರಣ್ಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161284094
+- "Kn-ಅರಮನೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=158972098
+- "Kn-ಅರುಣರಾಗ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=136303803
+- "Kn-ಅವಳಿ ಜವಳಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160921314
+- "Kn-ಅವಸ್ಥೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160921401
+- "Kn-ಅಸಂಭವ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160920746
+- "Kn-ಅಸೂಯೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%85%E0%B2%B8%E0%B3%82%E0%B2%AF%E0%B3%86.ogg
+- "Kn-ಆ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%86.oga
+- "Kn-ಆಕ್ರಮಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160919859
+- "Kn-ಆಡು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464170
+- "Kn-ಆನೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464267
+- "Kn-ಆನೆಕಾಲು ರೋಗ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%86%E0%B2%A8%E0%B3%86%E0%B2%95%E0%B2%BE%E0%B2%B2%E0%B3%81_%E0%B2%B0%E0%B3%8B%E0%B2%97.ogg
+- "Kn-ಆಮರ್ಷ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%86%E0%B2%AE%E0%B2%B0%E0%B3%8D%E0%B2%B7.ogg
+- "Kn-ಆರಾಧನೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160919176
+- "Kn-ಆರು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464355
+- "Kn-ಆಲೂಗಡ್ಡೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464462
+- "Kn-ಆಲೆಮನೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160919047
+- "Kn-ಆವರಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464478
+- "Kn-ಇ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%87.oga
+- "Kn-ಇ-ಮೇಲ್ ಖಾತೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%87-%E0%B2%AE%E0%B3%87%E0%B2%B2%E0%B3%8D_%E0%B2%96%E0%B2%BE%E0%B2%A4%E0%B3%86.ogg
+- "Kn-ಇಂಗ್ಲಿಷ್" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464815
+- "Kn-ಇಗ್ಗಾಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464592
+- "Kn-ಇತಿಹಾಸ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161464872
+- "Kn-ಈ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%88.oga
+- "Kn-ಈಜು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465059
+- "Kn-ಉ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%89.oga
+- "Kn-ಉರುಳು" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%89%E0%B2%B0%E0%B3%81%E0%B2%B3%E0%B3%81.ogg
+- "Kn-ಊ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8A.oga
+- "Kn-ಊಟ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465384
+- "Kn-ಋ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8B.oga
+- "Kn-ಎ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8E.oga
+- "Kn-ಎತ್ಗಲ್ಲಿನಾಟ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8E%E0%B2%A4%E0%B3%8D%E0%B2%97%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B2%BF%E0%B2%A8%E0%B2%BE%E0%B2%9F.ogg
+- "Kn-ಎತ್ತರಧ್ವನಿ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8E%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B2%B0%E0%B2%A7%E0%B3%8D%E0%B2%B5%E0%B2%A8%E0%B2%BF.ogg
+- "Kn-ಏ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%8F.oga
+- "Kn-ಏಳು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465699
+- "Kn-ಐ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%90.oga
+- "Kn-ಒ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%92.oga
+- "Kn-ಒಂಟಿಯಾಗಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465757
+- "Kn-ಒಂಬತ್ತು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465913
+- "Kn-ಒತ್ತಡಕ" by ಪ್ರಶಾಂತ ಸೊರಟೂರ, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%92%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B2%A1%E0%B2%95.oga
+- "Kn-ಒಲವು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465977
+- "Kn-ಓ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%93.oga
+- "Kn-ಓದುಗೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161465999
+- "Kn-ಔ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%94.oga
+- "Kn-ಕ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95.oga
+- "Kn-ಕಂಚುಳಿಕೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161466319
+- "Kn-ಕಡಲಕಳೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161466425
+- "Kn-ಕಣ್ಣುಗುಡ್ಡೆ ಹಣ್ಣು" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%A3%E0%B3%8D%E0%B2%A3%E0%B3%81%E0%B2%97%E0%B3%81%E0%B2%A1%E0%B3%8D%E0%B2%A1%E0%B3%86_%E0%B2%B9%E0%B2%A3%E0%B3%8D%E0%B2%A3%E0%B3%81.ogg
+- "Kn-ಕನಾತಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%A8%E0%B2%BE%E0%B2%A4%E0%B2%BF.ogg
+- "Kn-ಕನ್ನಡ" by Srf123, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B2%A1.ogg
+- "Kn-ಕರುಣಾಮಯಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162094117
+- "Kn-ಕರ್ತವ್ಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162093878
+- "Kn-ಕಲಾವಿದ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159098225
+- "Kn-ಕಾಕಿಣಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%BE%E0%B2%95%E0%B2%BF%E0%B2%A3%E0%B2%BF.ogg
+- "Kn-ಕಾಡಿನ ಬೆಂಕಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162093760
+- "Kn-ಕಾಡ್ಯನಾಟ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%BE%E0%B2%A1%E0%B3%8D%E0%B2%AF%E0%B2%A8%E0%B2%BE%E0%B2%9F.ogg
+- "Kn-ಕಾಮನಬಿಲ್ಲು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161466992
+- "Kn-ಕಾರು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467004
+- "Kn-ಕಾಲ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467018
+- "Kn-ಕಾಶ್" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B2%BE%E0%B2%B6%E0%B3%8D.oga
+- "Kn-ಕಿಂದರಿ ಜೋಗಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162094279
+- "Kn-ಕೀಲಿ ಮಣೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467294
+- "Kn-ಕುಂಡೆ ಕುಸುಕ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%81%E0%B2%82%E0%B2%A1%E0%B3%86_%E0%B2%95%E0%B3%81%E0%B2%B8%E0%B3%81%E0%B2%95.ogg
+- "Kn-ಕುಠ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%81%E0%B2%A0.ogg
+- "Kn-ಕುಠಾರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467309
+- "Kn-ಕುತಪ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%81%E0%B2%A4%E0%B2%AA.ogg
+- "Kn-ಕುದುರೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467365
+- "Kn-ಕೂದಲಣಿಗ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467471
+- "Kn-ಕೆಂಪು ಕಾಡುಕೋಳಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%86%E0%B2%82%E0%B2%AA%E0%B3%81_%E0%B2%95%E0%B2%BE%E0%B2%A1%E0%B3%81%E0%B2%95%E0%B3%8B%E0%B2%B3%E0%B2%BF.ogg
+- "Kn-ಕೇದಗೆ ಹೂ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%87%E0%B2%A6%E0%B2%97%E0%B3%86_%E0%B2%B9%E0%B3%82.ogg
+- "Kn-ಕೈದೀಪ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467611
+- "Kn-ಕೊಕೋ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%8A%E0%B2%95%E0%B3%8B.ogg
+- "Kn-ಕೊಲ್ಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467660
+- "Kn-ಕೊಳಲು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467690
+- "Kn-ಕೋಕಿಲ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159860891
+- "Kn-ಕ್ರಾಂತಿವೀರ ಸಂಗೊಳ್ಳಿ ರಾಯಣ್ಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159561619
+- "Kn-ಕ್ರೀಡೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467732
+- "Kn-ಕ್ಷಣಿಕ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%95%E0%B3%8D%E0%B2%B7%E0%B2%A3%E0%B2%BF%E0%B2%95.ogg
+- "Kn-ಖ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%96.oga
+- "Kn-ಖೇಡನ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%96%E0%B3%87%E0%B2%A1%E0%B2%A8.ogg
+- "Kn-ಖೈದಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162094259
+- "Kn-ಗ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%97.oga
+- "Kn-ಗಂಡಸು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161467936
+- "Kn-ಗಗನ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161121446
+- "Kn-ಗದಕ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%97%E0%B2%A6%E0%B2%95.ogg
+- "Kn-ಗಾಳಿಪಟ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=158972052
+- "Kn-ಗಿರುಪಲು" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%97%E0%B2%BF%E0%B2%B0%E0%B3%81%E0%B2%AA%E0%B2%B2%E0%B3%81.ogg
+- "Kn-ಗುಂಡು ಬದನೆಗಿಡ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468228
+- "Kn-ಗುಂಪು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468244
+- "Kn-ಗುರುವಾರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468270
+- "Kn-ಗೂಳಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468320
+- "Kn-ಗೆಪ್ತಿ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%97%E0%B3%86%E0%B2%AA%E0%B3%8D%E0%B2%A4%E0%B2%BF.ogg
+- "Kn-ಘ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%98.oga
+- "Kn-ಙ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%99.oga
+- "Kn-ಚ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9A.oga
+- "Kn-ಚಂದ್ರಹಾಸ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159419015
+- "Kn-ಚಕ್ರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468474
+- "Kn-ಚಕ್ರವ್ಯೂಹ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160986142
+- "Kn-ಚನ್ನೆಯಾಟ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9A%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%86%E0%B2%AF%E0%B2%BE%E0%B2%9F.ogg
+- "Kn-ಚಿಕ್ಕಮ್ಮ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159419076
+- "Kn-ಚಿತ್ರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468659
+- "Kn-ಛ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9B.oga
+- "Kn-ಜ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/). Source: https://commons.wikimedia.org/w/index.php?curid=51018721
+- "Kn-ಜಡಧಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468708
+- "Kn-ಜಡೆಬಿಲ್ಲೆ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9C%E0%B2%A1%E0%B3%86%E0%B2%AC%E0%B2%BF%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B3%86.ogg
+- "Kn-ಜರ್ಮನಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468742
+- "Kn-ಜೀವ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161468858
+- "Kn-ಜೀವನ ಚಕ್ರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162093492
+- "Kn-ಜೂಂಟ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9C%E0%B3%82%E0%B2%82%E0%B2%9F.ogg
+- "Kn-ಜೂಡಿ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9C%E0%B3%82%E0%B2%A1%E0%B2%BF.ogg
+- "Kn-ಝ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9D.oga
+- "Kn-ಝಳಪ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9D%E0%B2%B3%E0%B2%AA.ogg
+- "Kn-ಞ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9E.oga
+- "Kn-ಟ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%9F.oga
+- "Kn-ಠ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A0.oga
+- "Kn-ಡ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A1.oga
+- "Kn-ಢ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A2.oga
+- "Kn-ಣ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A3.oga
+- "Kn-ತ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4.oga
+- "Kn-ತಗುಳ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B2%97%E0%B3%81%E0%B2%B3.ogg
+- "Kn-ತರಕಸ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B2%B0%E0%B2%95%E0%B2%B8.ogg
+- "Kn-ತರವಳ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B2%B0%E0%B2%B5%E0%B2%B3.ogg
+- "Kn-ತರ್ಕಪಂಡಿತ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B2%B0%E0%B3%8D%E0%B2%95%E0%B2%AA%E0%B2%82%E0%B2%A1%E0%B2%BF%E0%B2%A4.ogg
+- "Kn-ತಸುಕು" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B2%B8%E0%B3%81%E0%B2%95%E0%B3%81.ogg
+- "Kn-ತಿಂಗಳು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161469079
+- "Kn-ತುಂಟಾಟ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159039004
+- "Kn-ತೂಲಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B3%82%E0%B2%B2%E0%B2%BF.ogg
+- "Kn-ತೆರುವಣ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B3%86%E0%B2%B0%E0%B3%81%E0%B2%B5%E0%B2%A3.ogg
+- "Kn-ತೊದಳ್ವಾತು" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A4%E0%B3%8A%E0%B2%A6%E0%B2%B3%E0%B3%8D%E0%B2%B5%E0%B2%BE%E0%B2%A4%E0%B3%81.ogg
+- "Kn-ತೋಳ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161469259
+- "Kn-ಥ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A5.oga
+- "Kn-ದ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6.oga
+- "Kn-ದಂಡ ಪ್ರಕ್ರಿಯಾ ಸಂಹಿತೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6%E0%B2%82%E0%B2%A1_%E0%B2%AA%E0%B3%8D%E0%B2%B0%E0%B2%95%E0%B3%8D%E0%B2%B0%E0%B2%BF%E0%B2%AF%E0%B2%BE_%E0%B2%B8%E0%B2%82%E0%B2%B9%E0%B2%BF%E0%B2%A4%E0%B3%86.ogg
+- "Kn-ದಂತ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544743
+- "Kn-ದಶಮಗ್ರಹ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6%E0%B2%B6%E0%B2%AE%E0%B2%97%E0%B3%8D%E0%B2%B0%E0%B2%B9.ogg
+- "Kn-ದಾದಾ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160986333
+- "Kn-ದಾಸನ ಹಕ್ಕಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6%E0%B2%BE%E0%B2%B8%E0%B2%A8_%E0%B2%B9%E0%B2%95%E0%B3%8D%E0%B2%95%E0%B2%BF.ogg
+- "Kn-ದಿನದರ್ಶಿ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6%E0%B2%BF%E0%B2%A8%E0%B2%A6%E0%B2%B0%E0%B3%8D%E0%B2%B6%E0%B2%BF.ogg
+- "Kn-ದುಃಖ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544774
+- "Kn-ದೂರದರ್ಶನ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544801
+- "Kn-ದೇವ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160986393
+- "Kn-ದೇವಗಿರಿ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A6%E0%B3%87%E0%B2%B5%E0%B2%97%E0%B2%BF%E0%B2%B0%E0%B2%BF.ogg
+- "Kn-ದೇವಾಲಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544824
+- "Kn-ದೈತ್ಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544845
+- "Kn-ದೈವ ಲೀಲೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159419287
+- "Kn-ದ್ವೀಪ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544858
+- "Kn-ಧ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A7.oga
+- "Kn-ಧನಪಿಶಾಚಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159419547
+- "Kn-ಧೂಮಕೇತು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159419603
+- "Kn-ನ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A8.oga
+- "Kn-ನಂಜು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544971
+- "Kn-ನಂಬರು" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A8%E0%B2%82%E0%B2%AC%E0%B2%B0%E0%B3%81.ogg
+- "Kn-ನಕ್ಷತ್ರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161544935
+- "Kn-ನದಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545002
+- "Kn-ನವಿಲು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545073
+- "Kn-ನಾಗ ಪೂಜ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159624428
+- "Kn-ನಾಗರಿಕ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545120
+- "Kn-ನಾಮ ಫಲಕ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A8%E0%B2%BE%E0%B2%AE_%E0%B2%AB%E0%B2%B2%E0%B2%95.ogg
+- "Kn-ನಾಷ್ಟಾ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545175
+- "Kn-ನಾಸಿಕಾಗ್ರ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%A8%E0%B2%BE%E0%B2%B8%E0%B2%BF%E0%B2%95%E0%B2%BE%E0%B2%97%E0%B3%8D%E0%B2%B0.ogg
+- "Kn-ನೀಲಗಿರಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545269
+- "Kn-ನುಡಿಯರಿಮೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545358
+- "Kn-ನೆಗಡಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545367
+- "Kn-ನೆಲಗುಳ್ಳ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545397
+- "Kn-ಪ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AA.oga
+- "Kn-ಪಟ್ಟಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545479
+- "Kn-ಪತ್ತೆದಾರಿ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AA%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B3%86%E0%B2%A6%E0%B2%BE%E0%B2%B0%E0%B2%BF.ogg
+- "Kn-ಪರಿಖೆ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AA%E0%B2%B0%E0%B2%BF%E0%B2%96%E0%B3%86.ogg
+- "Kn-ಪಲ್ಲವಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160044341
+- "Kn-ಪಾಪ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545578
+- "Kn-ಪೀಚ್ ಹಣ್ಣು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545677
+- "Kn-ಪುನರ್ಜನ್ಮ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159625679
+- "Kn-ಪುರಂದರದಾಸ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159097306
+- "Kn-ಪೋಲೆಂಡ್" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161545953
+- "Kn-ಪೋಸ್ಟು" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AA%E0%B3%8B%E0%B2%B8%E0%B3%8D%E0%B2%9F%E0%B3%81.ogg
+- "Kn-ಪ್ರತಿಧ್ವನಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160044791
+- "Kn-ಪ್ರಭಾವಲಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546182
+- "Kn-ಪ್ರಾಣಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546013
+- "Kn-ಫ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AB.oga
+- "Kn-ಫಳಿ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AB%E0%B2%B3%E0%B2%BF.ogg
+- "Kn-ಬ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AC.oga
+- "Kn-ಬಣ್ಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546615
+- "Kn-ಬರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160984980
+- "Kn-ಬಾಟಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546780
+- "Kn-ಬಾದಾಮಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546789
+- "Kn-ಬಾನುಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546800
+- "Kn-ಬಾಲಭಾಷೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AC%E0%B2%BE%E0%B2%B2%E0%B2%AD%E0%B2%BE%E0%B2%B7%E0%B3%86.ogg
+- "Kn-ಬಾಳೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546718
+- "Kn-ಬಾಹು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546520
+- "Kn-ಬಿಲ್ಗಾರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546877
+- "Kn-ಬೀಜ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161546691
+- "Kn-ಬುಗುರಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159035878
+- "Kn-ಬೊಳ್ಳಗ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AC%E0%B3%8A%E0%B2%B3%E0%B3%8D%E0%B2%B3%E0%B2%97.ogg
+- "Kn-ಭ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AD.oga
+- "Kn-ಭಕ್ತ ಪ್ರಹ್ಲಾದ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159097838
+- "Kn-ಭಕ್ತಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547022
+- "Kn-ಭಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547046
+- "Kn-ಭಾಗ್ಯವಂತ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160985726
+- "Kn-ಮ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE.oga
+- "Kn-ಮಂಕು ದಿಣ್ಣೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159562786
+- "Kn-ಮಂಗೋಲಿಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547275
+- "Kn-ಮಂಡಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547320
+- "Kn-ಮಗ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547245
+- "Kn-ಮಗಳು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547268
+- "Kn-ಮಧುರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547463
+- "Kn-ಮನಸ್ಸಾಕ್ಷಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159562526
+- "Kn-ಮಮತೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159562434
+- "Kn-ಮರುಭೂಮಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547515
+- "Kn-ಮಾತೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547587
+- "Kn-ಮಾನಸ ಸರೋವರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162094638
+- "Kn-ಮಾರ್ಗದರ್ಶಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159562891
+- "Kn-ಮಾರ್ಚಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547619
+- "Kn-ಮಿಂಚೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547627
+- "Kn-ಮೀಯಾಣ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE%E0%B3%80%E0%B2%AF%E0%B2%BE%E0%B2%A3.ogg
+- "Kn-ಮುಕ್ಕ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE%E0%B3%81%E0%B2%95%E0%B3%8D%E0%B2%95.ogg
+- "Kn-ಮುಖವಾರ್ತೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE%E0%B3%81%E0%B2%96%E0%B2%B5%E0%B2%BE%E0%B2%B0%E0%B3%8D%E0%B2%A4%E0%B3%86.ogg
+- "Kn-ಮೂರು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547758
+- "Kn-ಮೃಷೆ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE%E0%B3%83%E0%B2%B7%E0%B3%86.ogg
+- "Kn-ಮೇಕೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547808
+- "Kn-ಮೋಹರ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AE%E0%B3%8B%E0%B2%B9%E0%B2%B0.ogg
+- "Kn-ಯ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%AF.oga
+- "Kn-ಯಜಮಾನ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=158971580
+- "Kn-ರ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B0.oga
+- "Kn-ರಕ್ತ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161547988
+- "Kn-ರಣಿತ" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B0%E0%B2%A3%E0%B2%BF%E0%B2%A4.ogg
+- "Kn-ರಾಣ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B0%E0%B2%BE%E0%B2%A3.ogg
+- "Kn-ರುಂಹರಿ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B0%E0%B3%81%E0%B2%82%E0%B2%B9%E0%B2%B0%E0%B2%BF.ogg
+- "Kn-ರೆಕ್ಕೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548083
+- "Kn-ಲ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B2.oga
+- "Kn-ಲಿಪ್ಸೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B2%E0%B2%BF%E0%B2%AA%E0%B3%8D%E0%B2%B8%E0%B3%86.ogg
+- "Kn-ಲೋಕ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548139
+- "Kn-ಳ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B3.oga
+- "Kn-ವ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B5.oga
+- "Kn-ವಂಶವೃಕ್ಷ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=160662638
+- "Kn-ವಡ್ಯಾಣ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B5%E0%B2%A1%E0%B3%8D%E0%B2%AF%E0%B2%BE%E0%B2%A3.ogg
+- "Kn-ವಳೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548255
+- "Kn-ವಸಂತ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548172
+- "Kn-ವಾತ್ಸಲ್ಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159686780
+- "Kn-ವಿಭಾಜ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B5%E0%B2%BF%E0%B2%AD%E0%B2%BE%E0%B2%9C.ogg
+- "Kn-ವಿಭ್ರಾಜ್" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B5%E0%B2%BF%E0%B2%AD%E0%B3%8D%E0%B2%B0%E0%B2%BE%E0%B2%9C%E0%B3%8D.oga
+- "Kn-ವಿಶ್ವವಿದ್ಯಾಲಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548609
+- "Kn-ವೈರಸ್" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548759
+- "Kn-ವ್ಯಭಿಚಾರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548802
+- "Kn-ಶ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B6.oga
+- "Kn-ಶನಿವಾರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548834
+- "Kn-ಶಾಲೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548891
+- "Kn-ಶಿಶ್ನ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548937
+- "Kn-ಶ್ರೀ ಶ್ರೀನಿವಾಸ ಕಲ್ಯಾಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159348858
+- "Kn-ಶ್ವಾಸ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161548991
+- "Kn-ಷ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B7.oga
+- "Kn-ಸ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8.oga
+- "Kn-ಸಂಗೀತಶಾಸ್ತ್ರಜ್ಞ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161549165
+- "Kn-ಸಂಯುಗ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%82%E0%B2%AF%E0%B3%81%E0%B2%97.ogg
+- "Kn-ಸಂವಾಹ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%82%E0%B2%B5%E0%B2%BE%E0%B2%B9.ogg
+- "Kn-ಸಂವಾಹನ" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%82%E0%B2%B5%E0%B2%BE%E0%B2%B9%E0%B2%A8.ogg
+- "Kn-ಸಂಸಾರ ನೌಕ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159097479
+- "Kn-ಸಕ್ಕರೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159035291
+- "Kn-ಸಭಾಂಗಣ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=161549195
+- "Kn-ಸಮಾನಾರ್ಥ ಪದಕೋಶ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%AE%E0%B2%BE%E0%B2%A8%E0%B2%BE%E0%B2%B0%E0%B3%8D%E0%B2%A5_%E0%B2%AA%E0%B2%A6%E0%B2%95%E0%B3%8B%E0%B2%B6.ogg
+- "Kn-ಸಮಾನಾರ್ಥಕ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%AE%E0%B2%BE%E0%B2%A8%E0%B2%BE%E0%B2%B0%E0%B3%8D%E0%B2%A5%E0%B2%95.ogg
+- "Kn-ಸಮೀಕ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%AE%E0%B3%80%E0%B2%95.ogg
+- "Kn-ಸಮೀಪಾರ್ಥ ಶಬ್ದಕೋಶ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%AE%E0%B3%80%E0%B2%AA%E0%B2%BE%E0%B2%B0%E0%B3%8D%E0%B2%A5_%E0%B2%B6%E0%B2%AC%E0%B3%8D%E0%B2%A6%E0%B2%95%E0%B3%8B%E0%B2%B6.ogg
+- "Kn-ಸರ್ವಋತು" by Priyank m, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%B0%E0%B3%8D%E0%B2%B5%E0%B2%8B%E0%B2%A4%E0%B3%81.ogg
+- "Kn-ಸಾಗರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162016349
+- "Kn-ಸಾಯರು" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%BE%E0%B2%AF%E0%B2%B0%E0%B3%81.ogg
+- "Kn-ಸಾರಾಯಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162016435
+- "Kn-ಸಾರಿಗೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162016583
+- "Kn-ಸಿಪಿಲೆ" by Siddasute, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B2%BF%E0%B2%AA%E0%B2%BF%E0%B2%B2%E0%B3%86.ogg
+- "Kn-ಸಿಹಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162016661
+- "Kn-ಸುಂಕ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B3%81%E0%B2%82%E0%B2%95.ogg
+- "Kn-ಸೋದರಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=159348738
+- "Kn-ಸ್ನೇಹಿತೆ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162017783
+- "Kn-ಸ್ಪೃಹೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B8%E0%B3%8D%E0%B2%AA%E0%B3%83%E0%B2%B9%E0%B3%86.ogg
+- "Kn-ಸ್ಲೊವಾಕಿಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162017978
+- "Kn-ಸ್ವರ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018001
+- "Kn-ಹ" by Surabhi18, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B9.oga
+- "Kn-ಹಡಗು" by Mallikarjunasj, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B9%E0%B2%A1%E0%B2%97%E0%B3%81.ogg
+- "Kn-ಹಲ್ಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018390
+- "Kn-ಹಳುವು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018733
+- "Kn-ಹಳೆಯ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018812
+- "Kn-ಹವಾಮಾನ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018529
+- "Kn-ಹಾಗೂ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162018863
+- "Kn-ಹಾವು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162019091
+- "Kn-ಹಿಟ್ಟು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162019112
+- "Kn-ಹುಡುಗಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162091904
+- "Kn-ಹುಲಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162091936
+- "Kn-ಹೂಜಿ" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162092006
+- "Kn-ಹೂಡೆ-ಹೂಸೆ" by Kavitha G. Kana, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B9%E0%B3%82%E0%B2%A1%E0%B3%86-%E0%B2%B9%E0%B3%82%E0%B2%B8%E0%B3%86.ogg
+- "Kn-ಹೆಂಗಸು" by Srf123, [CC0 1.0 (public domain dedication)](https://creativecommons.org/publicdomain/zero/1.0/deed.en/). Source: https://commons.wikimedia.org/w/index.php?curid=162092079
+- "Kn-ಹೇಳ್ವೆ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B9%E0%B3%87%E0%B2%B3%E0%B3%8D%E0%B2%B5%E0%B3%86.ogg
+- "Kn-ಹೊರಡೋಣ" by Sanjana Ninjoor, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Kn-%E0%B2%B9%E0%B3%8A%E0%B2%B0%E0%B2%A1%E0%B3%8B%E0%B2%A3.ogg
+- "KRV-IndianOilHindiSign" by SavetheSouthofIndia, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:KRV-IndianOilHindiSign.ogg
+- "Kuduremukh On Cycle" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kuduremukh_On_Cycle.ogg
+- "Kuvempu name pronounciation" by APPU, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Kuvempu_name_pronounciation.ogg
+- "LL-Q150 (fra)-Lyokoï-kannada" by Speaker: Lyokoï Recorder: Lyokoï, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/). Source: https://commons.wikimedia.org/w/index.php?curid=130657659
+- "LL-Q33673 (kan)-Brusquedandelion-ಕನ್ನಡ" by Speaker: Brusquedandelion Recorder: Brusquedandelion, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:LL-Q33673_(kan)-Brusquedandelion-%E0%B2%95%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B2%A1.wav
+- "LL-Q33673 (kan)-Yakshitha-ದಕ್ಷಿಣ ಕನ್ನಡ" by Speaker: Yakshitha Recorder: Yakshitha, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:LL-Q33673_(kan)-Yakshitha-%E0%B2%A6%E0%B2%95%E0%B3%8D%E0%B2%B7%E0%B2%BF%E0%B2%A3_%E0%B2%95%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B2%A1.wav
+- "Mf-tones-1" by Idahoprogrammer, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Mf-tones-1.ogg
+- "Movement-Charter-Kannada" by Santhosh Notagar99, [CC0 1.0 (public domain dedication)](http://creativecommons.org/publicdomain/zero/1.0/deed.en). Source: https://commons.wikimedia.org/wiki/File:Movement-Charter-Kannada.ogg
+- "Ninasam Documentation 01" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Ninasam_Documentation_01.ogg
+- "Ninasam Documentation 02" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Ninasam_Documentation_02.ogg
+- "Ninasam Documentation 03" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Ninasam_Documentation_03.ogg
+- "Nl-Kannada" by Marcel coenders, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Nl-Kannada.ogg
+- "Preface (ಪುಸ್ತಕ ಮಾರಾಟ ಹೋರಾಟದ ಅರಿಕೆ)" by Abhayaftii, [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0). Source: https://commons.wikimedia.org/wiki/File:Preface_(%E0%B2%AA%E0%B3%81%E0%B2%B8%E0%B3%8D%E0%B2%A4%E0%B2%95_%E0%B2%AE%E0%B2%BE%E0%B2%B0%E0%B2%BE%E0%B2%9F_%E0%B2%B9%E0%B3%8B%E0%B2%B0%E0%B2%BE%E0%B2%9F%E0%B2%A6_%E0%B2%85%E0%B2%B0%E0%B2%BF%E0%B2%95%E0%B3%86).ogg
+- "Ramamurthynagaraudio" by Suresh.vinay, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Ramamurthynagaraudio.ogg
+- "Rmnagaraudio" by Suresh.vinay, [CC BY-SA](https://creativecommons.org/licenses/by-sa/3.0). Source: https://commons.wikimedia.org/wiki/File:Rmnagaraudio.ogg
