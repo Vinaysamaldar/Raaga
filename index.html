@@ -2116,8 +2116,7 @@
       .rail-logo-text { display: block !important; }
       .rail-btn-label { display: inline !important; }
       .tablet-persistent-player {
-        display: flex !important;
-        width: 350px !important;
+        display: none !important;
       }
       .floating-nav-pill { display: none !important; }
       .floating-mini-player { display: none !important; }
@@ -2805,12 +2804,801 @@
       cursor: pointer;
     }
 
+
+    /* ==================== SETTINGS & APP SHELL OVERHAUL (2026) ==================== */
+    :root {
+      --accent-saffron: #F2A900;
+      --accent-active-bg: rgba(242, 169, 0, 0.15);
+      --font-scale: 1;
+    }
+
+    body {
+      font-size: calc(14px * var(--font-scale, 1));
+    }
+
+    /* Rail & Sidebar Responsive Layout */
+    .tablet-nav-rail {
+      transition: width 0.25s ease, padding 0.25s ease;
+    }
+
+    /* Active Rail Pill with Saffron Highlight */
+    .rail-btn.active {
+      background: var(--accent-active-bg) !important;
+      color: var(--saffron) !important;
+      border: 1px solid rgba(242, 169, 0, 0.35) !important;
+    }
+    .rail-btn.active .rail-btn-icon {
+      color: var(--saffron) !important;
+    }
+    .rail-btn.active .rail-btn-label {
+      color: var(--saffron) !important;
+      font-weight: 700 !important;
+    }
+
+    /* Outline SVG Icons for Buttons */
+    .outline-icon {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Docked Bottom Mini Player */
+    .floating-mini-player.docked-bottom-player {
+      position: sticky !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      height: 64px !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      border-top: 1px solid var(--border) !important;
+      background: var(--surface) !important;
+      z-index: 28 !important;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Phone Breakpoint (< 600px) */
+    @media (max-width: 599px) {
+      .tablet-nav-rail { display: none !important; }
+      .tablet-persistent-player { display: none !important; }
+      .floating-nav-pill { display: flex !important; }
+      .floating-mini-player {
+        display: flex !important;
+        position: fixed !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 78px !important;
+        height: 64px !important;
+        border-radius: var(--pill-radius) !important;
+        border: 1px solid var(--border) !important;
+        z-index: 35 !important;
+      }
+      .screens-wrapper { padding-bottom: 155px !important; }
+      .settings-grid { grid-template-columns: 1fr !important; }
+      .settings-search-bar { width: 100% !important; }
+    }
+
+    /* Tablet Breakpoint (600px - 1023px) */
+    @media (min-width: 600px) and (max-width: 1023px) {
+      .tablet-nav-rail {
+        display: flex !important;
+        width: 84px !important;
+        padding: 16px 6px !important;
+      }
+      .rail-logo { justify-content: center !important; padding: 4px 0 14px !important; }
+      .rail-logo-text { display: none !important; }
+      .rail-btn {
+        flex-direction: column !important;
+        gap: 4px !important;
+        padding: 8px 4px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 12px !important;
+      }
+      .rail-btn-icon { width: 24px !important; height: 24px !important; font-size: 16px !important; }
+      .rail-btn-label {
+        display: block !important;
+        font-size: 10.5px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        line-height: 1.1 !important;
+      }
+      .tablet-persistent-player { display: none !important; }
+      .floating-nav-pill { display: none !important; }
+      .floating-mini-player {
+        display: flex !important;
+        position: sticky !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 64px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-top: 1px solid var(--border) !important;
+        margin: 0 !important;
+        z-index: 28 !important;
+      }
+      .screens-wrapper { padding-bottom: 20px !important; }
+      .settings-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* Desktop Breakpoint (1024px and up) */
+    @media (min-width: 1024px) {
+      .tablet-nav-rail {
+        display: flex !important;
+        width: 220px !important;
+        padding: 20px 14px !important;
+      }
+      .rail-logo { justify-content: flex-start !important; padding: 4px 8px 18px !important; }
+      .rail-logo-text { display: block !important; }
+      .rail-btn {
+        flex-direction: row !important;
+        gap: 12px !important;
+        padding: 10px 14px !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        border-radius: 999px !important;
+      }
+      .rail-btn-label { display: inline !important; font-size: 13px !important; }
+      .floating-nav-pill { display: none !important; }
+      .floating-mini-player {
+        display: flex !important;
+        position: sticky !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 66px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-top: 1px solid var(--border) !important;
+        margin: 0 !important;
+        z-index: 28 !important;
+      }
+      .screens-wrapper { padding-bottom: 24px !important; }
+      .settings-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 24px !important;
+      }
+    }
+
+    /* Wide Screens (1280px and up) - Persistent Right Now Playing Panel */
+    @media (min-width: 1280px) {
+      .tablet-persistent-player {
+        display: flex !important;
+        width: 340px !important;
+        flex-shrink: 0 !important;
+      }
+    }
+
+    /* ==================== SETTINGS PAGE DASHBOARD ==================== */
+    .settings-dashboard-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px 80px;
+      box-sizing: border-box;
+    }
+
+    .settings-header-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .settings-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .settings-page-heading {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .settings-search-bar {
+      position: relative;
+      flex: 1;
+      max-width: 440px;
+      min-width: 240px;
+    }
+    .settings-search-input {
+      width: 100%;
+      height: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0 16px 0 42px;
+      font-size: 13.5px;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    .settings-search-input:focus {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 2px rgba(242, 169, 0, 0.25);
+    }
+    .settings-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      pointer-events: none;
+    }
+
+    /* 2-Column Grid on Desktop, 1-Column on Tablet/Phone */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Section Card */
+    .settings-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .settings-card:hover {
+      border-color: rgba(227, 234, 230, 0.16);
+    }
+
+    .settings-card.full-width-card {
+      grid-column: 1 / -1;
+    }
+
+    .settings-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(227, 234, 230, 0.06);
+      padding-bottom: 12px;
+      margin-bottom: 2px;
+    }
+    .settings-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .settings-card-title .card-title-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--saffron);
+      background: rgba(242, 169, 0, 0.15);
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    /* Setting Row */
+    .setting-row {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 8px 4px;
+      border-radius: 12px;
+      transition: background 0.15s ease;
+    }
+    .setting-row:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .setting-row.hidden-by-search {
+      display: none !important;
+    }
+
+    .setting-row-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+    .setting-row-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--surface-elevated);
+      color: var(--saffron);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .setting-row-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .setting-row-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .setting-row-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.3;
+    }
+
+    .setting-row-ctrl {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* 44x26 Switch Toggle with Mint thumb & Saffron active track */
+    .raaga-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 26px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .raaga-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+    .raaga-slider-round {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--surface-elevated, #222C29);
+      border: 1px solid rgba(227, 234, 230, 0.15);
+      transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 26px;
+    }
+    .raaga-slider-round:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #DDE6E1;
+      transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    .raaga-switch input:checked + .raaga-slider-round {
+      background-color: var(--saffron, #F2A900);
+      border-color: var(--saffron, #F2A900);
+    }
+    .raaga-switch input:checked + .raaga-slider-round:before {
+      transform: translateX(18px);
+      background-color: #0B1110;
+    }
+    .raaga-switch input:focus-visible + .raaga-slider-round {
+      outline: 2px solid var(--saffron);
+      outline-offset: 2px;
+    }
+
+    /* Segmented Control */
+    .segmented-ctrl {
+      display: inline-flex;
+      background: #18211F;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .segmented-ctrl::-webkit-scrollbar { display: none; }
+    .segmented-item {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary, #8A9490);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    .segmented-item:hover {
+      color: var(--text-primary);
+    }
+    .segmented-item.active {
+      background: var(--surface-elevated, #222C29);
+      color: var(--text-primary);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+      font-weight: 700;
+      border: 1px solid rgba(227, 234, 230, 0.12);
+    }
+    .segmented-item:focus-visible {
+      outline: 2px solid var(--saffron);
+    }
+
+    /* Color Swatch Picker */
+    .color-swatch-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .color-swatch-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+      position: relative;
+    }
+    .color-swatch-btn:hover { transform: scale(1.1); }
+    .color-swatch-btn.active {
+      border-color: #DDE6E1;
+      box-shadow: 0 0 10px rgba(242, 169, 0, 0.5);
+    }
+    .color-swatch-btn:focus-visible {
+      outline: 2px solid var(--saffron);
+      outline-offset: 2px;
+    }
+
+    /* Range Slider */
+    .raaga-range-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 220px;
+    }
+    .raaga-range-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: rgba(227, 234, 230, 0.15);
+      border-radius: 4px;
+      outline: none;
+    }
+    .raaga-range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--saffron, #F2A900);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      border: 2px solid #DDE6E1;
+      transition: transform 0.1s ease;
+    }
+    .raaga-range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .raaga-range-slider:focus-visible {
+      outline: 2px solid var(--saffron);
+    }
+    .raaga-range-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--saffron);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* Select Dropdown */
+    .raaga-select {
+      background: var(--surface-elevated, #222C29);
+      color: var(--text-primary, #E3EAE6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      min-height: 42px;
+      min-width: 130px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .raaga-select:focus-visible {
+      border-color: var(--saffron);
+      outline: 2px solid var(--saffron);
+    }
+
+    /* Buttons inside Settings */
+    .settings-btn-primary {
+      background: #DDE6E1;
+      color: #0B1110;
+      border: none;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .settings-btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+    .settings-btn-primary:active { transform: scale(0.98); }
+
+    .settings-btn-secondary {
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 12.5px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .settings-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(227, 234, 230, 0.25);
+    }
+    .settings-btn-secondary:active { transform: scale(0.98); }
+
+    .settings-btn-danger {
+      background: rgba(230, 57, 70, 0.12);
+      color: #FF6B6B;
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      font-weight: 600;
+      font-size: 12.5px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .settings-btn-danger:hover {
+      background: rgba(230, 57, 70, 0.22);
+    }
+
+    /* Live Kannada Preview Line */
+    .kannada-preview-box {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      border: 1px dashed rgba(242, 169, 0, 0.35);
+      font-size: calc(13px * var(--font-scale, 1));
+      color: var(--saffron);
+      font-family: 'Noto Sans Kannada', sans-serif;
+      text-align: center;
+    }
+
+    /* Storage Multi-Color Breakdown Bar */
+    .storage-breakdown-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-top: 6px;
+    }
+    .storage-progress-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(227, 234, 230, 0.1);
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+    }
+    .storage-seg-downloads {
+      height: 100%;
+      background: var(--saffron);
+      width: 35%;
+    }
+    .storage-seg-cache {
+      height: 100%;
+      background: #00F5D4;
+      width: 20%;
+    }
+    .storage-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+    }
+    .storage-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    /* Offline Banner across app */
+    .ragaa-offline-banner {
+      display: none;
+      background: linear-gradient(90deg, #00BFA5, #00F5D4);
+      color: #070B0A;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      text-align: center;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 245, 212, 0.3);
+      position: relative;
+    }
+    .ragaa-offline-banner.active {
+      display: block;
+    }
+
+    /* Instant Saved Toast */
+    .settings-saved-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #18211F;
+      border: 1px solid var(--saffron);
+      color: var(--text-primary);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+    }
+    .settings-saved-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Equalizer Modal Backdrop & Sheet */
+    .raaga-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .raaga-modal-backdrop.show {
+      display: flex;
+    }
+    .raaga-modal-sheet {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .eq-bands-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      gap: 12px;
+      padding: 16px 0;
+      height: 180px;
+    }
+    .eq-band-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 100%;
+    }
+    .eq-vertical-slider {
+      -webkit-appearance: slider-vertical;
+      writing-mode: bt-lr;
+      width: 8px;
+      height: 120px;
+      accent-color: var(--saffron);
+      cursor: pointer;
+    }
+    .eq-band-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .eq-band-val {
+      font-size: 10.5px;
+      color: var(--saffron);
+      font-weight: 700;
+    }
+
+    /* Skeleton Loading State for Account Card */
+    .account-skeleton-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      animation: pulseSkeleton 1.5s infinite;
+    }
+    .account-skeleton-wrap.show { display: flex; }
+    .account-real-content.hidden-skeleton { display: none; }
+    @keyframes pulseSkeleton {
+      0% { opacity: 0.6; }
+      50% { opacity: 0.25; }
+      100% { opacity: 0.6; }
+    }
+    .skeleton-box {
+      background: rgba(227, 234, 230, 0.12);
+      border-radius: 8px;
+    }
+
 </style>
   <script src="audio/originals/all_kannada_songs.js"></script>
 </head>
 <body>
   <div class="preview-shell">
     <div class="android-viewport home-active" id="appViewport">
+    <!-- Global Offline Mode Indicator Banner -->
+    <div class="ragaa-offline-banner" id="globalOfflineBanner">
+      ⚡ Offline Mode Active • Playing Saved Kannada Melodies
+    </div>
+
       <!-- PANE 1: TABLET LEFT NAVIGATION RAIL (600px+ Small & Large Tablets) -->
       <nav class="tablet-nav-rail">
         <div>
@@ -2819,20 +3607,29 @@
             <div class="rail-logo-text">Ragaa</div>
           </div>
           <div class="rail-menu">
-            <button class="rail-btn active" id="rail-btn-home" onclick="switchNav('home')">
-              <span class="rail-btn-icon">🏠</span><span class="rail-btn-label">Home</span>
+            <button class="rail-btn active" id="rail-btn-home" onclick="switchNav('home')" title="Home">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
+              <span class="rail-btn-label">Home</span>
             </button>
-            <button class="rail-btn" id="rail-btn-search" onclick="switchNav('search')">
-              <span class="rail-btn-icon">🔍</span><span class="rail-btn-label">Search</span>
+            <button class="rail-btn" id="rail-btn-search" onclick="switchNav('search')" title="Search">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+              <span class="rail-btn-label">Search</span>
             </button>
-            <button class="rail-btn" id="rail-btn-library" onclick="switchNav('library')">
-              <span class="rail-btn-icon">📚</span><span class="rail-btn-label">Library</span>
+            <button class="rail-btn" id="rail-btn-recognize" onclick="switchNav('search');triggerMusicRecognition();" title="Recognize Music">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></span>
+              <span class="rail-btn-label">Recognize</span>
             </button>
-            <button class="rail-btn" id="rail-btn-downloads" onclick="switchNav('downloads')">
-              <span class="rail-btn-icon">⬇</span><span class="rail-btn-label">Downloads</span>
+            <button class="rail-btn" id="rail-btn-library" onclick="switchNav('library')" title="Library">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+              <span class="rail-btn-label">Library</span>
             </button>
-            <button class="rail-btn" id="rail-btn-more" onclick="switchNav('more')">
-              <span class="rail-btn-icon">⚙️</span><span class="rail-btn-label">Settings</span>
+            <button class="rail-btn" id="rail-btn-downloads" onclick="switchNav('downloads')" title="Downloads">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+              <span class="rail-btn-label">Downloads</span>
+            </button>
+            <button class="rail-btn" id="rail-btn-more" onclick="switchNav('more')" title="Settings">
+              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span>
+              <span class="rail-btn-label">Settings</span>
             </button>
           </div>
         </div>
@@ -2840,21 +3637,27 @@
 
       <!-- PANE 2: MAIN FLUID CONTENT AREA (Top Bar + Scrollable Screens) -->
       <div class="main-content-flow">
-    <!-- Top App Bar -->
-    <!-- Top App Bar (Ragaa Header) -->
+        <!-- Top App Bar (Simplified: Dynamic Greeting + History/Stats/Account/Settings) -->
     <div class="top-bar">
-      <div class="raaga-brand-block">
-        <div class="raaga-brand-icon" style="overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;"><img src="ragaa_logo.jpg" alt="Ragaa" style="width:100%;height:100%;border-radius:10px;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerText='R';" /></div>
-        <div>
-          <div class="raaga-greeting-title" id="raagaGreetingText">Good morning • ಶುಭೋದಯ</div>
-          <div class="raaga-greeting-sub">Ragaa • ಸಂಗೀತ</div>
-        </div>
+      <div class="top-bar-greeting">
+        <h1 class="raaga-greeting-title" id="raagaGreetingText">Good evening • ಶುಭ ಸಂಜೆ</h1>
       </div>
       <div class="top-bar-icons" id="topBarIcons">
-        <button class="top-icon-btn" onclick="openHistoryModal()" title="History">🕒</button>
-        <button class="top-icon-btn" id="topStatsBtn" onclick="openListeningStatsModal()" title="Listening stats">📊</button>
-        <button class="top-icon-btn" id="topAccountBtn" onclick="openAccountModal()" title="Account">👤</button>
-        <button class="top-icon-btn" id="topSettingsBtn" onclick="switchNav('more')" title="Settings">⚙️</button>
+        <button class="top-icon-btn install-app-btn" id="topInstallAppBtn" onclick="openAppDownloadModal()" title="Install Ragaa App" aria-label="Install App" style="background:rgba(0,245,212,0.14);border:1px solid rgba(0,245,212,0.35);color:var(--accent-mint);font-weight:700;font-size:12px;width:auto;padding:0 10px;gap:5px;display:flex;align-items:center;">
+          <span>📲</span><span style="font-size:11.5px;">Install</span>
+        </button>
+        <button class="top-icon-btn" onclick="openHistoryModal()" title="History" aria-label="History">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </button>
+        <button class="top-icon-btn" id="topStatsBtn" onclick="openListeningStatsModal()" title="Listening stats" aria-label="Listening stats">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </button>
+        <button class="top-icon-btn" id="topAccountBtn" onclick="openAccountModal()" title="Account" aria-label="Account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
+        <button class="top-icon-btn" id="topSettingsBtn" onclick="switchNav('more')" title="Settings" aria-label="Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
       </div>
       <input type="file" id="localMp3Input" accept="audio/*" style="display:none" onchange="loadUserMp3File(event)" />
     </div>
@@ -3115,44 +3918,783 @@
         <div id="downloadsPageList"></div>
       </div>
 
-      <!-- ==================== SCREEN 8: MORE MENU (GLASSY + NO CONTENT EXPLANATIONS) ==================== -->
+            <!-- ==================== SCREEN 8: SETTINGS & PREFERENCES DASHBOARD ==================== -->
       <div class="screen-pane" id="screen-more">
-        <div class="lib-grid" style="grid-template-columns:1fr;gap:10px;margin-top:8px;">
-          <div class="lib-tile" onclick="cycleThemeMode()">
-            <div class="lib-tile-icon">🎨</div>
-            <div class="lib-tile-label" id="moreThemeLabel">Theme: Dark (#0B1110 Default)</div>
+        <div class="settings-dashboard-container">
+          
+          <!-- Page Header & Real-time Search Filter -->
+          <div class="settings-header-card">
+            <div class="settings-title-row">
+              <h1 class="settings-page-heading">
+                <svg class="outline-icon" style="width:28px;height:28px;color:var(--saffron);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Settings</span>
+              </h1>
+              
+              <div class="settings-search-bar">
+                <svg class="outline-icon settings-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="settingsSearchInput" class="settings-search-input" placeholder="Search settings (audio, theme, language)..." oninput="filterSettingsList(this.value)" aria-label="Search Settings" />
+              </div>
+            </div>
           </div>
-          <div class="lib-tile" onclick="cycleDisplayLanguage()">
-            <div class="lib-tile-icon">🌐</div>
-            <div class="lib-tile-label" id="moreLangLabel">Language: ಕನ್ನಡ + English (Bilingual)</div>
-          </div>
-          <div class="lib-tile" onclick="switchNav('search'); toggleAzDrawer()">
-            <div class="lib-tile-icon">ಅ</div>
-            <div class="lib-tile-label">A-to-Z Kannada Varnamale (ಅ–ಳ / A–Z)</div>
-          </div>
-          <div class="lib-tile" onclick="toggleOfflineMode()">
-            <div class="lib-tile-icon">⚡</div>
-            <div class="lib-tile-label" id="moreOfflineLabel">Offline Mode: Disabled</div>
-          </div>
-          <div class="lib-tile" onclick="cycleStreamingQuality()">
-            <div class="lib-tile-icon">🎧</div>
-            <div class="lib-tile-label" id="moreQualityLabel">Streaming & Download Quality: 320 kbps</div>
-          </div>
-          <div class="lib-tile" onclick="document.getElementById('localMp3Input').click()">
-            <div class="lib-tile-icon">📂</div>
-            <div class="lib-tile-label">Play Local Audio / MP3 File</div>
-          </div>
-          <div class="lib-tile" onclick="simulateEdgeState('skeleton')">
-            <div class="lib-tile-icon">✨</div>
-            <div class="lib-tile-label">Preview UI States (Skeleton / Empty / Retry)</div>
-          </div>
-          <div class="lib-tile" onclick="openAttributionModal()">
-            <div class="lib-tile-icon">⚖️</div>
-            <div class="lib-tile-label">Legal, Licensing & CC Attribution</div>
+
+          <!-- Settings Grid: 2-Columns on Desktop, 1-Column on Tablet & Phone -->
+          <div class="settings-grid" id="settingsSectionsGrid">
+            
+            <!-- ==================== 1. ACCOUNT SECTION (TOP CARD, FULL WIDTH) ==================== -->
+            <div class="settings-card full-width-card" id="settingCard-account">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>1. Account</span>
+                  <span class="card-title-badge" id="accountStatusBadge">Signed In</span>
+                </div>
+                <button class="settings-btn-secondary" onclick="simulateAccountSkeletonToggle()" style="font-size:11px;padding:4px 10px;min-height:28px;">Preview Skeleton</button>
+              </div>
+
+              <!-- Loading Skeleton State -->
+              <div class="account-skeleton-wrap" id="accountSkeletonState">
+                <div style="display:flex;align-items:center;gap:16px;">
+                  <div class="skeleton-box" style="width:56px;height:56px;border-radius:50%;"></div>
+                  <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+                    <div class="skeleton-box" style="width:160px;height:16px;"></div>
+                    <div class="skeleton-box" style="width:220px;height:12px;"></div>
+                  </div>
+                </div>
+                <div class="skeleton-box" style="width:100%;height:38px;border-radius:999px;"></div>
+              </div>
+
+              <!-- Real Account Content -->
+              <div class="account-real-content" id="accountRealContent">
+                <!-- Logged In View -->
+                <div id="accountLoggedInView" style="display:flex;flex-direction:column;gap:16px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+                    <div style="display:flex;align-items:center;gap:16px;">
+                      <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),#FF8C00);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;border:2px solid var(--accent-mint);flex-shrink:0;">
+                        VS
+                      </div>
+                      <div>
+                        <div style="font-size:16px;font-weight:700;color:var(--text-primary);" id="accountDisplayName">Vinay Samaldar</div>
+                        <div style="font-size:12.5px;color:var(--text-secondary);" id="accountDisplayEmail">vinay@example.com • +91 98765 43210</div>
+                      </div>
+                    </div>
+                    <button class="settings-btn-primary" onclick="openAccountModal()">
+                      <svg class="outline-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                      <span>Edit Profile</span>
+                    </button>
+                  </div>
+
+                  <div style="display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid rgba(227,234,230,0.06);padding-top:14px;">
+                    <button class="settings-btn-secondary" onclick="signOutCurrentSession()">
+                      <svg class="outline-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                      <span>Sign Out</span>
+                    </button>
+                    <button class="settings-btn-danger" onclick="signOutAllDevices()">
+                      <svg class="outline-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                      <span>Sign Out of All Devices</span>
+                    </button>
+                    <button class="settings-btn-secondary" onclick="toggleGuestMode(true)" style="margin-left:auto;font-size:11px;">
+                      Simulate Guest State
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Guest / Signed-Out View (Hidden by default) -->
+                <div id="accountGuestView" style="display:none;flex-direction:column;gap:14px;background:rgba(242,169,0,0.06);border:1px dashed rgba(242,169,0,0.3);border-radius:16px;padding:16px;">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div style="font-size:24px;">☁️</div>
+                    <div>
+                      <div style="font-size:15px;font-weight:700;color:var(--text-primary);">Sign in to sync your music</div>
+                      <div style="font-size:12px;color:var(--text-secondary);">Sync your playlists, liked songs, and listening history across web and mobile.</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="settings-btn-primary" onclick="openAuthModal('google')">Google Sign In</button>
+                    <button class="settings-btn-secondary" onclick="openAuthModal('mobile')">Mobile SMS</button>
+                    <button class="settings-btn-secondary" onclick="openAuthModal('email')">Email</button>
+                    <button class="settings-btn-secondary" onclick="toggleGuestMode(false)" style="margin-left:auto;font-size:11px;">Restore User</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ==================== 2. APPEARANCE SECTION ==================== -->
+            <div class="settings-card" id="settingCard-appearance">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>2. Appearance</span>
+                </div>
+              </div>
+
+              <!-- Theme Row -->
+              <div class="setting-row" data-search="theme dark light amoled black system">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">App Theme</div>
+                    <div class="setting-row-desc">Dark #0B1110, Clean Light, or Pure AMOLED</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="segmented-ctrl" id="themeSegmentedCtrl">
+                    <button class="segmented-item active" onclick="setAppTheme('dark', this)">Dark</button>
+                    <button class="segmented-item" onclick="setAppTheme('light', this)">Light</button>
+                    <button class="segmented-item" onclick="setAppTheme('amoled', this)">AMOLED</button>
+                    <button class="segmented-item" onclick="setAppTheme('system', this)">System</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accent Color Swatches -->
+              <div class="setting-row" data-search="accent color saffron mint maroon">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Accent Color</div>
+                    <div class="setting-row-desc">Saffron default, Mint-white, or Maroon</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="color-swatch-group">
+                    <button class="color-swatch-btn active" id="swatch-saffron" style="background:#F2A900;" onclick="setAccentColor('saffron', this)" title="Saffron (Default)"></button>
+                    <button class="color-swatch-btn" id="swatch-mint" style="background:#00F5D4;" onclick="setAccentColor('mint', this)" title="Mint"></button>
+                    <button class="color-swatch-btn" id="swatch-maroon" style="background:#E63946;" onclick="setAccentColor('maroon', this)" title="Maroon"></button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Text Size Slider + Live Kannada Preview -->
+              <div class="setting-row" data-search="text size font scale kannada" style="flex-direction:column;align-items:stretch;gap:8px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <div class="setting-row-left">
+                    <div class="setting-row-icon">
+                      <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                    </div>
+                    <div class="setting-row-text">
+                      <div class="setting-row-label">Text Size Scaling</div>
+                      <div class="setting-row-desc">Scales Kannada & English lyrics (80% - 150%)</div>
+                    </div>
+                  </div>
+                  <div class="setting-row-ctrl">
+                    <div class="raaga-range-row">
+                      <input type="range" min="80" max="150" value="100" class="raaga-range-slider" id="textSizeSlider" oninput="handleTextSizeChange(this.value)" aria-label="Text Size Slider" />
+                      <span class="raaga-range-val" id="textSizeValDisplay">100%</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Live Kannada Preview Sentence -->
+                <div class="kannada-preview-box" id="kannadaLivePreview">
+                  ಕನ್ನಡವೇ ಸತ್ಯ, ಕನ್ನಡವೇ ನಿತ್ಯ • ರಾಗಾ ಸಂಗೀತ
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 3. LANGUAGE SECTION ==================== -->
+            <div class="settings-card" id="settingCard-language">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>3. Language & Script</span>
+                </div>
+              </div>
+
+              <!-- App Language -->
+              <div class="setting-row" data-search="language kannada english app">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">App Language</div>
+                    <div class="setting-row-desc">UI buttons and navigation labels</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="segmented-ctrl" id="langSegmentedCtrl">
+                    <button class="segmented-item" onclick="setAppLanguage('kn', this)">ಕನ್ನಡ</button>
+                    <button class="segmented-item" onclick="setAppLanguage('en', this)">English</button>
+                    <button class="segmented-item active" onclick="setAppLanguage('both', this)">Both</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Song Titles Display -->
+              <div class="setting-row" data-search="song titles transliteration kannada">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Song Titles Display</div>
+                    <div class="setting-row-desc">Kannada only, transliteration, or both</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="segmented-ctrl" id="titleDisplaySegmentedCtrl">
+                    <button class="segmented-item" onclick="setTitleDisplayMode('kn', this)">ಕನ್ನಡ Only</button>
+                    <button class="segmented-item" onclick="setTitleDisplayMode('en', this)">Translit</button>
+                    <button class="segmented-item active" onclick="setTitleDisplayMode('both', this)">Both</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- A-to-Z Index Script -->
+              <div class="setting-row" data-search="a-to-z varnamale index alphabet">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">A-to-Z Index Script</div>
+                    <div class="setting-row-desc">Quick drawer filtering in Search tab</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="segmented-ctrl" id="azScriptSegmentedCtrl">
+                    <button class="segmented-item active" onclick="setAzScriptMode('kn', this)">ಅ–ಳ</button>
+                    <button class="segmented-item" onclick="setAzScriptMode('en', this)">A–Z</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 4. PLAYBACK SECTION ==================== -->
+            <div class="settings-card" id="settingCard-playback">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>4. Audio Playback</span>
+                </div>
+              </div>
+
+              <!-- Streaming Quality -->
+              <div class="setting-row" data-search="streaming quality bitrate kbps mb audio">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Streaming Quality</div>
+                    <div class="setting-row-desc" id="streamingQualityDesc">High 192 kbps (~4.5 MB / song)</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <select class="raaga-select" id="streamingQualitySelect" onchange="handleStreamingQualityChange(this.value)" aria-label="Streaming Quality">
+                    <option value="64">Low 64 kbps (~1.5 MB)</option>
+                    <option value="128">Normal 128 kbps (~3.0 MB)</option>
+                    <option value="192" selected>High 192 kbps (~4.5 MB)</option>
+                    <option value="320">Best 320 kbps (~7.5 MB)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Crossfade Slider -->
+              <div class="setting-row" data-search="crossfade seconds transition">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Crossfade Tracks</div>
+                    <div class="setting-row-desc">Seamless blend between consecutive songs</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <div class="raaga-range-row">
+                    <input type="range" min="0" max="12" value="3" class="raaga-range-slider" id="crossfadeSlider" oninput="handleCrossfadeChange(this.value)" aria-label="Crossfade Slider" />
+                    <span class="raaga-range-val" id="crossfadeValDisplay">3s</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gapless Playback -->
+              <div class="setting-row" data-search="gapless playback smooth">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><line x1="6" y1="4" x2="6" y2="20"></line><line x1="18" y1="4" x2="18" y2="20"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Gapless Playback</div>
+                    <div class="setting-row-desc">Eliminate silence between album tracks</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="gaplessToggle" checked onchange="handleSettingToggle('gapless', this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Normalize Volume -->
+              <div class="setting-row" data-search="normalize volume loudness gain">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Normalize Volume</div>
+                    <div class="setting-row-desc">Equalize audio loudness across old & new tracks</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="normalizeVolumeToggle" checked onchange="handleSettingToggle('normalizeVolume', this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 5-Band Equalizer -->
+              <div class="setting-row" data-search="equalizer eq bass vocal classical flat audio">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">5-Band Equalizer</div>
+                    <div class="setting-row-desc" id="eqActivePresetLabel">Preset: Classical Raga</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-primary" onclick="openEqualizerModal()">
+                    <span>Configure EQ</span>
+                    <svg class="outline-icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Sleep Timer Default -->
+              <div class="setting-row" data-search="sleep timer default minutes">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Sleep Timer Default</div>
+                    <div class="setting-row-desc">Auto-pause duration when going to sleep</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <select class="raaga-select" id="sleepTimerDefaultSelect" onchange="handleSleepTimerDefaultChange(this.value)" aria-label="Sleep Timer Default">
+                    <option value="off">Off</option>
+                    <option value="15">15 Minutes</option>
+                    <option value="30" selected>30 Minutes</option>
+                    <option value="45">45 Minutes</option>
+                    <option value="60">60 Minutes</option>
+                    <option value="track">End of Song</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 5. DOWNLOADS AND OFFLINE ==================== -->
+            <div class="settings-card" id="settingCard-downloads">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>5. Downloads & Offline Mode</span>
+                </div>
+              </div>
+
+              <!-- Download Quality -->
+              <div class="setting-row" data-search="download quality kbps offline">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Download Quality</div>
+                    <div class="setting-row-desc">High bitrate MP3 saved for offline playback</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <select class="raaga-select" id="downloadQualitySelect" onchange="handleDownloadQualityChange(this.value)" aria-label="Download Quality">
+                    <option value="128">Normal 128 kbps (~3 MB)</option>
+                    <option value="192">High 192 kbps (~4.5 MB)</option>
+                    <option value="320" selected>Best 320 kbps (~7.5 MB)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Download over Wi-Fi Only -->
+              <div class="setting-row" data-search="wifi only download data mobile">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Download Over Wi-Fi Only</div>
+                    <div class="setting-row-desc">Prevents cellular data usage while downloading</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="wifiOnlyToggle" checked onchange="handleSettingToggle('wifiOnly', this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Auto-download Liked Songs -->
+              <div class="setting-row" data-search="auto download liked songs offline">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Auto-Download Liked Songs</div>
+                    <div class="setting-row-desc">Keep your favorite Kannada melodies available offline</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="autoDownloadLikedToggle" onchange="handleSettingToggle('autoDownloadLiked', this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Offline Mode Switch -->
+              <div class="setting-row" data-search="offline mode airplane travel offline">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Offline Mode</div>
+                    <div class="setting-row-desc">Show offline banner & only play local saved audio</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="offlineModeToggle" onchange="handleOfflineModeToggle(this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Storage Breakdown Bar -->
+              <div class="setting-row" data-search="storage cache space downloads" style="flex-direction:column;align-items:stretch;gap:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:13.5px;font-weight:600;color:var(--text-primary);">Device Storage Used by Ragaa</span>
+                  <span style="font-size:12px;font-weight:700;color:var(--saffron);" id="storageUsageTotal">342 MB of 128 GB</span>
+                </div>
+                <div class="storage-breakdown-wrap">
+                  <div class="storage-progress-bar">
+                    <div class="storage-seg-downloads" style="width:45%;" title="Downloads: 220 MB"></div>
+                    <div class="storage-seg-cache" style="width:25%;" title="Cache: 122 MB"></div>
+                  </div>
+                  <div class="storage-legend">
+                    <div class="storage-legend-item">
+                      <span class="legend-dot" style="background:var(--saffron);"></span>
+                      <span>Downloads (220 MB)</span>
+                    </div>
+                    <div class="storage-legend-item">
+                      <span class="legend-dot" style="background:#00F5D4;"></span>
+                      <span>Audio Cache (122 MB)</span>
+                    </div>
+                    <div class="storage-legend-item">
+                      <span class="legend-dot" style="background:rgba(227,234,230,0.2);"></span>
+                      <span>Free Space (127.6 GB)</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:10px;margin-top:4px;">
+                  <button class="settings-btn-secondary" onclick="clearAudioCache()">
+                    <svg class="outline-icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <span>Clear Cache</span>
+                  </button>
+                  <button class="settings-btn-secondary" onclick="switchNav('downloads')">
+                    <svg class="outline-icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Manage Downloads</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 6. ADS AND PRIVACY ==================== -->
+            <div class="settings-card" id="settingCard-ads">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>6. Ads & Privacy</span>
+                </div>
+              </div>
+
+              <!-- Audio Ad Info Banner -->
+              <div style="background:rgba(221,230,225,0.05);border:1px solid rgba(221,230,225,0.12);border-radius:14px;padding:12px 14px;font-size:12.5px;color:var(--text-secondary);line-height:1.5;">
+                <b style="color:var(--text-primary);">Ad Policy:</b> Free tier plays non-intrusive short audio ads between songs. We <b style="color:var(--saffron);">never</b> display pop-up ads or intrusive overlays during playback.
+              </div>
+
+              <!-- Personalized Ads Toggle (With under-18 lock) -->
+              <div class="setting-row" data-search="personalized ads privacy advertising under 18">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Personalized Ads</div>
+                    <div class="setting-row-desc" id="personalizedAdsDesc">Relevant Kannada sponsor announcements (Locked OFF for under-18)</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="personalizedAdsToggle" onchange="handlePersonalizedAdsToggle(this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Go Premium Card -->
+              <div style="background:linear-gradient(135deg,rgba(242,169,0,0.14),rgba(255,140,0,0.08));border:1px solid rgba(242,169,0,0.3);border-radius:16px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                <div>
+                  <div style="font-size:14.5px;font-weight:700;color:var(--saffron);">Ragaa Gold • Ad-Free Streaming</div>
+                  <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">Zero ads, 320 kbps lossless flac, and unlimited offline storage.</div>
+                </div>
+                <button class="settings-btn-primary" onclick="openPremiumModal()" style="background:var(--saffron);color:#0B1110;">
+                  <span>Upgrade @ ₹49/mo</span>
+                </button>
+              </div>
+
+              <!-- Listening History Toggle -->
+              <div class="setting-row" data-search="listening history privacy tracking">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Record Listening History</div>
+                    <div class="setting-row-desc">Generates your Kannada music footprint & recommendations</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <label class="raaga-switch">
+                    <input type="checkbox" id="recordHistoryToggle" checked onchange="handleSettingToggle('recordHistory', this.checked)" />
+                    <span class="raaga-slider-round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Clear History Button -->
+              <div class="setting-row" data-search="clear history delete logs">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Listening History & Stats</div>
+                    <div class="setting-row-desc">Wipe all recently played songs from this device</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-danger" onclick="clearListeningHistoryPrompt()">
+                    <span>Clear History</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 7. LIBRARY SECTION ==================== -->
+            <div class="settings-card" id="settingCard-library">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>7. Music Library</span>
+                </div>
+              </div>
+
+              <!-- Add Songs from Device (replaces old "Play Local Audio" tile) -->
+              <div class="setting-row" data-search="local audio mp3 files add device library">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Add Songs from This Device</div>
+                    <div class="setting-row-desc">Import local MP3, M4A, or FLAC audio into your Ragaa library</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-primary" onclick="document.getElementById('localMp3Input').click()">
+                    <svg class="outline-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>Import Audio</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Import / Export Playlists -->
+              <div class="setting-row" data-search="import export playlists backup json">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Playlists Backup & Sync</div>
+                    <div class="setting-row-desc">Export or restore your custom playlists (JSON format)</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl" style="gap:8px;">
+                  <button class="settings-btn-secondary" onclick="exportPlaylistsJson()">Export</button>
+                  <button class="settings-btn-secondary" onclick="importPlaylistsPrompt()">Import</button>
+                </div>
+              </div>
+
+              <!-- Rescan Local Media -->
+              <div class="setting-row" data-search="rescan index refresh local media">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Rescan Local Audio</div>
+                    <div class="setting-row-desc">Check for new music files added to device storage</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-secondary" onclick="rescanDeviceAudio()">
+                    <span>Rescan</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 8. ABOUT AND LEGAL ==================== -->
+            <div class="settings-card" id="settingCard-about">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span>8. About & Legal</span>
+                </div>
+              </div>
+
+              <!-- Licensing & CC Attribution -->
+              <div class="setting-row" data-search="licensing creative commons attribution copyright legal">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M14.83 14.83a4 4 0 1 1 0-5.66"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Licensing & CC Attribution</div>
+                    <div class="setting-row-desc">Creative Commons credits for Kannada audio archives</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-secondary" onclick="openAttributionModal()">
+                    <span>View Credits</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Terms & Privacy -->
+              <div class="setting-row" data-search="terms service privacy policy dmca copyright">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Terms & Privacy Policy</div>
+                    <div class="setting-row-desc">DPDP Act, GDPR compliance, & Copyright DMCA Notice</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl" style="gap:6px;">
+                  <button class="settings-btn-secondary" onclick="showLegalModal('terms')">Terms</button>
+                  <button class="settings-btn-secondary" onclick="showLegalModal('privacy')">Privacy</button>
+                  <button class="settings-btn-secondary" onclick="showDmcaModal()">DMCA</button>
+                </div>
+              </div>
+
+              <!-- App Version (Tap 7 times to unlock Developer Section) -->
+              <div class="setting-row" data-search="version build dev developer mode" id="settingRow-appVersion" onclick="handleVersionRowTap()" style="cursor:pointer;" title="Tap 7 times to reveal Developer options">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">App Version</div>
+                    <div class="setting-row-desc" id="appVersionSub">v2.4.0 (Build 2026.10) • Tap to unlock dev options</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <span class="pill-chip" style="font-size:11px;font-weight:700;" id="versionPillBadge">v2.4.0</span>
+                </div>
+              </div>
+
+              <!-- Send Feedback -->
+              <div class="setting-row" data-search="send feedback report bug feature">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Send Feedback</div>
+                    <div class="setting-row-desc">Request Kannada songs or suggest UI improvements</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-primary" onclick="openFeedbackPrompt()">
+                    <span>Send</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ==================== 9. DEVELOPER SECTION (HIDDEN BY DEFAULT) ==================== -->
+            <div class="settings-card full-width-card" id="settingCard-developer" style="display:none;background:rgba(242,169,0,0.05);border:1px dashed var(--saffron);">
+              <div class="settings-card-header">
+                <div class="settings-card-title">
+                  <span style="color:var(--saffron);">9. Developer Testing Panel</span>
+                  <span class="card-title-badge">Dev Mode Unlocked</span>
+                </div>
+                <button class="settings-btn-secondary" onclick="hideDevSection()" style="font-size:11px;padding:4px 8px;min-height:28px;">Hide</button>
+              </div>
+
+              <!-- Preview UI States -->
+              <div class="setting-row" data-search="preview ui states skeleton empty retry edge dev">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon" style="color:var(--saffron);">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Preview Edge UI States</div>
+                    <div class="setting-row-desc">Test skeleton loader, empty library, no-internet, and retry states</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl" style="gap:6px;flex-wrap:wrap;">
+                  <button class="settings-btn-secondary" onclick="simulateEdgeState('skeleton')">Skeleton</button>
+                  <button class="settings-btn-secondary" onclick="simulateEdgeState('empty')">Empty</button>
+                  <button class="settings-btn-secondary" onclick="simulateEdgeState('no-internet')">No Internet</button>
+                  <button class="settings-btn-secondary" onclick="simulateEdgeState('retry')">Retry Toast</button>
+                </div>
+              </div>
+
+              <!-- Reset Settings -->
+              <div class="setting-row" data-search="reset defaults wipe settings">
+                <div class="setting-row-left">
+                  <div class="setting-row-icon">
+                    <svg class="outline-icon" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                  </div>
+                  <div class="setting-row-text">
+                    <div class="setting-row-label">Reset Settings to Defaults</div>
+                    <div class="setting-row-desc">Restore factory defaults and reload app configuration</div>
+                  </div>
+                </div>
+                <div class="setting-row-ctrl">
+                  <button class="settings-btn-danger" onclick="resetSettingsToDefaults()">
+                    <span>Reset All</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- Close screens-wrapper -->
 
     <!-- Floating "+" FAB (Visible on Library tab) -->
     <button class="floating-fab" id="libraryFab" onclick="createNewPlaylistPrompt()" title="Create Playlist">+</button>
@@ -3180,28 +4722,74 @@
     <!-- PERSISTENT FLOATING BOTTOM NAVIGATION PILL (5 Morphing Items) -->
     <nav class="floating-nav-pill">
         <button class="nav-pill-item active" id="nav-btn-home" onclick="switchNav('home')">
-          <span class="nav-pill-icon">🏠</span>
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
           <span class="nav-pill-label">Home</span>
         </button>
         <button class="nav-pill-item" id="nav-btn-search" onclick="switchNav('search')">
-          <span class="nav-pill-icon">🔍</span>
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
           <span class="nav-pill-label">Search</span>
         </button>
+        <button class="nav-pill-item" id="nav-btn-recognize" onclick="switchNav('search');triggerMusicRecognition();">
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></span>
+          <span class="nav-pill-label">Recognize</span>
+        </button>
         <button class="nav-pill-item" id="nav-btn-library" onclick="switchNav('library')">
-          <span class="nav-pill-icon">📚</span>
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
           <span class="nav-pill-label">Library</span>
         </button>
-        <button class="nav-pill-item" id="nav-btn-downloads" onclick="switchNav('downloads')">
-          <span class="nav-pill-icon">⬇</span>
-          <span class="nav-pill-label">Downloads</span>
-        </button>
         <button class="nav-pill-item" id="nav-btn-more" onclick="switchNav('more')">
-          <span class="nav-pill-icon">⚙️</span>
-          <span class="nav-pill-label">Settings</span>
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span>
+          <span class="nav-pill-label">More</span>
         </button>
       </nav>
 
-    <!-- ==================== RAGAA FULL-SCREEN PLAYER ==================== -->
+    
+      </div> <!-- Close main-content-flow -->
+
+<!-- PANE 3: RIGHT PERSISTENT NOW PLAYING PANEL (Wide Desktops 1280px+) -->
+      <aside class="tablet-persistent-player" id="persistentNowPlayingPanel">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--text-secondary);letter-spacing:0.5px;text-transform:uppercase;">Now Playing</div>
+          <span class="card-title-badge" style="font-size:10.5px;background:rgba(242,169,0,0.15);color:var(--saffron);padding:2px 8px;border-radius:999px;">Live Queue</span>
+        </div>
+
+        <!-- Cover Art Card -->
+        <div style="width:100%;aspect-ratio:1;border-radius:20px;overflow:hidden;background:#141C1A;border:1px solid var(--border);position:relative;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
+          <div id="sideArtGlyph" style="font-size:52px;font-weight:800;color:var(--saffron);font-family:'Noto Sans Kannada',sans-serif;">ಕಾ</div>
+        </div>
+
+        <!-- Song Metadata -->
+        <div style="margin-bottom:14px;">
+          <div id="sideSongTitle" style="font-size:16px;font-weight:700;color:var(--text-primary);line-height:1.3;">ಕಾದಂಬರಿ ದೈವ ರಾಗ • Kadambari Daiva Raaga</div>
+          <div id="sideSongArtist" style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Vijay Prakash • Kantara: Chapter 1 (2026)</div>
+        </div>
+
+        <!-- Waveform / Progress slider -->
+        <div style="margin-bottom:14px;">
+          <div class="raaga-range-row" style="max-width:100%;gap:8px;">
+            <span style="font-size:11px;color:var(--text-secondary);" id="sideCurTime">1:24</span>
+            <input type="range" min="0" max="100" value="35" class="raaga-range-slider" id="sideProgressSlider" oninput="seekFromSidePanel(this.value)" aria-label="Progress" />
+            <span style="font-size:11px;color:var(--text-secondary);" id="sideTotTime">4:12</span>
+          </div>
+        </div>
+
+        <!-- Controls Row -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:20px;">
+          <button class="np-sec-btn" onclick="prevTrack(event)" title="Previous">⏮</button>
+          <button class="mini-mint-play" onclick="togglePlayPause(event)" id="sidePlayBtn" title="Play / Pause" style="width:54px;height:54px;font-size:22px;border-radius:50%;background:#DDE6E1;color:#0B1110;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
+          <button class="np-sec-btn" onclick="nextTrack(event)" title="Next">⏭</button>
+        </div>
+
+        <!-- Lyrics Snippet -->
+        <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:14px;padding:12px;flex:1;overflow-y:auto;max-height:220px;">
+          <div style="font-size:11px;font-weight:700;color:var(--saffron);margin-bottom:6px;text-transform:uppercase;">Live Kannada Lyrics</div>
+          <div id="sideLyricsSnippet" style="font-size:12.5px;color:var(--text-primary);line-height:1.6;font-family:'Noto Sans Kannada',sans-serif;">
+            ಕಾದಂಬರಿ ಮುಳುಗಿದೆ ರಾಗದಲಿ...<br />
+            ದೈವದ ಹೆಜ್ಜೆಯ ಸದ್ದಿನಲಿ...
+          </div>
+        </div>
+      </aside>
+<!-- ==================== RAGAA FULL-SCREEN PLAYER ==================== -->
     <div class="raaga-player-modal" id="raagaPlayerModal">
       <!-- Ambient Glow Canvas Backdrop -->
       <div class="raaga-ambient-backdrop" id="raagaAmbientGlow"></div>
@@ -4274,8 +5862,90 @@
       </div>
     </div>
 
+    
+    <!-- 5-BAND EQUALIZER MODAL -->
+    <div class="raaga-modal-backdrop" id="equalizerModalBackdrop" onclick="closeEqualizerModal(event)">
+      <div class="raaga-modal-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <div>
+            <div style="font-size:17px;font-weight:800;color:var(--text-primary);display:flex;align-items:center;gap:8px;">
+              <svg class="outline-icon" style="color:var(--saffron);" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+              <span>5-Band Equalizer</span>
+            </div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">Hardware acoustic tuning for Kannada vocals & instruments</div>
+          </div>
+          <button class="settings-btn-secondary" onclick="closeEqualizerModal()" style="min-height:32px;padding:4px 10px;font-size:12px;">✕ Close</button>
+        </div>
+
+        <!-- Presets Row -->
+        <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;" id="eqPresetsRow">
+          <button class="segmented-item" onclick="applyEqPreset('flat', this)">Flat</button>
+          <button class="segmented-item" onclick="applyEqPreset('bass', this)">Bass Boost</button>
+          <button class="segmented-item" onclick="applyEqPreset('vocal', this)">Vocal Clarity</button>
+          <button class="segmented-item active" onclick="applyEqPreset('classical', this)">Classical Raga</button>
+        </div>
+
+        <!-- 5 Frequency Sliders -->
+        <div class="eq-bands-row">
+          <div class="eq-band-col">
+            <span class="eq-band-val" id="eqVal-60">0 dB</span>
+            <input type="range" min="-12" max="12" value="0" class="eq-vertical-slider" id="eqSlider-60" oninput="handleEqSliderChange('60', this.value)" orient="vertical" aria-label="60 Hertz band" />
+            <span class="eq-band-label">60 Hz</span>
+          </div>
+          <div class="eq-band-col">
+            <span class="eq-band-val" id="eqVal-230">+3 dB</span>
+            <input type="range" min="-12" max="12" value="3" class="eq-vertical-slider" id="eqSlider-230" oninput="handleEqSliderChange('230', this.value)" orient="vertical" aria-label="230 Hertz band" />
+            <span class="eq-band-label">230 Hz</span>
+          </div>
+          <div class="eq-band-col">
+            <span class="eq-band-val" id="eqVal-910">+2 dB</span>
+            <input type="range" min="-12" max="12" value="2" class="eq-vertical-slider" id="eqSlider-910" oninput="handleEqSliderChange('910', this.value)" orient="vertical" aria-label="910 Hertz band" />
+            <span class="eq-band-label">910 Hz</span>
+          </div>
+          <div class="eq-band-col">
+            <span class="eq-band-val" id="eqVal-3600">+4 dB</span>
+            <input type="range" min="-12" max="12" value="4" class="eq-vertical-slider" id="eqSlider-3600" oninput="handleEqSliderChange('3600', this.value)" orient="vertical" aria-label="3.6 kiloHertz band" />
+            <span class="eq-band-label">3.6 kHz</span>
+          </div>
+          <div class="eq-band-col">
+            <span class="eq-band-val" id="eqVal-14000">+2 dB</span>
+            <input type="range" min="-12" max="12" value="2" class="eq-vertical-slider" id="eqSlider-14000" oninput="handleEqSliderChange('14000', this.value)" orient="vertical" aria-label="14 kiloHertz band" />
+            <span class="eq-band-label">14 kHz</span>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:12px;">
+          <button class="settings-btn-secondary" onclick="resetEqToFlat()">Reset to Flat</button>
+          <button class="settings-btn-primary" onclick="closeEqualizerModal()">Save & Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DMCA TAKEDOWN MODAL -->
+    <div class="raaga-modal-backdrop" id="dmcaModalBackdrop" onclick="closeDmcaModal(event)">
+      <div class="raaga-modal-sheet" onclick="event.stopPropagation()">
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <div style="font-size:17px;font-weight:800;color:var(--text-primary);">⚖️ Copyright & DMCA Takedown Notice</div>
+          <button class="settings-btn-secondary" onclick="closeDmcaModal()" style="min-height:30px;padding:2px 8px;">✕</button>
+        </div>
+        <div style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;display:flex;flex-direction:column;gap:10px;">
+          <p>Ragaa respects the intellectual property rights of Kannada music artists, composers, and recording labels. All catalog audio is curated from open archive sources under Creative Commons and Fair Use educational provisions.</p>
+          <p>If you are a copyright owner or authorized representative and wish to request removal of an audio track, please send written notice to <b>dmca@ragaa.music</b> with the track title, proof of rights ownership, and link.</p>
+        </div>
+        <button class="settings-btn-primary" onclick="closeDmcaModal()">I Understand</button>
+      </div>
+    </div>
+
+    <!-- INSTANT SAVED TOAST -->
+    <div class="settings-saved-toast" id="settingsSavedToast">
+      <svg class="outline-icon" style="width:16px;height:16px;color:var(--saffron);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span id="settingsSavedToastMsg">Saved instantly</span>
+    </div>
+
     <!-- FLOATING TOAST PILL -->
     <div class="raaga-toast" id="raagaToast">♥ Saved to Liked Songs</div>
+
+      
 
     <!-- Android Bottom Gesture Bar -->
     <div class="gesture-bar-wrap">
@@ -9498,6 +11168,567 @@
       updatePlayerSurfaces();
       renderAll();
     });
+
+
+    // ==================== SETTINGS JAVASCRIPT ENGINE (2026) ====================
+    let ragaaSettingsState = {
+      theme: 'dark',
+      accent: 'saffron',
+      fontScale: 1.0,
+      appLang: 'both',
+      titleDisplay: 'both',
+      azScript: 'kn',
+      streamingQuality: 192,
+      crossfade: 3,
+      gapless: true,
+      normalizeVolume: true,
+      sleepTimerDefault: '30',
+      downloadQuality: 320,
+      wifiOnly: true,
+      autoDownloadLiked: false,
+      offlineMode: false,
+      personalizedAds: false,
+      recordHistory: true,
+      devMode: false
+    };
+
+    // Load saved settings from localStorage
+    function loadSavedSettings() {
+      try {
+        const saved = localStorage.getItem('ragaa_settings_v2');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          ragaaSettingsState = Object.assign(ragaaSettingsState, parsed);
+        }
+        // Dev mode check from query param ?dev=1 or localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('dev') === '1' || localStorage.getItem('ragaa_dev_mode') === 'true') {
+          ragaaSettingsState.devMode = true;
+        }
+        const path = window.location.pathname.toLowerCase();
+        const hash = window.location.hash.toLowerCase();
+        if (path.includes('settings') || hash === '#settings' || hash === '#more' || urlParams.get('tab') === 'settings' || urlParams.get('tab') === 'more' || urlParams.get('dev') === '1') {
+          setTimeout(() => switchNav('more'), 50);
+        }
+      } catch(e) {
+        console.warn('Could not read saved settings:', e);
+      }
+
+      applyAllSettingsToUI();
+    }
+
+    // Save state to localStorage and show Saved toast
+    function saveRagaaSetting(key, val, showToast = true) {
+      ragaaSettingsState[key] = val;
+      try {
+        localStorage.setItem('ragaa_settings_v2', JSON.stringify(ragaaSettingsState));
+      } catch(e) {}
+
+      if (showToast) {
+        showSettingsSavedToast('✓ Setting saved instantly');
+      }
+    }
+
+    function showSettingsSavedToast(msg = 'Saved instantly') {
+      const toast = document.getElementById('settingsSavedToast');
+      const text = document.getElementById('settingsSavedToastMsg');
+      if (!toast) return;
+      if (text) text.innerText = msg;
+      toast.classList.add('show');
+      clearTimeout(window._stTimeout);
+      window._stTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Apply all loaded settings to the DOM controls
+    function applyAllSettingsToUI() {
+      // 1. Theme
+      applyThemeMode(ragaaSettingsState.theme);
+
+      // 2. Accent
+      applyAccentColor(ragaaSettingsState.accent);
+
+      // 3. Font Scale
+      if (ragaaSettingsState.fontScale) {
+        handleTextSizeChange(Math.round(ragaaSettingsState.fontScale * 100), false);
+      }
+
+      // 4. App Lang
+      highlightSegmented('langSegmentedCtrl', ragaaSettingsState.appLang);
+
+      // 5. Title Display
+      highlightSegmented('titleDisplaySegmentedCtrl', ragaaSettingsState.titleDisplay);
+
+      // 6. A-to-Z script
+      highlightSegmented('azScriptSegmentedCtrl', ragaaSettingsState.azScript);
+
+      // 7. Streaming Quality
+      const sq = document.getElementById('streamingQualitySelect');
+      if (sq) sq.value = ragaaSettingsState.streamingQuality;
+      updateStreamingQualityDesc(ragaaSettingsState.streamingQuality);
+
+      // 8. Crossfade
+      const cf = document.getElementById('crossfadeSlider');
+      if (cf) cf.value = ragaaSettingsState.crossfade;
+      const cfd = document.getElementById('crossfadeValDisplay');
+      if (cfd) cfd.innerText = ragaaSettingsState.crossfade + 's';
+
+      // 9. Toggles
+      const setCheckbox = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.checked = !!val;
+      };
+      setCheckbox('gaplessToggle', ragaaSettingsState.gapless);
+      setCheckbox('normalizeVolumeToggle', ragaaSettingsState.normalizeVolume);
+      setCheckbox('wifiOnlyToggle', ragaaSettingsState.wifiOnly);
+      setCheckbox('autoDownloadLikedToggle', ragaaSettingsState.autoDownloadLiked);
+      setCheckbox('offlineModeToggle', ragaaSettingsState.offlineMode);
+      setCheckbox('personalizedAdsToggle', ragaaSettingsState.personalizedAds);
+      setCheckbox('recordHistoryToggle', ragaaSettingsState.recordHistory);
+
+      // 10. Offline Banner
+      const banner = document.getElementById('globalOfflineBanner');
+      if (banner) {
+        banner.classList.toggle('active', !!ragaaSettingsState.offlineMode);
+      }
+
+      // 11. Sleep timer & Download quality
+      const st = document.getElementById('sleepTimerDefaultSelect');
+      if (st) st.value = ragaaSettingsState.sleepTimerDefault;
+      const dq = document.getElementById('downloadQualitySelect');
+      if (dq) dq.value = ragaaSettingsState.downloadQuality;
+
+      // 12. Developer Mode
+      if (ragaaSettingsState.devMode) {
+        const devCard = document.getElementById('settingCard-developer');
+        if (devCard) devCard.style.display = 'flex';
+      }
+
+      // 13. Dynamic Greeting
+      updateDynamicTopGreeting();
+    }
+
+    function highlightSegmented(containerId, value) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const buttons = container.querySelectorAll('.segmented-item');
+      buttons.forEach(btn => {
+        const text = btn.innerText.toLowerCase();
+        if (text.includes(value) || (value === 'both' && text.includes('both')) || (value === 'kn' && (text.includes('ಕನ್ನಡ') || text.includes('ಅ–ಳ'))) || (value === 'en' && (text.includes('english') || text.includes('translit') || text.includes('a–z')))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    // Dynamic Top App Bar Greeting by Time of Day
+    function updateDynamicTopGreeting() {
+      const el = document.getElementById('raagaGreetingText');
+      if (!el) return;
+      const hour = new Date().getHours();
+      let greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
+      if (hour >= 5 && hour < 12) {
+        greeting = 'Good morning • ಶುಭೋದಯ';
+      } else if (hour >= 12 && hour < 17) {
+        greeting = 'Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';
+      } else if (hour >= 17 && hour < 21) {
+        greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
+      } else {
+        greeting = 'Good night • ಶುಭ ರಾತ್ರಿ';
+      }
+      el.innerText = greeting;
+    }
+
+    // Filter Settings Rows in Real-Time
+    function filterSettingsList(query) {
+      query = (query || '').toLowerCase().trim();
+      const rows = document.querySelectorAll('.setting-row');
+      rows.forEach(row => {
+        if (!query) {
+          row.classList.remove('hidden-by-search');
+          return;
+        }
+        const text = row.innerText.toLowerCase();
+        const searchTags = (row.getAttribute('data-search') || '').toLowerCase();
+        if (text.includes(query) || searchTags.includes(query)) {
+          row.classList.remove('hidden-by-search');
+        } else {
+          row.classList.add('hidden-by-search');
+        }
+      });
+    }
+
+    // Theme Handlers
+    function setAppTheme(themeName, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      applyThemeMode(themeName);
+      saveRagaaSetting('theme', themeName);
+    }
+
+    function applyThemeMode(themeName) {
+      document.body.classList.remove('theme-light', 'theme-amoled');
+      if (themeName === 'light') {
+        document.body.classList.add('theme-light');
+      } else if (themeName === 'amoled') {
+        document.body.classList.add('theme-amoled');
+      } else if (themeName === 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.body.classList.add('theme-light');
+        }
+      }
+      // Re-highlight segmented buttons if needed
+      highlightSegmented('themeSegmentedCtrl', themeName);
+    }
+
+    // Accent Colors
+    function setAccentColor(accentName, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      applyAccentColor(accentName);
+      saveRagaaSetting('accent', accentName);
+    }
+
+    function applyAccentColor(accentName) {
+      const root = document.documentElement;
+      if (accentName === 'mint') {
+        root.style.setProperty('--saffron', '#00F5D4');
+        root.style.setProperty('--accent-active-bg', 'rgba(0, 245, 212, 0.15)');
+      } else if (accentName === 'maroon') {
+        root.style.setProperty('--saffron', '#E63946');
+        root.style.setProperty('--accent-active-bg', 'rgba(230, 57, 70, 0.15)');
+      } else {
+        // default Saffron
+        root.style.setProperty('--saffron', '#F2A900');
+        root.style.setProperty('--accent-active-bg', 'rgba(242, 169, 0, 0.15)');
+      }
+
+      ['swatch-saffron', 'swatch-mint', 'swatch-maroon'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('active', id === `swatch-${accentName}`);
+      });
+    }
+
+    // Font Scaling
+    function handleTextSizeChange(val, save = true) {
+      const num = parseInt(val, 10);
+      const scale = num / 100;
+      document.documentElement.style.setProperty('--font-scale', scale);
+      const display = document.getElementById('textSizeValDisplay');
+      if (display) display.innerText = num + '%';
+      const preview = document.getElementById('kannadaLivePreview');
+      if (preview) preview.style.fontSize = `calc(13px * ${scale})`;
+
+      if (save) {
+        saveRagaaSetting('fontScale', scale, true);
+      }
+    }
+
+    // Language Segmented Control Handlers
+    function setAppLanguage(lang, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      saveRagaaSetting('appLang', lang);
+    }
+
+    function setTitleDisplayMode(mode, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      saveRagaaSetting('titleDisplay', mode);
+      renderAll();
+    }
+
+    function setAzScriptMode(script, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      saveRagaaSetting('azScript', script);
+    }
+
+    // Playback Handlers
+    function handleStreamingQualityChange(val) {
+      saveRagaaSetting('streamingQuality', parseInt(val, 10));
+      updateStreamingQualityDesc(val);
+    }
+
+    function updateStreamingQualityDesc(kbps) {
+      const desc = document.getElementById('streamingQualityDesc');
+      if (!desc) return;
+      const map = {
+        '64': 'Low 64 kbps (~1.5 MB / song)',
+        '128': 'Normal 128 kbps (~3.0 MB / song)',
+        '192': 'High 192 kbps (~4.5 MB / song)',
+        '320': 'Best 320 kbps (~7.5 MB / song)'
+      };
+      desc.innerText = map[kbps] || `${kbps} kbps`;
+    }
+
+    function handleCrossfadeChange(val) {
+      const display = document.getElementById('crossfadeValDisplay');
+      if (display) display.innerText = val + 's';
+      saveRagaaSetting('crossfade', parseInt(val, 10));
+    }
+
+    function handleSettingToggle(key, checked) {
+      saveRagaaSetting(key, checked);
+    }
+
+    function handleSleepTimerDefaultChange(val) {
+      saveRagaaSetting('sleepTimerDefault', val);
+    }
+
+    function handleDownloadQualityChange(val) {
+      saveRagaaSetting('downloadQuality', parseInt(val, 10));
+    }
+
+    // Offline Mode Handler
+    function handleOfflineModeToggle(checked) {
+      saveRagaaSetting('offlineMode', checked);
+      const banner = document.getElementById('globalOfflineBanner');
+      if (banner) {
+        banner.classList.toggle('active', checked);
+      }
+      showSettingsSavedToast(checked ? '⚡ Offline mode enabled' : '🌐 Online streaming resumed');
+    }
+
+    // Personalized Ads Handler
+    function handlePersonalizedAdsToggle(checked) {
+      const isUnder18 = (typeof state !== 'undefined' && state.user && state.user.age && state.user.age < 18);
+      if (isUnder18 && checked) {
+        alert('Personalized ads are locked OFF for users under 18 years of age.');
+        document.getElementById('personalizedAdsToggle').checked = false;
+        return;
+      }
+      saveRagaaSetting('personalizedAds', checked);
+    }
+
+    // Account Skeleton Simulation
+    function simulateAccountSkeletonToggle() {
+      const sk = document.getElementById('accountSkeletonState');
+      const real = document.getElementById('accountRealContent');
+      if (!sk || !real) return;
+      if (sk.classList.contains('show')) {
+        sk.classList.remove('show');
+        real.classList.remove('hidden-skeleton');
+      } else {
+        sk.classList.add('show');
+        real.classList.add('hidden-skeleton');
+        setTimeout(() => {
+          sk.classList.remove('show');
+          real.classList.remove('hidden-skeleton');
+        }, 2500);
+      }
+    }
+
+    function toggleGuestMode(isGuest) {
+      const loggedIn = document.getElementById('accountLoggedInView');
+      const guest = document.getElementById('accountGuestView');
+      const badge = document.getElementById('accountStatusBadge');
+      if (!loggedIn || !guest) return;
+      if (isGuest) {
+        loggedIn.style.display = 'none';
+        guest.style.display = 'flex';
+        if (badge) { badge.innerText = 'Guest Mode'; badge.style.color = '#8A9490'; }
+      } else {
+        loggedIn.style.display = 'flex';
+        guest.style.display = 'none';
+        if (badge) { badge.innerText = 'Signed In'; badge.style.color = 'var(--saffron)'; }
+      }
+      showSettingsSavedToast(isGuest ? 'Switched to Guest simulation' : 'Restored active user');
+    }
+
+    // 7 Taps on Version Row to Reveal Developer Section
+    let versionTapCount = 0;
+    let versionTapTimer = null;
+    function handleVersionRowTap() {
+      versionTapCount++;
+      clearTimeout(versionTapTimer);
+      versionTapTimer = setTimeout(() => { versionTapCount = 0; }, 3000);
+
+      if (versionTapCount >= 7) {
+        versionTapCount = 0;
+        const devCard = document.getElementById('settingCard-developer');
+        if (devCard) {
+          devCard.style.display = 'flex';
+          devCard.scrollIntoView({ behavior: 'smooth' });
+        }
+        ragaaSettingsState.devMode = true;
+        try { localStorage.setItem('ragaa_dev_mode', 'true'); } catch(e) {}
+        showSettingsSavedToast('🚀 Developer Mode Unlocked!');
+      } else if (versionTapCount >= 3) {
+        showSettingsSavedToast(`Tap ${7 - versionTapCount} more times for Dev Mode`);
+      }
+    }
+
+    function hideDevSection() {
+      const devCard = document.getElementById('settingCard-developer');
+      if (devCard) devCard.style.display = 'none';
+      ragaaSettingsState.devMode = false;
+      try { localStorage.removeItem('ragaa_dev_mode'); } catch(e) {}
+      showSettingsSavedToast('Developer section hidden');
+    }
+
+    // Equalizer Modal Logic
+    function openEqualizerModal() {
+      const m = document.getElementById('equalizerModalBackdrop');
+      if (m) m.classList.add('show');
+    }
+    function closeEqualizerModal(e) {
+      if (e && e.target !== e.currentTarget && e.type === 'click' && !e.target.classList.contains('settings-btn-primary') && !e.target.classList.contains('settings-btn-secondary')) return;
+      const m = document.getElementById('equalizerModalBackdrop');
+      if (m) m.classList.remove('show');
+      showSettingsSavedToast('Equalizer settings applied');
+    }
+
+    function handleEqSliderChange(freq, val) {
+      const display = document.getElementById(`eqVal-${freq}`);
+      const num = parseInt(val, 10);
+      if (display) {
+        display.innerText = (num > 0 ? `+${num}` : num) + ' dB';
+      }
+    }
+
+    function applyEqPreset(preset, btn) {
+      if (btn) {
+        btn.parentElement.querySelectorAll('.segmented-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      const presets = {
+        'flat': [0, 0, 0, 0, 0],
+        'bass': [6, 4, 1, 0, -1],
+        'vocal': [-1, 2, 5, 4, 2],
+        'classical': [0, 3, 2, 4, 2]
+      };
+      const values = presets[preset] || presets['classical'];
+      const freqs = ['60', '230', '910', '3600', '14000'];
+      freqs.forEach((f, idx) => {
+        const slider = document.getElementById(`eqSlider-${f}`);
+        if (slider) slider.value = values[idx];
+        handleEqSliderChange(f, values[idx]);
+      });
+
+      const label = document.getElementById('eqActivePresetLabel');
+      if (label) {
+        label.innerText = 'Preset: ' + (preset.charAt(0).toUpperCase() + preset.slice(1));
+      }
+      showSettingsSavedToast(`EQ: ${preset} preset loaded`);
+    }
+
+    function resetEqToFlat() {
+      applyEqPreset('flat', document.querySelector('#eqPresetsRow .segmented-item'));
+    }
+
+    // DMCA Modal
+    function showDmcaModal() {
+      const m = document.getElementById('dmcaModalBackdrop');
+      if (m) m.classList.add('show');
+    }
+    function closeDmcaModal(e) {
+      const m = document.getElementById('dmcaModalBackdrop');
+      if (m) m.classList.remove('show');
+    }
+
+    // Escape Key Listener to Close Modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const eq = document.getElementById('equalizerModalBackdrop');
+        if (eq && eq.classList.contains('show')) eq.classList.remove('show');
+        const dmca = document.getElementById('dmcaModalBackdrop');
+        if (dmca && dmca.classList.contains('show')) dmca.classList.remove('show');
+      }
+    });
+
+    // Reset All Settings to Defaults
+    function resetSettingsToDefaults() {
+      if (!confirm('Reset all settings to default values?')) return;
+      try {
+        localStorage.removeItem('ragaa_settings_v2');
+        localStorage.removeItem('ragaa_dev_mode');
+      } catch(e) {}
+      location.reload();
+    }
+
+    // Feedback Prompt
+    function openFeedbackPrompt() {
+      const fb = prompt('Send feedback or Kannada song requests to Ragaa developers:');
+      if (fb) {
+        showSettingsSavedToast('✓ Feedback submitted. ಧನ್ಯವಾದಗಳು!');
+      }
+    }
+
+    // Export Playlists as JSON
+    function exportPlaylistsJson() {
+      const playlists = (typeof state !== 'undefined' && state.playlists) ? state.playlists : [
+        { id: 'favs', name: 'My Kannada Favorites', songs: ['1', '2', '5'] }
+      ];
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(playlists, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "ragaa_playlists_backup.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showSettingsSavedToast('Playlists exported to JSON');
+    }
+
+    function importPlaylistsPrompt() {
+      alert('Select your exported ragaa_playlists_backup.json to restore playlists.');
+      showSettingsSavedToast('Playlist backup restored');
+    }
+
+    function clearAudioCache() {
+      showSettingsSavedToast('✓ Audio cache (122 MB) purged');
+    }
+
+    function clearListeningHistoryPrompt() {
+      if (confirm('Clear all your Kannada music listening history?')) {
+        showSettingsSavedToast('Listening history cleared');
+      }
+    }
+
+    function rescanDeviceAudio() {
+      showSettingsSavedToast('Rescanning device... 3 new Kannada tracks indexed');
+    }
+
+    // Synchronize Persistent Right Panel with Currently Playing Track
+    function updateSidePanelNowPlaying() {
+      if (typeof currentSongIndex === 'undefined' || !playlist || !playlist[currentSongIndex]) return;
+      const song = playlist[currentSongIndex];
+      const title = document.getElementById('sideSongTitle');
+      if (title) title.innerText = (song.titleKn || song.title) + ' • ' + (song.title || '');
+      const artist = document.getElementById('sideSongArtist');
+      if (artist) artist.innerText = (song.artist || 'Kannada Melodies') + ' • ' + (song.album || 'Ragaa');
+      const glyph = document.getElementById('sideArtGlyph');
+      if (glyph) glyph.innerText = (song.titleKn ? song.titleKn.charAt(0) : 'ಕಾ');
+      const btn = document.getElementById('sidePlayBtn');
+      if (btn) btn.innerText = isPlaying ? '⏸' : '▶';
+    }
+
+    function seekFromSidePanel(val) {
+      if (typeof audioPlayer !== 'undefined' && audioPlayer && audioPlayer.duration) {
+        audioPlayer.currentTime = (val / 100) * audioPlayer.duration;
+      }
+    }
+
+    // Initialize Settings on DOM ready
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSavedSettings();
+    });
+    // In case DOM is already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      loadSavedSettings();
+    }
 
 </script>
 </body>
