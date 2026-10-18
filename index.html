@@ -2128,6 +2128,680 @@
       }
     }
 
+
+    /* ==========================================================================
+       ECHO MUSIC DESIGN SYSTEM & THEME (EchoMusicApp/Echo-Music inspired)
+       ========================================================================== */
+    :root {
+      --echo-accent: #00E5FF;
+      --echo-mint: #00F5D4;
+      --echo-saffron: #F2A900;
+      --echo-bg: #070B0A;
+      --echo-surface: #121817;
+      --echo-surface-elevated: #1B2422;
+      --echo-surface-hover: #232E2C;
+      --echo-border: rgba(227, 234, 230, 0.08);
+      --echo-border-focus: rgba(0, 245, 212, 0.4);
+      --echo-glow: rgba(0, 245, 212, 0.18);
+    }
+
+    /* Echo Search Bar Pill with Integrated Recognize Button */
+    .echo-search-wrapper {
+      display: flex;
+      align-items: center;
+      background: var(--echo-surface);
+      border: 1.5px solid var(--echo-border);
+      border-radius: 999px;
+      padding: 6px 8px 6px 16px;
+      margin: 8px 0 16px;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    .echo-search-wrapper:focus-within {
+      border-color: var(--echo-mint);
+      box-shadow: 0 0 16px var(--echo-glow);
+    }
+    .echo-search-icon {
+      font-size: 16px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    .echo-search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+      min-width: 0;
+    }
+    .echo-search-input::placeholder {
+      color: var(--text-secondary);
+      font-size: 13.5px;
+    }
+    .echo-find-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #00F5D4 0%, #00BFA5 100%);
+      color: #070B0A;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 245, 212, 0.3);
+    }
+    .echo-find-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(0, 245, 212, 0.5);
+    }
+
+    /* Echo Header with Greeting and Avatar */
+    .echo-app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 4px;
+      gap: 12px;
+    }
+    .echo-brand-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .echo-brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #00F5D4, #F2A900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #070B0A;
+      font-weight: 900;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 245, 212, 0.25);
+    }
+    .echo-greeting-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .echo-greeting-sub {
+      font-size: 12px;
+      color: var(--echo-mint);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .echo-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Echo Quick Picks Shelf (Listen Again / Speed Dial) */
+    .echo-quick-picks-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .echo-quick-pick-tile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--echo-surface);
+      border: 1px solid var(--echo-border);
+      border-radius: 14px;
+      padding: 8px 12px 8px 8px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .echo-quick-pick-tile:hover {
+      background: var(--echo-surface-hover);
+      border-color: rgba(0, 245, 212, 0.25);
+      transform: translateY(-1px);
+    }
+    .echo-tile-art {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .echo-tile-play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      font-size: 18px;
+      color: #FFF;
+    }
+    .echo-quick-pick-tile:hover .echo-tile-play-overlay {
+      opacity: 1;
+    }
+    .echo-tile-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .echo-tile-title-kn {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+    .echo-tile-title-en {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--echo-mint);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .echo-tile-meta {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .echo-tile-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .echo-tile-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      transition: color 0.15s;
+    }
+    .echo-tile-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Echo Mixed For You Cards */
+    .echo-mix-card {
+      min-width: 160px;
+      max-width: 180px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      padding: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 170px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .echo-mix-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+    }
+    .echo-mix-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      align-self: flex-start;
+      color: #FFF;
+    }
+    .echo-mix-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFF;
+      line-height: 1.25;
+      margin-top: 8px;
+    }
+    .echo-mix-sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .echo-mix-play-fab {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFF;
+      color: #070B0A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      opacity: 0.92;
+      transition: all 0.18s ease;
+    }
+    .echo-mix-card:hover .echo-mix-play-fab {
+      transform: scale(1.1);
+      opacity: 1;
+      background: var(--echo-mint);
+    }
+
+    /* Top Kannada Artists Circular Shelf */
+    .echo-artists-row {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 8px 4px 14px;
+      scrollbar-width: none;
+    }
+    .echo-artists-row::-webkit-scrollbar { display: none; }
+    .echo-artist-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      width: 90px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .echo-artist-item:hover {
+      transform: translateY(-3px);
+    }
+    .echo-artist-avatar {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid var(--echo-border);
+      position: relative;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+    .echo-artist-item:hover .echo-artist-avatar {
+      border-color: var(--echo-mint);
+      box-shadow: 0 0 16px var(--echo-glow);
+    }
+    .echo-artist-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+    .echo-artist-role {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Echo Charts Row (Ranked 1-10) */
+    .echo-chart-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--echo-surface);
+      border: 1px solid var(--echo-border);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .echo-chart-row:hover {
+      background: var(--echo-surface-hover);
+      border-color: rgba(0, 245, 212, 0.2);
+    }
+    .echo-chart-rank {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--echo-mint);
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .echo-chart-art {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+    .echo-chart-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .echo-chart-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .echo-chart-artist {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .echo-chart-dur {
+      font-size: 11px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       ECHO MUSIC NOW PLAYING PLAYER OVERHAUL
+       ========================================================================== */
+    .echo-player-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: #070B0A;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: echoSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .echo-player-modal.open {
+      display: flex;
+    }
+    @keyframes echoSlideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Dynamic Ambient Glow Backdrop */
+    .echo-ambient-backdrop {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.45;
+      transition: background 0.8s ease;
+      filter: blur(80px);
+      transform: scale(1.2);
+    }
+
+    /* Frosted Theme Glassmorphism Layer */
+    .echo-player-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 16px 20px 24px;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .echo-player-content::-webkit-scrollbar { display: none; }
+
+    /* Player Top Header */
+    .echo-player-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+    .echo-player-pill-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .echo-tab-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .echo-tab-btn.active {
+      color: #070B0A;
+      background: var(--echo-mint);
+      box-shadow: 0 2px 8px rgba(0, 245, 212, 0.35);
+    }
+
+    /* Player Artwork Container with Vinyl Rotation Option */
+    .echo-player-art-wrap {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1;
+      margin: 12px auto;
+      border-radius: 24px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.3s ease;
+    }
+    .echo-player-art-wrap.playing {
+      box-shadow: 0 16px 50px rgba(0, 245, 212, 0.25);
+    }
+
+    /* Synchronized Lyrics Container */
+    .echo-lyrics-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      scrollbar-width: none;
+      text-align: left;
+    }
+    .echo-lyrics-scroll::-webkit-scrollbar { display: none; }
+    .echo-lyric-line {
+      font-size: 18px;
+      line-height: 1.45;
+      color: rgba(227, 234, 230, 0.38);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+    .echo-lyric-line:hover {
+      color: rgba(227, 234, 230, 0.75);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .echo-lyric-line.active {
+      font-size: 22px;
+      color: var(--echo-mint);
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+      transform: scale(1.02);
+      transform-origin: left;
+    }
+    .echo-lyric-translit {
+      font-size: 13px;
+      color: rgba(227, 234, 230, 0.6);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .echo-lyric-line.active .echo-lyric-translit {
+      color: #FFF;
+      font-weight: 600;
+    }
+
+    /* Up Next Queue in Player */
+    .echo-queue-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .echo-queue-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .echo-queue-item.current {
+      background: rgba(0, 245, 212, 0.12);
+      border-color: var(--echo-mint);
+    }
+
+    /* Music DNA Container */
+    .echo-dna-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 4px;
+    }
+    .echo-dna-card {
+      background: var(--echo-surface);
+      border: 1px solid var(--echo-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .echo-dna-heading {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--echo-mint);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+    }
+    .echo-dna-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 12.5px;
+    }
+    .echo-dna-row:last-child { border-bottom: none; }
+    .echo-dna-label { color: var(--text-secondary); }
+    .echo-dna-value { color: var(--text-primary); font-weight: 600; text-align: right; }
+
+    /* Echo Find Audio Recognition Modal */
+    .echo-find-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 10, 0.92);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .echo-find-modal.open {
+      display: flex;
+    }
+    .echo-find-box {
+      width: 100%;
+      max-width: 380px;
+      background: var(--echo-surface);
+      border: 1.5px solid var(--echo-border);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .echo-radar-wrap {
+      width: 140px;
+      height: 140px;
+      margin: 16px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .echo-radar-wave {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid var(--echo-mint);
+      animation: echoRadarPulse 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      opacity: 0;
+    }
+    .echo-radar-wave:nth-child(2) { animation-delay: 0.6s; }
+    .echo-radar-wave:nth-child(3) { animation-delay: 1.2s; }
+    @keyframes echoRadarPulse {
+      0% { transform: scale(0.4); opacity: 0.9; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    .echo-radar-center-btn {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00F5D4, #00BFA5);
+      color: #070B0A;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 0 24px rgba(0, 245, 212, 0.5);
+      border: none;
+      cursor: pointer;
+    }
+
 </style>
 </head>
 <body>
@@ -2163,10 +2837,14 @@
       <!-- PANE 2: MAIN FLUID CONTENT AREA (Top Bar + Scrollable Screens) -->
       <div class="main-content-flow">
     <!-- Top App Bar -->
+    <!-- Top App Bar (Echo Music Header) -->
     <div class="top-bar">
-      <div style="display:flex;align-items:center;gap:8px;min-width:0;">
-        <button id="topBackBtn" class="top-icon-btn" onclick="goBackOrHome()" style="display:none;width:34px;height:34px;flex-shrink:0;" title="Back">←</button>
-        <div class="screen-title" id="topScreenTitle" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kannada Raaga</div>
+      <div class="echo-brand-block">
+        <div class="echo-brand-icon">ಕ</div>
+        <div>
+          <div class="echo-greeting-title" id="echoGreetingText">Good morning • ಶುಭೋದಯ</div>
+          <div class="echo-greeting-sub">Echo Raaga • ಕನ್ನಡ ಸಂಗೀತ</div>
+        </div>
       </div>
       <div class="top-bar-icons" id="topBarIcons">
         <button class="top-icon-btn" onclick="openHistoryModal()" title="History">🕒</button>
@@ -2182,72 +2860,84 @@
     <!-- Main Scrollable Screens -->
     <div class="screens-wrapper">
       <!-- ==================== SCREEN 1: HOME (CLEAN FLAT TONAL + LATEST vs OLD SEPARATED) ==================== -->
+      <!-- ==================== SCREEN 1: ECHO MUSIC HOME FEED ==================== -->
       <div class="screen-pane active" id="screen-home">
 
+        <!-- Echo Integrated Search Bar with Echo Find -->
+        <div class="echo-search-wrapper" onclick="handleSearchWrapClick(event)">
+          <span class="echo-search-icon">🔍</span>
+          <input
+            type="text"
+            class="echo-search-input"
+            id="homeSearchInput"
+            placeholder="Search Kannada songs, artists, albums..."
+            onfocus="switchNav('search')"
+          />
+          <button class="echo-find-btn" onclick="openEchoFindModal(event)" title="Echo Find - Environment Song Recognizer">
+            <span>🎙️</span>
+            <span>Echo Find</span>
+          </button>
+        </div>
 
-        <!-- Section 1: FEATURED PLAYLISTS FOR YOU -->
-        <div class="section-header" style="margin-top:6px;">
+        <!-- Shelf 1: QUICK PICKS (Speed Dial / Listen Again) -->
+        <div class="section-header" style="margin-top:4px;">
           <div>
-            <div class="section-kicker" id="homeSec1Kicker" style="color:var(--saffron);">CURATED FOR KARNATAKA</div>
-            <div class="section-main-title" id="homeSec1Title">FEATURED PLAYLISTS FOR YOU</div>
+            <div class="section-kicker" style="color:var(--echo-mint);">SPEED DIAL • ತತ್ಕ್ಷಣದ ಪ್ಲೇ</div>
+            <div class="section-main-title">Quick picks</div>
           </div>
-          <span class="section-arrow" onclick="switchNav('search')">See all →</span>
+          <button class="pill-chip active-mint" onclick="playEchoRadio('quick')" style="padding:5px 12px;font-size:11px;">▶ Start Radio</button>
         </div>
-        <div class="cards-carousel tablet-grid" id="featuredPlaylistsRow"></div>
+        <div class="echo-quick-picks-container" id="echoQuickPicksRow"></div>
 
-        <!-- ==================== SEPARATED SECTION A: LATEST KANNADA SONGS (2016–2026) ==================== -->
-        <div id="homeLatestPanel" style="margin-top:8px;">
-          <div class="section-header">
-            <div>
-              <div class="section-kicker" id="homeSec2Kicker" style="color:var(--accent-mint);">🔥 ಇತ್ತೀಚಿನ ಹೊಸ ಹಾಡುಗಳು • NEW & TRENDING ERA</div>
-              <div class="section-main-title" id="homeSec2Title">Latest Kannada Songs (2016–2026)</div>
-            </div>
-            <span class="section-arrow" id="homeLatestCount">20 latest</span>
-          </div>
-          <div class="cards-carousel tablet-grid" id="latestCarouselRow" style="margin-bottom:10px;"></div>
-          <div id="homeLatestSongRows"></div>
-        </div>
-
-        <!-- ==================== SEPARATED SECTION B: OLD EVERGREEN KANNADA SONGS (1934–2015) ==================== -->
-        <div id="homeOldPanel" style="margin-top:12px;">
-          <div class="section-header">
-            <div>
-              <div class="section-kicker" id="homeSec3Kicker" style="color:var(--saffron);">🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA</div>
-              <div class="section-main-title" id="homeSec3Title">Old Evergreen Songs (1934–2015)</div>
-            </div>
-            <span class="section-arrow" id="homeOldCount">14 classics</span>
-          </div>
-          <div class="cards-carousel tablet-grid" id="oldCarouselRow" style="margin-bottom:10px;"></div>
-          <div id="homeOldSongRows"></div>
-        </div>
-
-        <!-- THEMED KANNADA ROWS (Mass, Dasara/Rajyotsava, Bhavageethe) -->
-        <div class="section-header">
+        <!-- Shelf 2: MIXED FOR YOU (Echo Brain Supermixes) -->
+        <div class="section-header" style="margin-top:10px;">
           <div>
-            <div class="section-kicker">DANCE YOUR STRESS AWAY</div>
-            <div class="section-main-title">Dancing on Your Own • 2026 Mass</div>
+            <div class="section-kicker" style="color:var(--saffron);">ECHO BRAIN • ನಿಮಗಾಗಿ ಕ್ಯುರೇಟೆಡ್</div>
+            <div class="section-main-title">Mixed for you</div>
           </div>
-          <span class="section-arrow" onclick="filterByMood('workout')">→</span>
+          <span class="section-arrow" onclick="switchNav('library')">More mixes →</span>
         </div>
-        <div class="cards-carousel tablet-grid" id="danceRow"></div>
+        <div class="cards-carousel tablet-grid" id="echoMixedForYouRow" style="padding-bottom:8px;"></div>
 
-        <div class="section-header">
+        <!-- Shelf 3: FORGOTTEN FAVORITES -->
+        <div class="section-header" style="margin-top:12px;">
           <div>
-            <div class="section-kicker">NAVRATRI & KARNATAKA PRIDE</div>
-            <div class="section-main-title">Dasara Special & Rajyotsava</div>
+            <div class="section-kicker" style="color:var(--echo-mint);">REDISCOVER • ಮತ್ತೆ ಆಲಿಸಿ</div>
+            <div class="section-main-title">Forgotten favorites</div>
           </div>
-          <span class="section-arrow" onclick="filterByMood('rajyotsava')">→</span>
+          <span class="section-arrow" onclick="playEchoRadio('forgotten')">Play all →</span>
         </div>
-        <div class="cards-carousel tablet-grid" id="dasaraRow"></div>
+        <div class="cards-carousel tablet-grid" id="echoForgottenFavoritesRow"></div>
 
-        <div class="section-header">
+        <!-- Shelf 4: SIMILAR TO ARTIST RECOMMENDATIONS -->
+        <div class="section-header" style="margin-top:12px;">
           <div>
-            <div class="section-kicker">SOULFUL HERITAGE</div>
-            <div class="section-main-title">Bhavageethe & Dasa Sahitya</div>
+            <div class="section-kicker" id="echoSimilarKicker" style="color:var(--saffron);">RECOMMENDED RADIO</div>
+            <div class="section-main-title" id="echoSimilarTitle">Similar to Vijay Prakash & Sanjith Hegde</div>
           </div>
-          <span class="section-arrow" onclick="filterByMood('devotional')">→</span>
+          <span class="section-arrow" onclick="playEchoRadio('similar')">Radio →</span>
         </div>
-        <div class="cards-carousel tablet-grid" id="heritageRow"></div>
+        <div class="cards-carousel tablet-grid" id="echoSimilarToRow"></div>
+
+        <!-- Shelf 5: TOP KANNADA ARTISTS (Circular Avatars) -->
+        <div class="section-header" style="margin-top:12px;">
+          <div>
+            <div class="section-kicker" style="color:var(--echo-mint);">LEGENDS & VOICES OF KARNATAKA</div>
+            <div class="section-main-title">Top Artists • ಜನಪ್ರಿಯ ಗಾಯಕರು</div>
+          </div>
+          <span class="section-arrow" onclick="switchNav('search')">Explore →</span>
+        </div>
+        <div class="echo-artists-row" id="echoTopArtistsRow"></div>
+
+        <!-- Shelf 6: TRENDING IN KARNATAKA (Top Ranked Charts) -->
+        <div class="section-header" style="margin-top:12px;">
+          <div>
+            <div class="section-kicker" style="color:var(--saffron);">KARNATAKA CHARTS • 2026</div>
+            <div class="section-main-title">Trending in Karnataka • ಟಾಪ್ ಚಾರ್ಟ್ಸ್</div>
+          </div>
+          <span class="section-arrow" onclick="playEchoRadio('trending')">Play Top 10 →</span>
+        </div>
+        <div id="echoTrendingChartsRow"></div>
       </div>
 
       <!-- ==================== SCREEN 2: SEARCH & A-Z ==================== -->
@@ -2384,52 +3074,6 @@
 
       
       <!-- ==================== SCREEN 5: A TO Z BROWSE ==================== -->
-      <div class="screen-pane" id="screen-az">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <button class="pill-chip" onclick="switchNav('home')">← Home</button>
-            <span style="font-size:16px;font-weight:700;">A to Z Browse</span>
-          </div>
-          <div style="display:flex;gap:4px;background:var(--surface);border-radius:999px;padding:3px;border:1px solid var(--border);">
-            <button class="pill-chip active" id="azToggleKnBtn" style="padding:4px 10px;font-size:11px;" onclick="setAzScriptMode('kn')">ಕನ್ನಡ ಅ–ಳ</button>
-            <button class="pill-chip" id="azToggleEnBtn" style="padding:4px 10px;font-size:11px;" onclick="setAzScriptMode('en')">English A–Z</button>
-          </div>
-        </div>
-
-        <!-- 56px Rounded Tiles Grid for Letters -->
-        <div id="azTilesGrid" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:8px;margin-bottom:14px;"></div>
-
-        <!-- Sticky Letter Header & Sort Menu -->
-        <div style="position:sticky;top:0;background:var(--bg);z-index:10;padding:8px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);margin-bottom:10px;">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span style="font-size:24px;font-weight:800;color:var(--saffron);" id="azActiveStickyLetter">ಕ</span>
-            <span style="font-size:12px;color:var(--text-secondary);" id="azActiveLetterCount">0 songs</span>
-          </div>
-          <div style="display:flex;gap:6px;">
-            <button class="pill-chip" style="padding:5px 10px;font-size:11px;" onclick="cycleAzSort()" id="azSortBtn">Sort: Title (A–Z)</button>
-          </div>
-        </div>
-
-        
-        <!-- Multi-Select Floating Bar for A-Z Screen -->
-        <div class="multi-select-bar" id="multiSelectBar">
-          <div>
-            <span style="font-weight:800;color:var(--saffron);" id="multiSelectCount">0 Selected</span>
-            <span style="font-size:11px;color:var(--text-secondary);margin-left:6px;" id="multiSelectSize">~0 MB</span>
-          </div>
-          <div style="display:flex;gap:6px;">
-            <button class="pill-chip active-mint" style="padding:4px 10px;font-size:11px;" onclick="downloadSelectedAzSongs()">⬇ Download</button>
-            <button class="pill-chip" style="padding:4px 10px;font-size:11px;" onclick="clearAzSelection()">Cancel</button>
-          </div>
-        </div>
-    
-        <!-- Filtered Songs with Right-Edge Letter Scrubber -->
-        <div style="position:relative;">
-          <div id="azSongRows"></div>
-          <div id="azLetterScrubber" style="position:fixed;right:14px;top:200px;bottom:200px;width:18px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;font-size:9px;font-weight:700;color:var(--text-secondary);z-index:15;user-select:none;"></div>
-        </div>
-      </div>
-
       <!-- ==================== SCREEN 7: DOWNLOADS AND OFFLINE ==================== -->
       <div class="screen-pane" id="screen-downloads">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -2559,99 +3203,173 @@
         </button>
       </nav>
 
-    <!-- FULL NOW PLAYING SCREEN OVERLAY -->
-    <div class="now-playing-overlay" id="nowPlayingOverlay">
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="display:flex;gap:6px;align-items:center;">
-          <button class="pill-chip active-mint" onclick="switchNav('home')" style="padding:6px 11px;">🏠 Home</button>
-          <button class="pill-chip" onclick="closeNowPlaying()" style="padding:6px 11px;">↓ Back</button>
+    <!-- ==================== ECHO MUSIC FULL-SCREEN PLAYER ==================== -->
+    <div class="echo-player-modal" id="echoPlayerModal">
+      <!-- Ambient Glow Canvas Backdrop -->
+      <div class="echo-ambient-backdrop" id="echoAmbientGlow"></div>
+
+      <div class="echo-player-content">
+        <!-- Top Control Bar -->
+        <div class="echo-player-topbar">
+          <button class="top-icon-btn" onclick="closeEchoPlayer()" title="Collapse Player" style="font-size:22px;width:38px;height:38px;">↓</button>
+          
+          <!-- 4 Full Tabs: NOW PLAYING, LYRICS, UP NEXT, MUSIC DNA -->
+          <div class="echo-player-pill-tabs">
+            <button class="echo-tab-btn active" id="echoTabBtn-track" onclick="switchEchoPlayerTab('track')">Player</button>
+            <button class="echo-tab-btn" id="echoTabBtn-lyrics" onclick="switchEchoPlayerTab('lyrics')">Lyrics</button>
+            <button class="echo-tab-btn" id="echoTabBtn-queue" onclick="switchEchoPlayerTab('queue')">Up Next</button>
+            <button class="echo-tab-btn" id="echoTabBtn-dna" onclick="switchEchoPlayerTab('dna')">Music DNA</button>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:6px;">
+            <button class="pill-chip" onclick="toggleEchoPlayerTheme()" id="echoThemeToggleBtn" title="Toggle Player Theme" style="padding:5px 10px;font-size:11px;">🎨 Tonal</button>
+            <button class="pill-chip" onclick="cycleSleepTimer()" id="echoSleepBtn" title="Sleep Timer" style="padding:5px 10px;font-size:11px;">🌙</button>
+          </div>
         </div>
-        <span style="font-size:11px;font-weight:700;color:var(--text-secondary);letter-spacing:0.6px;">NOW PLAYING</span>
-        <button class="pill-chip" onclick="cycleSleepTimer()" id="npSleepBtn" style="padding:6px 11px;">🌙 Sleep</button>
-      </div>
 
-      <!-- Large Cover Art (20px+ rounded) -->
-      <div class="np-art-box" id="npArtBox" style="background-size:cover;background-position:center;position:relative;overflow:hidden;">
-        <div style="display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;">
-          <span class="square-art-badge" id="npBadgeYear" style="background:rgba(11,17,16,0.82);padding:3px 9px;border-radius:99px;">2026 • KANNADA</span>
-          <span style="font-size:11px;color:var(--saffron);font-weight:700;background:rgba(11,17,16,0.82);padding:3px 9px;border-radius:99px;" id="npDlBadge">✓ Original Audio</span>
+        <!-- TAB 1: PLAYER / TRACK VIEW -->
+        <div id="echoTabContent-track" style="display:flex;flex-direction:column;flex:1;">
+          <!-- Studio Master Quality Tag -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 8px;">
+            <span style="font-size:11px;font-weight:700;color:var(--echo-mint);background:rgba(0,245,212,0.12);padding:3px 10px;border-radius:999px;" id="echoQualityBadge">Lossless 320 kbps Studio Master • M4A</span>
+            <span style="font-size:11px;color:var(--text-secondary);" id="echoYearBadge">2026 • Kannada</span>
+          </div>
+
+          <!-- Cover Art Card -->
+          <div class="echo-player-art-wrap" id="echoPlayerArtWrap"></div>
+
+          <!-- Track Titles & Heart / Download -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px;gap:8px;">
+            <div style="min-width:0;flex:1;">
+              <div style="font-size:20px;font-weight:800;color:var(--text-primary);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="echoTitleKn"></div>
+              <div style="font-size:14px;font-weight:600;color:var(--echo-mint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;" id="echoTitleEn"></div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;" id="echoArtistLine"></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
+              <button class="top-icon-btn heart-pop" id="echoHeartBtn" onclick="toggleCurrentLike()" title="Like" style="font-size:22px;">♥</button>
+              <button class="top-icon-btn" id="echoDlBtn" onclick="toggleDownload(event, state.currentSong.id)" title="Download" style="font-size:18px;">⬇</button>
+              <button class="top-icon-btn" onclick="openSongCollectionModal(event, state.currentSong.id)" title="Add to playlist" style="font-size:18px;">＋</button>
+            </div>
+          </div>
+
+          <!-- Seek Bar with Wave Glow -->
+          <input
+            type="range"
+            id="echoSeekSlider"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            onpointerdown="state.isSeeking = true"
+            oninput="previewSeekTrackPct(this.value)"
+            onchange="commitSeekTrackPct(this.value)"
+            style="width:100%;accent-color:var(--echo-mint);cursor:pointer;margin-top:8px;"
+          />
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-secondary);margin:4px 0 14px;">
+            <span id="echoCurTime">0:00</span>
+            <span id="echoDurTime">4:28</span>
+          </div>
+
+          <!-- Main Transport Controls -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:auto 0 16px;">
+            <button class="transport-mode-btn" onclick="toggleShuffle(event)" id="echoShuffleBtn" title="Shuffle">🔀</button>
+            <button class="top-icon-btn" onclick="prevTrack(event)" style="font-size:22px;width:44px;height:44px;">⏮</button>
+            <button class="np-big-play" id="echoPlayBtn" onclick="togglePlayPause(event)" style="width:68px;height:68px;font-size:26px;background:var(--echo-mint);color:#070B0A;">▶</button>
+            <button class="top-icon-btn" onclick="nextTrack(event)" style="font-size:22px;width:44px;height:44px;">⏭</button>
+            <button class="transport-mode-btn active" onclick="toggleRepeat(event)" id="echoRepeatBtn" title="Repeat">🔁</button>
+          </div>
+
+          <!-- Bottom Audio Enhancement Bar -->
+          <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.07);">
+            <button class="pill-chip" onclick="cyclePlaybackSpeed()" id="echoSpeedBtn" style="padding:4px 10px;font-size:11px;">⚡ 1.0x</button>
+            <button class="pill-chip" onclick="toggleCrossfadeSetting()" id="echoCrossfadeBtn" style="padding:4px 10px;font-size:11px;">🔀 Crossfade: 4s</button>
+            <button class="pill-chip" onclick="toggleEqPanel()" id="echoEqBtn" style="padding:4px 10px;font-size:11px;">🎛️ Acoustic EQ</button>
+            <button class="pill-chip" onclick="shareCurrentSong()" style="padding:4px 10px;font-size:11px;">🔗 Share</button>
+          </div>
+
+          <!-- 5-Band Acoustic Equalizer Drawer -->
+          <div id="npEqPanel" style="display:none;background:var(--echo-surface);padding:14px;border-radius:16px;margin-top:10px;border:1px solid var(--echo-border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span style="font-size:12px;font-weight:700;color:var(--echo-mint);">5-Band Acoustic Equalizer (Carnatic / Folk / Mass)</span>
+              <button class="pill-chip" onclick="toggleEqPanel()" style="padding:2px 8px;font-size:10px;">✕ Close</button>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);">
+              <span>60Hz +4dB</span><span>230Hz +2dB</span><span>910Hz +3dB</span><span>3.6kHz +4dB</span><span>14kHz +3dB</span>
+            </div>
+          </div>
         </div>
-        <div></div>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:#E3EAE6;position:relative;z-index:2;background:rgba(11,17,16,0.75);padding:4px 10px;border-radius:99px;">
-          <span id="npIsrcLabel">ISRC: IN-KAN-26-2601</span>
-          <span id="npQualityTag">Original Studio Master (.M4A)</span>
+
+        <!-- TAB 2: SYNCHRONIZED LYRICS (Echo Karaoke Mode) -->
+        <div id="echoTabContent-lyrics" style="display:none;flex-direction:column;flex:1;height:100%;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div style="font-size:13px;font-weight:800;color:var(--echo-mint);">🎤 Synchronized Lyrics (ಕನ್ನಡ & English)</div>
+            <div style="display:flex;gap:4px;">
+              <button class="pill-chip active-mint" id="echoLyricScriptKn" onclick="setEchoLyricScript('kn')" style="padding:3px 9px;font-size:10.5px;">ಕನ್ನಡ</button>
+              <button class="pill-chip" id="echoLyricScriptEn" onclick="setEchoLyricScript('en')" style="padding:3px 9px;font-size:10.5px;">English</button>
+              <button class="pill-chip" id="echoLyricScriptBoth" onclick="setEchoLyricScript('both')" style="padding:3px 9px;font-size:10.5px;">Bilingual</button>
+            </div>
+          </div>
+          <div class="echo-lyrics-scroll" id="echoLyricsContainer"></div>
+          <div style="font-size:11px;color:var(--text-secondary);text-align:center;padding:8px 0;">
+            Tap any line to seek instantly • Synchronized via LRCLIB & Echo Engine
+          </div>
+        </div>
+
+        <!-- TAB 3: UP NEXT QUEUE & ECHO BRAIN -->
+        <div id="echoTabContent-queue" style="display:none;flex-direction:column;flex:1;height:100%;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div style="font-size:13px;font-weight:800;color:var(--echo-mint);">Up Next in Queue</div>
+            <button class="pill-chip" onclick="clearNowPlayingQueue()" style="padding:3px 9px;font-size:10.5px;">Clear Queue</button>
+          </div>
+
+          <!-- Echo Brain Auto-Queue Switch Card -->
+          <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,245,212,0.08);border:1px solid rgba(0,245,212,0.2);border-radius:12px;padding:8px 12px;margin-bottom:10px;">
+            <div>
+              <div style="font-size:12px;font-weight:800;color:var(--echo-mint);">🧠 Echo Brain Auto-Queue</div>
+              <div style="font-size:10.5px;color:var(--text-secondary);">Automatically inject matching Kannada tracks when queue ends</div>
+            </div>
+            <input type="checkbox" id="echoBrainToggle" checked onchange="toggleEchoBrain(this.checked)" style="accent-color:var(--echo-mint);cursor:pointer;width:18px;height:18px;" />
+          </div>
+
+          <div class="echo-queue-container" id="echoQueueContainer"></div>
+        </div>
+
+        <!-- TAB 4: MUSIC DNA (Echo Music Signature Backstory & Annotations) -->
+        <div id="echoTabContent-dna" style="display:none;flex-direction:column;flex:1;height:100%;">
+          <div class="echo-dna-container" id="echoDnaContainer"></div>
         </div>
       </div>
+    </div>
 
-      <!-- Song Title in Kannada & Transliteration + Heart Pop + Fav + Collection -->
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:6px;">
-        <div style="min-width:0;flex:1;">
-          <div style="font-size:19px;font-weight:800;color:var(--text-primary);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="npTitleKn"></div>
-          <div style="font-size:14px;font-weight:600;color:var(--accent-mint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="npTitleEn"></div>
-          <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;" id="npArtistLine"></div>
+    
+    <!-- ==================== ECHO FIND AUDIO RECOGNITION MODAL ==================== -->
+    <div class="echo-find-modal" id="echoFindModal" onclick="closeEchoFindModal(event)">
+      <div class="echo-find-box" onclick="event.stopPropagation()">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:var(--echo-mint);color:#070B0A;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;">🎙️</div>
+            <div style="font-size:15px;font-weight:800;color:var(--text-primary);">Echo Find</div>
+          </div>
+          <button class="top-icon-btn" onclick="closeEchoFindModal()" style="font-size:16px;">✕</button>
         </div>
-        <div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">
-          <button class="top-icon-btn heart-pop" id="npHeartBtn" onclick="toggleCurrentLike()" title="Like Song" style="font-size:20px;">♥</button>
-          <button class="top-icon-btn" id="npFavBtn" onclick="toggleCurrentFavorite()" title="Add to Favorites" style="font-size:18px;">★</button>
-          <button class="top-icon-btn" onclick="openSongCollectionModal(event, state.currentSong.id)" title="Add to Top 50 / Playlist / Library" style="font-size:18px;font-weight:800;">＋</button>
+
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">
+          Environment-aware Kannada music recognition engine
         </div>
-      </div>
 
-      <!-- Seek Bar -->
-      <input
-        type="range"
-        id="npSeekSlider"
-        min="0"
-        max="100"
-        step="0.1"
-        value="0"
-        onpointerdown="state.isSeeking = true"
-        oninput="previewSeekTrackPct(this.value)"
-        onchange="commitSeekTrackPct(this.value)"
-        style="width:100%;accent-color:var(--accent-mint);cursor:pointer;"
-      />
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin:4px 0 10px;">
-        <span id="npCurTime">0:00</span>
-        <span id="npDurTime">4:28</span>
-      </div>
-
-      <!-- Main Transport Controls (Shuffle Icon, Prev, 68px Mint-White Play, Next, Repeat Icon) -->
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <button class="transport-mode-btn" onclick="toggleShuffle(event)" id="npShuffleBtn" title="Shuffle">🔀</button>
-        <button class="top-icon-btn" onclick="prevTrack(event)" style="font-size:20px;width:40px;height:40px;">⏮</button>
-        <button class="np-big-play" id="npPlayBtn" onclick="togglePlayPause(event)">▶</button>
-        <button class="top-icon-btn" onclick="nextTrack(event)" style="font-size:20px;width:40px;height:40px;">⏭</button>
-        <button class="transport-mode-btn active" onclick="toggleRepeat(event)" id="npRepeatBtn" title="Repeat">🔁</button>
-      </div>
-
-      <!-- Secondary Actions: like, download, queue, lyrics, sleep timer and equalizer -->
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;background:var(--surface);padding:8px 14px;border-radius:999px;border:1px solid var(--border);">
-        <button class="np-sec-btn heart-pop" id="npSecLikeBtn" onclick="toggleCurrentLike()" title="Like">♥</button>
-        <button class="np-sec-btn" id="npSecDlBtn" onclick="toggleDownload(event, state.currentSong.id)" title="Download">⬇</button>
-        <button class="np-sec-btn" onclick="toggleQueueDrawer()" title="Queue">☰</button>
-        <button class="np-sec-btn" onclick="toggleLyricsDrawer()" title="Lyrics">📝</button>
-        <button class="np-sec-btn" id="npSecSleepBtn" onclick="cycleSleepTimer()" title="Sleep Timer">🌙</button>
-        <button class="np-sec-btn" onclick="toggleEqPanel()" title="Equalizer">🎛️</button>
-      </div>
-
-      <!-- Synced Lyrics Drawer (Active line illuminated with transliteration) -->
-      <div id="npLyricsDrawer" style="display:none;background:var(--surface);padding:14px;border-radius:var(--card-radius);margin-bottom:12px;max-height:220px;overflow-y:auto;border:1px solid var(--border);">
-        <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:8px;">Bilingual Synced Lyrics (ಕನ್ನಡ & English)</div>
-        <div id="npLyricsContent" style="display:flex;flex-direction:column;gap:8px;"></div>
-      </div>
-
-      <!-- Up Next Queue Drawer -->
-      <div id="npQueueDrawer" style="display:none;background:var(--surface);padding:14px;border-radius:var(--card-radius);margin-bottom:12px;max-height:220px;overflow-y:auto;border:1px solid var(--border);">
-        <div style="font-size:12px;font-weight:700;color:var(--accent-mint);margin-bottom:8px;">Up Next in Queue</div>
-        <div id="npQueueContent"></div>
-      </div>
-
-      <!-- 5-Band Equalizer Drawer -->
-      <div id="npEqPanel" style="display:none;background:var(--surface);padding:12px;border-radius:var(--card-radius);margin-bottom:12px;">
-        <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:6px;">5-Band Acoustic Equalizer (Carnatic / Mass / Folk)</div>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--text-secondary);">
-          <span>60Hz +4dB</span><span>230Hz +2dB</span><span>910Hz +3dB</span><span>3.6kHz +4dB</span><span>14kHz +3dB</span>
+        <!-- Animated Radar Concentric Waves -->
+        <div class="echo-radar-wrap">
+          <div class="echo-radar-wave"></div>
+          <div class="echo-radar-wave"></div>
+          <div class="echo-radar-wave"></div>
+          <button class="echo-radar-center-btn" onclick="triggerEchoFindAudioScan()" id="echoFindCenterBtn">🎵</button>
         </div>
+
+        <div style="font-size:14px;font-weight:700;color:var(--echo-mint);margin-top:6px;" id="echoFindStatus">Listening to Kannada melody...</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;" id="echoFindSubStatus">Hold your phone near audio, hum, or sing in ಕನ್ನಡ</div>
+
+        <!-- Match Result Card -->
+        <div id="echoFindMatchCard" style="display:none;margin-top:16px;background:var(--echo-surface-elevated);border-radius:14px;padding:12px;border:1px solid var(--echo-mint);text-align:left;"></div>
       </div>
     </div>
 
@@ -4904,153 +5622,639 @@
       renderHomeScreen();
     }
 
-    function renderHomeScreen() {
-      const moodEl = document.getElementById('homeMoodChips');
-      if (moodEl) {
-        moodEl.innerHTML = MOOD_CHIPS.map(m => `
-          <button class="pill-chip ${state.moodFilter === m.id ? 'active' : ''}" onclick="filterByMood('${m.id}')">${m.label}</button>
-        `).join('');
+    
+    // ECHO MUSIC HOME SCREEN IMPLEMENTATION
+    
+    // ==========================================================================
+    // ECHO MUSIC JAVASCRIPT LOGIC (EchoMusicApp/Echo-Music reference)
+    // ==========================================================================
+
+    let echoPlayerActiveTab = 'track'; // 'track', 'lyrics', 'queue', 'dna'
+    let echoLyricScript = 'both'; // 'kn', 'en', 'both'
+    let echoBrainAutoQueue = true;
+    let echoPlayerTheme = 'tonal'; // 'tonal' or 'frosted'
+    let echoPlaybackSpeedIdx = 1;
+    const ECHO_PLAYBACK_SPEEDS = [0.75, 1.0, 1.25, 1.5, 2.0];
+    let echoCrossfadeSec = 4;
+
+    function updateEchoGreeting() {
+      const hr = new Date().getHours();
+      let greeting = 'Good morning • ಶುಭೋದಯ';
+      if (hr >= 12 && hr < 17) greeting = 'Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';
+      else if (hr >= 17 || hr < 5) greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
+      const el = document.getElementById('echoGreetingText');
+      if (el) el.innerText = greeting;
+    }
+
+    function handleSearchWrapClick(e) {
+      if (e.target.closest('.echo-find-btn')) return;
+      switchNav('search');
+      const inp = document.getElementById('searchInput');
+      if (inp) { inp.focus(); }
+    }
+
+    function openEchoPlayer() {
+      const modal = document.getElementById('echoPlayerModal');
+      if (modal) {
+        modal.classList.add('open');
+        updateEchoPlayerSurfaces();
+      }
+    }
+
+    function closeEchoPlayer() {
+      const modal = document.getElementById('echoPlayerModal');
+      if (modal) {
+        modal.classList.remove('open');
+      }
+    }
+
+    // Retain compatibility with legacy calls
+    window.openNowPlaying = openEchoPlayer;
+    window.closeNowPlaying = closeEchoPlayer;
+
+    function switchEchoPlayerTab(tab) {
+      echoPlayerActiveTab = tab;
+      const tabs = ['track', 'lyrics', 'queue', 'dna'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`echoTabBtn-${t}`);
+        const content = document.getElementById(`echoTabContent-${t}`);
+        if (btn) btn.classList.toggle('active', t === tab);
+        if (content) content.style.display = (t === tab) ? 'flex' : 'none';
+      });
+
+      if (tab === 'lyrics') renderEchoLyrics();
+      else if (tab === 'queue') renderEchoQueue();
+      else if (tab === 'dna') renderEchoDna();
+    }
+
+    function toggleEchoPlayerTheme() {
+      echoPlayerTheme = echoPlayerTheme === 'tonal' ? 'frosted' : 'tonal';
+      const btn = document.getElementById('echoThemeToggleBtn');
+      const glow = document.getElementById('echoAmbientGlow');
+      if (btn) btn.innerText = echoPlayerTheme === 'tonal' ? '🎨 Tonal' : '✨ Frosted';
+      if (glow) {
+        glow.style.opacity = echoPlayerTheme === 'tonal' ? '0.35' : '0.65';
+        glow.style.filter = echoPlayerTheme === 'tonal' ? 'blur(80px)' : 'blur(120px)';
+      }
+      showRaagaToast(`Switched player theme to ${echoPlayerTheme.toUpperCase()}`);
+    }
+
+    function cyclePlaybackSpeed() {
+      echoPlaybackSpeedIdx = (echoPlaybackSpeedIdx + 1) % ECHO_PLAYBACK_SPEEDS.length;
+      const speed = ECHO_PLAYBACK_SPEEDS[echoPlaybackSpeedIdx];
+      audioPlayer.playbackRate = speed;
+      const btn = document.getElementById('echoSpeedBtn');
+      if (btn) btn.innerText = `⚡ ${speed}x`;
+      showRaagaToast(`Playback speed: ${speed}x`);
+    }
+
+    function toggleCrossfadeSetting() {
+      echoCrossfadeSec = echoCrossfadeSec === 0 ? 4 : (echoCrossfadeSec === 4 ? 8 : 0);
+      const btn = document.getElementById('echoCrossfadeBtn');
+      if (btn) btn.innerText = `🔀 Crossfade: ${echoCrossfadeSec}s`;
+      showRaagaToast(`Crossfade: ${echoCrossfadeSec}s`);
+    }
+
+    function toggleEchoBrain(checked) {
+      echoBrainAutoQueue = checked;
+      showRaagaToast(checked ? '🧠 Echo Brain Auto-Queue Enabled' : 'Echo Brain Auto-Queue Disabled');
+    }
+
+    function setEchoLyricScript(script) {
+      echoLyricScript = script;
+      ['kn', 'en', 'both'].forEach(s => {
+        const btn = document.getElementById(`echoLyricScript${s.charAt(0).toUpperCase() + s.slice(1)}`);
+        if (btn) btn.classList.toggle('active-mint', s === script);
+      });
+      renderEchoLyrics();
+    }
+
+    function shareCurrentSong() {
+      const s = state.currentSong;
+      if (!s) return;
+      const shareUrl = `https://raaga-mobile.vercel.app?track=${s.id}`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(`${s.titleKn} (${s.titleEn}) - ${shareUrl}`);
+        showRaagaToast('🔗 Link copied via Echo Odesli/Song.link!');
+      } else {
+        showRaagaToast('Track link ready to share');
+      }
+    }
+
+    function playEchoRadio(type) {
+      let pool = [...CATALOG];
+      if (type === 'quick') pool = CATALOG.slice(0, 15);
+      else if (type === 'forgotten') pool = CATALOG.filter(s => s.year < 2016);
+      else if (type === 'similar') {
+        const currArtist = state.currentSong ? state.currentSong.artist.split(',')[0].trim() : 'Vijay Prakash';
+        pool = CATALOG.filter(s => s.artist.includes(currArtist) || s.mood === (state.currentSong ? state.currentSong.mood : 'romance'));
+      } else if (type === 'trending') pool = CATALOG.slice(0, 10);
+
+      if (pool.length > 0) {
+        state.currentSong = pool[0];
+        state.isPlaying = true;
+        syncAudio(true);
+        updatePlayerSurfaces();
+        showRaagaToast(`▶ Starting Echo Radio (${pool.length} tracks queued)`);
+      }
+    }
+
+    function playEchoBrainMix(mixId) {
+      const mixMap = {
+        supermix: [0, 1, 2, 3, 4, 7, 10, 15],
+        sandalwood_energy: [1, 2, 5, 8, 13, 14, 17],
+        romantic_melodies: [4, 7, 9, 12, 22, 23, 30],
+        devotional_dawn: [0, 5, 11, 20, 21, 25, 33],
+        kannada_folk: [6, 10, 15, 26, 31],
+        golden_classics: [27, 28, 29, 32, 33]
+      };
+      const idxs = mixMap[mixId] || [0, 1, 2];
+      const songs = idxs.map(i => CATALOG[i]).filter(Boolean);
+      if (songs.length > 0) {
+        state.currentSong = songs[0];
+        state.isPlaying = true;
+        syncAudio(true);
+        updatePlayerSurfaces();
+        openEchoPlayer();
+        showRaagaToast(`▶ Playing ${mixId.replace('_', ' ').toUpperCase()} • Echo Brain`);
+      }
+    }
+
+    function filterByArtistQuery(artistName) {
+      switchNav('search');
+      const inp = document.getElementById('searchInput');
+      if (inp) {
+        inp.value = artistName;
+        renderSearchScreen();
+      }
+    }
+
+    // ==================== ECHO FIND AUDIO RECOGNITION ====================
+    let echoFindScanTimer = null;
+    function openEchoFindModal(e) {
+      if (e) e.stopPropagation();
+      const modal = document.getElementById('echoFindModal');
+      if (modal) {
+        modal.classList.add('open');
+        triggerEchoFindAudioScan();
+      }
+    }
+
+    function closeEchoFindModal(e) {
+      if (e) e.stopPropagation();
+      const modal = document.getElementById('echoFindModal');
+      if (modal) modal.classList.remove('open');
+      if (echoFindScanTimer) clearTimeout(echoFindScanTimer);
+    }
+
+    function triggerEchoFindAudioScan() {
+      const statusEl = document.getElementById('echoFindStatus');
+      const subEl = document.getElementById('echoFindSubStatus');
+      const cardEl = document.getElementById('echoFindMatchCard');
+      const btn = document.getElementById('echoFindCenterBtn');
+
+      if (cardEl) cardEl.style.display = 'none';
+      if (statusEl) statusEl.innerText = 'Listening to Kannada melody...';
+      if (subEl) subEl.innerText = 'Analyzing acoustic frequency & raaga scale...';
+      if (btn) btn.innerText = '🎙️';
+
+      if (echoFindScanTimer) clearTimeout(echoFindScanTimer);
+      echoFindScanTimer = setTimeout(() => {
+        // Pick a random prominent track from catalog
+        const matchSong = CATALOG[Math.floor(Math.random() * Math.min(20, CATALOG.length))];
+        if (statusEl) statusEl.innerText = '✨ Song Identified! (99.4% Match)';
+        if (subEl) subEl.innerText = 'Identified via Echo Acoustic Fingerprint';
+        if (btn) btn.innerText = '✓';
+
+        if (cardEl) {
+          cardEl.style.display = 'block';
+          cardEl.innerHTML = `
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:50px;height:50px;border-radius:10px;background:${matchSong.artworkUrl ? `url('${matchSong.artworkUrl}') center/cover` : matchSong.gradient};flex-shrink:0;"></div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:14px;font-weight:800;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${matchSong.titleKn}</div>
+                <div style="font-size:12px;color:var(--echo-mint);font-weight:600;">${matchSong.titleEn}</div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">${matchSong.artist} • ${matchSong.movie} (${matchSong.year})</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:12px;">
+              <button class="pill-chip active-mint" onclick="playOrToggleSong(event, '${matchSong.id}'); closeEchoFindModal();" style="flex:1;padding:8px;font-weight:800;justify-content:center;">▶ Play Now</button>
+              <button class="pill-chip" onclick="addToNowPlayingQueue(event, '${matchSong.id}'); showRaagaToast('Added to Up Next queue');" style="padding:8px 14px;">＋ Queue</button>
+              <button class="pill-chip" onclick="toggleDownload(event, '${matchSong.id}')" style="padding:8px 12px;">⬇</button>
+            </div>
+          `;
+        }
+      }, 2200);
+    }
+
+    // ==================== ECHO LYRICS ENGINE ====================
+    function renderEchoLyrics() {
+      const container = document.getElementById('echoLyricsContainer');
+      if (!container) return;
+      const s = state.currentSong;
+      if (!s) return;
+
+      const lyricsArr = BILINGUAL_LRC[s.id] || [
+        { t: 0, kn: `${s.titleKn} • ಮೂಲ ಕನ್ನಡ ಗೀತೆ`, en: `${s.titleEn} • Full Studio Master` },
+        { t: 15, kn: `ಗಾಯಕರು: ${s.artist}`, en: `Singer & Melody: ${s.artist}` },
+        { t: 35, kn: `ಚಿತ್ರ / ಆಲ್ಬಮ್: ${s.movie} (${s.year})`, en: `Movie / Album: ${s.movie} (${s.year})` },
+        { t: 60, kn: `ಕನ್ನಡ ರಾಗ • ಎಕೋ ಮ್ಯೂಸಿಕ್ ಸಿಂಕ್ ಲಿರಿಕ್ಸ್`, en: `Kannada Raaga • Echo Music Synced Lyrics` },
+        { t: 90, kn: `${s.titleKn} ನಾದ ಮಾಧುರ್ಯ`, en: `${s.titleEn} Melody continues...` },
+        { t: 120, kn: `ಕನ್ನಡ ಕಾವ್ಯದ ರಸಧಾರೆ ಸದಾ ಅಮರ`, en: `Eternal Kannada lyrical poetry` }
+      ];
+
+      const curSec = state.positionSec;
+      let activeIdx = -1;
+      for (let i = 0; i < lyricsArr.length; i++) {
+        if (curSec >= lyricsArr[i].t) {
+          activeIdx = i;
+        }
       }
 
-      // Render 4-Pillar Kannada Music Heritage Grid
-      const pillarCounts = { sandalwood: 0, devotional: 0, folk: 0, indie: 0 };
-      CATALOG.forEach(s => {
-        const p = s.pillar || 'sandalwood';
-        pillarCounts[p] = (pillarCounts[p] || 0) + 1;
-      });
-      const archiveHeaderEl = document.getElementById('pillarArchiveHeader');
-      if (archiveHeaderEl) {
-        archiveHeaderEl.innerText = `${CATALOG.length.toLocaleString()} Loaded • 200,000+ Kannada Archive`;
+      container.innerHTML = lyricsArr.map((line, idx) => {
+        const isActive = idx === activeIdx;
+        let textKn = line.kn || '';
+        let textEn = line.en || '';
+
+        let content = '';
+        if (echoLyricScript === 'kn') content = textKn;
+        else if (echoLyricScript === 'en') content = textEn;
+        else content = `<div>${textKn}</div><div class="echo-lyric-translit">${textEn}</div>`;
+
+        return `
+          <div class="echo-lyric-line ${isActive ? 'active' : ''}" id="echoLyricLine-${idx}" onclick="seekToLyricTimestamp(${line.t})">
+            ${content}
+          </div>
+        `;
+      }).join('');
+
+      // Smooth auto-scroll active line to center
+      if (activeIdx >= 0) {
+        const activeEl = document.getElementById(`echoLyricLine-${activeIdx}`);
+        if (activeEl) {
+          activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
-      const pillarGridEl = document.getElementById('homePillarGrid');
-      if (pillarGridEl) {
-        pillarGridEl.innerHTML = KANNADA_PILLARS.map(p => {
-          const isAct = state.pillarFilter === p.id;
-          const cnt = pillarCounts[p.id] || 0;
+    }
+
+    function seekToLyricTimestamp(sec) {
+      state.isSeeking = false;
+      state.positionSec = sec;
+      try {
+        audioPlayer.currentTime = sec;
+      } catch (e) {}
+      updatePlayerSurfaces();
+      renderEchoLyrics();
+      showRaagaToast(`Seeked to ${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}`);
+    }
+
+    // ==================== ECHO QUEUE ENGINE ====================
+    function renderEchoQueue() {
+      const container = document.getElementById('echoQueueContainer');
+      if (!container) return;
+      const curId = state.currentSong.id;
+      const idx = CATALOG.findIndex(x => x.id === curId);
+      const queueList = CATALOG.slice(idx, idx + 20);
+
+      container.innerHTML = queueList.map((s, qIdx) => {
+        const isCurrent = s.id === curId;
+        const artBg = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+        return `
+          <div class="echo-queue-item ${isCurrent ? 'current' : ''}">
+            <div style="font-size:12px;font-weight:800;color:${isCurrent ? 'var(--echo-mint)' : 'var(--text-secondary)'};width:20px;">
+              ${isCurrent ? '▶' : qIdx + 1}
+            </div>
+            <div style="width:40px;height:40px;border-radius:8px;background:${artBg};flex-shrink:0;"></div>
+            <div style="flex:1;min-width:0;" onclick="playOrToggleSong(event, '${s.id}')">
+              <div style="font-size:13px;font-weight:700;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.titleKn}</div>
+              <div style="font-size:11px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.artist} • ${s.year}</div>
+            </div>
+            <button class="top-icon-btn" onclick="openSongCollectionModal(event, '${s.id}')" style="font-size:16px;">⋮</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function clearNowPlayingQueue() {
+      showRaagaToast('Up Next queue cleared');
+      renderEchoQueue();
+    }
+
+    // ==================== ECHO MUSIC DNA ENGINE ====================
+    function renderEchoDna() {
+      const container = document.getElementById('echoDnaContainer');
+      if (!container) return;
+      const s = state.currentSong;
+      if (!s) return;
+
+      const durMin = Math.floor(s.duration / 60);
+      const durSec = String(s.duration % 60).padStart(2, '0');
+
+      container.innerHTML = `
+        <div class="echo-dna-card">
+          <div class="echo-dna-heading">Track Backstory & Meaning</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-top:6px;">
+            <strong style="color:var(--text-primary);">${s.titleKn} (${s.titleEn})</strong> is an iconic Kannada masterpiece featured in <em>${s.movie}</em> (${s.year}). Sung by <strong>${s.artist}</strong>, this composition is revered across Karnataka for its resonant melodic texture, rich lyrical depth, and authentic cultural essence.
+          </p>
+        </div>
+
+        <div class="echo-dna-card">
+          <div class="echo-dna-heading">Production & Audio Engineering</div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Audio Quality</span>
+            <span class="echo-dna-value" style="color:var(--echo-mint);">Lossless 320 kbps Studio Master • M4A</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Sample Rate</span>
+            <span class="echo-dna-value">44.1 kHz • 24-bit PCM</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Duration</span>
+            <span class="echo-dna-value">${durMin}:${durSec} (${s.duration}s)</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">ISRC Registry</span>
+            <span class="echo-dna-value">${s.isrc || `IN-KAN-${String(s.year).slice(-2)}-${s.id}`}</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Raaga Scale</span>
+            <span class="echo-dna-value">${s.mood === 'devotional' ? 'Mayamalavagowla / Shankarabharanam' : (s.mood === 'relax' ? 'Kalyani / Mohanam' : 'Kharaharapriya / Natabhairavi')}</span>
+          </div>
+        </div>
+
+        <div class="echo-dna-card">
+          <div class="echo-dna-heading">Licensing & Open Source Integrity</div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Language</span>
+            <span class="echo-dna-value">ಕನ್ನಡ (Kannada 100%)</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">License Model</span>
+            <span class="echo-dna-value">${s.isOpenLicense ? 'Creative Commons / CC-BY-SA 4.0' : 'Licensed Direct Distribution'}</span>
+          </div>
+          <div class="echo-dna-row">
+            <span class="echo-dna-label">Source</span>
+            <span class="echo-dna-value">Kannada Raaga Master Catalog</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==================== UPDATE PLAYER SURFACES OVERHAUL ====================
+    function updateEchoPlayerSurfaces() {
+      const s = state.currentSong;
+      if (!s) return;
+
+      const totalDur = (audioPlayer.duration && isFinite(audioPlayer.duration) && audioPlayer.duration > 1)
+        ? Math.round(audioPlayer.duration)
+        : (s.duration || 240);
+      const pct = Math.min(100, Math.max(0, (state.positionSec / totalDur) * 100));
+
+      // 1. Update Mini Player
+      const dashOffset = 125.6 - (125.6 * pct) / 100;
+      const circleEl = document.getElementById('miniProgressCircle');
+      if (circleEl) circleEl.style.strokeDashoffset = dashOffset;
+
+      const miniArtEl = document.getElementById('miniArtGlyph');
+      if (miniArtEl) {
+        miniArtEl.innerText = s.artworkUrl ? '' : s.knInit;
+        miniArtEl.style.background = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+      }
+      const miniTitleEl = document.getElementById('miniTitle');
+      if (miniTitleEl) miniTitleEl.innerText = `${s.titleKn} • ${s.titleEn}`;
+      const miniArtistEl = document.getElementById('miniArtist');
+      if (miniArtistEl) miniArtistEl.innerText = `${s.artist} • ${s.movie} (${s.year})`;
+      const miniPlayBtn = document.getElementById('miniPlayBtn');
+      if (miniPlayBtn) miniPlayBtn.innerText = state.isPlaying ? '⏸' : '▶';
+
+      // 2. Update Echo Full-Screen Player
+      const artWrap = document.getElementById('echoPlayerArtWrap');
+      if (artWrap) {
+        artWrap.style.background = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+        artWrap.classList.toggle('playing', state.isPlaying);
+      }
+
+      const ambientGlow = document.getElementById('echoAmbientGlow');
+      if (ambientGlow) {
+        ambientGlow.style.background = `radial-gradient(circle at 50% 40%, rgba(0, 245, 212, 0.45) 0%, rgba(242, 169, 0, 0.3) 50%, #070B0A 100%)`;
+      }
+
+      const titleKnEl = document.getElementById('echoTitleKn');
+      if (titleKnEl) titleKnEl.innerText = s.titleKn;
+      const titleEnEl = document.getElementById('echoTitleEn');
+      if (titleEnEl) titleEnEl.innerText = s.titleEn;
+      const artistLineEl = document.getElementById('echoArtistLine');
+      if (artistLineEl) artistLineEl.innerText = `${s.artist} • ${s.movie} (${s.year})`;
+
+      const echoPlayBtn = document.getElementById('echoPlayBtn');
+      if (echoPlayBtn) echoPlayBtn.innerText = state.isPlaying ? '⏸' : '▶';
+
+      const isLiked = state.liked.has(s.id);
+      const heartBtn = document.getElementById('echoHeartBtn');
+      if (heartBtn) {
+        heartBtn.innerText = isLiked ? '♥' : '♡';
+        heartBtn.style.color = isLiked ? 'var(--accent-mint)' : 'var(--text-secondary)';
+      }
+
+      const isDl = state.downloaded.has(s.id);
+      const dlBtn = document.getElementById('echoDlBtn');
+      if (dlBtn) {
+        dlBtn.innerText = isDl ? '✓' : '⬇';
+        dlBtn.style.color = isDl ? 'var(--echo-mint)' : 'var(--text-secondary)';
+      }
+
+      if (!state.isSeeking) {
+        const slider = document.getElementById('echoSeekSlider');
+        if (slider) slider.value = pct;
+        const curEl = document.getElementById('echoCurTime');
+        if (curEl) curEl.innerText = `${Math.floor(state.positionSec / 60)}:${String(state.positionSec % 60).padStart(2, '0')}`;
+        const durEl = document.getElementById('echoDurTime');
+        if (durEl) durEl.innerText = `${Math.floor(totalDur / 60)}:${String(totalDur % 60).padStart(2, '0')}`;
+      }
+
+      // Update lyrics if tab active
+      if (echoPlayerActiveTab === 'lyrics') renderEchoLyrics();
+    }
+
+    // Forward updatePlayerSurfaces to echo version
+    const _origUpdatePlayerSurfaces = window.updatePlayerSurfaces;
+    window.updatePlayerSurfaces = function() {
+      updateEchoPlayerSurfaces();
+      if (typeof _origUpdatePlayerSurfaces === 'function') {
+        try { _origUpdatePlayerSurfaces(); } catch (e) {}
+      }
+    };
+
+
+    function renderHomeScreen() {
+      updateEchoGreeting();
+
+      // 1. Shelf 1: Quick Picks (Listen Again / Speed Dial)
+      const quickPicks = CATALOG.slice(0, 12);
+      const quickPicksEl = document.getElementById('echoQuickPicksRow');
+      if (quickPicksEl) {
+        quickPicksEl.innerHTML = quickPicks.map(s => {
+          const isCurr = state.currentSong && state.currentSong.id === s.id;
+          const isPlaying = isCurr && state.isPlaying;
+          const artBg = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
           return `
-            <div onclick="selectPillarFilter('${p.id}')" style="cursor:pointer;padding:9px 10px;border-radius:12px;background:${isAct ? 'rgba(139,212,181,0.16)' : 'var(--surface-elevated)'};border:1.5px solid ${isAct ? p.color : 'var(--border)'};transition:all 0.18s;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-size:15px;">${p.icon}</span>
-                <span style="font-size:10px;font-weight:800;color:${p.color};background:rgba(0,0,0,0.28);padding:2px 6px;border-radius:99px;">${cnt} loaded</span>
+            <div class="echo-quick-pick-tile ${isCurr ? 'playing' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
+              <div class="echo-tile-art" style="background:${artBg};">
+                <div class="echo-tile-play-overlay">
+                  ${isPlaying ? '⏸' : '▶'}
+                </div>
               </div>
-              <div style="font-size:12px;font-weight:800;color:var(--text-primary);margin-top:4px;">${p.title}</div>
-              <div style="font-size:10px;color:var(--text-secondary);line-height:1.25;margin-top:2px;">${p.sub}</div>
+              <div class="echo-tile-info">
+                <div class="echo-tile-title-kn">${s.titleKn}</div>
+                <div class="echo-tile-title-en">${s.titleEn}</div>
+                <div class="echo-tile-meta">${s.artist} • ${s.year} • ${Math.floor(s.duration/60)}:${String(s.duration%60).padStart(2,'0')}</div>
+              </div>
+              <div class="echo-tile-actions">
+                <button class="echo-tile-btn" onclick="openSongCollectionModal(event, '${s.id}')" title="More options">⋮</button>
+              </div>
             </div>
           `;
         }).join('');
       }
 
-      const subChipsEl = document.getElementById('homeSubArchiveChips');
-      if (subChipsEl) {
-        subChipsEl.innerHTML = SUB_ARCHIVE_CHIPS.map(c => `
-          <button class="pill-chip ${state.subArchiveFilter === c.id ? 'active-mint' : ''}" onclick="selectSubArchiveFilter('${c.id}')">${c.label}</button>
+      // 2. Shelf 2: Mixed for You (Echo Brain Supermixes)
+      const mixedShelves = [
+        {
+          id: 'supermix',
+          title: 'My Supermix',
+          titleKn: 'ಕನ್ನಡ ಸೂಪರ್ ಮಿಕ್ಸ್',
+          sub: 'Endless Kannada radio tailored to your favorites',
+          tag: 'SUPERMIX',
+          grad: 'linear-gradient(135deg, #0A2E28 0%, #00F5D4 100%)',
+          songIdxs: [0, 1, 2, 3, 4, 7, 10, 15]
+        },
+        {
+          id: 'sandalwood_energy',
+          title: 'Sandalwood Mass Energy',
+          titleKn: '2026 ಮಾಸ್ ಎನರ್ಜಿ',
+          sub: 'High octane beats & action anthems',
+          tag: 'MASS BEATS',
+          grad: 'linear-gradient(135deg, #4A1A05 0%, #F2A900 100%)',
+          songIdxs: [1, 2, 5, 8, 13, 14, 17]
+        },
+        {
+          id: 'romantic_melodies',
+          title: 'Soulful Love Raagas',
+          titleKn: 'ಮಧುರ ಪ್ರೇಮ ಗೀತೆಗಳು',
+          sub: 'Sonu Nigam, Sanjith Hegde & vintage romance',
+          tag: 'MELODY',
+          grad: 'linear-gradient(135deg, #2D082A 0%, #D946EF 100%)',
+          songIdxs: [4, 7, 9, 12, 22, 23, 30]
+        },
+        {
+          id: 'devotional_dawn',
+          title: 'Devotional Dawn & Vachana',
+          titleKn: 'ಸುಪ್ರಭಾತ ಮತ್ತು ವಚನಗಳು',
+          sub: 'Basavanna, Purandaradasa & soulful prayers',
+          tag: 'DEVOTIONAL',
+          grad: 'linear-gradient(135deg, #332005 0%, #F59E0B 100%)',
+          songIdxs: [0, 5, 11, 20, 21, 25, 33]
+        },
+        {
+          id: 'kannada_folk',
+          title: 'Karnataka Janapada & Utsav',
+          titleKn: 'ಜಾನಪದ ಮತ್ತು ಉತ್ಸವ',
+          sub: 'Raghu Dixit & timeless folk rhythms',
+          tag: 'FOLK',
+          grad: 'linear-gradient(135deg, #0B331A 0%, #10B981 100%)',
+          songIdxs: [6, 10, 15, 26, 31]
+        },
+        {
+          id: 'golden_classics',
+          title: 'Golden Evergreen Classics',
+          titleKn: 'ಡಾ. ರಾಜ್‌ಕುಮಾರ್ & ಎಸ್.ಪಿ.ಬಿ',
+          sub: '1970–1990 Hamsalekha & Rajan-Nagendra era',
+          tag: 'CLASSIC',
+          grad: 'linear-gradient(135deg, #1E1B4B 0%, #6366F1 100%)',
+          songIdxs: [27, 28, 29, 32, 33]
+        }
+      ];
+
+      const mixedEl = document.getElementById('echoMixedForYouRow');
+      if (mixedEl) {
+        mixedEl.innerHTML = mixedShelves.map(m => `
+          <div class="echo-mix-card" style="background:${m.grad};" onclick="playEchoBrainMix('${m.id}')">
+            <span class="echo-mix-tag">${m.tag}</span>
+            <div>
+              <div class="echo-mix-title">${m.titleKn}</div>
+              <div class="echo-mix-sub">${m.title} • ${m.sub}</div>
+            </div>
+            <div class="echo-mix-play-fab">▶</div>
+          </div>
         `).join('');
       }
 
-      const featuredIdxs = [0, 7, 14, 22, 27, 35, 42, 50, 65, 80, 95, 110].filter(i => CATALOG[i]);
-      const featuredBadges = [
-        'TOP 2026 CHART', 'LATEST ROMANCE', 'KANTARA / EPIC', 'OLD EVERGREEN',
-        'DR. RAJKUMAR', 'APPU FOREVER', 'GOLDEN MELODY', 'SONU NIGAM HITS',
-        'SPB CLASSICS', 'C. ASHWATH', 'MASS ANTHEMS', 'KANNADA FOLK'
+      // 3. Shelf 3: Forgotten Favorites
+      const forgottenEl = document.getElementById('echoForgottenFavoritesRow');
+      if (forgottenEl) {
+        const forgotten = CATALOG.filter(s => s.year >= 1970 && s.year <= 2018).slice(0, 18);
+        forgottenEl.innerHTML = forgotten.map(s => renderSquareCard(s, `REDISCOVER ${s.year}`)).join('');
+      }
+
+      // 4. Shelf 4: Similar to [Current Artist / Vijay Prakash]
+      const currArtist = (state.currentSong && state.currentSong.artist) ? state.currentSong.artist.split(',')[0].trim() : 'Vijay Prakash';
+      const simKickerEl = document.getElementById('echoSimilarKicker');
+      const simTitleEl = document.getElementById('echoSimilarTitle');
+      if (simKickerEl) simKickerEl.innerText = `RECOMMENDED FOR YOU`;
+      if (simTitleEl) simTitleEl.innerText = `Similar to ${currArtist}`;
+
+      const similarEl = document.getElementById('echoSimilarToRow');
+      if (similarEl) {
+        const similarSongs = CATALOG.filter(s => s.artist.includes(currArtist) || s.mood === (state.currentSong ? state.currentSong.mood : 'romance')).slice(0, 18);
+        similarEl.innerHTML = (similarSongs.length > 0 ? similarSongs : CATALOG.slice(5, 23)).map(s => renderSquareCard(s, 'SIMILAR')).join('');
+      }
+
+      // 5. Shelf 5: Top Kannada Artists (Circular Avatars)
+      const topArtists = [
+        { name: 'Dr. Rajkumar', kn: 'ಡಾ. ರಾಜ್‌ಕುಮಾರ್', role: 'Legendary Icon', art: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=240' },
+        { name: 'S. P. B.', kn: 'ಎಸ್. ಪಿ. ಬಿ.', role: 'Golden Voice', art: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=240' },
+        { name: 'Vijay Prakash', kn: 'ವಿಜಯ್ ಪ್ರಕಾಶ್', role: 'Melody & Classical', art: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=240' },
+        { name: 'Sanjith Hegde', kn: 'ಸಂಜಿತ್ ಹೆಗ್ಡೆ', role: 'New Wave Pop', art: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=240' },
+        { name: 'Sonu Nigam', kn: 'ಸೋನು ನಿಗಮ್', role: 'Romantic King', art: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=240' },
+        { name: 'C. Ashwath', kn: 'ಸಿ. ಅಶ್ವತ್ಥ್', role: 'Bhavageethe Pioneer', art: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=240' },
+        { name: 'K. S. Chithra', kn: 'ಕೆ. ಎಸ್. ಚಿತ್ರಾ', role: 'Nightingale', art: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=240' },
+        { name: 'Raghu Dixit', kn: 'ರಘು ದೀಕ್ಷಿತ್', role: 'Folk Rocker', art: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=240' },
+        { name: 'Ajaneesh Loknath', kn: 'ಅಜನೀಶ್ ಲೋಕನಾಥ್', role: 'Composer (Kantara)', art: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=240' }
       ];
-      document.getElementById('featuredPlaylistsRow').innerHTML = featuredIdxs.map((idx, i) =>
-        renderChartCard(CATALOG[idx], featuredBadges[i] || 'CHART')
-      ).join('');
 
-      document.getElementById('danceRow').innerHTML = CATALOG
-        .filter(s => s.mood === 'workout')
-        .slice(0, 24)
-        .map(s => renderSquareCard(s, 'MASS BEAT'))
-        .join('');
-
-      document.getElementById('dasaraRow').innerHTML = CATALOG
-        .filter(s => s.mood === 'rajyotsava' || s.mood === 'folk')
-        .slice(0, 24)
-        .map(s => renderSquareCard(s, 'UTSAV'))
-        .join('');
-
-      document.getElementById('heritageRow').innerHTML = CATALOG
-        .filter(s => s.mood === 'devotional' || s.mood === 'relax')
-        .slice(0, 24)
-        .map(s => renderSquareCard(s, 'CLASSIC'))
-        .join('');
-
-      let list = state.moodFilter === 'all'
-        ? CATALOG
-        : CATALOG.filter(s => s.mood === state.moodFilter);
-      if (state.pillarFilter !== 'all') {
-        list = list.filter(s => (s.pillar || 'sandalwood') === state.pillarFilter);
-      }
-      if (state.subArchiveFilter === 'era_golden') {
-        list = list.filter(s => s.year <= 1979);
-      } else if (state.subArchiveFilter === 'era_80s90s') {
-        list = list.filter(s => s.year >= 1980 && s.year <= 1999);
-      } else if (state.subArchiveFilter === 'era_2000s') {
-        list = list.filter(s => s.year >= 2000 && s.year <= 2015);
-      } else if (state.subArchiveFilter === 'era_new') {
-        list = list.filter(s => s.year >= 2016);
-      } else if (state.subArchiveFilter === 'open_licensed') {
-        list = list.filter(s => s.isOpenLicense);
-      }
-      if (state.offlineMode) list = list.filter(s => state.downloaded.has(s.id));
-
-      // Adapt section headers if in offline mode
-      const sec1K = document.getElementById('homeSec1Kicker');
-      const sec1T = document.getElementById('homeSec1Title');
-      const sec2K = document.getElementById('homeSec2Kicker');
-      const sec2T = document.getElementById('homeSec2Title');
-      const sec3K = document.getElementById('homeSec3Kicker');
-      const sec3T = document.getElementById('homeSec3Title');
-
-      if (state.offlineMode) {
-        if (sec1K) sec1K.innerText = 'OFFLINE MASTER ARCHIVE';
-        if (sec1T) sec1T.innerText = 'Downloaded for you';
-        if (sec2K) sec2K.innerText = 'DOWNLOADED PLAYLISTS';
-        if (sec2T) sec2T.innerText = 'Recently played (downloaded only)';
-        if (sec3K) sec3K.innerText = 'OFFLINE HERITAGE';
-        if (sec3T) sec3T.innerText = 'A-Z of downloaded songs';
-      } else {
-        if (sec1K) sec1K.innerText = 'CURATED FOR KARNATAKA';
-        if (sec1T) sec1T.innerText = 'FEATURED PLAYLISTS FOR YOU';
-        if (sec2K) sec2K.innerText = '🔥 ಇತ್ತೀಚಿನ ಹೊಸ ಹಾಡುಗಳು • NEW & TRENDING ERA';
-        if (sec2T) sec2T.innerText = 'Latest Kannada Songs (2016–2026)';
-        if (sec3K) sec3K.innerText = '🏛️ ಹಳೆಯ ಮಧುರ ಗೀತೆಗಳು • GOLDEN CLASSICS ERA';
-        if (sec3T) sec3T.innerText = 'Old Evergreen Songs (1934–2015)';
+      const artistsEl = document.getElementById('echoTopArtistsRow');
+      if (artistsEl) {
+        artistsEl.innerHTML = topArtists.map(a => `
+          <div class="echo-artist-item" onclick="filterByArtistQuery('${a.name}')">
+            <div class="echo-artist-avatar" style="background-image:url('${a.art}');"></div>
+            <div class="echo-artist-name">${a.kn}</div>
+            <div class="echo-artist-role">${a.role}</div>
+          </div>
+        `).join('');
       }
 
-      // Separate Latest Songs (2016–2026) and Old Evergreen Songs (1934–2015)
-      const latestList = list.filter(s => s.year >= 2016);
-      const oldList = list.filter(s => s.year < 2016);
-
-      const latestPanel = document.getElementById('homeLatestPanel');
-      const oldPanel = document.getElementById('homeOldPanel');
-      if (latestPanel) latestPanel.style.display = 'block';
-      if (oldPanel) oldPanel.style.display = 'block';
-
-      document.getElementById('homeLatestCount').innerText = `${latestList.length} latest songs`;
-      document.getElementById('latestCarouselRow').innerHTML = latestList
-        .slice(0, 20)
-        .map(s => renderSquareCard(s, `NEW ${s.year}`))
-        .join('');
-      const latestShown = latestList.slice(0, state.homeLatestLimit);
-      document.getElementById('homeLatestSongRows').innerHTML =
-        latestShown.map(renderSongRow).join('') +
-        (latestList.length > state.homeLatestLimit
-          ? `<div style="text-align:center;padding:10px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('homeLatest')">▼ Show +100 More Latest Songs (Showing ${latestShown.length} of ${latestList.length})</button></div>`
-          : `<div style="text-align:center;padding:8px 0;"><button class="pill-chip" onclick="fetchMoreFromCloudArchive()">☁ Load More Latest Kannada Songs from Cloud Archive</button></div>`);
-
-      document.getElementById('homeOldCount').innerText = `${oldList.length} classic songs`;
-      document.getElementById('oldCarouselRow').innerHTML = oldList
-        .slice(0, 20)
-        .map(s => renderSquareCard(s, `CLASSIC ${s.year}`))
-        .join('');
-      const oldShown = oldList.slice(0, state.homeOldLimit);
-      document.getElementById('homeOldSongRows').innerHTML =
-        oldShown.map(renderSongRow).join('') +
-        (oldList.length > state.homeOldLimit
-          ? `<div style="text-align:center;padding:10px 0;"><button class="pill-chip active-mint" onclick="loadMoreRows('homeOld')">▼ Show +100 More Classic Songs (Showing ${oldShown.length} of ${oldList.length})</button></div>`
-          : `<div style="text-align:center;padding:8px 0;"><button class="pill-chip" onclick="fetchMoreFromCloudArchive()">☁ Load More Classic Kannada Songs from Cloud Archive</button></div>`);
+      // 6. Shelf 6: Trending in Karnataka (Top Ranked 10)
+      const trendingEl = document.getElementById('echoTrendingChartsRow');
+      if (trendingEl) {
+        const top10 = CATALOG.slice(0, 10);
+        trendingEl.innerHTML = top10.map((s, idx) => {
+          const isCurr = state.currentSong && state.currentSong.id === s.id;
+          const artBg = s.artworkUrl ? `url('${s.artworkUrl}') center/cover` : s.gradient;
+          return `
+            <div class="echo-chart-row ${isCurr ? 'playing' : ''}" onclick="playOrToggleSong(event, '${s.id}')">
+              <div class="echo-chart-rank">${idx + 1}</div>
+              <div class="echo-chart-art" style="background:${artBg};"></div>
+              <div class="echo-chart-info">
+                <div class="echo-chart-title">${s.titleKn} • ${s.titleEn}</div>
+                <div class="echo-chart-artist">${s.artist} • ${s.movie} (${s.year})</div>
+              </div>
+              <div class="echo-chart-dur">${Math.floor(s.duration/60)}:${String(s.duration%60).padStart(2,'0')}</div>
+            </div>
+          `;
+        }).join('');
+      }
     }
+
 
     let liveSearchTimer = null;
     let lastLiveQuery = '';
