@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/jpeg" href="ragaa_logo.jpg">
+  <link rel="apple-touch-icon" href="ragaa_logo.jpg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kannada Raaga — Material You Music Player (390×844 Prototype)</title>
+  <title>Ragaa — Music Player</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -2130,7 +2132,7 @@
 
 
     /* ==========================================================================
-       KANNADA RAAGA DESIGN SYSTEM & THEME (Kannada Raaga inspired)
+       RAGAA DESIGN SYSTEM & THEME
        ========================================================================== */
     :root {
       --raaga-accent: #00E5FF;
@@ -2538,7 +2540,7 @@
     }
 
     /* ==========================================================================
-       KANNADA RAAGA NOW PLAYING PLAYER OVERHAUL
+       RAGAA NOW PLAYING PLAYER OVERHAUL
        ========================================================================== */
     .raaga-player-modal {
       position: fixed;
@@ -2813,8 +2815,8 @@
       <nav class="tablet-nav-rail">
         <div>
           <div class="rail-logo">
-            <div class="rail-logo-glyph">ಕ</div>
-            <div class="rail-logo-text">Kannada Raaga</div>
+            <div class="rail-logo-glyph" style="overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;"><img src="ragaa_logo.jpg" alt="Ragaa" style="width:100%;height:100%;border-radius:10px;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerText='R';" /></div>
+            <div class="rail-logo-text">Ragaa</div>
           </div>
           <div class="rail-menu">
             <button class="rail-btn active" id="rail-btn-home" onclick="switchNav('home')">
@@ -2839,13 +2841,13 @@
       <!-- PANE 2: MAIN FLUID CONTENT AREA (Top Bar + Scrollable Screens) -->
       <div class="main-content-flow">
     <!-- Top App Bar -->
-    <!-- Top App Bar (Kannada Raaga Header) -->
+    <!-- Top App Bar (Ragaa Header) -->
     <div class="top-bar">
       <div class="raaga-brand-block">
-        <div class="raaga-brand-icon">ಕ</div>
+        <div class="raaga-brand-icon" style="overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;"><img src="ragaa_logo.jpg" alt="Ragaa" style="width:100%;height:100%;border-radius:10px;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerText='R';" /></div>
         <div>
           <div class="raaga-greeting-title" id="raagaGreetingText">Good morning • ಶುಭೋದಯ</div>
-          <div class="raaga-greeting-sub">Kannada Raaga • ಕನ್ನಡ ಸಂಗೀತ</div>
+          <div class="raaga-greeting-sub">Ragaa • ಸಂಗೀತ</div>
         </div>
       </div>
       <div class="top-bar-icons" id="topBarIcons">
@@ -2862,7 +2864,7 @@
     <!-- Main Scrollable Screens -->
     <div class="screens-wrapper">
       <!-- ==================== SCREEN 1: HOME (CLEAN FLAT TONAL + LATEST vs OLD SEPARATED) ==================== -->
-      <!-- ==================== SCREEN 1: KANNADA RAAGA HOME FEED ==================== -->
+      <!-- ==================== SCREEN 1: RAGAA HOME FEED ==================== -->
       <div class="screen-pane active" id="screen-home">
 
         <!-- Raaga Integrated Search Bar with Song Recognition -->
@@ -2975,7 +2977,7 @@
 
         <!-- Centered Data Source Credit Line -->
         <div style="text-align:center;font-size:10.5px;color:var(--text-secondary);padding:18px 0 8px;">
-          Data source: Kannada Raaga Licensed Registry • Anand Audio, Lahari, Hombale, PRK & Saregama
+          Data source: Ragaa Licensed Registry • Anand Audio, Lahari, Hombale, PRK & Saregama
         </div>
       </div>
 
@@ -3199,7 +3201,7 @@
         </button>
       </nav>
 
-    <!-- ==================== KANNADA RAAGA FULL-SCREEN PLAYER ==================== -->
+    <!-- ==================== RAGAA FULL-SCREEN PLAYER ==================== -->
     <div class="raaga-player-modal" id="raagaPlayerModal">
       <!-- Ambient Glow Canvas Backdrop -->
       <div class="raaga-ambient-backdrop" id="raagaAmbientGlow"></div>
@@ -3330,7 +3332,7 @@
           <div class="raaga-queue-container" id="raagaQueueContainer"></div>
         </div>
 
-        <!-- TAB 4: MUSIC DNA (Kannada Raaga Signature Backstory & Annotations) -->
+        <!-- TAB 4: MUSIC DNA (Ragaa Signature Backstory & Annotations) -->
         <div id="raagaTabContent-dna" style="display:none;flex-direction:column;flex:1;height:100%;">
           <div class="raaga-dna-container" id="raagaDnaContainer"></div>
         </div>
@@ -3438,10 +3440,10 @@
           <!-- Brand Header on Left Panel -->
           <div style="position:relative;z-index:2;">
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-              <div style="width:48px;height:48px;border-radius:14px;background:var(--saffron);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;">ಕ</div>
+              <div style="width:48px;height:48px;border-radius:14px;overflow:hidden;flex-shrink:0;"><img src="ragaa_logo.jpg" alt="Ragaa" style="width:48px;height:48px;border-radius:14px;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerText='R';" /></div>
               <div>
-                <div style="font-size:20px;font-weight:800;color:var(--text-primary);letter-spacing:0.3px;">Kannada Raaga</div>
-                <div style="font-size:12px;color:var(--saffron);font-weight:700;">ಕನ್ನಡ ರಾಗ • ಸಂಗೀತದ ಸಂಭ್ರಮ</div>
+                <div style="font-size:20px;font-weight:800;color:var(--text-primary);letter-spacing:0.3px;">Ragaa</div>
+                <div style="font-size:12px;color:var(--saffron);font-weight:700;">ರಾಗ • ಸಂಗೀತದ ಸಂಭ್ರಮ</div>
               </div>
             </div>
             <div class="auth-gold-accent"></div>
@@ -3479,9 +3481,9 @@
             <div>
               <!-- Branded header on phone -->
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-                <div style="width:36px;height:36px;border-radius:10px;background:var(--saffron);color:#0B1110;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;">ಕ</div>
+                <div style="width:36px;height:36px;border-radius:10px;overflow:hidden;flex-shrink:0;"><img src="ragaa_logo.jpg" alt="Ragaa" style="width:36px;height:36px;border-radius:10px;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerText='R';" /></div>
                 <div>
-                  <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Kannada Raaga</div>
+                  <div style="font-size:16px;font-weight:800;color:var(--text-primary);">Ragaa</div>
                   <div style="font-size:10.5px;color:var(--saffron);font-weight:600;" id="authHeaderTagline">ಕನ್ನಡ ಹಾಡುಗಳು, ಎಲ್ಲಿಯಾದರೂ • Kannada songs, anywhere</div>
                 </div>
               </div>
@@ -3562,7 +3564,7 @@
               <div style="margin-bottom:18px;">
                 <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">QUICK DEMO ADDRESSES:</div>
                 <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                  <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoEmail('user@kannadaraaga.com')">user@kannadaraaga.com</button>
+                  <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoEmail('user@ragaa.app')">user@ragaa.app</button>
                   <button class="pill-chip" style="font-size:11px;padding:4px 10px;" onclick="fillDemoEmail('dr.rajkumar@gmail.com')">dr.rajkumar@gmail.com</button>
                 </div>
               </div>
@@ -3728,7 +3730,7 @@
             <div>
               <div style="font-size:12px;font-weight:700;color:var(--saffron);margin-bottom:8px;">ALMOST DONE!</div>
               <h2 style="font-size:22px;font-weight:800;color:var(--text-primary);line-height:1.2;">Set up your profile</h2>
-              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;margin-bottom:18px;">Customize how you appear in Kannada Raaga</div>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;margin-bottom:18px;">Customize how you appear in Ragaa</div>
 
               <!-- Avatar Selection -->
               <div style="text-align:center;margin-bottom:18px;">
@@ -3836,7 +3838,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
           <div>
             <div style="font-size:16px;font-weight:700;color:#1F1F1F;">Sign in with Google</div>
-            <div style="font-size:12px;color:#5F6368;">Choose an account to continue to Kannada Raaga</div>
+            <div style="font-size:12px;color:#5F6368;">Choose an account to continue to Ragaa</div>
           </div>
         </div>
 
@@ -3952,7 +3954,7 @@
               <div>
                 <div style="font-size:11px;color:var(--saffron);margin-bottom:4px;">ACTIVE FOCUS STATE</div>
                 <div class="auth-pill-input-box" style="height:46px;border-color:var(--saffron);box-shadow:0 0 0 3px rgba(242,169,0,0.25);">
-                  <input type="text" class="auth-pill-input" value="active.user@kannadaraaga.com" />
+                  <input type="text" class="auth-pill-input" value="active.user@ragaa.app" />
                 </div>
               </div>
               <div>
@@ -4014,7 +4016,7 @@
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
           <div>
             <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">👤 Account & Preferences</div>
-            <div style="font-size:11px;color:var(--text-secondary);">Kannada Raaga Premium Master Edition</div>
+            <div style="font-size:11px;color:var(--text-secondary);">Ragaa Premium Master Edition</div>
           </div>
           <button class="pill-chip" onclick="closeAccountModal()">✕ Close</button>
         </div>
@@ -4127,7 +4129,7 @@
       <div class="collection-sheet" onclick="event.stopPropagation()">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
           <div>
-            <div style="font-size:17px;font-weight:800;color:var(--saffron);">👑 Kannada Raaga Premium</div>
+            <div style="font-size:17px;font-weight:800;color:var(--saffron);">👑 Ragaa Premium</div>
             <div style="font-size:11.5px;color:var(--text-secondary);">Unlimited Kannada Heritage • 100% Ad-Free</div>
           </div>
           <button class="pill-chip" onclick="closePremiumModal()">✕</button>
@@ -5121,7 +5123,7 @@
     // Immediately ingest all 1,872+ Kannada Songs if bundled script is loaded
     if (typeof window !== 'undefined' && window.ALL_KANNADA_CATALOG && Array.isArray(window.ALL_KANNADA_CATALOG)) {
       const addedCount = ingestAllKannadaSongs(window.ALL_KANNADA_CATALOG);
-      console.log(`[Kannada Raaga] Ingested ${addedCount} full-length Kannada songs. Total catalog size: ${CATALOG.length}`);
+      console.log(`[Ragaa] Ingested ${addedCount} full-length Kannada songs. Total catalog size: ${CATALOG.length}`);
     }
 
     // Assign initial pillar classification to base catalog tracks
@@ -5437,6 +5439,25 @@
       } else {
         audioPlayer.pause();
       }
+
+      // Lock screen, notification & Bluetooth metadata with official Ragaa logo
+      if ('mediaSession' in navigator && state.currentSong) {
+        try {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: state.currentSong.titleKn || state.currentSong.titleEn,
+            artist: state.currentSong.singer || state.currentSong.artist,
+            album: state.currentSong.movie || 'Ragaa',
+            artwork: [
+              { src: state.currentSong.coverUrl || 'ragaa_logo.jpg', sizes: '512x512', type: 'image/jpeg' },
+              { src: 'ragaa_logo.jpg', sizes: '512x512', type: 'image/jpeg' }
+            ]
+          });
+          navigator.mediaSession.setActionHandler('play', () => { state.isPlaying = true; syncAudio(); renderAll(); });
+          navigator.mediaSession.setActionHandler('pause', () => { state.isPlaying = false; syncAudio(); renderAll(); });
+          navigator.mediaSession.setActionHandler('previoustrack', () => nextTrack(null, true));
+          navigator.mediaSession.setActionHandler('nexttrack', () => nextTrack());
+        } catch(e) {}
+      }
     }
 
     // ==================== SHARED SONG ROW COMPONENT (56px Thumb) ====================
@@ -5686,10 +5707,10 @@
     }
 
     
-    // KANNADA RAAGA HOME SCREEN IMPLEMENTATION
+    // RAGAA HOME SCREEN IMPLEMENTATION
     
     // ==========================================================================
-    // KANNADA RAAGA JAVASCRIPT LOGIC (Kannada Raaga reference)
+    // RAGAA JAVASCRIPT LOGIC
     // ==========================================================================
 
     let raagaPlayerActiveTab = 'track'; // 'track', 'lyrics', 'queue', 'dna'
@@ -5921,7 +5942,7 @@
         { t: 0, kn: `${s.titleKn} • ಮೂಲ ಕನ್ನಡ ಗೀತೆ`, en: `${s.titleEn} • Full Studio Master` },
         { t: 15, kn: `ಗಾಯಕರು: ${s.artist}`, en: `Singer & Melody: ${s.artist}` },
         { t: 35, kn: `ಚಿತ್ರ / ಆಲ್ಬಮ್: ${s.movie} (${s.year})`, en: `Movie / Album: ${s.movie} (${s.year})` },
-        { t: 60, kn: `ಕನ್ನಡ ರಾಗ • ಎಕೋ ಮ್ಯೂಸಿಕ್ ಸಿಂಕ್ ಲಿರಿಕ್ಸ್`, en: `Kannada Raaga • Kannada Raaga Synced Lyrics` },
+        { t: 60, kn: `ರಾಗ • ಸಿಂಕ್ ಲಿರಿಕ್ಸ್`, en: `Ragaa • Synced Lyrics` },
         { t: 90, kn: `${s.titleKn} ನಾದ ಮಾಧುರ್ಯ`, en: `${s.titleEn} Melody continues...` },
         { t: 120, kn: `ಕನ್ನಡ ಕಾವ್ಯದ ರಸಧಾರೆ ಸದಾ ಅಮರ`, en: `Eternal Kannada lyrical poetry` }
       ];
@@ -6003,7 +6024,7 @@
       renderRaagaQueue();
     }
 
-    // ==================== KANNADA RAAGA DNA ENGINE ====================
+    // ==================== RAGAA DNA ENGINE ====================
     function renderRaagaDna() {
       const container = document.getElementById('raagaDnaContainer');
       if (!container) return;
@@ -6057,7 +6078,7 @@
           </div>
           <div class="raaga-dna-row">
             <span class="raaga-dna-label">Source</span>
-            <span class="raaga-dna-value">Kannada Raaga Master Catalog</span>
+            <span class="raaga-dna-value">Ragaa Master Catalog</span>
           </div>
         </div>
       `;
@@ -7002,7 +7023,7 @@
         if (railBtn) railBtn.classList.toggle('active', t === tab);
       });
       const titles = {
-        home: 'Kannada Raaga',
+        home: 'Ragaa',
         search: 'Search',
         recognize: 'Recognize Music',
         library: 'Library',
@@ -7011,7 +7032,7 @@
         downloads: 'Downloads & Storage'
       };
       const titleEl = document.getElementById('topScreenTitle');
-      if (titleEl) titleEl.innerText = titles[tab] || 'Kannada Raaga';
+      if (titleEl) titleEl.innerText = titles[tab] || 'Ragaa';
 
       const backBtn = document.getElementById('topBackBtn');
       if (backBtn) {
@@ -7704,7 +7725,7 @@
       updatePlayerSurfaces();
     }
     function showStatsModal() {
-      alert('📈 Kannada Raaga Listening Stats:\n• Top Genre: Kannada Film Hits & Bhavageethe\n• Total Listened: 42 hrs this month\n• Top Artist: Vijay Prakash & Dr. Rajkumar');
+      alert('📈 Ragaa Listening Stats:\n• Top Genre: Kannada Film Hits & Bhavageethe\n• Total Listened: 42 hrs this month\n• Top Artist: Vijay Prakash & Dr. Rajkumar');
     }
     function showAccountToast() {
       alert('👤 Signed in as Kannada Rasika (+91 98450 XXXXX)\nCloud Sync: Favorites, Playlists & Offline Vault synced.');
@@ -7912,7 +7933,7 @@
     function shareSongTrack(id) {
       const s = CATALOG.find(x => x.id === id);
       if (navigator.share) {
-        navigator.share({ title: s.titleKn, text: `Listen to ${s.titleEn} on Kannada Raaga`, url: window.location.href });
+        navigator.share({ title: s.titleKn, text: `Listen to ${s.titleEn} on Ragaa`, url: window.location.href });
       } else {
         showRaagaToast(`🔗 Copied share link for "${s.titleEn}"`);
       }
@@ -8487,7 +8508,7 @@
       } else {
         const s = state.currentSong;
         art.innerText = '🎵';
-        badge.innerText = 'KANNADA RAAGA';
+        badge.innerText = 'RAGAA';
         badge.style.color = 'var(--accent-mint)';
         title.innerText = s.titleKn;
         sub.innerText = `${s.titleEn} • ${s.artist}`;
@@ -9202,7 +9223,7 @@
 
       state.currentUser = {
         name: name,
-        email: authState.emailTarget || 'user@kannadaraaga.com',
+        email: authState.emailTarget || 'user@ragaa.app',
         phone: authState.phoneTarget || '',
         provider: authState.emailTarget ? 'email' : 'phone',
         avatar: authState.selectedAvatar,
@@ -9218,7 +9239,7 @@
 
       closeAuthModal();
       updateAuthUIState();
-      showRaagaToast('🎉 Welcome to Kannada Raaga, ' + name + '!');
+      showRaagaToast('🎉 Welcome to Ragaa, ' + name + '!');
     }
 
     // Update App Top Bar Account Button & Status
@@ -9370,7 +9391,7 @@
 
     // Terms / Privacy dummy modal
     function showLegalModal(type) {
-      showRaagaToast(type === 'terms' ? '📜 Kannada Raaga Terms of Service (Fair Music Streaming)' : '🛡️ Kannada Raaga Privacy Policy (DPDP & GDPR Compliant)');
+      showRaagaToast(type === 'terms' ? '📜 Ragaa Terms of Service (Fair Music Streaming)' : '🛡️ Ragaa Privacy Policy (DPDP & GDPR Compliant)');
     }
 
     // Initialize UI state on load
