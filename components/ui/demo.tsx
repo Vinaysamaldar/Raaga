@@ -1,12 +1,9 @@
-import { SignInCard2 } from "@/components/ui/sign-in-card-2";
+import { SignIn2 } from "@/components/ui/clean-minimal-sign-in"
 
-const DemoOne = () => {
-  return (
-    <div className="flex w-full min-h-screen justify-center items-center">
-      <SignInCard2 />
-    </div>
-  );
-};
+const Demo = () => {
+    return (
+        <SignIn2/>
+    )
+}
 
-export { DemoOne };
-export default DemoOne;
+export { Demo }

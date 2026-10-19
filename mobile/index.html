@@ -10,7 +10,7 @@
   <link rel="icon" type="image/jpeg" href="ragaa_logo.jpg">
   <link rel="apple-touch-icon" href="ragaa_logo.jpg">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Ragaa — Music Player</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5023,6 +5023,66 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+
+    /* ==========================================================================
+       MOBILE FLEXIBILITY & ANTI-ZOOM FIXES
+       ========================================================================== */
+    html {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden !important;
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+
+    body {
+      width: 100% !important;
+      max-width: 100vw !important;
+      min-height: 100vh !important;
+      min-height: 100dvh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .preview-shell {
+      width: 100% !important;
+      max-width: 100vw !important;
+      min-height: 100vh !important;
+      min-height: 100dvh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Edge-to-edge flexible mobile viewport */
+    @media (max-width: 1023px) {
+      .android-viewport {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding-top: 0 !important;
+        overflow-x: hidden !important;
+      }
+      
+      /* Prevent iOS Safari and Android auto-zoom on input focus */
+      input, select, textarea {
+        font-size: 16px !important;
+        touch-action: manipulation;
+      }
+
+      button, a, .nav-pill-item, .rail-btn {
+        touch-action: manipulation;
+      }
+    }
+
 </style>
   <script src="audio/originals/all_kannada_songs.js"></script>
   <script>
@@ -5439,10 +5499,6 @@
             <button class="rail-btn" id="rail-btn-search" onclick="switchNav('search')" title="Search">
               <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
               <span class="rail-btn-label">Search</span>
-            </button>
-            <button class="rail-btn" id="rail-btn-recognize" onclick="switchNav('search');triggerMusicRecognition();" title="Recognize Music">
-              <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></span>
-              <span class="rail-btn-label">Recognize</span>
             </button>
             <button class="rail-btn" id="rail-btn-library" onclick="switchNav('library')" title="Library">
               <span class="rail-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
@@ -6875,11 +6931,11 @@
           <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
           <span class="nav-pill-label">Search</span>
         </button>
-        <button class="nav-pill-item" id="nav-btn-recognize" onclick="switchNav('search');triggerMusicRecognition();">
-          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></span>
-          <span class="nav-pill-label">Recognize</span>
+                <button class="nav-pill-item" id="nav-btn-downloads" onclick="switchNav('downloads')">
+          <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+          <span class="nav-pill-label">Downloads</span>
         </button>
-        <button class="nav-pill-item" id="nav-btn-library" onclick="switchNav('library')">
+<button class="nav-pill-item" id="nav-btn-library" onclick="switchNav('library')">
           <span class="nav-pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
           <span class="nav-pill-label">Library</span>
         </button>
@@ -14737,5 +14793,53 @@
       </div>
     </div>
 
+<script>
+
+    // ==================== POST-INSTALL STANDALONE & ONBOARDING CONTROLLER ====================
+    function checkInstalledStateAndOnboarding() {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches 
+        || window.navigator.standalone === true 
+        || localStorage.getItem('ragaa_app_installed') === 'true';
+
+      const topInstallBtn = document.getElementById('topInstallAppBtn');
+      if (isStandalone && topInstallBtn) {
+        topInstallBtn.style.setProperty('display', 'none', 'important');
+      }
+
+      // If launched as an installed app on mobile and user is not signed in:
+      // Show login/signup as the very first step
+      if (isStandalone && !state.currentUser && !sessionStorage.getItem('ragaa_post_install_shown')) {
+        sessionStorage.setItem('ragaa_post_install_shown', 'true');
+        setTimeout(() => {
+          if (typeof openAuthModal === 'function') {
+            openAuthModal('stepWelcome');
+          }
+        }, 600);
+      }
+    }
+
+    // Run check on load and visibility change
+    window.addEventListener('DOMContentLoaded', checkInstalledStateAndOnboarding);
+    window.addEventListener('load', checkInstalledStateAndOnboarding);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) checkInstalledStateAndOnboarding();
+    });
+
+    // Handle post install event
+    window.addEventListener('appinstalled', () => {
+      localStorage.setItem('ragaa_app_installed', 'true');
+      const topBtn = document.getElementById('topInstallAppBtn');
+      if (topBtn) topBtn.style.setProperty('display', 'none', 'important');
+      showRaagaToast('🎉 Ragaa is now installed on your device!');
+      if (typeof closeAppDownloadModal === 'function') closeAppDownloadModal();
+      // First step after install: prompt login/signup
+      if (!state.currentUser) {
+        setTimeout(() => {
+          if (typeof openAuthModal === 'function') openAuthModal('stepWelcome');
+        }, 700);
+      }
+    });
+
+</script>
 </body>
 </html>
