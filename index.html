@@ -5083,6 +5083,116 @@
       }
     }
 
+
+    /* ==========================================================================
+       SETTINGS PAGE MOBILE FLEXIBILITY & RESPONSIVE POLISH
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .settings-dashboard-container {
+        padding: 12px 8px 140px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+      }
+
+      .settings-header-card {
+        padding: 14px 12px !important;
+        border-radius: 16px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .settings-title-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+
+      .settings-page-heading {
+        font-size: 20px !important;
+      }
+
+      .settings-search-bar {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .settings-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .settings-card {
+        padding: 14px 12px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+      }
+
+      /* Stack Setting Rows vertically on mobile so controls never get squished */
+      .setting-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        padding: 10px 4px !important;
+        min-height: auto !important;
+        border-bottom: 1px solid rgba(227, 234, 230, 0.05) !important;
+      }
+
+      .setting-row:last-child {
+        border-bottom: none !important;
+      }
+
+      .setting-row-left {
+        width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .setting-row-ctrl {
+        width: 100% !important;
+        justify-content: flex-start !important;
+      }
+
+      /* Segmented controls take full width on mobile */
+      .segmented-ctrl {
+        width: 100% !important;
+        display: flex !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 2px !important;
+      }
+
+      .segmented-item {
+        flex: 1 1 0% !important;
+        text-align: center !important;
+        font-size: 11px !important;
+        padding: 6px 4px !important;
+        white-space: nowrap !important;
+      }
+
+      /* Sliders full width on mobile */
+      .raaga-range-row {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .raaga-range-slider {
+        flex: 1 !important;
+      }
+
+      /* Buttons in settings wrap and touch-friendly */
+      .settings-card .settings-btn-primary,
+      .settings-card .settings-btn-secondary,
+      .settings-card .settings-btn-danger {
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+        min-height: 42px !important;
+      }
+    }
+
 </style>
   <script src="audio/originals/all_kannada_songs.js"></script>
   <script>
@@ -5532,9 +5642,6 @@
         </button>
         <button class="top-icon-btn" id="topStatsBtn" onclick="openListeningStatsModal()" title="Listening stats" aria-label="Listening stats">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-        </button>
-        <button class="top-icon-btn" id="topAccountBtn" onclick="openAccountModal()" title="Account" aria-label="Account">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
         </button>
         <button class="top-icon-btn" id="topSettingsBtn" onclick="switchNav('more')" title="Settings" aria-label="Settings">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
@@ -6178,7 +6285,7 @@
                         <div style="font-size:12.5px;color:var(--text-secondary);" id="accountDisplayEmail">vinay@example.com • +91 98765 43210</div>
                       </div>
                     </div>
-                    <button class="settings-btn-primary" onclick="openAccountModal()">
+                    <button class="settings-btn-primary" onclick="openAuthModal('stepProfileSetup')">
                       <svg class="outline-icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                       <span>Edit Profile</span>
                     </button>
@@ -7881,19 +7988,7 @@
     </div>
 
 
-<!-- ACCOUNT MODAL -->
-    <div class="collection-modal-backdrop" id="accountModalBackdrop" onclick="closeAccountModal(event)">
-      <div class="collection-sheet" onclick="event.stopPropagation()">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-          <div>
-            <div style="font-size:16px;font-weight:800;color:var(--accent-mint);">👤 Account & Preferences</div>
-            <div style="font-size:11px;color:var(--text-secondary);">Ragaa Premium Master Edition</div>
-          </div>
-          <button class="pill-chip" onclick="closeAccountModal()">✕ Close</button>
-        </div>
-        <div id="accountModalContent"></div>
-      </div>
-    </div>
+
 
     
     <!-- MOBILE DOWNLOAD & OFFLINE CACHE SHEET -->
@@ -12826,6 +12921,7 @@
 
     // Continue As Guest
     function continueAsGuest() {
+      sessionStorage.setItem('ragaa_auth_done', 'true');
       state.isGuest = true;
       state.currentUser = null;
       try { localStorage.removeItem('kannada_raaga_user'); } catch(e) {}
@@ -14839,6 +14935,43 @@
         }, 700);
       }
     });
+
+</script>
+<script>
+
+    // ==================== MOBILE FIRST-STEP LOGIN CONTROLLER ====================
+    function checkMobileFirstStepLogin() {
+      const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
+      const authDone = sessionStorage.getItem('ragaa_auth_done');
+      const savedUser = localStorage.getItem('kannada_raaga_user');
+
+      if (isMobile && !authDone && !savedUser && !state.currentUser) {
+        console.log('Mobile device detected: Showing login page first before home page');
+        setTimeout(() => {
+          if (typeof openAuthModal === 'function') {
+            openAuthModal('stepWelcome');
+          }
+        }, 300);
+      }
+    }
+
+    // Attach to startup
+    window.addEventListener('DOMContentLoaded', checkMobileFirstStepLogin);
+    window.addEventListener('load', checkMobileFirstStepLogin);
+
+    // Disable old account modal functions
+    function openAccountModal() {
+      // Account & preferences sheet removed per user request.
+      // Redirect to profile setup step in auth modal if user wants to view/edit profile:
+      if (typeof openAuthModal === 'function') {
+        openAuthModal('stepProfileSetup');
+      }
+    }
+
+    function closeAccountModal() {
+      const backdrop = document.getElementById('accountModalBackdrop');
+      if (backdrop) backdrop.classList.remove('open');
+    }
 
 </script>
 </body>
