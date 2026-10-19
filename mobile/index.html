@@ -97,593 +97,400 @@
       transition: background 0.25s ease;
     }
 
-    /* Solid Flat Tonal Surface on Home Tab Only (No Glassy Effect on Home) */
-    .android-viewport.home-active {
-      background: var(--bg);
-    }
-    .android-viewport.home-active .top-bar {
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      border: none;
-      box-shadow: none;
-      margin: 0;
-      padding: 8px 18px 10px;
-    }
-    #screen-home .pill-chip {
-      background: var(--surface);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-      border: 1px solid var(--border);
-    }
-    #screen-home .pill-chip.active {
-      background: var(--saffron);
-      color: #0B1110;
-      border-color: var(--saffron);
-    }
-    #screen-home .song-row {
-      background: var(--surface);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-      border: 1px solid transparent;
-    }
-    #screen-home .song-row.playing {
-      background: var(--surface-elevated);
-      border-color: rgba(242, 169, 0, 0.45);
+    /* ==========================================================================
+       PREMIUM LIQUID GLASSMORPHISM ENGINE (Apple VisionOS / Crystalline Glass)
+       Directly styled from user reference widget aesthetic
+       ========================================================================== */
+
+    /* Atmospheric Luminous Depth Canvas: Radiant Sunlit Bloom & Emerald Depths */
+    .android-viewport, .main-content-flow, body, .app-shell, .preview-shell {
+      background-color: #07120F !important;
+      background-image: 
+        radial-gradient(circle at 18% 10%, rgba(255, 238, 170, 0.28) 0%, rgba(242, 169, 0, 0.12) 32%, transparent 62%),
+        radial-gradient(circle at 84% 18%, rgba(125, 211, 252, 0.25) 0%, rgba(56, 189, 248, 0.08) 36%, transparent 66%),
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 20% 72%, rgba(0, 245, 212, 0.2) 0%, transparent 56%),
+        radial-gradient(circle at 82% 86%, rgba(242, 169, 0, 0.22) 0%, transparent 52%),
+        linear-gradient(180deg, #091814 0%, #06110E 50%, #040908 100%) !important;
+      background-attachment: fixed !important;
     }
 
-    /* Era Switcher Segmented Bar (Latest vs Old Songs - Fitted Within 390px) */
-    .era-glass-bar {
-      display: flex;
-      width: 100%;
-      gap: 4px;
-      padding: 4px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      margin: 4px 0 12px;
-      overflow: hidden;
-    }
-    .era-glass-btn {
-      flex: 1;
-      min-width: 0;
-      border: none;
-      border-radius: 999px;
-      padding: 8px 4px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .era-glass-btn.active {
-      background: var(--accent-mint);
-      color: #0B1110;
-    }
-    .era-glass-btn.active-gold {
-      background: var(--saffron);
-      color: #0B1110;
-    }
-
-
-    /* Top App Bar (Frosted Glass Header + 28px Bold Screen Title + 4 Right Icons) */
+    /* 1. TOP BAR: Liquid Glass Capsule with Specular Rim */
     .top-bar {
-      padding: 8px 16px 10px;
-      margin: 0 10px 6px;
-      border-radius: 20px;
-      background: rgba(24, 33, 31, 0.48);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      padding: 8px 14px !important;
+      margin: 8px 12px 6px !important;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+      backdrop-filter: blur(30px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(30px) saturate(220%) !important;
+      border: 1.4px solid rgba(255, 255, 255, 0.55) !important;
+      border-radius: 24px !important;
+      box-shadow: 
+        inset 0 1.8px 2px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.2),
+        inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.45),
+        inset -1.5px 0 2px 0 rgba(255, 255, 255, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.45),
+        0 2px 8px rgba(0, 0, 0, 0.25) !important;
     }
-    .screen-title {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: var(--text-primary);
-      line-height: 1.15;
+    .top-bar-greeting {
+      flex: 1 !important;
+      min-width: 0 !important;
+      margin-right: 8px !important;
+      display: flex !important;
+      align-items: center !important;
     }
     .top-bar-icons {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-    .top-icon-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--pill-radius);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-primary);
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.12s;
-    }
-    .top-icon-btn:hover, .top-icon-btn:active {
-      background: rgba(255, 255, 255, 0.16);
-      transform: scale(0.94);
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 8px !important;
+      flex-shrink: 0 !important;
     }
 
-    /* Offline Mode Slim Banner */
-    .offline-slim-banner {
-      background: rgba(242, 169, 0, 0.16);
-      border-top: 1px solid rgba(242, 169, 0, 0.35);
-      border-bottom: 1px solid rgba(242, 169, 0, 0.35);
-      color: var(--saffron);
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 6px 16px;
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
+    /* 2. SPHERICAL 3D GLASS BUBBLES (For Circular Action Buttons & Toggles) */
+    .top-icon-btn, .mini-ctrl-btn, .raaga-voice-btn, .action-circle-btn, .round-icon-btn, .glass-bubble {
+      background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.28) 45%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.28) 100%) !important;
+      border: 1.6px solid rgba(255, 255, 255, 0.75) !important;
+      border-radius: 50% !important;
+      box-shadow: 
+        inset 0 3px 4px rgba(255, 255, 255, 1),
+        inset 0 -2.5px 3px rgba(0, 0, 0, 0.35),
+        0 10px 24px rgba(0, 0, 0, 0.38),
+        0 0 16px rgba(255, 255, 255, 0.3) !important;
+      backdrop-filter: blur(20px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+      color: #FFFFFF !important;
+      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s ease !important;
     }
-    .offline-slim-banner.show { display: flex; }
-
-    /* Main Scrollable Screen Area */
-    .screens-wrapper {
-      flex: 1;
-      overflow-y: auto;
-      padding-bottom: 168px; /* Space for floating mini-player + floating pill nav */
-      scrollbar-width: none;
+    .top-icon-btn:hover, .mini-ctrl-btn:hover, .glass-bubble:hover {
+      transform: scale(1.08) !important;
+      box-shadow: 
+        inset 0 3.5px 5px rgba(255, 255, 255, 1),
+        0 12px 28px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(242, 169, 0, 0.4) !important;
     }
-    .screens-wrapper::-webkit-scrollbar { display: none; }
-    .screen-pane { display: none; padding: 0 14px; animation: fadeIn 0.2s ease; }
-    .screen-pane.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Pill Chips Row (Frosted Glass Pills) */
-    .chips-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 4px 0 10px;
-      scrollbar-width: none;
-    }
-    .chips-scroll::-webkit-scrollbar { display: none; }
-    .pill-chip {
-      white-space: nowrap;
-      padding: 8px 15px;
-      border-radius: var(--pill-radius);
-      background: rgba(28, 40, 37, 0.52);
-      backdrop-filter: blur(14px) saturate(150%);
-      -webkit-backdrop-filter: blur(14px) saturate(150%);
-      color: var(--text-primary);
-      font-size: 12.5px;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      line-height: 1.3;
-    }
-    .pill-chip:active { transform: scale(0.95); }
-    .pill-chip.active {
-      background: var(--saffron);
-      color: #0B1110;
-      border-color: var(--saffron);
-      font-weight: 700;
-      box-shadow: 0 4px 14px rgba(242, 169, 0, 0.35);
-    }
-    .pill-chip.active-mint {
-      background: var(--accent-mint);
-      color: var(--accent-mint-ink);
-      font-weight: 700;
+    .top-icon-btn:active, .mini-ctrl-btn:active, .glass-bubble:active {
+      transform: scale(0.93) !important;
     }
 
-    /* Section Headers (Two-line & Uppercase Kicker) */
-    .section-header {
-      margin: 16px 0 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .section-kicker {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-secondary);
-      margin-bottom: 2px;
-    }
-    .section-main-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .section-arrow {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      cursor: pointer;
-      padding: 4px 8px;
-      border-radius: var(--pill-radius);
-      background: var(--surface);
+    /* Install Pill Button: Glass Capsule with Mint Glint */
+    .top-icon-btn.install-app-btn {
+      border-radius: 9999px !important;
+      background: linear-gradient(135deg, rgba(0, 245, 212, 0.32) 0%, rgba(0, 245, 212, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
+      border: 1.4px solid rgba(0, 245, 212, 0.7) !important;
+      box-shadow: 
+        inset 0 1.8px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -1.5px 2px rgba(0, 245, 212, 0.35),
+        0 10px 26px rgba(0, 245, 212, 0.3) !important;
+      color: #DDE6E1 !important;
+      font-weight: 800 !important;
     }
 
-    /* Horizontal Carousel Cards (20px rounded corners, peeking next card) */
-    .cards-carousel {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scrollbar-width: none;
+    /* 3. SEARCH BAR: Clear Liquid Glass Capsule */
+    .raaga-search-wrapper, .search-bar {
+      display: flex !important;
+      align-items: center !important;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.12) 100%) !important;
+      backdrop-filter: blur(28px) saturate(210%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(210%) !important;
+      border: 1.4px solid rgba(255, 255, 255, 0.5) !important;
+      border-radius: 9999px !important;
+      box-shadow: 
+        inset 0 1.8px 2px rgba(255, 255, 255, 0.85),
+        inset 0 -1.5px 2px rgba(255, 255, 255, 0.15),
+        0 12px 32px rgba(0, 0, 0, 0.4) !important;
+      padding: 6px 14px !important;
+      margin: 6px 12px 14px !important;
+      transition: all 0.22s ease !important;
     }
-    .cards-carousel::-webkit-scrollbar { display: none; }
-    .square-card {
-      width: 142px;
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.15s ease;
+    .raaga-search-input {
+      background: transparent !important;
+      border: none !important;
+      color: #FFFFFF !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
     }
-    .square-card:active { transform: scale(0.97); }
-    .square-art {
-      width: 142px;
-      height: 142px;
-      border-radius: var(--card-radius);
-      background: var(--surface);
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .raaga-search-wrapper:focus-within, .search-bar:focus-within {
+      border-color: rgba(242, 169, 0, 0.85) !important;
+      box-shadow: 
+        inset 0 2px 2.5px rgba(255, 255, 255, 1),
+        0 0 24px rgba(242, 169, 0, 0.4),
+        0 14px 36px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* 4. HOME GLASS BUBBLES ROW (Like Wi-Fi / Bluetooth / Signal / Moon in Reference Image) */
+    .glass-bubbles-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important;
+      margin: 0 12px 16px !important;
+    }
+    .glass-bubble-card {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 6px !important;
+      cursor: pointer !important;
+      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    .glass-bubble-card:hover {
+      transform: translateY(-3px) scale(1.04) !important;
+    }
+    .glass-bubble-sphere {
+      width: 58px !important;
+      height: 58px !important;
+      border-radius: 50% !important;
+      background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.28) 45%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.3) 100%) !important;
+      border: 1.8px solid rgba(255, 255, 255, 0.8) !important;
+      box-shadow: 
+        inset 0 3px 4px rgba(255, 255, 255, 1),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.25),
+        0 12px 28px rgba(0, 0, 0, 0.35),
+        0 0 16px rgba(255, 255, 255, 0.35) !important;
+      backdrop-filter: blur(24px) saturate(210%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(210%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 20px !important;
+      color: #FFFFFF !important;
+    }
+    .glass-bubble-label {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      color: #E2E8F0 !important;
+      letter-spacing: -0.1px !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+    }
+
+    /* 5. CATEGORY PILL CHIPS: Crystalline Glass Capsules */
+    .pill-chip, #screen-home .pill-chip {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.12) 100%) !important;
+      backdrop-filter: blur(22px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(22px) saturate(200%) !important;
+      border: 1.3px solid rgba(255, 255, 255, 0.45) !important;
+      border-radius: 9999px !important;
+      box-shadow: 
+        inset 0 1.8px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 1.5px rgba(255, 255, 255, 0.12),
+        0 8px 20px rgba(0, 0, 0, 0.3) !important;
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+      transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    .pill-chip:hover, #screen-home .pill-chip:hover {
+      transform: translateY(-2px) !important;
+      border-color: rgba(255, 255, 255, 0.75) !important;
+      box-shadow: 
+        inset 0 2px 3px rgba(255, 255, 255, 0.95),
+        0 12px 28px rgba(0, 0, 0, 0.42),
+        0 0 18px rgba(255, 255, 255, 0.3) !important;
+    }
+    .pill-chip.active, #screen-home .pill-chip.active {
+      background: linear-gradient(135deg, rgba(242, 169, 0, 0.92) 0%, rgba(227, 116, 0, 0.82) 100%) !important;
+      color: #070B0A !important;
+      border-color: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 
+        inset 0 1.8px 2px rgba(255, 255, 255, 1),
+        0 8px 24px rgba(242, 169, 0, 0.5),
+        0 0 18px rgba(242, 169, 0, 0.35) !important;
+    }
+
+    /* 6. SONG ROWS & QUICK PICK CARDS: Liquid Glass Cards */
+    .song-row, #screen-home .song-row, .quick-pick-card, .song-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
+      backdrop-filter: blur(26px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(26px) saturate(200%) !important;
+      border: 1.3px solid rgba(255, 255, 255, 0.38) !important;
+      border-radius: 20px !important;
+      box-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.75),
+        inset 0 -1px 1.5px rgba(255, 255, 255, 0.1),
+        0 10px 28px rgba(0, 0, 0, 0.35) !important;
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
       position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border);
     }
-    .square-art-badge {
-      align-self: flex-start;
-      background: rgba(11, 17, 16, 0.65);
-      color: var(--accent-mint);
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: var(--pill-radius);
+    .song-row:hover, #screen-home .song-row:hover, .quick-pick-card:hover {
+      transform: translateY(-2px) !important;
+      border-color: rgba(255, 255, 255, 0.65) !important;
+      box-shadow: 
+        inset 0 1.8px 2.5px rgba(255, 255, 255, 0.9),
+        0 16px 36px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(0, 245, 212, 0.2) !important;
     }
-    .square-art-glyph {
-      font-size: 34px;
-      font-weight: 800;
-      color: rgba(255,255,255,0.92);
-      line-height: 1.1;
+    .song-row.playing, #screen-home .song-row.playing {
+      background: linear-gradient(135deg, rgba(242, 169, 0, 0.28) 0%, rgba(242, 169, 0, 0.08) 50%, rgba(255, 255, 255, 0.16) 100%) !important;
+      border: 1.6px solid rgba(242, 169, 0, 0.75) !important;
+      box-shadow: 
+        inset 0 1.8px 2px rgba(255, 255, 255, 0.95),
+        0 14px 34px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(242, 169, 0, 0.4) !important;
     }
-    .card-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 7px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .card-sub {
-      font-size: 11.5px;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 1px;
+    .song-row img, .quick-pick-card img, .song-row-thumb {
+      border-radius: 14px !important;
+      border: 1.2px solid rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
     }
 
-    /* Video Poster Cards (Search Screen) */
-    .video-poster-card {
-      width: 136px;
-      height: 196px;
-      border-radius: var(--card-radius);
-      flex-shrink: 0;
+    /* 7. FLOATING MINI PLAYER: The Signature Liquid Glass Player Widget (Like Reference Image) */
+    .floating-mini-player {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.18) 100%) !important;
+      backdrop-filter: blur(34px) saturate(230%) !important;
+      -webkit-backdrop-filter: blur(34px) saturate(230%) !important;
+      border: 1.6px solid rgba(255, 255, 255, 0.65) !important;
+      border-radius: 28px !important;
+      box-shadow: 
+        inset 0 2.5px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 2.5px rgba(255, 255, 255, 0.22),
+        inset 2px 0 2px rgba(255, 255, 255, 0.45),
+        inset -2px 0 2px rgba(255, 255, 255, 0.45),
+        0 24px 54px rgba(0, 0, 0, 0.58),
+        0 2px 12px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(0, 245, 212, 0.22) !important;
       position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 12px;
-      border: 1px solid var(--border);
     }
-    .video-poster-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(11,17,16,0.1) 30%, rgba(11,17,16,0.92) 100%);
+    .mini-art-circle {
+      border-radius: 16px !important;
+      border: 1.4px solid rgba(255, 255, 255, 0.55) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45) !important;
     }
-    .video-poster-content {
-      position: relative;
-      z-index: 2;
+    .mini-mint-play {
+      background: radial-gradient(circle at 35% 25%, #FFFFFF 0%, rgba(221, 230, 225, 0.95) 45%, rgba(180, 205, 195, 0.75) 80%, rgba(255, 255, 255, 0.85) 100%) !important;
+      border: 1.8px solid rgba(255, 255, 255, 0.95) !important;
+      border-radius: 50% !important;
+      box-shadow: 
+        inset 0 3.5px 4.5px rgba(255, 255, 255, 1),
+        inset 0 -3px 3.5px rgba(0, 0, 0, 0.32),
+        0 10px 26px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.45) !important;
+      color: #070B0A !important;
+      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s ease !important;
     }
-
-    /* Song Row Component (Frosted Glass Card + 56px rounded thumbnail) */
-    .song-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 10px;
-      border-radius: var(--card-radius);
-      background: rgba(24, 35, 32, 0.50);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      margin-bottom: 8px;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.10);
-      transition: background 0.15s, opacity 0.2s, transform 0.12s;
+    .mini-mint-play:hover {
+      transform: scale(1.1) !important;
+      box-shadow: 
+        inset 0 4px 5px rgba(255, 255, 255, 1),
+        0 14px 32px rgba(0, 0, 0, 0.6),
+        0 0 28px rgba(0, 245, 212, 0.5) !important;
     }
-    .song-row:active { transform: scale(0.985); }
-    .song-row.playing {
-      background: rgba(38, 56, 50, 0.72);
-      border-color: rgba(242, 169, 0, 0.65);
-      box-shadow: 0 8px 22px rgba(242, 169, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    .song-row.offline-disabled {
-      opacity: 0.38;
-    }
-    .song-thumb {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--surface-elevated);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .song-thumb-kn {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent-mint);
-    }
-    .song-thumb-year {
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--saffron);
-    }
-    .song-row-text {
-      flex: 1;
-      min-width: 0;
-    }
-    .song-row-kn {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.45;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .song-row-en {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent-mint);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .song-row-meta {
-      font-size: 11px;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 2px;
-    }
-    .song-row-actions {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      flex-shrink: 0;
-    }
-    .row-play-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--accent-mint);
-      color: var(--accent-mint-ink);
-      border: none;
-      font-size: 13px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .row-play-btn.playing {
-      background: var(--saffron);
-      color: #0B1110;
-    }
-    .row-icon-btn {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .row-icon-btn.done { color: var(--saffron); }
-
-    /* Animated Equalizer Bars for Currently Playing State */
-    .eq-bars {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 14px;
-    }
-    .eq-bar {
-      width: 3px;
-      background: var(--saffron);
-      border-radius: 2px;
-      animation: eqBounce 0.7s infinite ease-in-out alternate;
-    }
-    .eq-bar:nth-child(2) { animation-delay: 0.2s; }
-    .eq-bar:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes eqBounce { 0% { height: 4px; } 100% { height: 14px; } }
-
-    /* Library 2-Column Tonal Grid Tiles */
-    .lib-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .lib-tile {
-      background: rgba(24, 35, 32, 0.52);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: var(--card-radius);
-      padding: 13px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: transform 0.12s, background 0.15s;
-    }
-    .lib-tile:active { transform: scale(0.97); background: var(--surface-elevated); }
-    .lib-tile.active-tile {
-      border-color: var(--saffron);
-      background: rgba(242, 169, 0, 0.16);
-      box-shadow: 0 4px 16px rgba(242, 169, 0, 0.22);
-    }
-    .lib-tile.active-tile .lib-tile-icon {
-      background: var(--saffron);
-      color: #0B1110;
-    }
-    .lib-tile-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: var(--surface-elevated);
-      color: var(--accent-mint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
-    .lib-tile-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.25;
-    }
-    .lib-tile-sub {
-      font-size: 10.5px;
-      color: var(--text-secondary);
+    .mini-mint-play:active {
+      transform: scale(0.92) !important;
     }
 
-    /* Collection Sheet Modal & Toast */
+    /* 8. FLOATING BOTTOM NAVIGATION: Crystalline Glass Capsule Pill */
+    .floating-nav-pill {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.07) 50%, rgba(255, 255, 255, 0.16) 100%) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
+      border: 1.6px solid rgba(255, 255, 255, 0.58) !important;
+      border-radius: 9999px !important;
+      box-shadow: 
+        inset 0 2.2px 2.8px rgba(255, 255, 255, 0.95),
+        inset 0 -1.8px 2px rgba(255, 255, 255, 0.22),
+        inset 1.8px 0 2px rgba(255, 255, 255, 0.4),
+        inset -1.8px 0 2px rgba(255, 255, 255, 0.4),
+        0 22px 50px rgba(0, 0, 0, 0.55),
+        0 0 24px rgba(0, 245, 212, 0.2) !important;
+    }
+    .nav-pill-item.active {
+      background: radial-gradient(circle at 50% 30%, rgba(242, 169, 0, 0.42) 0%, rgba(242, 169, 0, 0.1) 65%, transparent 100%) !important;
+      border: 1.4px solid rgba(242, 169, 0, 0.65) !important;
+      border-radius: 9999px !important;
+      box-shadow: 
+        inset 0 1.2px 2px rgba(255, 255, 255, 0.8),
+        0 0 16px rgba(242, 169, 0, 0.4) !important;
+      color: var(--saffron) !important;
+    }
+
+    /* 9. NOW PLAYING MODAL & DESKTOP PANEL: VisionOS Glass Sheet */
+    .raaga-player-modal-content, .now-playing-panel, .auth-sheet, .sheet-modal {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(18, 28, 25, 0.88) 45%, rgba(10, 18, 16, 0.94) 100%) !important;
+      backdrop-filter: blur(38px) saturate(230%) !important;
+      -webkit-backdrop-filter: blur(38px) saturate(230%) !important;
+      border: 1.6px solid rgba(255, 255, 255, 0.52) !important;
+      border-radius: 30px !important;
+      box-shadow: 
+        inset 0 2.5px 3px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.45),
+        0 30px 75px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(0, 245, 212, 0.2) !important;
+    }
+
+    /* 10. MODAL BACKDROPS & SHEETS (HIDDEN BY DEFAULT) */
     .collection-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(5, 10, 9, 0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 95;
-      display: none;
-      flex-direction: column;
-      justify-content: flex-end;
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.74) !important;
+      backdrop-filter: blur(14px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+      z-index: 10050 !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
-    .collection-modal-backdrop.open { display: flex; }
+    .collection-modal-backdrop.open {
+      display: flex !important;
+    }
     .collection-sheet {
-      background: rgba(20, 30, 28, 0.96);
-      border-top: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 26px 26px 0 0;
-      padding: 18px 16px 26px;
-      max-height: 76%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(18, 28, 25, 0.94) 45%, rgba(10, 18, 16, 0.98) 100%) !important;
+      backdrop-filter: blur(36px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(36px) saturate(220%) !important;
+      border: 1.6px solid rgba(255, 255, 255, 0.5) !important;
+      border-radius: 28px !important;
+      box-shadow: 
+        inset 0 2.5px 3px rgba(255, 255, 255, 0.85),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+        0 30px 75px rgba(0, 0, 0, 0.75),
+        0 0 35px rgba(0, 245, 212, 0.25) !important;
+      width: 92%;
+      max-width: 520px;
+      max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.65);
+      padding: 22px;
+      color: #fff;
+      box-sizing: border-box;
+      position: relative;
     }
-    .col-option-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 12px;
-      margin-bottom: 7px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-primary);
-      font-size: 12.5px;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: left;
-    }
-    .col-option-btn.saved {
-      border-color: var(--saffron);
-      background: rgba(242, 169, 0, 0.16);
-      color: var(--saffron);
-    }
+
+    /* 11. FLOATING TOAST PILL */
     .raaga-toast {
-      position: absolute;
-      top: 52px;
-      left: 50%;
-      transform: translateX(-50%) translateY(-16px);
-      background: rgba(24, 35, 32, 0.95);
-      border: 1px solid var(--saffron);
-      color: var(--text-primary);
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 700;
-      z-index: 120;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
-      white-space: nowrap;
+      position: fixed !important;
+      top: max(20px, calc(12px + env(safe-area-inset-top, 0px))) !important;
+      left: 50% !important;
+      transform: translateX(-50%) translateY(-24px) !important;
+      background: rgba(18, 28, 25, 0.94) !important;
+      backdrop-filter: blur(26px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(26px) saturate(200%) !important;
+      color: #FFFFFF !important;
+      padding: 10px 22px !important;
+      border-radius: 9999px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      border: 1.4px solid rgba(255, 255, 255, 0.45) !important;
+      box-shadow: 
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+        0 14px 36px rgba(0, 0, 0, 0.65) !important;
+      z-index: 10090 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+      white-space: nowrap !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
     }
     .raaga-toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+      opacity: 1 !important;
+      transform: translateX(-50%) translateY(0) !important;
+      pointer-events: auto !important;
     }
 
-    /* Recognize Screen Big 160px Mint Circle & Ripple Rings */
-    .recognize-stage {
-      height: 340px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .ripple-ring {
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 2px solid var(--accent-mint);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .listening .ripple-ring {
-      animation: rippleOut 1.8s infinite ease-out;
-    }
-    .listening .ripple-ring.r2 { animation-delay: 0.6s; }
-    .listening .ripple-ring.r3 { animation-delay: 1.2s; }
-    @keyframes rippleOut {
-      0% { transform: scale(1); opacity: 0.65; }
-      100% { transform: scale(2.05); opacity: 0; }
-    }
     .recognize-main-btn {
       width: 160px;
       height: 160px;
@@ -5251,20 +5058,24 @@
         margin: 0 !important;
         padding-top: 0 !important;
         overflow: hidden !important;
-        background: var(--bg) !important;
+        display: flex !important;
+        flex-direction: column !important;
       }
 
       .main-content-flow {
         width: 100% !important;
         max-width: 100vw !important;
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
         height: 100% !important;
-        min-height: 100dvh !important;
         margin: 0 !important;
         padding-top: 0 !important;
         overflow-x: hidden !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
         box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
       }
 
       /* Top Bar: Safe Notch / Dynamic Island Inset */
@@ -6251,6 +6062,26 @@
             onfocus="switchNav('search')"
           />
           <button class="raaga-find-btn" onclick="openRaagaFindModal(event)" title="Song Recognition"><span><svg class="ragaa-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></span></button>
+        </div>
+
+        <!-- Premium Glass Bubble Shortcuts (Inspired by Reference Widget Bubbles) -->
+        <div class="glass-bubbles-grid">
+          <div class="glass-bubble-card" onclick="playRaagaRadio('quick')">
+            <div class="glass-bubble-sphere">🎵</div>
+            <div class="glass-bubble-label">Top Hits</div>
+          </div>
+          <div class="glass-bubble-card" onclick="playRaagaRadio('radio')">
+            <div class="glass-bubble-sphere" style="color:var(--saffron);">⚡</div>
+            <div class="glass-bubble-label">Live Radio</div>
+          </div>
+          <div class="glass-bubble-card" onclick="switchNav('library')">
+            <div class="glass-bubble-sphere" style="color:var(--accent-mint);">🎧</div>
+            <div class="glass-bubble-label">Lossless</div>
+          </div>
+          <div class="glass-bubble-card" onclick="switchNav('more')">
+            <div class="glass-bubble-sphere" style="color:#C4B5FD;">🌙</div>
+            <div class="glass-bubble-label">Bhakti / Relax</div>
+          </div>
         </div>
 
         <!-- Shelf 1: QUICK PICKS (Speed Dial / Listen Again) -->
@@ -12705,7 +12536,7 @@
 
       let emptyState = `
         <div style="text-align:center;padding:48px 16px;color:var(--text-secondary);">
-          <div style="margin-bottom:12px;color:var(--text-secondary);display:flex;justify-content:center;">${RAGAA_ICONS.inbox(48)}</div>
+          <div style="font-size:42px;margin-bottom:10px;">📭</div>
           <div style="font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">No Downloads Yet</div>
           <div style="font-size:12px;margin-bottom:14px;">Tap the ⬇ download icon on any song or playlist to save for offline listening.</div>
           <button class="pill-chip active-mint" onclick="switchNav('home')">Browse Kannada Songs</button>
