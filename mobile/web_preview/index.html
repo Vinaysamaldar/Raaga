@@ -5891,7 +5891,8 @@
         <!-- Top App Bar (Simplified: Dynamic Greeting + History/Stats/Account/Settings) -->
     <div class="top-bar">
       <div class="top-bar-greeting">
-        <h1 class="raaga-greeting-title" id="raagaGreetingText">Good evening • ಶುಭ ಸಂಜೆ</h1>
+        <h1 class="raaga-greeting-title" id="raagaGreetingText">Good morning • ಶುಭೋದಯ</h1>
+        <script>(function(){try{const h=new Date().getHours();const el=document.getElementById('raagaGreetingText');if(el){if(h>=5&&h<12)el.innerText='Good morning • ಶುಭೋದಯ';else if(h>=12&&h<17)el.innerText='Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';else if(h>=17&&h<21)el.innerText='Good evening • ಶುಭ ಸಂಜೆ';else el.innerText='Good night • ಶುಭ ರಾತ್ರಿ';}}catch(e){}})();</script>
       </div>
       <div class="top-bar-icons" id="topBarIcons">
         <button class="top-icon-btn install-app-btn" id="topInstallAppBtn" onclick="openAppDownloadModal()" title="Install Ragaa App" aria-label="Install App" style="background:rgba(0,245,212,0.14);border:1px solid rgba(0,245,212,0.35);color:var(--accent-mint);font-weight:700;font-size:12px;width:auto;padding:0 10px;gap:5px;display:flex;align-items:center;">
@@ -10030,13 +10031,22 @@
     const RAAGA_PLAYBACK_SPEEDS = [0.75, 1.0, 1.25, 1.5, 2.0];
     let raagaCrossfadeSec = 4;
 
+    function getTimelineGreeting(hour) {
+      if (typeof hour !== 'number') hour = new Date().getHours();
+      if (hour >= 5 && hour < 12) {
+        return 'Good morning • ಶುಭೋದಯ';
+      } else if (hour >= 12 && hour < 17) {
+        return 'Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';
+      } else if (hour >= 17 && hour < 21) {
+        return 'Good evening • ಶುಭ ಸಂಜೆ';
+      } else {
+        return 'Good night • ಶುಭ ರಾತ್ರಿ';
+      }
+    }
+
     function updateRaagaGreeting() {
-      const hr = new Date().getHours();
-      let greeting = 'Good morning • ಶುಭೋದಯ';
-      if (hr >= 12 && hr < 17) greeting = 'Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';
-      else if (hr >= 17 || hr < 5) greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
       const el = document.getElementById('raagaGreetingText');
-      if (el) el.innerText = greeting;
+      if (el) el.innerText = getTimelineGreeting();
     }
 
     function handleSearchWrapClick(e) {
@@ -14773,20 +14783,7 @@
 
     // Dynamic Top App Bar Greeting by Time of Day
     function updateDynamicTopGreeting() {
-      const el = document.getElementById('raagaGreetingText');
-      if (!el) return;
-      const hour = new Date().getHours();
-      let greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
-      if (hour >= 5 && hour < 12) {
-        greeting = 'Good morning • ಶುಭೋದಯ';
-      } else if (hour >= 12 && hour < 17) {
-        greeting = 'Good afternoon • ಶುಭ ಮಧ್ಯಾಹ್ನ';
-      } else if (hour >= 17 && hour < 21) {
-        greeting = 'Good evening • ಶುಭ ಸಂಜೆ';
-      } else {
-        greeting = 'Good night • ಶುಭ ರಾತ್ರಿ';
-      }
-      el.innerText = greeting;
+      updateRaagaGreeting();
     }
 
     // Filter Settings Rows in Real-Time
@@ -15320,6 +15317,7 @@
 
     // Run check on load and visibility change
     window.addEventListener('DOMContentLoaded', checkInstalledStateAndOnboarding);
+    setInterval(updateRaagaGreeting, 60000);
     window.addEventListener('load', checkInstalledStateAndOnboarding);
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) checkInstalledStateAndOnboarding();
