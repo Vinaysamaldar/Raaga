@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0B1110">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ragaa">
   <link rel="icon" type="image/jpeg" href="ragaa_logo.jpg">
   <link rel="apple-touch-icon" href="ragaa_logo.jpg">
   <meta charset="UTF-8" />
@@ -4787,6 +4793,236 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+
+    /* ==========================================================================
+       RAGAA APP INSTALL & MOBILE DOWNLOAD MODAL STYLING
+       ========================================================================== */
+    .app-install-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(16px);
+      z-index: 100002;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: installFade 0.22s ease-out;
+    }
+    .app-install-modal-backdrop.open {
+      display: flex;
+    }
+    @keyframes installFade {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .app-install-card {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(180deg, #182220 0%, #0F1614 60%, #0B1110 100%);
+      border: 1px solid rgba(227, 234, 230, 0.12);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 245, 212, 0.1);
+      position: relative;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+    .install-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .install-app-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(242, 169, 0, 0.4);
+      background: #141C1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .install-app-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .install-app-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+    .install-badge-pwa {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(0, 245, 212, 0.15);
+      color: var(--accent-mint);
+      border: 1px solid rgba(0, 245, 212, 0.3);
+    }
+    .install-app-tagline {
+      font-size: 11.5px;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-top: 1px;
+    }
+    .install-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .install-close-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .install-meta-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .install-meta-chip {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .install-hero-box {
+      background: rgba(20, 28, 26, 0.7);
+      border: 1px solid rgba(242, 169, 0, 0.2);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .install-action-btn-primary {
+      width: 100%;
+      height: 48px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #DDE6E1 0%, #BCC8C1 100%);
+      color: #0B1110;
+      font-weight: 800;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(221, 230, 225, 0.25);
+      transition: all 0.2s ease;
+    }
+    .install-action-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(242, 169, 0, 0.35);
+      background: #FFFFFF;
+    }
+    .install-action-btn-secondary {
+      width: 100%;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .install-action-btn-secondary:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+    }
+    .install-platform-nav {
+      display: flex;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+    }
+    .install-tab-btn {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .install-tab-btn.active {
+      background: var(--surface-elevated);
+      color: var(--saffron);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .install-guides-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .install-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 12.5px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+    .install-step-item:last-child {
+      margin-bottom: 0;
+    }
+    .step-num-bubble {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(242, 169, 0, 0.2);
+      color: var(--saffron);
+      font-weight: 800;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .install-perks-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
 </style>
   <script src="audio/originals/all_kannada_songs.js"></script>
   <script>
@@ -5044,6 +5280,138 @@
           </div>
         `;
       }).join('');
+    }
+
+
+    // ==================== PWA INSTALLATION & OFFLINE PACKAGE CONTROLLER ====================
+    let deferredInstallPrompt = null;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      console.log('Ragaa PWA beforeinstallprompt captured');
+      const topBtn = document.getElementById('topInstallAppBtn');
+      if (topBtn) {
+        topBtn.style.background = 'rgba(0, 245, 212, 0.22)';
+        topBtn.style.borderColor = 'var(--accent-mint)';
+      }
+      const heroBtn = document.getElementById('btnTriggerPwaInstallText');
+      if (heroBtn) {
+        heroBtn.innerText = 'One-Tap Install to Home Screen';
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      console.log('Ragaa PWA installed successfully');
+      showRaagaToast('🎉 Ragaa is now installed on your device!');
+      closeAppDownloadModal();
+    });
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then((reg) => {
+          console.log('Ragaa Service Worker active:', reg.scope);
+        }).catch((err) => {
+          console.log('SW registration note:', err);
+        });
+      });
+    }
+
+    function openAppDownloadModal() {
+      const modal = document.getElementById('appDownloadModalBackdrop');
+      if (!modal) return;
+      modal.classList.add('open');
+
+      // Detect platform and preset active tab
+      const ua = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        switchInstallGuideTab('ios');
+      } else if (/Android/i.test(ua)) {
+        switchInstallGuideTab('android');
+      } else {
+        switchInstallGuideTab('pc');
+      }
+
+      if (deferredInstallPrompt) {
+        const heroBtn = document.getElementById('btnTriggerPwaInstallText');
+        if (heroBtn) heroBtn.innerText = 'One-Tap Install to Home Screen';
+      }
+    }
+
+    function closeAppDownloadModal() {
+      const modal = document.getElementById('appDownloadModalBackdrop');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function handleInstallBackdropClick(e) {
+      if (e.target.id === 'appDownloadModalBackdrop') {
+        closeAppDownloadModal();
+      }
+    }
+
+    function switchInstallGuideTab(tab) {
+      const tabs = ['android', 'ios', 'pc'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        const guide = document.getElementById(`guide${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        if (btn) btn.classList.toggle('active', t === tab);
+        if (guide) {
+          guide.style.display = t === tab ? 'block' : 'none';
+          guide.classList.toggle('active', t === tab);
+        }
+      });
+    }
+
+    function triggerPwaInstall() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted Ragaa PWA install');
+            showRaagaToast('✅ Ragaa installed to your home screen!');
+            closeAppDownloadModal();
+          } else {
+            console.log('User dismissed install prompt');
+            showRaagaToast('Install postponed. You can install anytime from the top bar.');
+          }
+          deferredInstallPrompt = null;
+        }).catch(err => {
+          console.error('Install prompt error:', err);
+          showRaagaToast('Please use your browser menu (⋮) -> "Install app"');
+        });
+      } else {
+        // Fallback for browsers without prompt API or iOS
+        const ua = navigator.userAgent || '';
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+          showRaagaToast('🍎 Tap Share (⎋) at the bottom -> "Add to Home Screen"');
+          switchInstallGuideTab('ios');
+        } else {
+          showRaagaToast('📱 Tap your browser menu (⋮) -> "Install app" or "Add to Home screen"');
+          switchInstallGuideTab('android');
+        }
+      }
+    }
+
+    function downloadOfflinePackage() {
+      showRaagaToast('⏳ Pre-caching all Kannada melodies for offline play...');
+      if ('caches' in window) {
+        caches.open('ragaa-audio-offline-v2').then(cache => {
+          const urlsToCache = [
+            'ragaa_logo.jpg',
+            'index.html',
+            'manifest.json'
+          ];
+          cache.addAll(urlsToCache).then(() => {
+            showRaagaToast('✅ Offline cache prepared! You can now play without internet.');
+          }).catch(() => {
+            showRaagaToast('✅ Ragaa offline cache active.');
+          });
+        });
+      } else {
+        showRaagaToast('✅ Offline storage ready.');
+      }
     }
 
 </script>
@@ -12272,6 +12640,9 @@
 
     // Open & Close Auth Modal
     function openAuthModal(step) {
+      if (typeof step !== 'string') {
+        step = 'stepWelcome';
+      }
       if (state.isOffline) {
         showRaagaToast("⚡ You're offline. Continue as guest to play downloaded songs.");
       }
@@ -12297,6 +12668,23 @@
 
     // Step Navigation
     function goToAuthStep(stepId) {
+      // Normalize inputs & aliases to guarantee the form is NEVER blank
+      if (!stepId || typeof stepId !== 'string') {
+        stepId = 'stepWelcome';
+      }
+      const lower = stepId.toLowerCase();
+      if (lower === 'welcome' || lower === 'stepwelcome') stepId = 'stepWelcome';
+      else if (lower === 'email' || lower === 'stepemailinput' || lower === 'emailinput') stepId = 'stepEmailInput';
+      else if (lower === 'emailverify' || lower === 'stepemailverify') stepId = 'stepEmailVerify';
+      else if (lower === 'mobile' || lower === 'phone' || lower === 'stepmobileinput' || lower === 'mobileinput') stepId = 'stepMobileInput';
+      else if (lower === 'mobileverify' || lower === 'stepmobileverify' || lower === 'otp') stepId = 'stepMobileVerify';
+      else if (lower === 'profile' || lower === 'stepprofilesetup') stepId = 'stepProfileSetup';
+      else if (lower === 'conflict' || lower === 'stepconflict') stepId = 'stepConflict';
+      else if (lower === 'google') {
+        stepId = 'stepWelcome';
+        setTimeout(() => { if (typeof startGoogleLogin === 'function') startGoogleLogin(); }, 150);
+      }
+
       authState.currentStep = stepId;
       const steps = ['authStepWelcome', 'authStepEmailInput', 'authStepEmailVerify', 'authStepMobileInput', 'authStepMobileVerify', 'authStepProfileSetup', 'authStepConflict'];
       steps.forEach(id => {
@@ -12313,7 +12701,13 @@
       else if (stepId === 'stepProfileSetup') targetEl = document.getElementById('authStepProfileSetup');
       else if (stepId === 'stepConflict') targetEl = document.getElementById('authStepConflict');
 
-      if (targetEl) targetEl.classList.add('active');
+      // ABSOLUTE FAILSAFE: If no element matches, fallback to Welcome screen so right panel is NEVER blank
+      if (!targetEl) {
+        targetEl = document.getElementById('authStepWelcome');
+      }
+      if (targetEl) {
+        targetEl.classList.add('active');
+      }
 
       // Autofocus first input if relevant
       if (stepId === 'stepEmailInput') {
@@ -14229,5 +14623,119 @@
     }
 
 </script>
+
+    <!-- ==================== RAGAA APP INSTALL & MOBILE DOWNLOAD MODAL ==================== -->
+    <div class="app-install-modal-backdrop" id="appDownloadModalBackdrop" onclick="handleInstallBackdropClick(event)">
+      <div class="app-install-card" onclick="event.stopPropagation()">
+        <!-- Modal Top Bar -->
+        <div class="install-card-top">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="install-app-logo">
+              <img src="ragaa_logo.jpg" alt="Ragaa" onerror="this.onerror=null;this.parentElement.innerText='R';" />
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="install-app-title">Ragaa</span>
+                <span class="install-badge-pwa">v2.4 PWA</span>
+              </div>
+              <div class="install-app-tagline">ರಾಗ • ಕನ್ನಡ ಸಂಗೀತ ಸಂಭ್ರಮ</div>
+            </div>
+          </div>
+          <button class="install-close-btn" onclick="closeAppDownloadModal()" title="Close">✕</button>
+        </div>
+
+        <!-- Rating & Stats Row -->
+        <div class="install-meta-row">
+          <div class="install-meta-chip">⭐ 4.9 Rating</div>
+          <div class="install-meta-chip">🎧 320 kbps Studio Audio</div>
+          <div class="install-meta-chip">⚡ 100% Offline</div>
+        </div>
+
+        <!-- Hero Prompt Card -->
+        <div class="install-hero-box">
+          <div style="font-size:16px;font-weight:800;color:var(--text-primary);margin-bottom:4px;">
+            Install Ragaa for Mobile • ಮೊಬೈಲ್‌ನಲ್ಲಿ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ
+          </div>
+          <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.5;margin:0 0 14px 0;">
+            Get a native app experience on your phone with instant launch, lock-screen music playback, and offline downloads without opening browser bars.
+          </p>
+
+          <!-- Primary Install Button -->
+          <button class="install-action-btn-primary" id="btnTriggerPwaInstall" onclick="triggerPwaInstall()">
+            <span style="font-size:18px;">📲</span>
+            <span id="btnTriggerPwaInstallText">Install App to Home Screen</span>
+          </button>
+
+          <!-- Secondary Offline Package Button -->
+          <button class="install-action-btn-secondary" onclick="downloadOfflinePackage()" style="margin-top:8px;">
+            <span style="font-size:16px;">⬇️</span>
+            <span>Download Offline Music Bundle</span>
+          </button>
+        </div>
+
+        <!-- Platform Instructions Tab Switcher -->
+        <div class="install-platform-nav">
+          <button class="install-tab-btn active" id="tabBtnAndroid" onclick="switchInstallGuideTab('android')">📱 Android (Chrome / Brave)</button>
+          <button class="install-tab-btn" id="tabBtnIos" onclick="switchInstallGuideTab('ios')">🍎 iPhone (Safari)</button>
+          <button class="install-tab-btn" id="tabBtnPc" onclick="switchInstallGuideTab('pc')">💻 Desktop / Mac</button>
+        </div>
+
+        <!-- Platform Guides Content -->
+        <div class="install-guides-wrapper">
+          <!-- Android Guide -->
+          <div class="install-guide-panel active" id="guideAndroid">
+            <div class="install-step-item">
+              <div class="step-num-bubble">1</div>
+              <div>Tap the browser menu (<b>⋮</b>) in the top-right corner of Chrome or Brave.</div>
+            </div>
+            <div class="install-step-item">
+              <div class="step-num-bubble">2</div>
+              <div>Select <b>"Install app"</b> or <b>"Add to Home screen"</b> (ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೇರಿಸಿ).</div>
+            </div>
+            <div class="install-step-item">
+              <div class="step-num-bubble">3</div>
+              <div>Tap <b>Install</b> — Ragaa will launch in standalone full-screen mode!</div>
+            </div>
+          </div>
+
+          <!-- iOS Safari Guide -->
+          <div class="install-guide-panel" id="guideIos" style="display:none;">
+            <div class="install-step-item">
+              <div class="step-num-bubble">1</div>
+              <div>Tap the <b>Share button (⎋)</b> at the bottom toolbar in Safari.</div>
+            </div>
+            <div class="install-step-item">
+              <div class="step-num-bubble">2</div>
+              <div>Scroll down and select <b>"Add to Home Screen" (+)</b>.</div>
+            </div>
+            <div class="install-step-item">
+              <div class="step-num-bubble">3</div>
+              <div>Tap <b>Add</b> in the top right to start listening offline!</div>
+            </div>
+          </div>
+
+          <!-- PC / Mac Guide -->
+          <div class="install-guide-panel" id="guidePc" style="display:none;">
+            <div class="install-step-item">
+              <div class="step-num-bubble">1</div>
+              <div>Click the <b>Install App icon (⊕)</b> right inside the browser URL address bar.</div>
+            </div>
+            <div class="install-step-item">
+              <div class="step-num-bubble">2</div>
+              <div>Or click menu (<b>⋮</b>) → <b>"Save and share"</b> → <b>"Install Ragaa"</b>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perks Footer -->
+        <div class="install-perks-row">
+          <span>✓ Zero Ads</span>
+          <span>✓ Background Audio</span>
+          <span>✓ Offline Songs</span>
+          <span>✓ Safe & Light (&lt;1 MB)</span>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>

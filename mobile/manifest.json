@@ -1,0 +1,38 @@
+{
+  "name": "Ragaa — Kannada Music Player",
+  "short_name": "Ragaa",
+  "description": "Stream and download lossless Kannada music offline",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B1110",
+  "theme_color": "#0B1110",
+  "categories": ["music", "entertainment"],
+  "icons": [
+    {
+      "src": "ragaa_logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ragaa_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Play Kannada Music",
+      "url": "index.html#play",
+      "icons": [{ "src": "ragaa_logo.jpg", "sizes": "96x96", "type": "image/jpeg" }]
+    },
+    {
+      "name": "Offline Downloads",
+      "url": "index.html#downloads",
+      "icons": [{ "src": "ragaa_logo.jpg", "sizes": "96x96", "type": "image/jpeg" }]
+    }
+  ]
+}
